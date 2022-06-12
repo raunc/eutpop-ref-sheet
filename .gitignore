@@ -1,0 +1,8 @@
+*.pdf
+!pdf/*.pdf
+*.aux
+*.log
+*.synctex.gz
+tmp
+src/fonts/ThePriceOfPower
+src/images

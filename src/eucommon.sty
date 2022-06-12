@@ -1,0 +1,149 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{eucommon}[2022/06/23 EU:tPoP Reference Sheet common styles]
+
+\newcommand{\refSheetVersion}{2022-06-23}
+\newcommand{\mainRulesVersion}{1.0}
+\newcommand{\botRulesVersion}{1.0}
+
+\newcommand{\calc}[1]{\dimexpr(#1)\relax}
+
+%% Layout %%
+\RequirePackage[a4paper, portrait, margin=10mm]{geometry}
+\RequirePackage{multicol}
+\setlength{\columnsep}{5mm}
+\setlength{\multicolsep}{0mm}
+\RequirePackage{setspace}
+\setstretch{1.15}
+
+\setlength{\columnwidth}{60mm}
+\newlength{\frameToTextSpacing} \setlength\frameToTextSpacing{\baselineskip}
+\newlength{\frameToFrameSpacing} \setlength\frameToFrameSpacing{\columnsep}
+
+% Frame sizes
+\newlength{\fwTwoCols} \setlength\fwTwoCols{\calc{2\columnwidth + \columnsep}}
+
+% Column positions
+\newlength{\middleColX} \setlength\middleColX{\calc{\columnwidth + \columnsep}}
+\newlength{\rightColX} \setlength\rightColX{\calc{2\columnwidth + 2\columnsep}}
+
+% Footer
+\RequirePackage{flowfram}
+\newstaticframe[all]{\textwidth}{6pt}{0mm}{-6mm}[footer]
+\newcommand{\addfooter}{
+	\begin{staticcontents*}{footer}
+		\centering{\scriptsize{EU:tPoP Reference Sheet \refSheetVersion, based on Main Rules \mainRulesVersion, \botrule{Bot Rules \botRulesVersion}}}
+	\end{staticcontents*}
+}
+
+% Arrows
+\RequirePackage{tikz}
+\usetikzlibrary{arrows.meta}
+\RequirePackage[user,pagelayout,savepos]{zref}
+
+\newlength{\pagemarginleft}
+\newlength{\pagemarginbottom}
+\computeleftedgeodd{\pagemarginleft}
+\computebottomedge{\pagemarginbottom}
+
+\newcommand{\arrowwidth}{0.8pt}
+\newcommand{\arrowradius}{1mm}
+\tikzset{
+	myarrow/.tip={Stealth[length=3mm]},
+}
+\newcommand{\drawArrow}[1]{
+	\draw[arrows=-myarrow, rounded corners=\arrowradius, line width=\arrowwidth, arrowcolor] #1;
+}
+\newcommand{\drawLine}[1]{
+	\draw[rounded corners=\arrowradius, line width=\arrowwidth, arrowcolor] #1;
+}
+
+\newlength{\arrowToTextSpacing} \setlength\arrowToTextSpacing{0.2em}
+
+\newlength{\arrowAdjustYBeforeSubsub} \setlength\arrowAdjustYBeforeSubsub{-7pt}
+\newlength{\arrowAdjustYAfterSubsub} \setlength\arrowAdjustYAfterSubsub{3pt}
+\newlength{\arrowAdjustYText} \setlength\arrowAdjustYText{3pt}
+
+\newlength{\arrowAdjustXBeforeList} \setlength\arrowAdjustXBeforeList{-4mm}
+\newlength{\arrowAdjustXBeforeListNum} \setlength\arrowAdjustXBeforeListNum{\calc{\arrowAdjustXBeforeList - 1mm}}
+
+% To be used before \zsavepos if it is in the beginning of \item.
+% This forces it to save pos inside text box making it more consistent
+\newcommand{\hspacezero}{\hspace{0mm}}
+
+%% Fonts %%
+\RequirePackage{fontspec}
+\setmainfont{EBGaramond}[
+Path = fonts/EBGaramond/static/,
+Extension = .ttf,
+UprightFont = *-Regular,
+BoldFont = *-Bold,
+ItalicFont = *-Italic,
+BoldItalicFont = *-BoldItalic,
+]
+\newfontface\cinzel{Cinzel}[
+Path = fonts/Cinzel/static/,
+Extension = .ttf,
+UprightFont = *-Regular,
+FontFace = {sb}{n}{*-SemiBold},
+BoldFont = *-Bold,
+]
+\RequirePackage{tpopicons}
+
+%% Colors
+\RequirePackage{xcolor}
+\definecolor{arrowcolor}{gray}{0.7}
+\definecolor{botrulescolor}{gray}{0.4}
+
+%% Text styles %%
+\RequirePackage[none]{hyphenat}
+\RequirePackage{microtype}
+\RequirePackage[document]{ragged2e}
+\RequirePackage{titlesec}
+\titleformat*{\section}{\huge\cinzel\fontseries{sb}\selectfont}
+\titlespacing*{\section}{0mm}{4.2mm}{2.1mm}
+
+\titleformat*{\subsection}{\Large\cinzel\fontseries{sb}\selectfont}
+\titlespacing*{\subsection}{0mm}{2.1mm}{0mm}
+
+\titleformat*{\subsubsection}{\large\bfseries}
+\titlespacing*{\subsubsection}{0mm}{0mm}{0mm}
+
+\newcommand{\actionHeading}[1]{
+	\vspace{\baselineskip}
+	\actionHeadingNoSpace{#1}
+}
+\newcommand{\actionHeadingNoSpace}[1]{
+	\subsubsection*{\action{#1}}
+}
+
+\newcommand{\smallheading}[1]{\strong{#1}\\}
+
+\newcommand{\botrules}{\color{botrulescolor}}
+\newcommand{\botrule}[1]{{\botrules #1}}
+
+\newcommand{\dprime}{^^^^2033}
+
+\newcommand{\conj}[1]{\underline{#1}}
+\DeclareTextFontCommand{\normal}{\normalfont\fontseries{m}\selectfont}
+\DeclareTextFontCommand{\action}{\bfseries\fontshape{it}\selectfont}
+\DeclareTextFontCommand{\ideafont}{\fontshape{it}\selectfont}
+\newcommand{\idea}[1]{\ideafont{\dprime#1\dprime}}
+
+\RequirePackage{enumitem}
+\setlist[itemize]{
+	topsep=0pt, itemsep=0pt, parsep=0pt, partopsep=0pt,
+	leftmargin=4mm, label=\textbullet, itemindent=0mm, labelsep=1.5mm,
+}
+\setlist[enumerate]{
+	topsep=0pt, itemsep=0pt, parsep=0pt, partopsep=0pt,
+	leftmargin=4mm, labelsep=1mm
+}
+
+\xspaceaddexceptions{<}
+\xspaceaddexceptions{>}
+
+% Tables
+\usepackage{tabularx}
+\newcolumntype{C}{>{\centering\arraybackslash}X}
+\renewcommand{\arraystretch}{0.9}
+\setlength\tabcolsep{0.7mm}

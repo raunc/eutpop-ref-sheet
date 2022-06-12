@@ -1,0 +1,859 @@
+\documentclass[10pt]{article}
+
+\usepackage{eucommon}
+
+% Define frame heights and widths
+\newlength{\fhNprInvasions} \setlength\fhNprInvasions{13\baselineskip}
+\newlength{\fhPeaceSeq} \setlength\fhPeaceSeq{33.5\baselineskip}
+\newlength{\fhPeaceTerms} \setlength\fhPeaceTerms{45.5\baselineskip}
+\newlength{\fhSecondPageLower} \setlength\fhSecondPageLower{\calc{\textheight - \fhPeaceTerms - \frameToFrameSpacing}}
+
+\newlength{\fhFirstPageShortCol}
+\setlength\fhFirstPageShortCol{\calc{\textheight-\fhNprInvasions-\fhPeaceSeq-\frameToFrameSpacing-\frameToTextSpacing}}
+
+\newlength{\fhManpower} \setlength\fhManpower{8\baselineskip}
+\newlength{\fhImpInfluence} \setlength\fhImpInfluence{11\baselineskip}
+\newlength{\fhHreReligion} \setlength\fhHreReligion{10\baselineskip}
+\newlength{\fhBotDeck} \setlength\fhBotDeck{5\baselineskip}
+\newlength{\fhCrusade} \setlength\fhCrusade{9\baselineskip}
+\newlength{\fhPowerStruggle} \setlength\fhPowerStruggle{8\baselineskip}
+
+\newlength{\frameManpowerY} \setlength\frameManpowerY{\calc{\textheight - \fhManpower}}
+\newlength{\frameImpInfluenceY}
+\setlength{\frameImpInfluenceY}{\calc{\frameManpowerY - \fhImpInfluence - \frameToFrameSpacing}}
+\newlength{\frameHreReligionY}
+\setlength{\frameHreReligionY}{\calc{\frameImpInfluenceY - \fhHreReligion - \frameToFrameSpacing}}
+\newlength{\frameBotDeckY}
+\setlength{\frameBotDeckY}{\calc{\frameHreReligionY - \fhBotDeck - \frameToFrameSpacing}}
+\newlength{\frameCrusadeY}
+\setlength{\frameCrusadeY}{\calc{\frameBotDeckY - \fhCrusade - 2\frameToFrameSpacing}}
+\newlength{\framePowerStruggleY}
+\setlength{\framePowerStruggleY}{\calc{\frameCrusadeY - \fhPowerStruggle - \frameToFrameSpacing}}
+
+% Text Columns
+\usepackage{flowfram}
+\newflowframe[1,3]{\columnwidth}{\textheight}{0mm}{0mm}[leftColFullHeight]
+\newflowframe[1]{\columnwidth}{\fhFirstPageShortCol}{\middleColX}{0mm}[firstPageMiddleCol]
+\newflowframe[1]{\columnwidth}{\fhFirstPageShortCol}{\rightColX}{0mm}[firstPageRightCol]
+\newflowframe[2]{\columnwidth}{\fhSecondPageLower}{0mm}{0mm}[secondPageLeftCol]
+\newflowframe[3]{\columnwidth}{\textheight}{\rightColX}{0mm}[rightColFullHeight]
+
+% Text Frames
+\newdynamicframe*[1]{\fwTwoCols}{\fhNprInvasions}
+	{\middleColX}{\calc{\textheight - \fhNprInvasions}}[frameNprInvasions]
+\newdynamicframe*[1]{\fwTwoCols}{\fhPeaceSeq}
+	{\middleColX}{\calc{\textheight - \fhNprInvasions - \fhPeaceSeq - \frameToFrameSpacing}}[framePeaceSeq]
+
+\newdynamicframe*[2]{\textwidth}{\fhPeaceTerms}
+	{0mm}{\calc{\textheight - \fhPeaceTerms}}[framePeaceTerms]
+\newdynamicframe*[2]{\fwTwoCols}{\fhSecondPageLower}{\middleColX}{0mm}[framePeaceMisc]
+
+\newdynamicframe*[3]{\columnwidth}{\fhManpower}{\middleColX}{\frameManpowerY}[frameManpower]
+\newdynamicframe*[3]{\columnwidth}{\fhImpInfluence}{\middleColX}{\frameImpInfluenceY}[frameImpInfluence]
+\newdynamicframe*[3]{\columnwidth}{\fhHreReligion}{\middleColX}{\frameHreReligionY}[frameHreReligion]
+\newdynamicframe*[3]{\columnwidth}{\fhBotDeck}{\middleColX}{\frameBotDeckY}[frameBotDeck]
+\setdynamicframe*{frameBotDeck}{bordercolor=botrulescolor}
+\newdynamicframe*[3]{\columnwidth}{\fhCrusade}{\middleColX}{\frameCrusadeY}[frameCrusade]
+\newdynamicframe*[3]{\columnwidth}{\fhPowerStruggle}{\middleColX}{\framePowerStruggleY}[framePowerStruggle]
+
+% Arrows
+\newdynamicframe[1]{\textwidth}{\textheight}{\pagemarginleft}{-\pagemarginbottom}[frameArrowsPageOne]
+\newdynamicframe[3]{\textwidth}{\textheight}{\pagemarginleft}{-\pagemarginbottom}[frameArrowsPageThree]
+
+\begin{document}
+\addfooter
+
+\section*{Sequence \normal{\Large{(p.~8-11)}}}
+\subsection*{1. Draw Cards}
+\subsubsection*{A. Reveal Events}
+\subsubsection*{B. Draw Action Cards}
+
+\begin{itemize}
+	\item Draw 3 cards (may draw one by one)
+\end{itemize}
+
+\subsubsection*{C. Pay for Action Cards}
+\begin{itemize}
+	\item 2 \ducats per drawn card you keep
+\end{itemize}
+
+\subsubsection*{D. Pick/Replace Missions}
+\begin{itemize}
+	\item Mission can be picked if 1+ prerequisite Missions are completed (p.~42)
+	\item Max 2 in hand
+\end{itemize}
+
+\subsection*{2. Actions}
+\begin{itemize}
+	\item On each Turn, must take 1 Action, \conj{and}
+	\item May take any \# of Minor Actions
+\end{itemize}
+\subsubsection*{Passing}
+\begin{itemize}
+	\item Allowed only if \action{Event} taken
+	\item May take Minor Actions on same Turn
+	\item First 2-4 PRs to Pass gain \ducats
+	\item If no more PRs eligible to gain \ducats,\\ \strong{End of Action Phase} is triggered
+	\begin{itemize}
+		\item Each remaining PR may take 1 more Action of their choice
+		\item PRs who still have not taken \action{Event},\\ get one more Turn to take \action{Event}
+		\item If PR has taken their final Turn, they are considered to have Passed
+	\end{itemize}
+\end{itemize}
+
+\subsection*{3. Peace \& Rebels}
+\subsubsection*{A. Remove Casus Belli \& Truces}
+\begin{itemize}
+	\item Lose \p2 if not at war with the CB target
+\end{itemize}
+
+\subsubsection*{B. NPR Invasions \normal{(advanced rules)}}
+\begin{itemize}
+	\item NPRs at War might invade PRs\zsavepos{arrowNprInvasionsStart}
+	\botrules
+	\item Bots suffer max 1 NPR invasion (p.~2)
+	\begin{itemize}
+		\item Resolve the one invading with most Units (tie breaker: \az)
+		\item Place Bot Army in Area, resolve Battle
+	\end{itemize}
+\end{itemize}
+
+\begin{dynamiccontents*}{frameNprInvasions}
+	\begin{multicols}{2}
+		\subsubsection*{\zsavepos{arrowNprInvasionsEnd}NPR Invasions \normal{(p.~36)}}
+		\begin{itemize}
+			\item Resolve NPRs in alphabetical order
+			\item \strong{Invasion takes place if}
+			\begin{itemize}
+				\item The NPR is not an Active Ally, \conj{and}
+				\item There are no Hostile Units in Areas where the NPR Controls Prov., \conj{and}
+				\item There is at least one eligible target Area Adjacent to the NPR
+			\end{itemize}
+			\item An \strong{Area is eligible if}
+			\begin{itemize}
+				\item It contains Hostile \towns/\vassals, \conj{and}
+				\item If Adj. by Sea only, a connecting Sea Zone contains no Hostile Ships, \conj{and}
+				\item It contains no non-Hostile PR Units
+			\end{itemize}
+		\end{itemize}
+		\subsubsection*{Invasion sequence}
+		\begin{itemize}
+			\item Pick an eligible Area. Priority:
+			\begin{enumerate}
+				\item NPR's Capital Area
+				\item Area with the most NPR's Core Prov.
+				\item Area Adjacent by Land
+				\item Random
+			\end{enumerate}
+			\item Add \unrest to 2 Enemy \towns/\vassals in the target Area (pick \az)
+			\item Place NPR Units equal to ½ of Tax Value currently Controlled by the NPR (including Vassals)
+			\item Resolve Battle immediately (if any)
+			\item Leave the NPR Units on board as \rebels
+		\end{itemize}
+	\end{multicols}	
+\end{dynamiccontents*}
+
+\subsubsection*{C. Rebels Siege \& Move}
+\begin{itemize}
+	\item Resolve by Area: 1. most \rebels; 2. \az
+	\item In Areas with \unrest, Rebels Siege \unrest. Priority:
+	\begin{enumerate}
+		\item Large Provinces
+		\item If 2+ PRs with \unrest in the Area, PR with lowest Tax Income (no tie) in the Area chooses (p.~37)
+		\item \az
+	\end{enumerate}
+	\item In Areas with no \unrest
+	\begin{itemize}
+		\item If an Area with \unrest is Adj. by Land and \rebels will not be outnum. there by PRs
+		\begin{itemize}
+			\item Move all but 1 \rebel. Priority: 1. most \unrest; 2. most PR \towns; 3. \az
+			\item Resolve Battle immediately
+		\end{itemize}
+		\item Otherwise remove 1\rebel
+	\end{itemize}
+\end{itemize}
+
+\subsubsection*{D. Peace Resolutions\zsavepos{arrowPeaceSeqStart}}\framebreak%
+\begin{dynamiccontents*}{framePeaceSeq}
+	\begin{multicols}{2}
+		\subsubsection*{\zsavepos{arrowPeaceSeqEnd}Peace Resolution Sequence \normal{(p.~29)}}
+		\begin{itemize}
+			\item While \strong{Def. the HRE} is active (p.~44)
+			\begin{itemize}
+				\item PRs at War with Emperor may enforce Peace on Imp. Subjects only if Victory over Emp. is achieved
+				\item Emp. negotiates on behalf of NPR Imperial Subjects as for Active Allies
+			\end{itemize}
+			\item Peace is resolved with 1 Enemy at a time, except Active Allies
+			\item Treat Vassals as part of their Overlord
+			\item In each step, resolve Peace in Turn order
+		\end{itemize}
+
+		\subsubsection*{1. Automatic White Peace}
+		\begin{itemize}
+			\item \strong{Requirements}
+			\begin{itemize}
+				\item Neither side Occupies any Enemy Prov. (incl. Vassals and Active Allies)
+			\end{itemize}
+		\end{itemize}
+
+		\subsubsection*{2. Total Victory}
+		\begin{itemize}
+			\item Must be resolved
+			\item Treat Active Allies separately
+			\item If Peace is made with an Active Ally, the Allied PR must remove (p.~30)
+			\begin{itemize}
+				\item \alliance with that NPR, \conj{and}
+				\item Allied Units = ½ of pre-War Tax Income of the NPR
+			\end{itemize}
+			\item \strong{Requirements}
+			\begin{itemize}
+				\item Must Occupy all single Enemy's \emph{de jure} Provinces, \conj{and}
+				\item Enemy has no Deployed Land Units
+			\end{itemize}
+		\end{itemize}
+
+		\subsubsection*{3. Partial Victory or Inconclusive}
+		\begin{itemize}
+			\item May decide not to resolve
+			\item If Enemy \strong{Surrenders} (p.~30)
+			\begin{itemize}
+				\item Gain \p2, Enemy loses \p2
+				\item May enforce Peace as if Part. Victory
+				\item War must end this Round
+			\end{itemize}
+			\item \strong{Optional Rule 3: No Surrender}
+			\begin{itemize}
+				\item Surrendering is not allowed
+			\end{itemize}
+			\item \strong{Partial Victory requirements}
+			\begin{itemize}
+				\item If Enemy is a PR, your Deployed Land Units must outnumber Enemy 2:1
+				\item If Enemy is NPR or Bot, your Depl. Land Units must outnum. \rebels in your Areas plus Enemy Depl. Land Units
+				\item Units on Dist. Continents where the other Realm has no \towns do no count
+			\end{itemize}
+			\item If PR Enemy has \strong{Active Allies} (p.~30)
+			\begin{itemize}
+				\item If and only if achieved against PR, then achieved against their Active Allies
+				\item Only a single Peace Term may be chosen for the PR and their Act. Allies
+			\end{itemize}
+			\item If \strong{inconclusive}
+			\begin{itemize}
+				\item NPR accepts White Peace
+				\item Bot accepts White Peace if Tax Value of their \towns Occupied by you > your \towns Occupied by them (p.~29-30)
+				\item Terms may be negotiated with a PR
+			\end{itemize}
+		\end{itemize}
+
+		\subsubsection*{4. Aftermath}
+		\begin{itemize}
+			\item PRs now at Peace must move Units to the nearest Friendly Area (counting each Area or Sea Zone as 1 space)
+			\begin{itemize}
+				\item If equally close, then PR may choose
+				\item This movement has no cost
+			\end{itemize}
+			\item Players at Peace flip their \activeallies back to \alliance
+			\item Players at Peace remove Allied Units
+			{\botrules
+			\item If a Bot is now at Peace (p.~2-3)
+			\begin{itemize}
+				\item Remove Bot's Army, unless Bot's \towns in the Area have \unrest or \rebeltown
+			\end{itemize}
+			\item Replace Fully Annexed Bots (p.~3,~6)
+			}
+		\end{itemize}
+	\end{multicols}
+\end{dynamiccontents*}%
+\begin{dynamiccontents*}{framePeaceTerms}
+	\begin{multicols}{3}
+		\subsubsection*{Peace Terms \normal{(p.~30-31)}}
+		\begin{itemize}
+			\item One Peace term per War/Enemy
+			\item Any gained \influence may displace other \influence if the Area is full
+		\end{itemize}
+
+		\subsubsection*{White Peace}
+		\begin{itemize}
+			\item \strong{Requirements}
+			\begin{itemize}
+				\item Total Victory to Enforce
+			\end{itemize}
+			\item All Occupied Provinces must be returned to their Lawful Owners
+			\item All involved PRs lose \p1
+		\end{itemize}
+
+		\subsubsection*{Keep Current Board State}
+		\begin{itemize}
+			\item \strong{Requirements}
+			\begin{itemize}
+				\item Partial or Total Victory to Enforce
+			\end{itemize}
+			\item Occupied Capitals must be returned
+			\begin{itemize}
+				\item 10\ducats ransom to the Occupier
+			\end{itemize}
+			\item By default both sides keep all non-Capital Provinces that they Occupy
+			\item Victor, instead of keeping them, may
+			\begin{itemize}
+				\item Exchange them for Prov. of equal Tax Val. that the Loser Occupies
+				\item Return them for 3\ducats per Tax Value
+				\item Liberate them, except Loser's Core Prov. and their Active Ally's Prov.
+				\begin{itemize}
+					\item Score \p1 per Tax Value Liberated
+					\item May gain \alliance with 1 Liber. NPR
+					\item Place 2 \influence in that NPR's Areas
+				\end{itemize}
+			\end{itemize}
+			\item Max \ducats demanded is 2× Tax Income of the Loser (after return of the Provinces)
+			\item PRs may discard \claim from Area(s) of gained Prov. to remove 2\unrest from same Area(s)
+			\item PRs may place \claim in each Area where they lost 1+ \town or \vassal
+		\end{itemize}
+
+		\subsubsection*{Vassalization}
+		\begin{itemize}
+			\item \strong{Requirements}
+			\begin{itemize}
+				\item Partial or Total Victory to Enforce
+				\item Loser must be an NPR
+				\item Victor must Occupy Loser's Capital
+				\item Victor must Occup. 1+ Loser's \emph{de jure} Prov. in non-Cap. Area (if any)
+			\end{itemize}
+			\item With \strong{Active Allies} (p.~30)
+			\begin{itemize}
+				\item Only apply for Realms for which the Victor satisfies all requirements
+				\item For other Realms, treat as White Peace without \prestige loss
+			\end{itemize}
+			\item Loser becomes a Vassal of the Victor
+			\item Victor places \vassalprovinces on all Loser's \emph{de jure} Prov., except Prov. Occup. by other PRs
+			\item Victor may place 2 \influence in Loser's Realm
+			\item Add \unrest to all Provinces gained in Areas where the Victor Occupied no Provinces
+			\item Remove all Loser's \alliances/\marriages
+			\item Victor may discard \claim from Area(s) of gained \vassalprovinces to remove 2\unrest from same Area(s)
+		\end{itemize}
+
+		\subsubsection*{Force Conversion}
+		\begin{itemize}
+			\item \strong{Requirements}
+			\begin{itemize}
+				\item Partial or Total Victory to Enforce
+				\item Victor must Control all Provinces in Loser's Capital Area
+				\item Victor's Religion differs from Loser's
+			\end{itemize}
+			\item With \strong{Active Allies} (p.~30)
+			\begin{itemize}
+				\item Only apply for Realms for which the Victor satisfies all requirements
+				\item For other Realms, treat as White Peace without \prestige loss
+			\end{itemize}
+			\item Loser must change State Religion and Rel. of Capit. Area to State Rel. of Victor
+			\item All Occupied Provinces must be returned
+			\item Victor gains \p3
+			\item Victor may add 2\influence in Loser's Cap. Area
+			\item Loser loses \p5
+			\item Loser must remove 4\influence
+		\end{itemize}
+
+		\subsubsection*{Humiliation}
+		\begin{itemize}
+			\item \strong{Requirements}
+			\begin{itemize}
+				\item Partial or Total Victory to Enforce
+				\item Victor must Occupy Loser's Capital or Loser must have Surrendered
+				\item Loser may not be an NPR
+			\end{itemize}
+			\item All Occup. Provinces must be returned
+			\item Victor scores \prestige = 2× Tax Value of Provinces returned to Loser (max 10)
+			\begin{itemize}
+				\item No \prestige from Prov. of Active Allies
+			\end{itemize}
+			\item Loser loses the same amount of \prestige
+		\end{itemize}
+
+		\subsubsection*{Full Annexation}
+		\begin{itemize}
+			\item \strong{Requirements}
+			\begin{itemize}
+				\item Total Victory to Enforce
+				\item Loser must be an NPR or Bot
+				\item With Active Allies only possible when resolved separately (p.~30)
+			\end{itemize}
+			\item Remove all Loser's \alliances/\marriages
+			\item If Loser is Active Ally, then the Allied PR
+			\begin{itemize}
+				\item Loses \p2
+			\end{itemize}
+			\item Victor may discard \claims in Area(s) of gained Prov. to remove 2\unrest from same Area(s)
+			\item If Emp. enforces Full Annex. on Subject with the same State Religion (p.~45)
+			\begin{itemize}
+				\item Lose 1\authority
+			\end{itemize}
+		\end{itemize}
+
+		\subsubsection*{Secure Desired Succession}
+		\begin{itemize}
+			\item \strong{Requirements}
+			\begin{itemize}
+				\item Partial or Total Victory to Enforce
+				\item Loser Capital must have a \disputedsuccession
+				\item Victor must Occupy Loser's Capital
+				\item Ignore Loser's Active Ally status
+			\end{itemize}
+			\item All Occupied Prov. must be returned
+			\item If Loser is NPR, all their other Wars end on White Peace terms
+			\item Remove all \marriage/\disputedsuccession and \alliance/\activeally, except Victor's, from the Loser
+			\item Victor scores 3 per \marriage/\disputedsuccession removed
+			\item PRs whose \marriage/\disputedsuccession was removed, lose \p3
+			\item If Victor has \disputedsuccession on Loser, they
+			\begin{itemize}
+				\item Flip their \disputedsuccession back to \marriage
+				\item Score \prestige = Loser's Tax Inc. (max 5)
+			\end{itemize}
+			\item Victor may
+			\begin{itemize}
+				\item If Loser is an NPR, add 4 \influence to Loser's Capital Area
+				\item If Loser is a PR, replace Loser's Ruler with a Leader from any discard pile
+				\item May then gain \alliance with the Loser
+			\end{itemize}
+		\end{itemize}
+
+		\subsubsection*{Negotiated Peace}
+		\begin{itemize}
+			\item \strong{Requirements}
+			\begin{itemize}
+				\item Not Enforceable
+				\item Both sides must be human players
+			\end{itemize}
+			\item May agree who is Vict./Loser (if anyone)
+			\item May agree on another listed Peace Term, but other conditions must be met
+			\item If agreeing on Keep Current Board State 
+			\begin{itemize}
+				\item Both sides may exchange Occupied Provinces for \ducats
+				\item Both sides may Liberate Provinces (with no \prestige gained)
+			\end{itemize}
+			\item In addition, may agree on one side taking an immediate \action{Cut Ties} and/or \action{P‑to‑P Diplomacy} (normal cost), disregarding restrictions for being at War
+		\end{itemize}
+	\end{multicols}
+\end{dynamiccontents*}%
+\begin{dynamiccontents*}{framePeaceMisc}
+	\begin{multicols}{2}
+		\subsubsection*{Victory or Defeat \normal{(p.~29)}}
+		\begin{itemize}
+			\item Victor is PR who achieved Total or Partial Victory or whose Enemy Surrendered
+			\item There is no Victor or Loser when
+			\begin{itemize}
+				\item Automatic White Peace
+				\item Inconclusive Result (unless agreed in Negotiated Peace terms (p.~31))
+			\end{itemize}
+		\end{itemize}
+
+			\columnbreak
+		\subsubsection*{Emp. vs ext. Aggressor \normal{(p.~44-45)}}
+		\begin{itemize}
+			\item If Emperor wins
+			\begin{itemize}
+				\item Gain 1\authority, if no HRE Prov. ceded
+			\end{itemize}
+			\item If Emperor loses
+			\begin{itemize}
+				\item Lose 1\authority
+				\item If Areas leave HRE, lose additional \authority
+			\end{itemize}
+		\end{itemize}
+
+		\subsubsection*{Truces \normal{(p.~30)}}
+		\begin{itemize}
+			\item When Peace is made, Realms enter Truce
+			\item Truce tokens are not placed on Act. Allies
+			\item Remove Truce/War on Vassalized Realms
+		\end{itemize}
+	\end{multicols}
+
+%	\vfill
+%	\begin{multicols}{2}
+%	\end{multicols}
+\end{dynamiccontents*}%
+%
+\begin{dynamiccontents*}{frameArrowsPageOne}
+	% Must be before the page ends but after all \zsavepos in other dynamic frames
+	\begin{tikzpicture}
+	\useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);
+
+	% NPR Invasions arrow
+	\newlength{\nprStartY} \setlength{\nprStartY}{\calc{\zposy{arrowNprInvasionsStart}sp + \arrowAdjustYText}}
+	\newlength{\nprStartX} \setlength{\nprStartX}{\calc{\zposx{arrowNprInvasionsStart}sp + \arrowToTextSpacing}}
+	\newlength{\nprEndY} \setlength{\nprEndY}{\calc{\zposy{arrowNprInvasionsEnd}sp + \arrowAdjustYBeforeSubsub}}
+	\newlength{\nprEndX} \setlength{\nprEndX}{\zposx{arrowNprInvasionsEnd}sp}
+	\newlength{\nprTurnX} \setlength{\nprTurnX}{\calc{\nprEndX-5.5mm}}
+
+	\drawArrow{(\nprStartX, \nprStartY) -- (\nprTurnX,\nprStartY) -- (\nprTurnX,\nprEndY) -- (\nprEndX,\nprEndY)}
+
+	% Peace Resolution arrow
+	\newlength{\peaceStartY} \setlength{\peaceStartY}{\calc{\zposy{arrowPeaceSeqStart}sp+3pt}}
+	\newlength{\peaceStartX} \setlength{\peaceStartX}{\calc{\zposx{arrowPeaceSeqStart}sp+\arrowToTextSpacing}}
+	\newlength{\peaceEndY} \setlength{\peaceEndY}{\calc{\zposy{arrowPeaceSeqEnd}sp-7pt}}
+	\newlength{\peaceEndX} \setlength{\peaceEndX}{\zposx{arrowPeaceSeqEnd}sp}
+	\newlength{\peaceTurnX} \setlength{\peaceTurnX}{\calc{\peaceEndX-3.5mm}}
+
+	\drawArrow{(\peaceStartX, \peaceStartY) -- (\peaceTurnX,\peaceStartY) -- (\peaceTurnX,\peaceEndY) -- (\peaceEndX,\peaceEndY)}
+	\end{tikzpicture}
+\end{dynamiccontents*}%
+%
+\subsubsection*{E. Prestige Penalties}
+\begin{itemize}
+	\item Flip all \disputedsuccession back to \marriage
+	\begin{itemize}
+		\item Lose \p3 for each unless
+		\begin{itemize}
+			\item Only you have \alliance with them, \conj{and}
+			\item If it is an NPR, you have the most \influence (min 2) in that Realm
+		\end{itemize}
+	\end{itemize}
+	\item Lose \prestige = Tax Val. of Occup. \towns (max 5)
+\end{itemize}
+
+\subsubsection*{F. Interregnums}
+\begin{itemize}
+	\item Lose 1\stability
+	\item Flip \marriages on your Realm
+\end{itemize}
+
+\subsubsection*{G. Religious Dissent}
+\begin{itemize}
+	\item Areas with \towns: add \unrest to 1 \town in each Area
+	\item Areas with \vassals: add \unrest to 1 \vassal or remove 1\influence in 1 Area
+	\item \botrule{Bots gain max 1 \unrest (p.~3)}
+\end{itemize}
+
+\subsubsection*{H. Gain/Remove Unrest}
+\begin{itemize}
+	\item If at War, add 2 \unrest to your \towns
+	\item If ≤ -2\stability, add 1 \unrest to your \towns
+	\item If ≥ +2\stability, remove 1 \unrest from your \towns
+	\item \botrule{Bots with Adm. Ideas remove 1‑2\unrest (p.~3)}
+\end{itemize}
+
+\subsubsection*{I. Roll Rebel Dice}
+\begin{itemize}
+	\item Each human PR rolls Area by Area, for all their \unrest in given a Area (p.~37)
+	\item \botrule{Bots roll for all Areas at once (max 5 dice) (p.~4)}
+\end{itemize}
+
+\subsection*{4. Income and Upkeep}
+\begin{itemize}
+	\item May \action{Take Loans} during this phase
+\end{itemize}
+
+\subsubsection*{A. Cut costs}
+\begin{itemize}
+	\item May (must if needed to avoid Bankrupt.):
+	\begin{itemize}
+		\item Fire Advisors
+		\item Disband Units
+		\begin{itemize}
+			\item Regular Units ^^^^2192 Available \manpower
+		\end{itemize}
+		\item Recall Ships at sea
+		\begin{itemize}
+			\item Move to Ports in range via\\ non-Hostile Sea Zones (no \milpower cost)
+		\end{itemize}
+	\end{itemize}
+\end{itemize}
+
+\subsubsection*{B. Collect Income minus Costs}
+
+\begin{tabularx}{\columnwidth}{ | X | X | }
+\hline
++ Base Tax Income & \\ \hline
++ Vassal Tax Income & \\ \hline
+- Advisor Upkeep & Papal Controller pays 1\ducat less per Advisor \\ \hline
+- Military Maintenance & {
+1\ducat per Regular Unit \newline
+2\ducats per Mercenary \newline
+½\ducat per Ship at sea
+} \\ \hline
+- Plague & ½\ducat per Tax Income from Areas with \plague \\ \hline
+- Interest on Loans & 1\ducat per \interest \\ \hline
++/- \stability Modifier & \\ \hline
++ Emperor's \authority & \ducats = \authority \\ \hline
++ Income from Ideas & \\ \hline
+\end{tabularx}
+
+\subsubsection*{C. Corruption}
+\begin{itemize}
+	\item May discard \ducats to avoid costs
+	\item 0-49 \ducats: No cost
+	\item 50-59 \ducats: Pay 1\adminpower, gain \interest per unpaid \adminpower
+	\item 60-69 \ducats: Pay 2\adminpower, gain \interest per unpaid \adminpower
+	\item ...
+\end{itemize}
+
+\subsubsection*{D. Collect Monarch Power}
+\begin{itemize}
+	\item Ruler's Skill + Advisor's Skill
+	{\botrules
+	\item Bots discard all spent \botpower (p.~3)
+	\item Bots gain 6/7/8/9 \botpower
+	\item If a Bot has 20+ small \towns, they gain +1\botpower
+	\item If a Bot has 8 Large \towns, they gain +1\botpower
+	}
+	\item If +3\stability, receive +2\monarchpower
+	\item If -3\stability, receive -1\monarchpower
+	\item If Emperor is NPR (p.~45) \botrule{or Bot (p.~3)}
+	\begin{itemize}
+		\item Roll a 6-sided die
+		\begin{itemize}
+			\item If 6 or ≥ current \authority + 2, gain 1\authority
+			\item If 1 or ≤ current \authority~- 2, lose 1\authority
+		\end{itemize}
+	\end{itemize}
+	\item Papal Controller receives +1\diplopower \botrule{(or \botpower)}
+	\item Emp. receives extra \monarchpower~\botrule{(or \botpower)} (p.~43):
+	\begin{itemize}
+		\item \authority = 2 or 3: Receive +1\diplopower
+		\item \authority = 4 or 5: Receive +1\diplopower and +1\milpower
+		\item \authority = 6 – Receive +2\diplopower and +1\milpower
+	\end{itemize}
+  \item Additional \monarchpower from Gov. Form Ideas
+\end{itemize}
+
+\subsubsection*{E. Score Prestige}
+\begin{itemize}
+	\item Uncontested Papal Controller scores \prestige = \# of Catholic PRs - 1 (max 3)
+	\item If \authority = 6, Emperor scores \p1
+	\item PRs with \idea{Abs. Mon.} and \stability>0, score \p1
+	\item Active Crusades\zsavepos{arrowCrusadeStart}
+	\item Power Struggles\zsavepos{arrowPowerStruggleStart}
+	\item Remove Crusade/Excom. and \battlegroundarea tokens
+\end{itemize}
+\begin{dynamiccontents*}{frameCrusade}
+	\subsubsection*{\zsavepos{arrowCrusadeEnd}Crusade Scoring \normal{(p.~46)}}
+	\begin{itemize}
+		\item Catholic Realms \emph{Committed to Crusade}
+		\begin{itemize}
+			\item Score \p2 if target Area
+			\begin{itemize}
+				\item Contains their Units, \conj{and}
+				\item Has no Provinces Owned by Muslim Realms
+			\end{itemize}
+			\item Lose 2 otherwise
+		\end{itemize}
+		\item If no Realm is \emph{Committed to Crusade}
+		\begin{itemize}
+			\item Papal Controller loses \p2
+		\end{itemize}
+	\end{itemize}
+\end{dynamiccontents*}
+\begin{dynamiccontents*}{framePowerStruggle}
+	\subsubsection*{\zsavepos{arrowPowerStruggleEnd}Scoring Power Struggles \normal{(p.~43)}}
+	\begin{itemize}
+		\item For each Battleground Area, score
+		\begin{itemize}
+			\item \p1 per Tax Value of Provinces Controlled (\vassals count as half)
+			\item \p1 for being the only PR with \towns/\vassals there (only on the Main Map)
+			\item \p1 for at least 1 \alliance/\marriage there
+		\end{itemize}
+		\item Additional criteria on the card
+	\end{itemize}
+\end{dynamiccontents*}
+
+\subsection*{5. Clean-up}
+\subsubsection*{A. Update and Refresh}
+\begin{itemize}
+	\item Allied Units in Armies ^^^^2192 Available \manpower
+	\item \hspacezero\zsavepos{arrowManpowerStart}Update Manpower
+	\item Refresh Exhausted Manpower
+	\begin{itemize}
+		\item ½ of Exhausted Units (min 3, max 6)
+	\end{itemize}
+	\item Refresh Merchants
+	\item Add \colonists = \# of Colonial \claims (max 4)
+	\item \botrule{Discard Bot \colonists if no vacant Terr. (p.~3)}
+	\item Remove \cube from \emph{Changed Nat. Focus} slot
+\end{itemize}
+\begin{dynamiccontents*}{frameManpower}
+	\subsubsection*{Manpower \normal{(p.~23)}\zsavepos{arrowManpowerEnd}}
+	\begin{itemize}
+		\item Max 20
+		\item \botrule{Bots have min 3 (p.~3)}
+		\item When increases
+		\begin{itemize}
+			\item Add to Available \manpower
+		\end{itemize}
+		\item When decreases
+		\begin{itemize}
+			\item Rem. from Depl., Exh. or Avail. \manpower
+			\item \botrule{Bots rem. from Reserve first (p.~3)}
+		\end{itemize}
+	\end{itemize}
+\end{dynamiccontents*}
+
+\subsubsection*{B. Board and Status Mat clean-up}
+\begin{itemize}
+	\item Remove \alliances
+	\begin{itemize}
+		\item \botrule{Between Bots and PRs (p.~3)}
+		\item From DNPRs with Tax Income ≥ 10\ducats
+	\end{itemize}
+	\item Remove all \plague from Map
+	\item \hspacezero\zsavepos{arrowImpInfluenceStart}Adjust Imperial \influence and redistribute
+	\item If Emperor is at Peace
+	\begin{itemize}
+		\item Remove Imperial \manpower
+		\item Remove Tag from \emph{Defending the HRE}
+	\end{itemize}
+	\item Remove Tags from \emph{Committed to Crusade}
+	\item \hspacezero\zsavepos{arrowHreReligionStart}If Age III or IV, check HRE Religion (advanced rules) (p.~45)
+	\item PR 1st to Pass gets the First Player token
+	\begin{itemize}
+		\item If already has it, PR 2nd to Pass gets it
+	\end{itemize}
+	\item Reset Round Status markers
+	\item \hspacezero\zsavepos{arrowBotDeckStart}\botrule{Reshuffle Bot deck (p.~3)}
+\end{itemize}
+\begin{dynamiccontents*}{frameImpInfluence}
+	\subsubsection*{Imperial Influence \normal{(p.~44)}\zsavepos{arrowImpInfluenceEnd}}
+	\begin{itemize}
+		\item \# of Imperial \influence = \authority
+		\item Must be placed in HRE Areas with 1+ Prov. Owned by NPR HRE Members
+		{\botrules
+		\item Bot priorities (tie breakers: 1. Areas with Bot's \allies; 2. \az) (p.~3)
+		\begin{itemize}
+			\item Elector Area where it would take the least \influence to have more \influence than any other PR
+			\item Any Elector Area not full
+			\item Any HRE Area not full
+		\end{itemize}
+		}
+	\end{itemize}
+\end{dynamiccontents*}
+\begin{dynamiccontents*}{frameHreReligion}
+	\subsubsection*{HRE Religion \normal{(p.~45)}\zsavepos{arrowHreReligionEnd}}
+	\begin{itemize}
+		\item If all Elector Areas are Protestant but HRE Religion is not
+		\begin{itemize}
+			\item HRE Religion becomes Protestant
+			\item \authority drops by 1
+		\end{itemize}
+		\item If all Elector Areas are Catholic
+		\begin{itemize}
+			\item HRE Religion becomes Catholic
+		\end{itemize}
+		\item If Elector Areas have different Religions
+		\begin{itemize}
+			\item HRE has no official Religion (mark with Diverse Faiths token)
+		\end{itemize}
+	\end{itemize}
+\end{dynamiccontents*}
+\begin{dynamiccontents*}{frameBotDeck}
+	\botrules
+	\subsubsection*{Reshuffling Bot Deck \normal{(p.~3)}\zsavepos{arrowBotDeckEnd}}
+	\begin{itemize}
+		\item EVENT is always reshuffled
+		\item IDEA is always reshuffled
+		\item Cards used for FOCUS are not reshuffled
+		\item Half of the rest is reshuffled
+	\end{itemize}
+\end{dynamiccontents*}
+
+\subsubsection*{C. Discard down to 5 Action Cards}
+
+\subsubsection*{D. End of Age Routine}
+\begin{itemize}
+	\item If end of Age
+	\begin{itemize}
+		\item If no next Age, go to Final Scoring
+		\item Place the Event deck for the next Age
+		\item Replace all Milestones
+		\item Replace unresearch. non-Basic Ideas
+		\item The player with least \prestige (no ties) may replace 1 new Milestone or Idea
+		\item Players with 1+ \marriage (in turn order)
+		\begin{itemize}
+			\item Score \p1
+			\item Rem. 1\marriage (prefer NPR) or pay 2\diplopower
+			\item \botrule{Bots do not remove \marriages (p.~3)}
+		\end{itemize}
+		\item \botrule{Reset Bot decks (p. 3)}
+	\end{itemize}
+\end{itemize}
+
+\subsection*{Final Scoring}
+\begin{itemize}
+	\item Triggered after Phase 5 if
+	\begin{itemize}
+		\item No more Events left, \conj{or}
+		\item PR has ≥100 \prestige and lead of ≥20 \prestige, \conj{or}
+		\item PR has all \towns and \vassals on the Map
+	\end{itemize}
+	\item Score Missions from hand (no effects)
+	\item Score \prestige = Tax Income
+	\item Score \p1 per \core 
+	\item Score \p1 per \marriage
+	\item Score \p2 per \alliance
+	\item Papal Contr. scores \prestige = \# of Cath. PRs
+	\item Emperor scores \prestige = \authority
+	\item Score \prestige = 2 × \stability
+	\item Subtract \p1 per Tax Value of Occup. \towns
+	\item Subtract \p1 per \interest
+%	\item If equal \prestige, tie breakers: 1.~most \monarchpower, 2.~most \ducats%
+\end{itemize}
+
+\begin{dynamiccontents*}{frameArrowsPageThree}
+	% Must be before the page ends
+	\begin{tikzpicture}
+		\useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);
+
+		% Manpower arrow
+		\newlength{\manpowerStartY} \setlength{\manpowerStartY}{\calc{\zposy{arrowManpowerStart}sp + \arrowAdjustYText}}
+		\newlength{\manpowerStartX} \setlength{\manpowerStartX}{\calc{\zposx{arrowManpowerStart}sp + \arrowAdjustXBeforeList}}
+		\newlength{\manpowerEndY} \setlength{\manpowerEndY}{\calc{\zposy{arrowManpowerEnd}sp + \arrowAdjustYAfterSubsub}}
+		\newlength{\manpowerEndX} \setlength{\manpowerEndX}{\calc{\zposx{arrowManpowerEnd}sp + \arrowToTextSpacing}}
+		\newlength{\manpowerTurnX} \setlength{\manpowerTurnX}{\calc{\manpowerStartX-2mm}}
+
+		\drawArrow{(\manpowerStartX, \manpowerStartY) -- (\manpowerTurnX,\manpowerStartY) -- (\manpowerTurnX,\manpowerEndY) -- (\manpowerEndX,\manpowerEndY)}
+
+		% Imperial Influence arrow
+		\newlength{\impinfStartY} \setlength{\impinfStartY}{\calc{\zposy{arrowImpInfluenceStart}sp + \arrowAdjustYText}}
+		\newlength{\impinfStartX} \setlength{\impinfStartX}{\calc{\zposx{arrowImpInfluenceStart}sp + \arrowAdjustXBeforeList}}
+		\newlength{\impinfEndY} \setlength{\impinfEndY}{\calc{\zposy{arrowImpInfluenceEnd}sp + \arrowAdjustYAfterSubsub}}
+		\newlength{\impinfEndX} \setlength{\impinfEndX}{\calc{\zposx{arrowImpInfluenceEnd}sp + \arrowToTextSpacing}}
+		\newlength{\impinfTurnX} \setlength{\impinfTurnX}{\calc{\impinfStartX-2mm}}
+
+		\drawArrow{(\impinfStartX, \impinfStartY) -- (\impinfTurnX,\impinfStartY) -- (\impinfTurnX,\impinfEndY) -- (\impinfEndX,\impinfEndY)}
+
+		% HRE Religion arrow
+		\newlength{\hreStartY} \setlength{\hreStartY}{\calc{\zposy{arrowHreReligionStart}sp + \arrowAdjustYText}}
+		\newlength{\hreStartX} \setlength{\hreStartX}{\calc{\zposx{arrowHreReligionStart}sp + \arrowAdjustXBeforeList}}
+		\newlength{\hreEndY} \setlength{\hreEndY}{\calc{\zposy{arrowHreReligionEnd}sp + \arrowAdjustYAfterSubsub}}
+		\newlength{\hreEndX} \setlength{\hreEndX}{\calc{\zposx{arrowHreReligionEnd}sp + \arrowToTextSpacing}}
+		\newlength{\hreTurnX} \setlength{\hreTurnX}{\calc{\hreStartX-2mm}}
+
+		\drawArrow{(\hreStartX, \hreStartY) -- (\hreTurnX,\hreStartY) -- (\hreTurnX,\hreEndY) -- (\hreEndX,\hreEndY)}
+
+		% Bot Deck arrow
+		\newlength{\botDeckStartY} \setlength{\botDeckStartY}{\calc{\zposy{arrowBotDeckStart}sp + \arrowAdjustYText}}
+		\newlength{\botDeckStartX} \setlength{\botDeckStartX}{\calc{\zposx{arrowBotDeckStart}sp + \arrowAdjustXBeforeList}}
+		\newlength{\botDeckEndY} \setlength{\botDeckEndY}{\calc{\zposy{arrowBotDeckEnd}sp + \arrowAdjustYAfterSubsub}}
+		\newlength{\botDeckEndX} \setlength{\botDeckEndX}{\calc{\zposx{arrowBotDeckEnd}sp + \arrowToTextSpacing}}
+		\newlength{\botDeckTurnX} \setlength{\botDeckTurnX}{\calc{\botDeckStartX-2mm}}
+
+		\drawArrow{(\botDeckStartX, \botDeckStartY) -- (\botDeckTurnX,\botDeckStartY) -- (\botDeckTurnX,\botDeckEndY) -- (\botDeckEndX,\botDeckEndY)}
+
+		% Crusade Scoring arrow
+		\newlength{\crusadeStartY} \setlength{\crusadeStartY}{\calc{\zposy{arrowCrusadeStart}sp + \arrowAdjustYAfterSubsub}}
+		\newlength{\crusadeStartX} \setlength{\crusadeStartX}{\calc{\zposx{arrowCrusadeStart}sp + \arrowToTextSpacing}}
+		\newlength{\crusadeEndY} \setlength{\crusadeEndY}{\calc{\zposy{arrowCrusadeEnd}sp + \arrowAdjustYBeforeSubsub}}
+		\newlength{\crusadeEndX} \setlength{\crusadeEndX}{\zposx{arrowCrusadeEnd}sp}
+		\newlength{\crusadeTurnX} \setlength{\crusadeTurnX}{\calc{\crusadeEndX-4.5mm}}
+
+		\drawArrow{(\crusadeStartX, \crusadeStartY) -- (\crusadeTurnX,\crusadeStartY) -- (\crusadeTurnX,\crusadeEndY) -- (\crusadeEndX,\crusadeEndY)}
+
+		% Power Struggles arrow
+		\newlength{\powerStartY} \setlength{\powerStartY}{\calc{\zposy{arrowPowerStruggleStart}sp + \arrowAdjustYAfterSubsub}}
+		\newlength{\powerStartX} \setlength{\powerStartX}{\calc{\zposx{arrowPowerStruggleStart}sp + \arrowToTextSpacing}}
+		\newlength{\powerEndY} \setlength{\powerEndY}{\calc{\zposy{arrowPowerStruggleEnd}sp + \arrowAdjustYBeforeSubsub}}
+		\newlength{\powerEndX} \setlength{\powerEndX}{\zposx{arrowPowerStruggleEnd}sp}
+		\newlength{\powerTurnX} \setlength{\powerTurnX}{\calc{\powerEndX-3.4mm}}
+
+		\drawArrow{(\powerStartX, \powerStartY) -- (\powerTurnX,\powerStartY) -- (\powerTurnX,\powerEndY) -- (\powerEndX,\powerEndY)}
+
+	\end{tikzpicture}
+\end{dynamiccontents*}
+
+\end{document}
