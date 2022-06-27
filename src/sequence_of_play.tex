@@ -11,7 +11,7 @@
 \newlength{\fhFirstPageShortCol}
 \setlength\fhFirstPageShortCol{\calc{\textheight-\fhNprInvasions-\fhPeaceSeq-\frameToFrameSpacing-\frameToTextSpacing}}
 
-\newlength{\fhManpower} \setlength\fhManpower{8\baselineskip}
+\newlength{\fhManpower} \setlength\fhManpower{9\baselineskip}
 \newlength{\fhImpInfluence} \setlength\fhImpInfluence{11\baselineskip}
 \newlength{\fhHreReligion} \setlength\fhHreReligion{10\baselineskip}
 \newlength{\fhBotDeck} \setlength\fhBotDeck{5\baselineskip}
@@ -26,7 +26,7 @@
 \newlength{\frameBotDeckY}
 \setlength{\frameBotDeckY}{\calc{\frameHreReligionY - \fhBotDeck - \frameToFrameSpacing}}
 \newlength{\frameCrusadeY}
-\setlength{\frameCrusadeY}{\calc{\frameBotDeckY - \fhCrusade - 2\frameToFrameSpacing}}
+\setlength{\frameCrusadeY}{\calc{\frameBotDeckY - \fhCrusade - \frameToFrameSpacing}}
 \newlength{\framePowerStruggleY}
 \setlength{\framePowerStruggleY}{\calc{\frameCrusadeY - \fhPowerStruggle - \frameToFrameSpacing}}
 
@@ -65,6 +65,9 @@
 
 \section*{Sequence \normal{\Large{(p.~8-11)}}}
 \subsection*{1. Draw Cards}
+\begin{itemize}
+	\item May not score Missions in Phase 1 (p.~42)
+\end{itemize}
 \subsubsection*{A. Reveal Events}
 \subsubsection*{B. Draw Action Cards}
 
@@ -173,7 +176,7 @@
 	\end{itemize}
 \end{itemize}
 
-\subsubsection*{D. Peace Resolutions\zsavepos{arrowPeaceSeqStart}}\framebreak%
+\subsubsection*{\zsavepos{arrowPeaceSeqStart}D. Peace Resolutions}%
 \begin{dynamiccontents*}{framePeaceSeq}
 	\begin{multicols}{2}
 		\subsubsection*{\zsavepos{arrowPeaceSeqEnd}Peace Resolution Sequence \normal{(p.~29)}}
@@ -465,10 +468,6 @@
 			\item Remove Truce/War on Vassalized Realms
 		\end{itemize}
 	\end{multicols}
-
-%	\vfill
-%	\begin{multicols}{2}
-%	\end{multicols}
 \end{dynamiccontents*}%
 %
 \begin{dynamiccontents*}{frameArrowsPageOne}
@@ -486,8 +485,8 @@
 	\drawArrow{(\nprStartX, \nprStartY) -- (\nprTurnX,\nprStartY) -- (\nprTurnX,\nprEndY) -- (\nprEndX,\nprEndY)}
 
 	% Peace Resolution arrow
-	\newlength{\peaceStartY} \setlength{\peaceStartY}{\calc{\zposy{arrowPeaceSeqStart}sp+3pt}}
-	\newlength{\peaceStartX} \setlength{\peaceStartX}{\calc{\zposx{arrowPeaceSeqStart}sp+\arrowToTextSpacing}}
+	\newlength{\peaceStartY} \setlength{\peaceStartY}{\calc{\zposy{arrowPeaceSeqStart}sp+\arrowAdjustYBeforeSubsub}}
+	\newlength{\peaceStartX} \setlength{\peaceStartX}{\calc{\zposx{arrowPeaceSeqStart}sp}}
 	\newlength{\peaceEndY} \setlength{\peaceEndY}{\calc{\zposy{arrowPeaceSeqEnd}sp-7pt}}
 	\newlength{\peaceEndX} \setlength{\peaceEndX}{\zposx{arrowPeaceSeqEnd}sp}
 	\newlength{\peaceTurnX} \setlength{\peaceTurnX}{\calc{\peaceEndX-3.5mm}}
@@ -671,16 +670,14 @@
 \begin{dynamiccontents*}{frameManpower}
 	\subsubsection*{Manpower \normal{(p.~23)}\zsavepos{arrowManpowerEnd}}
 	\begin{itemize}
-		\item Max 20
-		\item \botrule{Bots have min 3 (p.~3)}
-		\item When increases
-		\begin{itemize}
-			\item Add to Available \manpower
-		\end{itemize}
+		\item Indicated by Town/Vassal Tracks and +1\manpower tokens
+		\item Emperor has additional \manpower = \authority (p.~43)
+		\item Max 20, \botrule{Bots have min 3 (p.~3)}
+		\item When increases, add to Available \manpower
 		\item When decreases
 		\begin{itemize}
-			\item Rem. from Depl., Exh. or Avail. \manpower
-			\item \botrule{Bots rem. from Reserve first (p.~3)}
+			\item Remove from Depl., Exh. or Avail. \manpower
+			\item \botrule{Bots remove from Reserve first (p.~3)}
 		\end{itemize}
 	\end{itemize}
 \end{dynamiccontents*}
