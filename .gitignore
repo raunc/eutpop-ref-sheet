@@ -1,8 +1,15 @@
+# Temporary build files excluding output pdf
 *.pdf
 !pdf/*.pdf
 *.aux
 *.log
 *.synctex.gz
+*.out
 tmp
+
+# Editor settings
+.vscode
+
+# Aegir Games assets that I do not have permission to publish
 src/fonts/ThePriceOfPower
 src/images
