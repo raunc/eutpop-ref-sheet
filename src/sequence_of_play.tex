@@ -12,11 +12,11 @@
 \setlength\fhFirstPageShortCol{\calc{\textheight-\fhNprInvasions-\fhPeaceSeq-\frameToFrameSpacing-\frameToTextSpacing}}
 
 \newlength{\fhManpower} \setlength\fhManpower{9\baselineskip}
-\newlength{\fhImpInfluence} \setlength\fhImpInfluence{11\baselineskip}
+\newlength{\fhImpInfluence} \setlength\fhImpInfluence{10\baselineskip}
 \newlength{\fhHreReligion} \setlength\fhHreReligion{10\baselineskip}
 \newlength{\fhBotDeck} \setlength\fhBotDeck{5\baselineskip}
 \newlength{\fhCrusade} \setlength\fhCrusade{9\baselineskip}
-\newlength{\fhPowerStruggle} \setlength\fhPowerStruggle{8\baselineskip}
+\newlength{\fhPowerStruggle} \setlength\fhPowerStruggle{9\baselineskip}
 
 \newlength{\frameManpowerY} \setlength\frameManpowerY{\calc{\textheight - \fhManpower}}
 \newlength{\frameImpInfluenceY}
@@ -167,7 +167,7 @@
 	\end{enumerate}
 	\item In Areas with no \unrest
 	\begin{itemize}
-		\item If an Area with \unrest is Adj. by Land and \rebels will not be outnum. there by PRs
+		\item If an Area with \unrest is Adj. by Land \conj{and} \rebels will not be outnum. there by PRs
 		\begin{itemize}
 			\item Move all but 1 \rebel. Priority: 1. most \unrest; 2. most PR \towns; 3. \az
 			\item Resolve Battle immediately
@@ -307,7 +307,7 @@
 				\end{itemize}
 			\end{itemize}
 			\item Max \ducats demanded is 2× Tax Income of the Loser (after return of the Provinces)
-			\item PRs may discard \claim from Area(s) of gained Prov. to remove 2\unrest from same Area(s)
+			\item PRs may discard \claim from Area(s) of gained Prov. to remove 2 \unrest from same Area(s)
 			\item PRs may place \claim in each Area where they lost 1+ \town or \vassal
 		\end{itemize}
 
@@ -330,7 +330,7 @@
 			\item Victor may place 2 \influence in Loser's Realm
 			\item Add \unrest to all Provinces gained in Areas where the Victor Occupied no Provinces
 			\item Remove all Loser's \alliances/\marriages
-			\item Victor may discard \claim from Area(s) of gained \vassalprovinces to remove 2\unrest from same Area(s)
+			\item Victor may discard \claim from Area(s) of gained \vassalprovinces to remove 2 \unrest from same Area(s)
 		\end{itemize}
 
 		\subsubsection*{Force Conversion}
@@ -349,9 +349,9 @@
 			\item Loser must change State Religion and Rel. of Capit. Area to State Rel. of Victor
 			\item All Occupied Provinces must be returned
 			\item Victor gains \p3
-			\item Victor may add 2\influence in Loser's Cap. Area
+			\item Victor may add 2 \influence in Loser's Cap. Area
 			\item Loser loses \p5
-			\item Loser must remove 4\influence
+			\item Loser must remove 4 \influence
 		\end{itemize}
 
 		\subsubsection*{Humiliation}
@@ -383,7 +383,7 @@
 			\begin{itemize}
 				\item Loses \p2
 			\end{itemize}
-			\item Victor may discard \claims in Area(s) of gained Prov. to remove 2\unrest from same Area(s)
+			\item Victor may discard \claims in Area(s) of gained Prov. to remove 2 \unrest from same Area(s)
 			\item If Emp. enforces Full Annex. on Subject with the same State Religion (p.~45)
 			\begin{itemize}
 				\item Lose 1\authority
@@ -619,7 +619,7 @@
 	\item If \authority = 6, Emperor scores \p1
 	\item PRs with \idea{Abs. Mon.} and \stability>0, score \p1
 	\item Active Crusades\zsavepos{arrowCrusadeStart}
-	\item Power Struggles\zsavepos{arrowPowerStruggleStart}
+	\item Active Power Struggle\zsavepos{arrowPowerStruggleStart}
 	\item Remove Crusade/Excom. and \battlegroundarea tokens
 \end{itemize}
 \begin{dynamiccontents*}{frameCrusade}
@@ -650,6 +650,7 @@
 			\item \p1 for at least 1 \alliance/\marriage there
 		\end{itemize}
 		\item Additional criteria on the card
+		\item Discard the card
 	\end{itemize}
 \end{dynamiccontents*}
 
@@ -703,7 +704,7 @@
 		\item If already has it, PR 2nd to Pass gets it
 	\end{itemize}
 	\item Reset Round Status markers
-	\item \hspacezero\zsavepos{arrowBotDeckStart}\botrule{Reshuffle Bot deck (p.~3)}
+	\item \hspacezero\zsavepos{arrowBotDeckStart}\botrule{Reshuffle Bot decks (p.~3)}
 \end{itemize}
 \begin{dynamiccontents*}{frameImpInfluence}
 	\subsubsection*{Imperial Influence \normal{(p.~44)}\zsavepos{arrowImpInfluenceEnd}}
@@ -713,7 +714,7 @@
 		{\botrules
 		\item Bot priorities (tie breakers: 1. Areas with Bot's \allies; 2. \az) (p.~3)
 		\begin{itemize}
-			\item Elector Area where it would take the least \influence to have more \influence than any other PR
+			\item Elec. Area where it would take least \influence to have more \influence than any other PR
 			\item Any Elector Area not full
 			\item Any HRE Area not full
 		\end{itemize}
@@ -780,15 +781,13 @@
 	\end{itemize}
 	\item Score Missions from hand (no effects)
 	\item Score \prestige = Tax Income
-	\item Score \p1 per \core 
-	\item Score \p1 per \marriage
-	\item Score \p2 per \alliance
+	\item Score \p1 per \core, \p1 per \marriage, \p2 per \alliance
 	\item Papal Contr. scores \prestige = \# of Cath. PRs
 	\item Emperor scores \prestige = \authority
 	\item Score \prestige = 2 × \stability
 	\item Subtract \p1 per Tax Value of Occup. \towns
 	\item Subtract \p1 per \interest
-%	\item If equal \prestige, tie breakers: 1.~most \monarchpower, 2.~most \ducats%
+	\item PR with most \prestige wins, tie breakers: 1.~most \monarchpower, 2.~most \ducats%
 \end{itemize}
 
 \begin{dynamiccontents*}{frameArrowsPageThree}
