@@ -7,10 +7,18 @@
 
 \setlength\parskip{0.5\baselineskip}
 
+\newstaticframe[1]{\paperwidth}{\paperheight}{-30mm}{-30mm}[backgroundOverview]
+
 \begin{document}
 \thispagestyle{empty}
+\ifrenderbw
+\else
+  \begin{staticcontents*}{backgroundOverview}
+    \adjustbox{trim=0 0 {0.6666\width} 0,clip}{\includegraphics[height=\paperheight]{images/background.png}}
+  \end{staticcontents*}
+\fi
 
-\section*{EU:tPoP Reference Sheet}
+\sectionbg{EU:tPoP Reference Sheet}
 
 This is a reference sheet for those who want something more verbose than official Player Aid,
 but less verbose than Rules.
@@ -43,20 +51,24 @@ Latest version of PDFs and \LaTeX\xspace sources can be found at \href{https://g
   ~--~All pages joined in groups of 3 as described above.
   \item[\href{https://github.com/raunc/eutpop-ref-sheet/blob/main/pdf/eutpop\_ref\_sheet\_print\_1\_sided.pdf}{eutpop\_ref\_sheet\_print\_1\_sided.pdf}]
   ~--~Single pages in logical order.
+  \item[\href{https://github.com/raunc/eutpop-ref-sheet/blob/main/pdf/eutpop\_ref\_sheet\_print\_1\_sided\_bw.pdf}{eutpop\_ref\_sheet\_print\_1\_sided\_bw.pdf}]
+  ~--~Same as previous but without colored background and text.
   \item[\href{https://github.com/raunc/eutpop-ref-sheet/blob/main/pdf/eutpop\_ref\_sheet\_print\_2\_sided.pdf}{eutpop\_ref\_sheet\_print\_2\_sided.pdf}]
   ~--~Single pages reordered for 2-sided print as described above.
+  \item[\href{https://github.com/raunc/eutpop-ref-sheet/blob/main/pdf/eutpop\_ref\_sheet\_print\_2\_sided\_bw.pdf}{eutpop\_ref\_sheet\_print\_2\_sided\_bw.pdf}]
+  ~--~Same as previous but without colored background and text.
 \end{description}
 
 
 \subsection*{Formatting}
 
-Main Rules are written in black. These apply to both human players and bots,
+Main Rules are written in black (or {\color{redTextColor}red} in some cases). These apply to both human players and bots,
 unless inapplicable to bots (e.g bots do not deal with \ducats).
-\botrule{Bot Rules are written in dark gray. These are relevant only when bots are in play.}
+\botrule{Bot Rules are written in dark gray (or {\color{redBotTextColor}light red} in some cases). These are relevant only when bots are in play.}
 References to specific pages (e.g. \dprime(p.~2)\dprime) also follow the same colors.
 They are written in black when they refer to Main Rules and \botrule{in dark gray}
 when they refer to Bot Rules.
 
-\includepdf[pages=-,fitpaper]{../build/joined.pdf}
+\includepdf[pages=-,fitpaper]{../build/joined\filenamesuffix.pdf}
 
 \end{document}

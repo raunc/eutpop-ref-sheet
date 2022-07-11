@@ -77,38 +77,53 @@
 \newflowframe[3]{\columnwidth}{\fhThirdPageRightCol}{\rightColX}{\thirdPageRightColY}[thirdPageRightCol]
 
 % Text Frames
-\newdynamicframe*[1]{\textwidth}{\fhBattleSequence}{0mm}{0mm}[frameBattleSequence]
+\newdynamicframe[1]{\textwidth}{\fhBattleSequence}{0mm}{0mm}[frameBattleSequence]
 \newdynamicframe[1]{\columnwidth}{\fhBattleSeqNote}{\rightColX}{\frameBattleSeqNoteY}[frameBattleSeqNote]
 \setdynamicframe*{frameBattleSeqNote}{valign=b}
 
-\newdynamicframe*[1]{\columnwidth}{\fhImpManpower}{0mm}{\frameImpManpowerY}[frameImpManpower]
-\newdynamicframe*[1]{\columnwidth}{\fhActivatingDefHre}{0mm}{\frameActivatingDefHreY}[frameActivatingDefHre]
-\newdynamicframe*[1]{\columnwidth}{\fhDefHre}{\middleColX}{\frameDefHreY}[frameDefHre]
-\newdynamicframe*[1]{\columnwidth}{\fhHreIntWars}{\middleColX}{\frameHreIntWarsY}[frameHreIntWars]
+\newdynamicframe[1]{\columnwidth}{\fhImpManpower}{0mm}{\frameImpManpowerY}[frameImpManpower]
+\newdynamicframe[1]{\columnwidth}{\fhActivatingDefHre}{0mm}{\frameActivatingDefHreY}[frameActivatingDefHre]
+\newdynamicframe[1]{\columnwidth}{\fhDefHre}{\middleColX}{\frameDefHreY}[frameDefHre]
+\newdynamicframe[1]{\columnwidth}{\fhHreIntWars}{\middleColX}{\frameHreIntWarsY}[frameHreIntWars]
 
-\newdynamicframe*[2]{\fwTwoCols}{\fhDowRestrictions}{0mm}{\frameDowRestrictionsY}[frameDowRestrictions]
-\newdynamicframe*[2]{\fwTwoCols}{\fhCasusBelli}{0mm}{\frameCasusBelliY}[frameCasusBelli]
-\newdynamicframe*[2]{\fwTwoCols}{\fhDowOnBot}{0mm}{\frameDowOnBotY}[frameDowOnBot]
-\setdynamicframe*{frameDowOnBot}{bordercolor=botrulescolor}
-\newdynamicframe*[2]{\fwTwoCols}{\fhCallToArms}{0mm}{\frameCallToArmsY}[frameCallToArms]
-\newdynamicframe*[2]{\fwTwoCols}{\fhReceivingCta}{0mm}{0mm}[frameReceivingCta]
-\newdynamicframe*[2]{\columnwidth}{\fhNprWarfare}{\rightColX}{\frameNprWarfareY}[frameNprWarfare]
-\newdynamicframe*[2]{\columnwidth}{\fhArmiesFleets}{\rightColX}{0mm}[frameArmiesFleets]
+\newdynamicframe[2]{\fwTwoCols}{\fhDowRestrictions}{0mm}{\frameDowRestrictionsY}[frameDowRestrictions]
+\newdynamicframe[2]{\fwTwoCols}{\fhCasusBelli}{0mm}{\frameCasusBelliY}[frameCasusBelli]
+\newdynamicframe[2]{\fwTwoCols}{\fhDowOnBot}{0mm}{\frameDowOnBotY}[frameDowOnBot]
+\newdynamicframe[2]{\fwTwoCols}{\fhCallToArms}{0mm}{\frameCallToArmsY}[frameCallToArms]
+\newdynamicframe[2]{\fwTwoCols}{\fhReceivingCta}{0mm}{0mm}[frameReceivingCta]
+\newdynamicframe[2]{\columnwidth}{\fhNprWarfare}{\rightColX}{\frameNprWarfareY}[frameNprWarfare]
+\newdynamicframe[2]{\columnwidth}{\fhArmiesFleets}{\rightColX}{0mm}[frameArmiesFleets]
 
-\newdynamicframe*[3]{\columnwidth}{\fhWarCapacities}{0mm}{\frameWarCapacitiesY}[frameWarCapacities]
-\newdynamicframe*[3]{\columnwidth}{\fhNavalBridge}{\middleColX}{\frameNavalBridgeY}[frameNavalBridge]
-\newdynamicframe*[3]{\columnwidth}{\fhMilitaryAccess}{\middleColX}{0mm}[frameMilitaryAccess]
-\newdynamicframe*[3]{\columnwidth}{\fhShipsInPort}{\rightColX}{0mm}[frameShipsInPort]
+\newdynamicframe[3]{\columnwidth}{\fhWarCapacities}{0mm}{\frameWarCapacitiesY}[frameWarCapacities]
+\newdynamicframe[3]{\columnwidth}{\fhNavalBridge}{\middleColX}{\frameNavalBridgeY}[frameNavalBridge]
+\newdynamicframe[3]{\columnwidth}{\fhMilitaryAccess}{\middleColX}{0mm}[frameMilitaryAccess]
+\newdynamicframe[3]{\columnwidth}{\fhShipsInPort}{\rightColX}{0mm}[frameShipsInPort]
 
 % Arrows
 \newdynamicframe[1]{\textwidth}{\textheight}{\pagemarginleft}{-\pagemarginbottom}[frameArrowsPageOne]
 \newdynamicframe[2]{\textwidth}{\textheight}{\pagemarginleft}{-\pagemarginbottom}[frameArrowsPageTwo]
 \newdynamicframe[3]{\textwidth}{\textheight}{\pagemarginleft}{-\pagemarginbottom}[frameArrowsPageThree]
 
+% Table colors
+\usepackage{colortbl}
+\usepackage{xcolor}
+\ifrenderbw
+	\definecolor{tblbgRecruitRegular}{RGB}{255,255,255}
+	\definecolor{tblbgRecruitMerc}{RGB}{255,255,255}
+	\definecolor{tblbgRecruitAllied}{RGB}{255,255,255}
+\else
+	\definecolor{tblbgRecruitRegular}{RGB}{217,238,204}
+	\definecolor{tblbgRecruitMerc}{RGB}{253,228,151}
+	\definecolor{tblbgRecruitAllied}{RGB}{222,221,222}
+\fi
+
+\definecolor{colorMilitary}{RGB}{239,140,141}
+
 \begin{document}
+\addbackground
 \addfooter
 
-\subsection*{Military Actions}
+\subsectionstriped{colorMilitary}{Military Actions}
 \actionHeadingNoSpace{Declare War \normal{(1\milpower) (p.~16)}}
 \begin{enumerate}
 	\item Pick target Realm(s), place War tokens\zsavepos{arrowDowRestrictionsStart}
@@ -135,7 +150,7 @@
 	\item If no Battles, may \action{Activate} or \action{Recruit Units} (no \milpower cost)
 \end{enumerate}
 
-\begin{dynamiccontents*}{frameDowRestrictions}
+\begin{dynamiccontents*}{frameDowRestrictions}\begin{eubox}{\fhDowRestrictions}
 	\begin{multicols}{2}
 		\subsubsection*{\zsavepos{arrowDowRestrictionsEnd}Restrictions on DoW \normal{(p.~22)}}
 		\begin{enumerate}[label=\strong{\alph*}.]
@@ -156,8 +171,8 @@
 			\item Events may specify other exceptions
 		\end{itemize}
 	\end{multicols}
-\end{dynamiccontents*}
-\begin{dynamiccontents*}{frameCasusBelli}
+\end{eubox}\end{dynamiccontents*}
+\begin{dynamiccontents*}{frameCasusBelli}\begin{eubox}{\fhCasusBelli}
 	\begin{multicols}{2}
 		\subsubsection*{\zsavepos{arrowCbEnd}Casus Belli \normal{(p.~22)}}
 		\strong{Conquest (Claim)} -- Have \claim in Area where target Owns Provinces\\
@@ -189,9 +204,9 @@
 		\end{itemize}
 		\strong{Imperial Liberation} -- You are the Emperor and the non-HRE target Controls Provinces or has Vassals in HRE
 	\end{multicols}
-\end{dynamiccontents*}
+\end{eubox}\end{dynamiccontents*}
 
-\begin{dynamiccontents*}{frameDowOnBot}
+\begin{dynamiccontents*}{frameDowOnBot}\begin{eubox}[botrulescolor]{\fhDowOnBot}
 	{\botrules
 	\begin{multicols}{2}
 		\subsubsection*{\zsavepos{arrowDowOnBotEnd}DoW on Bot or their Ally \normal{(p.~4)}}
@@ -218,8 +233,8 @@
 		\end{itemize}
 	\end{multicols}
   }
-\end{dynamiccontents*}
-\begin{dynamiccontents*}{frameCallToArms}
+\end{eubox}\end{dynamiccontents*}
+\begin{dynamiccontents*}{frameCallToArms}\begin{eubox}{\fhCallToArms}
 	\begin{multicols}{2}
 		\actionHeadingNoSpace{Call to Arms \normal{(minor Action) (p.~13)}}
 		\begin{itemize}
@@ -249,8 +264,8 @@
 			\end{itemize}
 		\end{itemize}
 	\end{multicols}
-\end{dynamiccontents*}
-\begin{dynamiccontents*}{frameReceivingCta}
+\end{eubox}\end{dynamiccontents*}
+\begin{dynamiccontents*}{frameReceivingCta}\begin{eubox}{\fhReceivingCta}
 	\begin{multicols}{2}
 		\subsubsection*{Receiving a CtA \normal{(p.~32-33)}}
 		\begin{itemize}
@@ -288,9 +303,9 @@
 			\item Place Truce tokens, unless former Ally is PR who chose to place a CB
 		\end{itemize}
 	\end{multicols}
-\end{dynamiccontents*}
+\end{eubox}\end{dynamiccontents*}
 
-\begin{dynamiccontents*}{frameHreIntWars}
+\begin{dynamiccontents*}{frameHreIntWars}\begin{eubox}{\fhHreIntWars}
 	\subsubsection*{HRE Int. Wars with no CB \normal{(p.~45)}\zsavepos{arrowHreIntWarsEnd}}
 	\begin{itemize}
 		\item Emp.'s DoW on Subject
@@ -305,8 +320,8 @@
 			\item \botrule{Bot Emp. defends targeted Subj. (p.~6)}\zsavepos{arrowBotDefSubjectEnd}
 		\end{itemize}
 	\end{itemize}
-\end{dynamiccontents*}
-\begin{dynamiccontents*}{frameDefHre}
+\end{eubox}\end{dynamiccontents*}
+\begin{dynamiccontents*}{frameDefHre}\begin{eubox}{\fhDefHre}
 	\subsubsection*{Defending the HRE \normal{(p.~44)}\zsavepos{arrowHreCtaEnd}}
 	\smallheading{External Realm's DoW on Imp. Subject}
 	\begin{itemize}
@@ -338,8 +353,8 @@
 			\item \hspacezero\zsavepos{arrowActivatingDefHreStartTwo}May activate \emph{Defending the HRE}
 		\end{itemize}
 	\end{itemize}
-\end{dynamiccontents*}
-\begin{dynamiccontents*}{frameActivatingDefHre}
+\end{eubox}\end{dynamiccontents*}
+\begin{dynamiccontents*}{frameActivatingDefHre}\begin{eubox}{\fhActivatingDefHre}
 	\subsubsection*{Activating Def. the HRE \normal{(p.~44)}\zsavepos{arrowActivatingDefHreEnd}}
 	\begin{itemize}
 		\item Tag \emph{Defending the HRE} slot
@@ -360,9 +375,9 @@
 		\end{itemize}
 		\item \botrule{\strong{Bot Imperial Subject} loses 1\botpower, unless at War, including this DoW (p.~6)}
 	\end{itemize}
-\end{dynamiccontents*}
+\end{eubox}\end{dynamiccontents*}
 
-\begin{dynamiccontents*}{frameImpManpower}
+\begin{dynamiccontents*}{frameImpManpower}\begin{eubox}{\fhImpManpower}
 	\subsubsection*{\zsavepos{arrowImpManpowerEnd}Imperial \manpower in Battles \normal{(p.~44)}}
 	\begin{itemize}
 		\item Works like Allied Units
@@ -375,14 +390,14 @@
 		\item Add as Infantry when Battle starts
 		\item Return surviving Units to Imperial \manpower
 	\end{itemize}
-\end{dynamiccontents*}
+\end{eubox}\end{dynamiccontents*}
 
 \begin{dynamiccontents*}{frameBattleSeqNote}
 	\botrule{
 		NOTE: If Bot is Attacker or Main Def., then Battle Seq. has differences not covered here
 	}
 \end{dynamiccontents*}
-\begin{dynamiccontents*}{frameBattleSequence}
+\begin{dynamiccontents*}{frameBattleSequence}\begin{eubox}{\fhBattleSequence}
 	\begin{multicols}{3}
 		\subsubsection*{Battle Sequence \normal{(p.~26-28)}}
 		\begin{itemize}
@@ -532,7 +547,7 @@
 			\item Victorious Active PR gains 1\milpower (max 1 per Turn)
 		\end{itemize}
 	\end{multicols}
-\end{dynamiccontents*}
+\end{eubox}\end{dynamiccontents*}
 
 \begin{dynamiccontents*}{frameArrowsPageOne}
 	% Must be before the page ends but after all \savepos in other dynamic frames
@@ -668,7 +683,7 @@
 \end{dynamiccontents*}
 
 
-\begin{dynamiccontents*}{frameNprWarfare}
+\begin{dynamiccontents*}{frameNprWarfare}\begin{eubox}{\fhNprWarfare}
 	\subsubsection*{Warfare vs NPRs \normal{(p.~36)}}
 	\begin{itemize}
 		\item \# of def. \strong{NPR Units} = MC or NC
@@ -693,9 +708,9 @@
 			\item Some Ports are Inactive (grayed out) until they have a \dnpr, \town or \vassal
 		\end{itemize}
 	\end{itemize}
-\end{dynamiccontents*}
+\end{eubox}\end{dynamiccontents*}
 
-\begin{dynamiccontents*}{frameWarCapacities}
+\begin{dynamiccontents*}{frameWarCapacities}\begin{eubox}{\fhWarCapacities}
 	\subsubsection*{War Capacities \normal{(p.~22-23)}}
 	\begin{itemize}
 		\item A Province may contribute to MC/NC once per Turn (but for both)
@@ -718,7 +733,7 @@
 			\item Occupied Ports
 		\end{itemize}
 	\end{itemize}
-\end{dynamiccontents*}
+\end{eubox}\end{dynamiccontents*}
 
 \actionHeading{Recruit Units \normal{(1\milpower + X\ducats) (p.~17)}}
 \begin{itemize}
@@ -750,10 +765,10 @@
 \smallheading{Costs}
 \begin{tabularx}{\columnwidth}{ | l | C | C | C | }
 	\hline
-	\null & \strong{Regular} & \strong{Merc.} & \strong{Allied} \\ \hline
-	Infantry & 2\ducats & 4\ducats & free \\ \hline
-	Cavalry & 5\ducats & 7\ducats & 3\ducats \\ \hline
-	Artillery & 6\ducats & 8\ducats & - \\ \hline
+	\null & \cellcolor{tblbgRecruitRegular} \strong{Regular} & \cellcolor{tblbgRecruitMerc} \strong{Merc.} & \cellcolor{tblbgRecruitAllied} \strong{Allied} \\ \hline
+	Infantry & \cellcolor{tblbgRecruitRegular} 2\ducats & \cellcolor{tblbgRecruitMerc} 4\ducats & \cellcolor{tblbgRecruitAllied} free \\ \hline
+	Cavalry & \cellcolor{tblbgRecruitRegular} 5\ducats & \cellcolor{tblbgRecruitMerc} 7\ducats & \cellcolor{tblbgRecruitAllied} 3\ducats \\ \hline
+	Artillery & \cellcolor{tblbgRecruitRegular} 6\ducats & \cellcolor{tblbgRecruitMerc} 8\ducats & - \\ \hline
 	Light Ship & 4\ducats & - & - \\ \hline
 	Heavy Ship & 10\ducats & - & - \\ \hline
 	Galley & 2\ducats & - & - \\ \hline
@@ -765,7 +780,7 @@
 	\item Area may not contain any Hostile Units
 \end{itemize}
 
-\begin{dynamiccontents*}{frameArmiesFleets}
+\begin{dynamiccontents*}{frameArmiesFleets}\begin{eubox}{\fhArmiesFleets}
 	\subsubsection*{Armies/Fleets \normal{(p.~24)}}
 	\begin{itemize}
 		\item To deploy an Army, assign Unit(s) to it 
@@ -780,7 +795,7 @@
 		\end{itemize}
 		\item If it becomes empty, remove from map
 	\end{itemize}
-\end{dynamiccontents*}
+\end{eubox}\end{dynamiccontents*}
 
 \actionHeading{Activate Units \normal{(p.~16)}}
 \begin{itemize}
@@ -921,7 +936,7 @@
 	\item May choose to \strong{fight Pirates} in a Trade Node Adjacent to Activated Ships (p.~28)
 \end{itemize}
 
-\begin{dynamiccontents*}{frameShipsInPort}
+\begin{dynamiccontents*}{frameShipsInPort}\begin{eubox}{\fhShipsInPort}
 	\subsubsection*{Ships in Port \normal{(p.~26)}}
 	\begin{itemize}
 		\item Max 2 in a Small Port
@@ -934,9 +949,9 @@
 			\item If can't move, must be disbanded 
 		\end{itemize}
 	\end{itemize}
-\end{dynamiccontents*}
+\end{eubox}\end{dynamiccontents*}
 
-\begin{dynamiccontents*}{frameNavalBridge}
+\begin{dynamiccontents*}{frameNavalBridge}\begin{eubox}{\fhNavalBridge}
 	\subsubsection*{\zsavepos{arrowNavalBridgeOneEnd}Naval Bridge \normal{(p.~26)}\zsavepos{arrowNavalBridgeTwoEnd}}
 	\begin{itemize}
 		\item Across any number of Sea Zones
@@ -948,9 +963,9 @@
 			\item Disembarking in a Hostile Area where the Ally has no Enemies
 		\end{itemize}
 	\end{itemize}
-\end{dynamiccontents*}
+\end{eubox}\end{dynamiccontents*}
 
-\begin{dynamiccontents*}{frameMilitaryAccess}
+\begin{dynamiccontents*}{frameMilitaryAccess}\begin{eubox}{\fhMilitaryAccess}
 	\subsubsection*{\zsavepos{arrowMilAccessEnd}Military Access \normal{(p.~25)}}
 	\begin{itemize}
 		\item In Areas with 1+ Province whose \emph{de jure} or \emph{de facto} owner is \strong{Friendly} or \strong{Enemy}
@@ -973,7 +988,7 @@
 			\end{itemize}
 		\end{itemize}
 	\end{itemize}
-\end{dynamiccontents*}
+\end{eubox}\end{dynamiccontents*}
 \begin{dynamiccontents*}{frameArrowsPageThree}
 	\begin{tikzpicture}
 	\useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);

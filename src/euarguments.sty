@@ -1,0 +1,14 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{euarguments}[2022/07/14 EU:tPoP Reference Sheet build arguments]
+
+% For conditional macro definitions
+\ifcsname ifrenderbw\endcsname\else
+  \expandafter\let\csname ifrenderbw\expandafter\endcsname \csname iffalse\endcsname
+\fi
+
+% Append _bw suffix to filenames when rendering black-and-white
+\ifrenderbw
+	\newcommand\filenamesuffix{_bw}
+\else
+	\newcommand\filenamesuffix{}
+\fi

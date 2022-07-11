@@ -1,11 +1,13 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesPackage{eucommon}[2022/07/10 EU:tPoP Reference Sheet common styles]
+\ProvidesPackage{eucommon}[2022/07/16 EU:tPoP Reference Sheet common styles]
 
-\newcommand{\refSheetVersion}{2022-07-10}
+\newcommand{\refSheetVersion}{2022-07-16}
 \newcommand{\mainRulesVersion}{1.0}
 \newcommand{\botRulesVersion}{1.0}
 
 \newcommand{\calc}[1]{\dimexpr(#1)\relax}
+
+\usepackage{euarguments}
 
 %% Layout %%
 \RequirePackage[a4paper, portrait, margin=10mm]{geometry}
@@ -26,8 +28,30 @@
 \newlength{\middleColX} \setlength\middleColX{\calc{\columnwidth + \columnsep}}
 \newlength{\rightColX} \setlength\rightColX{\calc{2\columnwidth + 2\columnsep}}
 
-% Footer
+% Background, must be defined before other frames
 \RequirePackage{flowfram}
+\RequirePackage{graphicx}
+\RequirePackage{adjustbox}
+\newstaticframe[1]{\paperwidth}{\paperheight}{-10mm}{-10mm}[background]
+\newstaticframe[2]{\paperwidth}{\paperheight}{-10mm}{-10mm}[backgroundTwo]
+\newstaticframe[3]{\paperwidth}{\paperheight}{-10mm}{-10mm}[backgroundThree]
+\ifrenderbw
+	\newcommand{\addbackground}{}
+\else
+	\newcommand{\addbackground}{
+		\begin{staticcontents*}{background}%
+			\adjustbox{trim=0 0 {0.6666\width} 0,clip}{\includegraphics[height=\paperheight]{images/background.png}}
+		\end{staticcontents*}
+		\begin{staticcontents*}{backgroundTwo}%
+			\adjustbox{trim={0.3333\width} 0 {0.3333\width} 0,clip}{\includegraphics[height=\paperheight]{images/background.png}}
+		\end{staticcontents*}
+		\begin{staticcontents*}{backgroundThree}%
+			\adjustbox{trim={0.6667\width} 0 0 0,clip}{\includegraphics[height=\paperheight]{images/background.png}}
+		\end{staticcontents*}
+	}
+\fi
+
+% Footer
 \newstaticframe[all]{\textwidth}{6pt}{0mm}{-6mm}[footer]
 \newcommand{\addfooter}{
 	\begin{staticcontents*}{footer}
@@ -35,17 +59,53 @@
 	\end{staticcontents*}
 }
 
-% Arrows
+% Dynamic frames content wrapper to get transparent colored background
+\RequirePackage{tcolorbox}
+\tcbuselibrary{skins}
+\newlength{\boxborder} \setlength{\boxborder}{0.8pt}
+\newlength{\boxpadding} \setlength{\boxpadding}{2.4pt}
+\newlength{\boxextrude} \setlength{\boxextrude}{\calc{\boxborder + \boxpadding}}
+\ifrenderbw
+	\newcommand\euboxopacityback{0}
+\else
+	\newcommand\euboxopacityback{0.5}
+\fi
+\newtcolorbox{eubox}[2][black]{% 1 - frame color (optional), 2 - height
+	standard jigsaw,
+	height=\calc{#2 + 2\boxextrude},
+	leftright skip=\calc{-\boxextrude},
+	colframe=#1,
+	colback=white,
+	opacityback=\euboxopacityback,
+	left*=0mm,
+	top=0mm,
+	right*=0mm,
+	bottom=0mm,
+	boxsep=0mm,
+	boxrule=\boxborder,
+	extrude top by=\boxextrude,
+	extrude bottom by=\boxextrude,
+	sharp corners,
+}
+
+%% Arrows
 \RequirePackage{tikz}
 \usetikzlibrary{arrows.meta}
 \RequirePackage[user,pagelayout,savepos]{zref}
+
+\RequirePackage{xcolor}
+\ifrenderbw
+	\definecolor{arrowcolor}{gray}{0.7}
+\else
+	\definecolor{arrowcolor}{RGB}{206,196,182}
+\fi
 
 \newlength{\pagemarginleft}
 \newlength{\pagemarginbottom}
 \computeleftedgeodd{\pagemarginleft}
 \computebottomedge{\pagemarginbottom}
 
-\newcommand{\arrowwidth}{0.8pt}
+\newcommand{\arrowwidth}{1.6pt}
 \newcommand{\arrowradius}{1mm}
 \tikzset{
 	myarrow/.tip={Stealth[length=3mm]},
@@ -89,21 +149,69 @@ BoldFont = *-Bold,
 ]
 \RequirePackage{tpopicons}
 
-%% Colors
-\RequirePackage{xcolor}
-\definecolor{arrowcolor}{gray}{0.7}
-\definecolor{botrulescolor}{gray}{0.4}
-
 %% Text styles %%
 \RequirePackage[none]{hyphenat}
 \RequirePackage{microtype}
 \RequirePackage[document]{ragged2e}
 \RequirePackage{titlesec}
-\titleformat*{\section}{\huge\cinzel\fontseries{sb}\selectfont}
+
+% Colors
+\definecolor{botrulescolor}{gray}{0.4}
+\definecolor{redTextColor}{RGB}{210,32,39}
+\colorlet{redBotTextColor}{redTextColor!60!white}
+
+\ifrenderbw
+	\colorlet{sectionColor}{black}
+	\colorlet{sectionBgColor}{white}
+	\colorlet{sectionBotColor}{botrulescolor}
+	\colorlet{sectionBgBotColor}{white}
+	\colorlet{subsectionColor}{black}
+	\colorlet{subsectionBotColor}{botrulescolor}
+
+	\colorlet{peaceReqColor}{black}
+\else
+	\colorlet{sectionColor}{white}
+	\colorlet{sectionBgColor}{redTextColor}
+	\colorlet{sectionBotColor}{white}
+	\colorlet{sectionBgBotColor}{redBotTextColor}
+	\colorlet{subsectionColor}{redTextColor}
+	\colorlet{subsectionBotColor}{redBotTextColor}
+
+	\colorlet{peaceReqColor}{redTextColor}
+\fi
+
+% Headings
+\titleformat*{\section}{\huge\cinzel\bfseries\selectfont\color{sectionColor}}
 \titlespacing*{\section}{0mm}{4.2mm}{2.1mm}
 
-\titleformat*{\subsection}{\Large\cinzel\fontseries{sb}\selectfont}
+\newcommand{\sectionbg}[2][sectionBgColor]{% 1 - background color (optional), 2 - text
+	\section*{%
+		\colorbox{#1}{%
+			\makebox[\calc{\columnwidth - 2\fboxsep}]{#2\hfill}%
+		}%
+	}%
+}
+
+\newcommand{\sectionbgbot}[1]{\sectionbg[sectionBgBotColor]{\textcolor{sectionBotColor}{#1}}}
+
+\titleformat*{\subsection}{\Large\cinzel\bfseries\selectfont\color{subsectionColor}}
 \titlespacing*{\subsection}{0mm}{2.1mm}{0mm}
+
+\newcommand{\subsectionbot}[1]{\subsection*{\color{subsectionBotColor}#1}}
+
+\newlength\stripeheight \setlength\stripeheight{1.5mm}
+\ifrenderbw
+	\newcommand{\subsectionstriped}[2]{\subsection*{#2}}
+\else
+	\newcommand{\subsectionstriped}[2]{% 1 - stripe color, 2 - text
+		\subsection*{%
+			\begin{spacing}{0}%
+				\textcolor{#1}{\rule[14.4pt]{\columnwidth}{\stripeheight}}%
+			\end{spacing}%
+			#2
+		}
+	}
+\fi
 
 \titleformat*{\subsubsection}{\large\bfseries}
 \titlespacing*{\subsubsection}{0mm}{0mm}{0mm}
@@ -115,6 +223,10 @@ BoldFont = *-Bold,
 \newcommand{\actionHeadingNoSpace}[1]{
 	\subsubsection*{\action{#1}}
 }
+
+% Used for refs in headings to distinguish refs from heading
+\newcommand{\rulesref}[1]{\color{black}\normal{#1}}
+\newcommand{\botrulesref}[1]{\color{botrulescolor}\normal{#1}}
 
 \newcommand{\smallheading}[1]{\strong{#1}\\}
 
@@ -147,3 +259,4 @@ BoldFont = *-Bold,
 \newcolumntype{C}{>{\centering\arraybackslash}X}
 \renewcommand{\arraystretch}{0.9}
 \setlength\tabcolsep{0.7mm}
+\setlength\arrayrulewidth{0.6pt}

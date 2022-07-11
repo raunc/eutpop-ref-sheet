@@ -13,4 +13,7 @@ build
 
 # Aegir Games assets that I do not have permission to publish
 src/fonts/ThePriceOfPower
-src/images
+src/images/*
+
+# Images that should not be ignored
+!src/images/background.png

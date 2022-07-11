@@ -1,12 +1,13 @@
 \documentclass{article}
 \usepackage{pdfpages}
 \usepackage{geometry}
+\usepackage{euarguments}
 
 \geometry{papersize={630mm,297mm}}
 
 \begin{document}
-	\includepdf[pages={1-3}, nup=3x1]{../build/sequence_of_play.pdf}
-	\includepdf[pages={1-3}, nup=3x1]{../build/actions.pdf}
-	\includepdf[pages={1-3}, nup=3x1]{../build/mil_actions.pdf}
-	\includepdf[pages={1-3}, nup=3x1]{../build/other_rules.pdf}
+	\includepdf[pages={1-3}, nup=3x1]{../build/sequence_of_play\filenamesuffix.pdf}
+	\includepdf[pages={1-3}, nup=3x1]{../build/actions\filenamesuffix.pdf}
+	\includepdf[pages={1-3}, nup=3x1]{../build/mil_actions\filenamesuffix.pdf}
+	\includepdf[pages={1-3}, nup=3x1]{../build/other_rules\filenamesuffix.pdf}
 \end{document}

@@ -8,7 +8,9 @@ It does not include setup rules and some things that are already presented in a 
 
 * [eutpop_ref_sheet.pdf](./pdf/eutpop_ref_sheet.pdf) - Pages joined on 3xA4-size sheets, preceded by an additional page for general information.
 * [eutpop_ref_sheet_print_1_sided.pdf](./pdf/eutpop_ref_sheet_print_1_sided.pdf) - Single pages in logical order.
+* [eutpop_ref_sheet_print_1_sided_bw.pdf](./pdf/eutpop_ref_sheet_print_1_sided_bw.pdf) - Same as previous but without colored background and text.
 * [eutpop_ref_sheet_print_2_sided.pdf](./pdf/eutpop_ref_sheet_print_2_sided.pdf) - Single pages reordered for 2-sided print.
+* [eutpop_ref_sheet_print_2_sided_bw.pdf](./pdf/eutpop_ref_sheet_print_2_sided_bw.pdf) - Same as previous but without colored background and text.
 
 ## Build
 
@@ -17,7 +19,7 @@ PDF generation is currently tested only on Ubuntu 18.04.
 Install dependencies:
 
 ```shell
-apt-get install make texlive-latex-base texlive-latex-recommended texlive-latex-extra texlive-luatex
+apt-get install make texlive-latex-base texlive-latex-recommended texlive-latex-extra texlive-luatex imagemagick
 ```
 
 Build all by running make:

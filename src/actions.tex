@@ -52,27 +52,35 @@
 \newflowframe[3]{\columnwidth}{\fhThirdPageRightCol}{\rightColX}{\thirdPageRightColY}[thirdPageRightCol]
 
 % Text Frames
-\newdynamicframe*[1]{\fwTwoCols}{\fhEventGuidelines}{\middleColX}{\calc{\textheight - \fhEventGuidelines}}[frameEventGuidelines]
-\newdynamicframe*[1]{\columnwidth}{\fhMarriage}{\middleColX}{\frameMarriageY}[frameMarriage]
+\newdynamicframe[1]{\fwTwoCols}{\fhEventGuidelines}{\middleColX}{\calc{\textheight - \fhEventGuidelines}}[frameEventGuidelines]
+\newdynamicframe[1]{\columnwidth}{\fhMarriage}{\middleColX}{\frameMarriageY}[frameMarriage]
 
-\newdynamicframe*[2]{\textwidth}{\fhSecondaryEventEffects}{0mm}{\frameSecondaryEventEffectsY}[frameSecondaryEventEffects]
-\newdynamicframe*[2]{\columnwidth}{\fhGovFormIdeas}{0mm}{\frameGovFormIdeasY}[frameGovFormIdeas]
-\newdynamicframe*[2]{\columnwidth}{\fhDistantTrade}{0mm}{\frameDistantTradeY}[frameDistantTrade]
+\newdynamicframe[2]{\textwidth}{\fhSecondaryEventEffects}{0mm}{\frameSecondaryEventEffectsY}[frameSecondaryEventEffects]
+\newdynamicframe[2]{\columnwidth}{\fhGovFormIdeas}{0mm}{\frameGovFormIdeasY}[frameGovFormIdeas]
+\newdynamicframe[2]{\columnwidth}{\fhDistantTrade}{0mm}{\frameDistantTradeY}[frameDistantTrade]
 
-\newdynamicframe*[3]{\fwTwoCols}{\fhTrade}{\middleColX}{0mm}[frameTrade]
-\newdynamicframe*[3]{\columnwidth}{\fhBotTrade}{\rightColX}{\frameBotTradeY}[frameBotTrade]
-\setdynamicframe*{frameBotTrade}{bordercolor=botrulescolor}
-\newdynamicframe*[3]{\columnwidth}{\fhActionCards}{\rightColX}{\frameActionCardsY}[frameActionCards]
+\newdynamicframe[3]{\fwTwoCols}{\fhTrade}{\middleColX}{0mm}[frameTrade]
+\newdynamicframe[3]{\columnwidth}{\fhBotTrade}{\rightColX}{\frameBotTradeY}[frameBotTrade]
+\newdynamicframe[3]{\columnwidth}{\fhActionCards}{\rightColX}{\frameActionCardsY}[frameActionCards]
 
 % Arrows
 \newdynamicframe[1]{\textwidth}{\textheight}{\pagemarginleft}{-\pagemarginbottom}[frameArrowsPageOne]
 \newdynamicframe[2]{\textwidth}{\textheight}{\pagemarginleft}{-\pagemarginbottom}[frameArrowsPageTwo]
 
+% Section colors
+\definecolor{colorGeneric}{RGB}{145,143,143}
+\definecolor{colorMinor}{RGB}{145,143,143}
+\definecolor{colorDiplo}{RGB}{131,161,218}
+\definecolor{colorAdmin}{RGB}{128,209,143}
+\definecolor{colorPapal}{RGB}{147,155,96}
+\definecolor{colorHre}{RGB}{255,255,255}
+
 \begin{document}
+\addbackground
 \addfooter
 
-\section*{Actions}
-\subsection*{Generic Actions}
+\sectionbg{Actions}
+\subsectionstriped{colorGeneric}{Generic Actions}
 
 \actionHeadingNoSpace{Event \normal{(p.~12)}}
 \begin{itemize}
@@ -91,7 +99,7 @@
 	\end{itemize}
 	\item Flip a face-down Event, if any remain
 \end{enumerate}
-\begin{dynamiccontents*}{frameEventGuidelines}
+\begin{dynamiccontents*}{frameEventGuidelines}\begin{eubox}{\fhEventGuidelines}
 	\begin{multicols}{2}
 		\subsubsection*{General Event guidelines \normal{(p.~40)}}
 		\begin{itemize}
@@ -188,8 +196,8 @@
 			\item PR that has Passed cannot Declare War
 		\end{itemize}
 	\end{multicols}
-\end{dynamiccontents*}
-\begin{dynamiccontents*}{frameSecondaryEventEffects}
+\end{eubox}\end{dynamiccontents*}
+\begin{dynamiccontents*}{frameSecondaryEventEffects}\begin{eubox}{\fhSecondaryEventEffects}
 	\begin{multicols}{3}
 		\subsubsection*{Secondary Event Effects \normal{(p.~41)}}
 		\smallheading{Native Uprising \eventIcon{native_uprising}}
@@ -321,7 +329,7 @@
 			\item Place \battlegroundareas on Areas named on the card
 		\end{itemize}
 	\end{multicols}
-\end{dynamiccontents*}
+\end{eubox}\end{dynamiccontents*}
 
 \actionHeading{Player-to-player Diplomacy \normal{(p.~12)}}
 \begin{itemize}
@@ -360,7 +368,7 @@
 	\item Pay 1\diplopower for a private 3-minute conference
 	\item All other communication must be public
 \end{itemize}
-\begin{dynamiccontents*}{frameMarriage}
+\begin{dynamiccontents*}{frameMarriage}\begin{eubox}{\fhMarriage}
 	\subsubsection*{Eligible Marriage Partners \normal{(p.~32)}}
 	\begin{itemize}
 		\item Christians may Marry only other Christ.
@@ -368,7 +376,7 @@
 		\item Revolutionary PRs may not Marry
 		\item PR may not Marry other PR's Vassals
 	\end{itemize}
-\end{dynamiccontents*}
+\end{eubox}\end{dynamiccontents*}
 
 \actionHeading{Change National Focus \normal{(p.~13)}}
 \begin{itemize}
@@ -404,12 +412,12 @@
 	\end{itemize}
 	\item If first \claim on a Distant Continent, add Trade Cards\zsavepos{arrowDistantTradeLeftStartTwo}
 \end{itemize}
-\begin{dynamiccontents*}{frameDistantTrade}
+\begin{dynamiccontents*}{frameDistantTrade}\begin{eubox}{\fhDistantTrade}
 	\subsubsection*{\zsavepos{arrowDistantTradeLeftEnd}Distant Trade \normal{(p.~35)}\zsavepos{arrowDistantTradeRightEnd}}
 	\begin{itemize}
 		\item When the first \claim/\dnpr is placed on a Distant Continent, add matching Trade Cards and shuffle Trade Deck, including discard pile
 	\end{itemize}
-\end{dynamiccontents*}
+\end{eubox}\end{dynamiccontents*}
 
 \begin{dynamiccontents*}{frameArrowsPageOne}
 	% Must be before the page ends but after all \savepos in other dynamic frames
@@ -443,7 +451,7 @@
 	\newlength{\distantTradeLeftTurnX} \setlength{\distantTradeLeftTurnX}{\calc{\distantTradeLeftEndX - 4mm}}
 	\drawArrow{(0mm, \distantTradeLeftStartOneYContinue) -- (\distantTradeLeftTurnX, \distantTradeLeftStartOneYContinue) -- (\distantTradeLeftTurnX,\distantTradeLeftEndY)  -- (\distantTradeLeftEndX,\distantTradeLeftEndY)}
 	
-	\drawLine{(0mm,\distantTradeLeftStartTwoYContinue) -- (\distantTradeLeftTurnX,\distantTradeLeftStartTwoYContinue) -- (\distantTradeLeftTurnX,\distantTradeLeftEndY) -- (\distantTradeLeftEndX,\distantTradeLeftEndY)}
+	\drawArrow{(0mm,\distantTradeLeftStartTwoYContinue) -- (\distantTradeLeftTurnX,\distantTradeLeftStartTwoYContinue) -- (\distantTradeLeftTurnX,\distantTradeLeftEndY) -- (\distantTradeLeftEndX,\distantTradeLeftEndY)}
 
 	% Right Distant Trade arrow
 	\newlength{\distantTradeRightStartY} \setlength{\distantTradeRightStartY}{\calc{\zposy{arrowDistantTradeRightStart}sp + \arrowAdjustYText}}
@@ -493,7 +501,7 @@
 	\item Score \p2
 	\item If ≤2 other PRs have it, they score \p1
 \end{itemize}
-\begin{dynamiccontents*}{frameGovFormIdeas}
+\begin{dynamiccontents*}{frameGovFormIdeas}\begin{eubox}{\fhGovFormIdeas}
 	\subsubsection*{Government Form Ideas \normal{(p.~21)}}
 	\begin{itemize}
 		\item Max 1 at a time
@@ -504,23 +512,22 @@
 		\end{itemize}
 		\item If \authority ≥ 3, Imperial Subjects may not \action{Research} Government Form Ideas (p.~44)
 	\end{itemize}
-\end{dynamiccontents*}
+\end{eubox}\end{dynamiccontents*}
 
-\vspace{4\baselineskip}
-\subsection*{HRE Actions}
+\framebreak
+\subsectionstriped{colorHre}{HRE Actions}
 \actionHeadingNoSpace{Increase \authority \normal{(1\adminpower + current \authority) (p.~43)}}
 \begin{itemize}
 	\item You must be the Emperor
 	\item Increase \authority by 1
 \end{itemize}
 
-\subsection*{Minor Actions}
+\subsectionstriped{colorMinor}{Minor Actions}
 \actionHeadingNoSpace{Appoint Advisor/Leader \normal{(p.~13)}}
 \strong{Advisor} -- Pay the \ducat cost\\
 \strong{Admiral} -- Pay the \milpower cost\\
-\strong{General} -- Pay the \milpower cost\\
+\strong{General} -- Pay the \milpower cost (reassign for free)\\
 \begin{itemize}
-	\item Reassign for free
 	\item \reaction -- When attacked in your Realm
 	\item May assign/remove Ruler for free (p.~25)
 \end{itemize}
@@ -567,7 +574,8 @@
 	\end{itemize}
 \end{itemize}
 
-\subsection*{Papal Actions \normal{(p.~46)}}
+\framebreak % NOTE: forcing frame break because color is not applied correctly if section title is naturally pushed to the next frame
+\subsectionstriped{colorPapal}{Papal Actions \rulesref{(p.~46)}}
 \begin{itemize}
 	\item Max 1 Papal Action per Round
 	\item Only in Ages I and II
@@ -596,7 +604,7 @@
 	\item Cath. Realms have Holy War CB against Muslim Realms Owning Prov. in the Area	
 \end{itemize}
 
-\subsection*{Admin. Actions}
+\subsectionstriped{colorAdmin}{Admin. Actions}
 \actionHeadingNoSpace{Incr. Stab. \normal{(5\adminpower ± current \stability) (p.~14)}}
 \begin{itemize}
 	\item Increase \stability by 1
@@ -616,7 +624,7 @@
 	\item Roll Rebel Dice for all your \unrest in affected Area(s)
 \end{itemize}
 
-\subsection*{Diplomatic Actions}
+\subsectionstriped{colorDiplo}{Diplomatic Actions}
 \actionHeadingNoSpace{Influence \normal{(1\diplopower/3\ducats per \influence) (p.~15)}}
 \begin{itemize}
 	\item Pay 1\diplopower or 3\ducats per \influence (min 1\diplopower)
@@ -683,7 +691,7 @@
 	\end{itemize}
 	\item Calculate Tr. Power for all eligible PRs with Merch. in selec. Node and collect \ducats
 \end{enumerate}
-\begin{dynamiccontents*}{frameTrade}
+\begin{dynamiccontents*}{frameTrade}\begin{eubox}{\fhTrade}
 	\begin{multicols}{2}
 		\subsubsection*{Merchants \normal{(p.~34-35)}}
 		\begin{itemize}
@@ -719,8 +727,8 @@
 			\item May not select a Sec. Node with a Pirate
 		\end{itemize}
 	\end{multicols}
-\end{dynamiccontents*}
-\begin{dynamiccontents*}{frameBotTrade}
+\end{eubox}\end{dynamiccontents*}
+\begin{dynamiccontents*}{frameBotTrade}\begin{eubox}[botrulescolor]{\fhBotTrade}
 	\botrules
 	\subsubsection*{Bot Trade \normal{(p.~4)}}
 	\begin{itemize}
@@ -746,8 +754,8 @@
 		\item If hum. PR has 3+ \tradepower from Key Prov. and \idea{Mercantilism} Idea, Bots gain 1\botpower fewer
 		\item When Bot collects Trade Income, move its Merchant to that Node
 	\end{itemize}
-\end{dynamiccontents*}
-\begin{dynamiccontents*}{frameActionCards}
+\end{eubox}\end{dynamiccontents*}
+\begin{dynamiccontents*}{frameActionCards}\begin{eubox}{\fhActionCards}
 	\subsubsection*{Action Cards \normal{(p.~18-19)}}
 	\begin{itemize}
 		\item Action cost can never go below 0
@@ -776,6 +784,6 @@
 			\item Display Card uses must be spent
 		\end{itemize}
 	\end{itemize}
-\end{dynamiccontents*}
+\end{eubox}\end{dynamiccontents*}
 
 \end{document}

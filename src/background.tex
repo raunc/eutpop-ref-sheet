@@ -1,0 +1,37 @@
+\RequirePackage{shellesc} % implement \write18
+
+\RequirePackage{pdftexcmds} % fake \pdfshellescape so standalone knows about it
+\makeatletter
+  \let\pdfshellescape\pdf@shellescape
+\makeatother
+
+\RequirePackage{luatex85}
+\documentclass[convert={density=150,outext=.png}]{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+
+\begin{document}
+\begin{tikzpicture}
+  \useasboundingbox (0,0) rectangle (630mm,297mm);
+  \begin{axis}[
+    view={0}{90},
+    hide axis=true,
+    width=630mm,
+    height=297mm,
+    scale only axis,
+    xmin=0,
+    ymin=0,
+    xmax=3,
+    ymax=1,
+    samples=150,
+    samples y=70,
+    colormap={papyrus}{
+      rgb255(0)=(250,251,230);
+      rgb255(9)=(229,215,168);
+      rgb255(10)=(234,210,169)
+    },
+  ]
+    \addplot3[surf,shader=interp,domain=0:3,y domain=0:1] {16*((mod(x,1) - 0.5)^4 + (y - 0.5)^4) + 0.1*rand};
+  \end{axis}
+\end{tikzpicture}
+\end{document}
