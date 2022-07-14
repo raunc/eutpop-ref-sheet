@@ -6,6 +6,7 @@
 *.synctex.gz
 *.out
 tmp
+build
 
 # Editor settings
 .vscode
