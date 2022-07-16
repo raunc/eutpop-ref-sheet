@@ -18,13 +18,15 @@
 % Second page
 \newlength{\fhSecondaryEventEffects} \setlength\fhSecondaryEventEffects{35\baselineskip}
 \newlength{\frameSecondaryEventEffectsY} \setlength\frameSecondaryEventEffectsY{\calc{\textheight - \fhSecondaryEventEffects}}
-\newlength{\fhGovFormIdeas} \setlength\fhGovFormIdeas{7\baselineskip}
-\newlength{\frameGovFormIdeasY} \setlength\frameGovFormIdeasY{\calc{\frameSecondaryEventEffectsY - \fhGovFormIdeas - \frameToFrameSpacing}}
+\newlength{\fhEventEffectsNote} \setlength\fhEventEffectsNote{2\baselineskip}
+\newlength{\frameEventEffectsNoteY} \setlength\frameEventEffectsNoteY{\calc{\frameSecondaryEventEffectsY - \fhEventEffectsNote - \frameToTextSpacing}}
 \newlength{\fhDistantTrade} \setlength\fhDistantTrade{4\baselineskip}
-\newlength{\frameDistantTradeY} \setlength\frameDistantTradeY{\baselineskip}
+\newlength{\frameDistantTradeY} \setlength\frameDistantTradeY{\calc{\frameEventEffectsNoteY - \fhDistantTrade - \frameToFrameSpacing}}
+\newlength{\fhGovFormIdeas} \setlength\fhGovFormIdeas{7\baselineskip}
+\newlength{\frameGovFormIdeasY} \setlength\frameGovFormIdeasY{\calc{\frameDistantTradeY - \fhGovFormIdeas - \frameToFrameSpacing}}
 
 \newlength{\fhSecondPageCol} \setlength\fhSecondPageCol{\calc{\frameSecondaryEventEffectsY - \frameToTextSpacing}}
-\newlength{\fhSecondPageLeftCol} \setlength\fhSecondPageLeftCol{\calc{\frameGovFormIdeasY - \frameToFrameSpacing}}
+\newlength{\fhSecondPageLeftCol} \setlength\fhSecondPageLeftCol{\calc{\frameGovFormIdeasY - \frameToTextSpacing}}
 
 % Third page
 \newlength{\fhTrade} \setlength\fhTrade{15\baselineskip}
@@ -56,6 +58,7 @@
 \newdynamicframe[1]{\columnwidth}{\fhMarriage}{\middleColX}{\frameMarriageY}[frameMarriage]
 
 \newdynamicframe[2]{\textwidth}{\fhSecondaryEventEffects}{0mm}{\frameSecondaryEventEffectsY}[frameSecondaryEventEffects]
+\newdynamicframe[2]{\columnwidth}{\fhEventEffectsNote}{0mm}{\frameEventEffectsNoteY}[frameEventEffectsNote]
 \newdynamicframe[2]{\columnwidth}{\fhGovFormIdeas}{0mm}{\frameGovFormIdeasY}[frameGovFormIdeas]
 \newdynamicframe[2]{\columnwidth}{\fhDistantTrade}{0mm}{\frameDistantTradeY}[frameDistantTrade]
 
@@ -330,6 +333,11 @@
 		\end{itemize}
 	\end{multicols}
 \end{eubox}\end{dynamiccontents*}
+\begin{dynamiccontents*}{frameEventEffectsNote}
+	\botrule{
+		NOTE: When resolving Event effec. for Bots, there are differences not covered here (p.~9)
+	}
+\end{dynamiccontents*}
 
 \actionHeading{Player-to-player Diplomacy \normal{(p.~12)}}
 \begin{itemize}
@@ -528,13 +536,13 @@
 \strong{Admiral} -- Pay the \milpower cost\\
 \strong{General} -- Pay the \milpower cost (reassign for free)\\
 \begin{itemize}
-	\item \reaction -- When attacked in your Realm
+	\item \reaction~-- When attacked in your Realm
 	\item May assign/remove Ruler for free (p.~25)
 \end{itemize}
 \strong{Ruler} -- Free
 \begin{itemize}
 	\item Allowed if no Ruler or Ruler is \dprime Interregn.\dprime
-	\item \reaction -- When Ruler is discarded with no replacement
+	\item \reaction~-- When Ruler is discarded with no replacement
 \end{itemize}
 
 \actionHeading{Replen. Manp. \normal{(1\milpower per 3\manpower) (p.~14)}}
@@ -546,7 +554,7 @@
 \strong{Take} -- Gain 5\ducats, gain 1\interest
 \begin{itemize}
 	\item Allowed only if <5\interest
-	\item \reaction -- When must cover a cost
+	\item \reaction~-- When must cover a cost
 \end{itemize}
 \strong{Repay} -- Pay 6\ducats, remove 1\interest
 \begin{itemize}
@@ -648,7 +656,7 @@
 
 \actionHeading{Fabricate Claim \normal{(2\diplopower per \claim) (p.~15)}}
 \begin{itemize}
-	\item \covertaction - may be intercepted by \action{Counterespion.}
+	\item \covertaction~-- may be intercepted by \action{Counterespion.}
 	\item In Areas listed on Active or Upcoming Power Struggle, costs 1\diplopower per \claim (p.~43)
 	\item \strong{Requirements}
 	\begin{itemize}
