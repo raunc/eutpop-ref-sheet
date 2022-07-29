@@ -90,7 +90,7 @@
 	\item Must be taken exactly once per Round
 \end{itemize}
 \begin{enumerate}
-	\item Collect \ducats on the Card and move Round Status marker
+	\item Collect \ducats on the card and move Round Status marker
 	\item Add 2 \ducats to remaining face-up Events
 	\item Resolve effects
 	\item Resolve symbols
@@ -203,6 +203,9 @@
 \begin{dynamiccontents*}{frameSecondaryEventEffects}\begin{eubox}{\fhSecondaryEventEffects}
 	\begin{multicols}{3}
 		\subsubsection*{Secondary Event Effects \normal{(p.~41)}}
+		\begin{itemize}
+			\item When auto-resolving, no one is Active Player (you)
+		\end{itemize}
 		\smallheading{Native Uprising \eventIcon{native_uprising}}
 		\begin{itemize}
 			\item Each player
@@ -216,7 +219,7 @@
 		\begin{itemize}
 			\item Every PR having Areas with \vassals, but no \influence/\marriage \conj{or} fewer \influence than any Opp., must
 			\begin{itemize}
-				\item Pick qualified Area with most of their \vassals
+				\item Pick such Area with most of their \vassals
 				\item Gain \unrest on all their \vassals in the Area
 				\item Place \rebels = Tax Val. of their \vassals in Area
 				\item You place no \rebels
@@ -626,8 +629,9 @@
 
 \actionHeading{Convert Area \normal{(2\adminpower + 3\ducats) (p.~14)}}
 \begin{itemize}
-	\item Must Own 1+ Province in Area(s)
+	\item Must Own 1+ Province in Area(s) governed by the Religion slot
 	\item All Provinces must be owned by Realms of the same State Religion
+	\item Change Religion to your State Religion
 	\item Add 1\unrest to your affected \towns
 	\item Roll Rebel Dice for all your \unrest in affected Area(s)
 \end{itemize}
