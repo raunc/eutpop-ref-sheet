@@ -78,64 +78,6 @@
 \addbackground
 \addfooter
 
-\sectionbg{Sequence \normal{\Large{(p.~8-11)}}}
-\subsection*{1. Draw Cards}
-\begin{itemize}
-	\item May not score Missions in Phase 1 (p.~42)
-\end{itemize}
-\subsubsection*{A. Reveal Events}
-\subsubsection*{B. Draw Action Cards}
-
-\begin{itemize}
-	\item Draw 3 cards (may draw one by one)
-\end{itemize}
-
-\subsubsection*{C. Pay for Action Cards}
-\begin{itemize}
-	\item 2 \ducats per drawn card you keep
-\end{itemize}
-
-\subsubsection*{D. Pick/Replace Missions}
-\begin{itemize}
-	\item Mission can be picked if 1+ prerequisite Missions are completed (p.~42)
-	\item Max 2 in hand
-\end{itemize}
-
-\subsection*{2. Actions}
-\begin{itemize}
-	\item On each Turn, must take 1 Action, \conj{and}
-	\item May take any \# of Minor Actions
-\end{itemize}
-\subsubsection*{Passing}
-\begin{itemize}
-	\item Allowed only if \action{Event} taken
-	\item May take Minor Actions on same Turn
-	\item First 2-4 PRs to Pass gain \ducats
-	\item If no more PRs eligible to gain \ducats,\\ \strong{End of Action Phase} is triggered
-	\begin{itemize}
-		\item Each remaining PR may take 1 more Action of their choice
-		\item PRs who still have not taken \action{Event},\\ get one more Turn to take \action{Event}
-		\item If PR has taken their final Turn, they are considered to have Passed
-	\end{itemize}
-\end{itemize}
-
-\subsection*{3. Peace \& Rebels}
-\subsubsection*{A. Remove Casus Belli \& Truces}
-\begin{itemize}
-	\item Lose \p2 if not at war with the CB target
-\end{itemize}
-
-\subsubsection*{B. NPR Invasions \normal{(advanced rules)}}
-\begin{itemize}
-	\item NPRs at War might invade PRs\zsavepos{arrowNprInvasionsStart}
-	\botrules
-	\item Bots suffer max 1 NPR invasion (p.~2)
-	\begin{itemize}
-		\item Resolve the one invading with most Units (tie breaker: \az)
-		\item Place Bot Army in Area, resolve Battle
-	\end{itemize}
-\end{itemize}
-
 \begin{dynamiccontents*}{frameNprInvasions}\begin{eubox}{\fhNprInvasions}
 	\begin{multicols}{2}
 		\subsubsection*{\zsavepos{arrowNprInvasionsEnd}NPR Invasions \normal{(p.~36)}}
@@ -171,27 +113,6 @@
 	\end{multicols}
 \end{eubox}\end{dynamiccontents*}
 
-\subsubsection*{C. Rebels Siege \& Move}
-\begin{itemize}
-	\item Resolve by Area: 1. most \rebels; 2. \az
-	\item In \strong{Areas with \unrest}, Rebels Siege \unrest. Priority:
-	\begin{enumerate}
-		\item Large Provinces
-		\item If 2+ PRs with \unrest in the Area, PR with lowest Tax Income (no tie) in the Area chooses (p.~37)
-		\item \az
-	\end{enumerate}
-	\item In \strong{Areas with no \unrest}
-	\begin{itemize}
-		\item If an Area with \unrest is Adj. by Land \conj{and} \rebels will not be outnum. there by PRs
-		\begin{itemize}
-			\item Move all but 1 \rebel. Priority: 1. most \unrest; 2. most PR \towns; 3. \az
-			\item Resolve Battle immediately
-		\end{itemize}
-		\item Otherwise remove 1\rebel
-	\end{itemize}
-\end{itemize}
-
-\subsubsection*{\zsavepos{arrowPeaceSeqStart}D. Peace Resolutions}
 \begin{dynamiccontents*}{framePeaceSeq}\begin{eubox}{\fhPeaceSeq}
 	\begin{multicols}{2}
 		\subsubsection*{\zsavepos{arrowPeaceSeqEnd}Peace Resolution Sequence \normal{(p.~29)}}
@@ -281,6 +202,154 @@
 		\end{itemize}
 	\end{multicols}
 \end{eubox}\end{dynamiccontents*}
+
+\sectionbg{Sequence \normal{\Large{(p.~8-11)}}}
+\subsection*{1. Draw Cards}
+\begin{itemize}
+	\item May not score Missions in Phase 1 (p.~42)
+\end{itemize}
+\subsubsection*{A. Reveal Events}
+\subsubsection*{B. Draw Action Cards}
+
+\begin{itemize}
+	\item Draw 3 cards (may draw one by one)
+\end{itemize}
+
+\subsubsection*{C. Pay for Action Cards}
+\begin{itemize}
+	\item 2 \ducats per drawn card you keep
+\end{itemize}
+
+\subsubsection*{D. Pick/Replace Missions}
+\begin{itemize}
+	\item Mission can be picked if 1+ prerequisite Missions are completed (p.~42)
+	\item Max 2 in hand
+\end{itemize}
+
+\subsection*{2. Actions}
+\begin{itemize}
+	\item On each Turn, must take 1 Action, \conj{and}
+	\item May take any \# of Minor Actions
+\end{itemize}
+\subsubsection*{Passing}
+\begin{itemize}
+	\item Allowed only if \action{Event} taken
+	\item May take Minor Actions on same Turn
+	\item First 2-4 PRs to Pass gain \ducats
+	\item If no more PRs eligible to gain \ducats,\\ \strong{End of Action Phase} is triggered
+	\begin{itemize}
+		\item Each remaining PR may take 1 more Action of their choice
+		\item PRs who still have not taken \action{Event},\\ get one more Turn to take \action{Event}
+		\item If PR has taken their final Turn, they are considered to have Passed
+	\end{itemize}
+\end{itemize}
+
+\subsection*{3. Peace \& Rebels}
+\subsubsection*{A. Remove Casus Belli \& Truces}
+\begin{itemize}
+	\item Lose \p2 if not at war with the CB target
+\end{itemize}
+
+\subsubsection*{B. NPR Invasions \normal{(advanced rules)}}
+\begin{itemize}
+	\item NPRs at War might invade PRs\zsavepos{arrowNprInvasionsStart}
+	\botrules
+	\item Bots suffer max 1 NPR invasion (p.~2)
+	\begin{itemize}
+		\item Resolve the one invading with most Units (tie breaker: \az)
+		\item Place Bot Army in Area, resolve Battle
+	\end{itemize}
+\end{itemize}
+
+\subsubsection*{C. Rebels Siege \& Move}
+\begin{itemize}
+	\item Resolve by Area: 1. most \rebels; 2. \az
+	\item In \strong{Areas with \unrest}, Rebels Siege \unrest. Priority:
+	\begin{enumerate}
+		\item Large Provinces
+		\item If 2+ PRs with \unrest in the Area, PR with lowest Tax Income (no tie) in the Area chooses (p.~37)
+		\item \az
+	\end{enumerate}
+	\item In \strong{Areas with no \unrest}
+	\begin{itemize}
+		\item If an Area with \unrest is Adj. by Land \conj{and} \rebels will not be outnum. there by PRs
+		\begin{itemize}
+			\item Move all but 1 \rebel. Priority: 1. most \unrest; 2. most PR \towns; 3. \az
+			\item Resolve Battle immediately
+		\end{itemize}
+		\item Otherwise remove 1\rebel
+	\end{itemize}
+\end{itemize}
+
+\subsubsection*{\zsavepos{arrowPeaceSeqStart}D. Peace Resolutions}
+\begin{dynamiccontents*}{frameArrowsPageOne}
+	% Must be before the page ends but after all \zsavepos in other dynamic frames
+	\begin{tikzpicture}
+	\useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);
+
+	% Peace Resolution arrow
+	\newlength{\peaceStartY} \setlength{\peaceStartY}{\calc{\zposy{arrowPeaceSeqStart}sp+\arrowAdjustYBeforeSubsub}}
+	\newlength{\peaceStartX} \setlength{\peaceStartX}{\calc{\zposx{arrowPeaceSeqStart}sp}}
+	\newlength{\peaceEndY} \setlength{\peaceEndY}{\calc{\zposy{arrowPeaceSeqEnd}sp-7pt}}
+	\newlength{\peaceEndX} \setlength{\peaceEndX}{\zposx{arrowPeaceSeqEnd}sp}
+	\newlength{\peaceTurnX} \setlength{\peaceTurnX}{\calc{\peaceEndX-3.5mm}}
+
+	\drawArrow{(\peaceStartX, \peaceStartY) -- (\peaceTurnX,\peaceStartY) -- (\peaceTurnX,\peaceEndY) -- (\peaceEndX,\peaceEndY)}
+
+	% NPR Invasions arrow
+	\newlength{\nprStartY} \setlength{\nprStartY}{\calc{\zposy{arrowNprInvasionsStart}sp + \arrowAdjustYText}}
+	\newlength{\nprStartX} \setlength{\nprStartX}{\calc{\zposx{arrowNprInvasionsStart}sp + \arrowToTextSpacing}}
+	\newlength{\nprEndY} \setlength{\nprEndY}{\calc{\zposy{arrowNprInvasionsEnd}sp + \arrowAdjustYBeforeSubsub}}
+	\newlength{\nprEndX} \setlength{\nprEndX}{\zposx{arrowNprInvasionsEnd}sp}
+	\newlength{\nprTurnX} \setlength{\nprTurnX}{\calc{\nprEndX-5.5mm}}
+	\newlength{\nprTurnY} \setlength{\nprTurnY}{\peaceEndY}
+	\newlength{\nprTurnXTwo} \setlength{\nprTurnXTwo}{\calc{\nprEndX-3.5mm}}
+
+	\drawArrow{(\nprStartX, \nprStartY) -- (\nprTurnX,\nprStartY) -- (\nprTurnX,\nprTurnY) -- (\nprTurnXTwo,\nprEndY) -- (\nprEndX,\nprEndY)}
+
+	\end{tikzpicture}
+\end{dynamiccontents*}
+
+\subsubsection*{E. Prestige Penalties}
+\begin{itemize}
+	\item Flip all \disputedsuccession back to \marriage
+	\begin{itemize}
+		\item Lose \p3 for each unless
+		\begin{itemize}
+			\item Only you have \alliance with them, \conj{and}
+			\item If it is an NPR, you have the most \influence (min 2) in that Realm
+		\end{itemize}
+	\end{itemize}
+	\item Lose \prestige = Tax Val. of Occup. \towns (max 5)
+\end{itemize}
+
+\subsubsection*{F. Interregnums}
+\begin{itemize}
+	\item Lose 1\stability
+	\item Flip \marriages on your Realm
+\end{itemize}
+
+\subsubsection*{G. Religious Dissent}
+\begin{itemize}
+	\item Areas with \towns: add \unrest to 1 \town in each Area
+	\item Areas with \vassals: add \unrest to 1 \vassal or remove 1\influence in 1 Area
+	\item \botrule{Bots gain max 1 \unrest (p.~3)}
+\end{itemize}
+
+\subsubsection*{H. Gain/Remove Unrest}
+\begin{itemize}
+	\item If at War, add 2 \unrest to your \towns
+	\item If ≤ -2\stability, add 1 \unrest to your \towns
+	\item If ≥ +2\stability, remove 1 \unrest from your \towns
+	\item \botrule{Bots with Adm. Ideas remove 1‑2\unrest (p.~3)}
+\end{itemize}
+
+\subsubsection*{I. Roll Rebel Dice}
+\begin{itemize}
+	\item Each human PR rolls Area by Area, for all their \unrest in a given Area (p.~37)
+	\item \botrule{Bots roll for all Areas at once (max 5 dice) (p.~4)}
+\end{itemize}
+
 \begin{dynamiccontents*}{framePeaceTerms}\begin{eubox}{\fhPeaceTerms}
 	\begin{multicols}{3}
 		\subsubsection*{Peace Terms \normal{(p.~30-31)}}
@@ -508,74 +577,6 @@
 		\end{itemize}
 	\end{multicols}
 \end{eubox}\end{dynamiccontents*}
-
-\begin{dynamiccontents*}{frameArrowsPageOne}
-	% Must be before the page ends but after all \zsavepos in other dynamic frames
-	\begin{tikzpicture}
-	\useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);
-
-	% Peace Resolution arrow
-	\newlength{\peaceStartY} \setlength{\peaceStartY}{\calc{\zposy{arrowPeaceSeqStart}sp+\arrowAdjustYBeforeSubsub}}
-	\newlength{\peaceStartX} \setlength{\peaceStartX}{\calc{\zposx{arrowPeaceSeqStart}sp}}
-	\newlength{\peaceEndY} \setlength{\peaceEndY}{\calc{\zposy{arrowPeaceSeqEnd}sp-7pt}}
-	\newlength{\peaceEndX} \setlength{\peaceEndX}{\zposx{arrowPeaceSeqEnd}sp}
-	\newlength{\peaceTurnX} \setlength{\peaceTurnX}{\calc{\peaceEndX-3.5mm}}
-
-	\drawArrow{(\peaceStartX, \peaceStartY) -- (\peaceTurnX,\peaceStartY) -- (\peaceTurnX,\peaceEndY) -- (\peaceEndX,\peaceEndY)}
-
-	% NPR Invasions arrow
-	\newlength{\nprStartY} \setlength{\nprStartY}{\calc{\zposy{arrowNprInvasionsStart}sp + \arrowAdjustYText}}
-	\newlength{\nprStartX} \setlength{\nprStartX}{\calc{\zposx{arrowNprInvasionsStart}sp + \arrowToTextSpacing}}
-	\newlength{\nprEndY} \setlength{\nprEndY}{\calc{\zposy{arrowNprInvasionsEnd}sp + \arrowAdjustYBeforeSubsub}}
-	\newlength{\nprEndX} \setlength{\nprEndX}{\zposx{arrowNprInvasionsEnd}sp}
-	\newlength{\nprTurnX} \setlength{\nprTurnX}{\calc{\nprEndX-5.5mm}}
-	\newlength{\nprTurnY} \setlength{\nprTurnY}{\peaceEndY}
-	\newlength{\nprTurnXTwo} \setlength{\nprTurnXTwo}{\calc{\nprEndX-3.5mm}}
-
-	\drawArrow{(\nprStartX, \nprStartY) -- (\nprTurnX,\nprStartY) -- (\nprTurnX,\nprTurnY) -- (\nprTurnXTwo,\nprEndY) -- (\nprEndX,\nprEndY)}
-
-	\end{tikzpicture}
-\end{dynamiccontents*}
-
-\subsubsection*{E. Prestige Penalties}
-\begin{itemize}
-	\item Flip all \disputedsuccession back to \marriage
-	\begin{itemize}
-		\item Lose \p3 for each unless
-		\begin{itemize}
-			\item Only you have \alliance with them, \conj{and}
-			\item If it is an NPR, you have the most \influence (min 2) in that Realm
-		\end{itemize}
-	\end{itemize}
-	\item Lose \prestige = Tax Val. of Occup. \towns (max 5)
-\end{itemize}
-
-\subsubsection*{F. Interregnums}
-\begin{itemize}
-	\item Lose 1\stability
-	\item Flip \marriages on your Realm
-\end{itemize}
-
-\subsubsection*{G. Religious Dissent}
-\begin{itemize}
-	\item Areas with \towns: add \unrest to 1 \town in each Area
-	\item Areas with \vassals: add \unrest to 1 \vassal or remove 1\influence in 1 Area
-	\item \botrule{Bots gain max 1 \unrest (p.~3)}
-\end{itemize}
-
-\subsubsection*{H. Gain/Remove Unrest}
-\begin{itemize}
-	\item If at War, add 2 \unrest to your \towns
-	\item If ≤ -2\stability, add 1 \unrest to your \towns
-	\item If ≥ +2\stability, remove 1 \unrest from your \towns
-	\item \botrule{Bots with Adm. Ideas remove 1‑2\unrest (p.~3)}
-\end{itemize}
-
-\subsubsection*{I. Roll Rebel Dice}
-\begin{itemize}
-	\item Each human PR rolls Area by Area, for all their \unrest in a given Area (p.~37)
-	\item \botrule{Bots roll for all Areas at once (max 5 dice) (p.~4)}
-\end{itemize}
 
 \framebreak % Forcing frame break due to getting some weird errors after adding color to subsections (looks like some broken interaction between flowfram and other packages)
 \subsection*{4. Income and Upkeep}
