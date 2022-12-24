@@ -121,8 +121,8 @@
 			\item In each step, resolve Peace in Turn order
 			\item Victory is only assigned to PR
 			\begin{itemize}
-				\item who achieved Total/Partial Victory \conj{or}
-				\item whose Enemy Surrendered \conj{or}
+				\item who achieved Total/Partial Victory, \conj{or}
+				\item whose Enemy Surrendered, \conj{or}
 				\item if agreed as such in Negotiated Peace
 			\end{itemize}
 			\botrule{\item Bots use the Peace Resolution chart (p.~15)}
@@ -346,8 +346,18 @@
 
 \subsubsection*{G. Religious Dissent}
 \begin{itemize}
-	\item Areas with \towns: add \unrest to 1 \town in each Area
-	\item Areas with \vassals: add \unrest to 1 \vassal or remove 1\influence in 1 Area
+	\item In Areas following a different Religion from your State Religion
+	\begin{itemize}
+		\item In \conj{each} Area containing your \towns
+		\begin{itemize}
+			\item Add 1\unrest to any \town of yours
+		\end{itemize}
+		\item If \conj{any} Area contains your \vassals
+		\begin{itemize}
+			\item Add 1\unrest to any \vassal of yours, \conj{or}
+			\item Remove 1\influence in an affected Area
+		\end{itemize}
+	\end{itemize}
 	\item \botrule{Bots gain max 1 \unrest (p.~3)}
 \end{itemize}
 
@@ -361,8 +371,7 @@
 
 \subsubsection*{I. Roll Rebel Dice}
 \begin{itemize}
-	\item In order, each human PR rolls Area by Area, for all their \unrest in a given Area (p.~37)
-	\item \botrule{Bots roll for all Areas at once (max 5 dice) (p.~4)}
+	\item In turn order, each PR rolls Rebel Dice
 \end{itemize}
 
 \begin{dynamiccontents*}{framePeaceTerms}\begin{eubox}{\fhPeaceTerms}
@@ -698,7 +707,7 @@
 	\item Repair Heavy Ships in Port
 	\item Refresh Merchants
 	\item Add \colonists = \# of Colonial \claims (max 4)
-	\item \botrule{Discard Bot \colonists if no vacant Terr. (p.~3)}
+	\item \botrule{Discard Bot \colonists if there is no vacant Territory nor own Colonial \claim (p.~3)}
 	\item Remove \cube from \emph{Changed Nat. Focus} slot
 \end{itemize}
 \begin{dynamiccontents*}{frameManpower}\begin{eubox}{\fhManpower}
@@ -736,7 +745,6 @@
 	\begin{itemize}
 		\item If already has it, PR 2nd to Pass gets it
 	\end{itemize}
-	\item Reset Round Status markers
 	\item \hspacezero\zsavepos{arrowBotDeckStart}\botrule{Reshuffle Bot decks (p.~3)}
 \end{itemize}
 \begin{dynamiccontents*}{frameImpInfluence}\begin{eubox}{\fhImpInfluence}
@@ -815,7 +823,7 @@
 \subsection*{Final Scoring}
 \begin{itemize}
 	\item Score Missions from hand (no effects)
-	\item Score \prestige = Tax Income
+	\item Score \prestige = Base and Vassal Tax Income
 	\item Score \p1 per \core, \p1 per \marriage, \p2 per \alliance
 	\item Papal Contr. scores \prestige = \# of Cath. PRs
 	\item Emperor scores \prestige = \authority
