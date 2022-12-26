@@ -220,7 +220,11 @@
 \end{itemize}
 \subsubsection*{A. Reveal Events}
 \begin{itemize}
-	\item Draw 1 + \# PRs events (first 3 face-up)
+	\item Draw 1 + \# PRs events, reveal 3 of them
+\end{itemize}
+\smallheading{Optional Rule 7: Revealing More (p.~39)}
+\begin{itemize}
+	\item If 6 PRs, reveal 4 of them
 \end{itemize}
 \subsubsection*{B. Draw Action Cards}
 
@@ -291,24 +295,18 @@
 	\end{itemize}
 \end{itemize}
 
-\subsubsection*{\zsavepos{arrowPeaceSeqStart}D. Peace Resolutions}
-
 \begin{dynamiccontents*}{frameArrowsPageOne}
 	% Must be before the page ends but after all \zsavepos in other dynamic frames
 	\begin{tikzpicture}
 	\useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);
 
-	% Peace Resolution arrows
-	\newlength{\peaceStartY} \setlength{\peaceStartY}{\calc{\zposy{arrowPeaceSeqStart}sp + \arrowAdjustYBeforeSubsub - 5pt}}
-	\newlength{\peaceStartX} \setlength{\peaceStartX}{\zposx{arrowPeaceSeqStart}sp}
+	% Peace Resolution arrows (continues in next page)
 	\newlength{\peaceSeqEndY} \setlength{\peaceSeqEndY}{\calc{\zposy{arrowPeaceSeqEnd}sp + \arrowAdjustYBeforeSubsub}}
 	\newlength{\peaceSeqEndX} \setlength{\peaceSeqEndX}{\zposx{arrowPeaceSeqEnd}sp}
-	\newlength{\peaceTurnX} \setlength{\peaceTurnX}{\calc{\peaceStartX + \arrowAdjustXTurnBeforeStart}}
-	\newlength{\peaceTurnY} \setlength{\peaceTurnY}{\calc{\peaceSeqEndY + 5.2mm}}
-	\newlength{\peaceSeqTurnX} \setlength{\peaceSeqTurnX}{\calc{\peaceSeqEndX + \arrowAdjustXTurnBeforeEnd}}
+	\newlength{\peaceTurnX} \setlength{\peaceTurnX}{\calc{\peaceSeqEndX + \arrowAdjustXTurnBeforeEnd}}
+	\newlength{\peaceTurnY} \setlength{\peaceTurnY}{\calc{\peaceSeqEndY + \arrowAdjustYTurnBeforeBox}}
 
-	\drawArrow{(\peaceStartX, \peaceStartY) -- (\peaceTurnX,\peaceStartY) -- (\peaceTurnX,\peaceTurnY) -- (\peaceSeqTurnX,\peaceTurnY) -- (\peaceSeqTurnX,\peaceSeqEndY) -- (\peaceSeqEndX,\peaceSeqEndY)}
-	\drawLine{(\peaceStartX, \peaceStartY) -- (\peaceTurnX,\peaceStartY) -- (\peaceTurnX,\peaceTurnY) -- (\pagewidth,\peaceTurnY)} % continues in next page to Peace Terms
+	\drawArrow{(\pagewidth,\peaceTurnY) -- (\peaceTurnX,\peaceTurnY) -- (\peaceTurnX,\peaceSeqEndY) -- (\peaceSeqEndX,\peaceSeqEndY)}
 
 	% NPR Invasions arrow
 	\newlength{\nprStartY} \setlength{\nprStartY}{\calc{\zposy{arrowNprInvasionsStart}sp + \arrowAdjustYList}}
@@ -316,7 +314,7 @@
 	\newlength{\nprEndY} \setlength{\nprEndY}{\calc{\zposy{arrowNprInvasionsEnd}sp + \arrowAdjustYBeforeSubsub}}
 	\newlength{\nprEndX} \setlength{\nprEndX}{\zposx{arrowNprInvasionsEnd}sp}
 	\newlength{\nprTurnX} \setlength{\nprTurnX}{\calc{\nprStartX + \arrowAdjustXTurnBeforeStart}}
-	\newlength{\nprTurnY} \setlength{\nprTurnY}{\calc{\nprEndY + 6.5mm}}
+	\newlength{\nprTurnY} \setlength{\nprTurnY}{\calc{\nprEndY + \arrowAdjustYTurnBeforeBox}}
 	\newlength{\nprTurnXTwo} \setlength{\nprTurnXTwo}{\calc{\nprEndX + \arrowAdjustXTurnBeforeEnd}}
 
 	\drawArrow{(\nprStartX, \nprStartY) -- (\nprTurnX,\nprStartY) -- (\nprTurnX,\nprTurnY) -- (\nprTurnXTwo,\nprTurnY) -- (\nprTurnXTwo,\nprEndY) -- (\nprEndX,\nprEndY)}
@@ -325,6 +323,9 @@
 \end{dynamiccontents*}
 
 \framebreak
+
+\subsubsection*{\zsavepos{arrowPeaceStart}D. Peace Resolutions}
+
 \subsubsection*{E. Prestige Penalties}
 \begin{itemize}
 	\item Flip all \disputedsuccession back to \marriage
@@ -568,13 +569,16 @@
 	\begin{tikzpicture}
 	\useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);
 
-	% Peace Terms arrow
-	\newlength{\peaceTurnYContinue} \setlength{\peaceTurnYContinue}{\calc{\zposy{arrowPeaceSeqEnd}sp + \arrowAdjustYBeforeSubsub + 5.2mm}}
+	% Peace Resolution arrows (continues from previous page)
+	\newlength{\peaceTurnYContinue} \setlength{\peaceTurnYContinue}{\calc{\zposy{arrowPeaceSeqEnd}sp + \arrowAdjustYBeforeSubsub + \arrowAdjustYTurnBeforeBox}}
+	\newlength{\peaceStartY} \setlength{\peaceStartY}{\calc{\zposy{arrowPeaceStart}sp + \arrowAdjustYBeforeSubsub}}
+	\newlength{\peaceStartX} \setlength{\peaceStartX}{\zposx{arrowPeaceStart}sp}
 	\newlength{\peaceTermsEndY} \setlength{\peaceTermsEndY}{\calc{\zposy{arrowPeaceTermsEnd}sp + \arrowAdjustYBeforeSubsub}}
 	\newlength{\peaceTermsEndX} \setlength{\peaceTermsEndX}{\zposx{arrowPeaceTermsEnd}sp}
-	\newlength{\peaceTermsTurnX} \setlength{\peaceTermsTurnX}{\calc{\peaceTermsEndX + \arrowAdjustXTurnBeforeEnd}}
+	\newlength{\peaceTurnXTwo} \setlength{\peaceTurnXTwo}{\calc{\peaceTermsEndX + \arrowAdjustXTurnBeforeEnd}}
 
-	\drawArrow{(0mm, \peaceTurnYContinue) -- (\peaceTermsTurnX,\peaceTurnYContinue) -- (\peaceTermsTurnX,\peaceTermsEndY) -- (\peaceTermsEndX,\peaceTermsEndY)}
+	\drawLine{(\peaceStartX, \peaceStartY) -- (\peaceTurnXTwo,\peaceStartY) -- (\peaceTurnXTwo,\peaceTurnYContinue) -- (0mm,\peaceTurnYContinue)}
+	\drawArrow{(\peaceStartX, \peaceStartY) -- (\peaceTurnXTwo,\peaceStartY) -- (\peaceTurnXTwo,\peaceTermsEndY) -- (\peaceTermsEndX,\peaceTermsEndY)}
 
 	\end{tikzpicture}
 \end{dynamiccontents*}
