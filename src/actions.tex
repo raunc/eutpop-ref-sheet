@@ -23,9 +23,9 @@
 \newlength{\fhSecondPageCol} \setlength\fhSecondPageCol{\calc{\frameSecondaryEventEffectsY - \frameToTextSpacing}}
 
 % Third page
-\newlength{\fhTrade} \setlength\fhTrade{43.5\baselineskip}
-\newlength{\fhActionCards} \setlength\fhActionCards{\calc{\textheight - \fhTrade - \frameToFrameSpacing}}
-\newlength{\frameTradeY} \setlength\frameTradeY{\calc{\textheight - \fhTrade}}
+\newlength{\fhTrade} \setlength\fhTrade{40.5\baselineskip}
+\newlength{\fhActionCards} \setlength\fhActionCards{14\baselineskip}
+\newlength{\frameTradeIncomeY} \setlength\frameTradeIncomeY{\calc{\textheight - \fhTrade}}
 
 \newlength{\fhThirdPageSmallCol} \setlength\fhThirdPageSmallCol{\calc{\textheight - \fhActionCards - \frameToTextSpacing}}
 \newlength{\thirdPageSmallColY} \setlength\thirdPageSmallColY{\calc{\textheight - \fhThirdPageSmallCol}}
@@ -50,7 +50,7 @@
 \newdynamicframe[2]{\textwidth}{\fhSecondaryEventEffects}{0mm}{\frameSecondaryEventEffectsY}[frameSecondaryEventEffects]
 
 \newdynamicframe[3]{\fwTwoCols}{\fhActionCards}{\middleColX}{0mm}[frameActionCards]
-\newdynamicframe[3]{\columnwidth}{\fhTrade}{\rightColX}{\frameTradeY}[frameTrade]
+\newdynamicframe[3]{\columnwidth}{\fhTrade}{\rightColX}{\frameTradeIncomeY}[frameTradeIncome]
 
 % Arrows
 \newdynamicframe[1]{\textwidth}{\textheight}{\pagemarginleft}{-\pagemarginbottom}[frameArrowsPageOne]
@@ -354,7 +354,7 @@
 	\item Both pay 1\adminpower
 	\item PR selling Core Provinces
 	\begin{itemize}
-		\item Loses \prestige = 2 × Tax Value
+		\item Loses \prestige = 2× Tax Value
 	\end{itemize}
 	\item \vassals cannot be sold
 \end{itemize}
@@ -444,17 +444,15 @@
 	\newlength{\eventEffectStartX} \setlength{\eventEffectStartX}{\calc{\zposx{arrowEventEffectsStart}sp + \arrowToTextSpacing}}
 	\newlength{\eventEffectEndY} \setlength{\eventEffectEndY}{\calc{\zposy{arrowEventEffectsEnd}sp + \arrowAdjustYBeforeSubsub}}
 	\newlength{\eventEffectEndX} \setlength{\eventEffectEndX}{\zposx{arrowEventEffectsEnd}sp}
-	\newlength{\eventEffectTurnX} \setlength{\eventEffectTurnX}{\calc{\eventEffectEndX + \arrowAdjustXTurnBeforeEnd}}
+	\newlength{\eventEffectTurnX} \setlength{\eventEffectTurnX}{\arrowXVerticalMidLeft}
 
 	\drawArrow{(\eventEffectStartX, \eventEffectStartY) -- (\eventEffectTurnX,\eventEffectStartY) -- (\eventEffectTurnX,\eventEffectEndY) -- (\eventEffectEndX,\eventEffectEndY)}
 
 	% Event Symbols arrow (continues in next page)
-	\newlength{\eventSymbolsStartY} \setlength{\eventSymbolsStartY}{\calc{\zposy{arrowEventSymbolsStart}sp + \arrowAdjustYText}}
+	\newlength{\eventSymbolsStartY} \setlength{\eventSymbolsStartY}{\calc{\zposy{arrowEventSymbolsStart}sp + \arrowAdjustYList}}
 	\newlength{\eventSymbolsStartX} \setlength{\eventSymbolsStartX}{\calc{\zposx{arrowEventSymbolsStart}sp + \arrowAdjustXBeforeListNum}}
-	\newlength{\eventSymbolsEndY} \setlength{\eventSymbolsEndY}{\calc{\zposy{arrowEventSymbolsEnd}sp + \arrowAdjustYBeforeSubsub}}
-	\newlength{\eventSymbolsEndX} \setlength{\eventSymbolsEndX}{\zposx{arrowEventSymbolsEnd}sp}
-	\newlength{\eventSymbolsTurnY} \setlength{\eventSymbolsTurnY}{\calc{\eventSymbolsEndY + \arrowAdjustYTurnBeforeBox}}
-	\newlength{\eventSymbolsTurnX} \setlength{\eventSymbolsTurnX}{\calc{\eventSymbolsStartX + \arrowAdjustXTurnBeforeStart}}
+	\newlength{\eventSymbolsTurnY} \setlength{\eventSymbolsTurnY}{\calc{\margin + \textheight + .5\columnsep}}
+	\newlength{\eventSymbolsTurnX} \setlength{\eventSymbolsTurnX}{\arrowXVerticalLeft}
 
 	\drawLine{(\eventSymbolsStartX, \eventSymbolsStartY) -- (\eventSymbolsTurnX,\eventSymbolsStartY) -- (\eventSymbolsTurnX,\eventSymbolsTurnY) -- (\pagewidth,\eventSymbolsTurnY)}	
 
@@ -465,7 +463,7 @@
 	\newlength{\distantTradeStartTwoX} \setlength{\distantTradeStartTwoX}{\calc{\zposx{arrowdistantTradeStartTwo}sp + \arrowToTextSpacing}}
 	\newlength{\distantTradeEndY} \setlength{\distantTradeEndY}{\calc{\zposy{arrowdistantTradeEnd}sp + \arrowAdjustYAfterSubsub}}
 	\newlength{\distantTradeEndX} \setlength{\distantTradeEndX}{\calc{\zposx{arrowdistantTradeEnd}sp + \arrowAdjustYText}}
-	\newlength{\distantTradeTurnX} \setlength{\distantTradeTurnX}{\calc{\pagewidth - 5mm}}
+	\newlength{\distantTradeTurnX} \setlength{\distantTradeTurnX}{\arrowXVerticalRight}
 
 	\drawArrow{(\distantTradeStartOneX, \distantTradeStartOneY) -- (\distantTradeTurnX, \distantTradeStartOneY) -- (\distantTradeTurnX,\distantTradeEndY) -- (\distantTradeEndX,\distantTradeEndY)}
 	\drawArrow{(\distantTradeStartTwoX, \distantTradeStartTwoY) -- (\distantTradeTurnX, \distantTradeStartTwoY) -- (\distantTradeTurnX,\distantTradeEndY) -- (\distantTradeEndX,\distantTradeEndY)}
@@ -479,18 +477,18 @@
 	\useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);
 
 	% Event Symbols arrow (continues from previous page)
-	\newlength{\eventSymbolsEndYContinue} \setlength{\eventSymbolsEndYContinue}{\calc{\zposy{arrowEventSymbolsEnd}sp + \arrowAdjustYBeforeSubsub}}
-	\newlength{\eventSymbolsEndXContinue} \setlength{\eventSymbolsEndXContinue}{\zposx{arrowEventSymbolsEnd}sp}
-	\newlength{\eventSymbolsTurnYContinue} \setlength{\eventSymbolsTurnYContinue}{\calc{\eventSymbolsEndYContinue + \arrowAdjustYTurnBeforeBox}}
-	\newlength{\eventSymbolsTurnXTwo} \setlength{\eventSymbolsTurnXTwo}{\calc{\eventSymbolsEndXContinue + \arrowAdjustXTurnBeforeEnd}}
+	\newlength{\eventSymbolsEndY} \setlength{\eventSymbolsEndY}{\calc{\zposy{arrowEventSymbolsEnd}sp + \arrowAdjustYBeforeSubsub}}
+	\newlength{\eventSymbolsEndX} \setlength{\eventSymbolsEndX}{\zposx{arrowEventSymbolsEnd}sp}
+	\newlength{\eventSymbolsTurnYContinue} \setlength{\eventSymbolsTurnYContinue}{\calc{\margin + \textheight + .5\columnsep}}
+	\newlength{\eventSymbolsTurnXTwo} \setlength{\eventSymbolsTurnXTwo}{\arrowXVerticalLeft}
 	
-	\drawArrow{(0mm, \eventSymbolsTurnYContinue) -- (\eventSymbolsTurnXTwo, \eventSymbolsTurnYContinue) -- (\eventSymbolsTurnXTwo,\eventSymbolsEndYContinue)  -- (\eventSymbolsEndXContinue,\eventSymbolsEndYContinue)}
+	\drawArrow{(0mm, \eventSymbolsTurnYContinue) -- (\eventSymbolsTurnXTwo, \eventSymbolsTurnYContinue) -- (\eventSymbolsTurnXTwo,\eventSymbolsEndY)  -- (\eventSymbolsEndX,\eventSymbolsEndY)}
 	
 	% Trade arrow (continues from previous page)
 	\newlength{\distantTradeTurnYContinue} \setlength{\distantTradeTurnYContinue}{\calc{\zposy{arrowdistantTradeEnd}sp + \arrowAdjustYAfterSubsub}}
 	\newlength{\distantTradeStartThreeY} \setlength{\distantTradeStartThreeY}{\calc{\zposy{arrowdistantTradeStartThree}sp + \arrowAdjustYList}}
 	\newlength{\distantTradeStartThreeX} \setlength{\distantTradeStartThreeX}{\calc{\zposx{arrowdistantTradeStartThree}sp + \arrowAdjustXBeforeList}}
-	\newlength{\distantTradeTurnXTwo} \setlength{\distantTradeTurnXTwo}{\calc{\distantTradeStartThreeX + 2\arrowAdjustXBeforeList + \arrowAdjustXTurnBeforeStart}}
+	\newlength{\distantTradeTurnXTwo} \setlength{\distantTradeTurnXTwo}{\arrowXVerticalMidLeft}
 	
 	\drawLine{(\distantTradeStartThreeX, \distantTradeStartThreeY) -- (\distantTradeTurnXTwo,\distantTradeStartThreeY) -- (\distantTradeTurnXTwo,\distantTradeTurnYContinue) -- (0mm,\distantTradeTurnYContinue)}
 	
@@ -503,7 +501,7 @@
 	\item Place \cube in \emph{Change Nat. Focus} slot
 	\item Do one or both in order:
 	\begin{enumerate}
-		\item Move 0‑1\monarchpower from 2 pools to 3rd pool
+		\item Move 0-1\monarchpower from 2 pools to 3rd pool
 		\item Choose ≤3 cards to discard from hand (discard after this Action)
 		\begin{itemize}
 			\item Draw 1 fewer from any Act. Decks
@@ -514,7 +512,7 @@
 
 \subsectionstriped{colorMinor}{Minor Actions}
 \begin{itemize}
-	\item \reaction -- May be played outside your Actions Turn, under specific circumstances
+	\item \reaction~ -- May be played outside your Actions Turn, under specific circumstances
 \end{itemize}
 \actionHeadingNoSpace{Appoint Advisor/Leader \normal{(p.~13)}}
 \strong{Advisor} -- Pay the \ducat cost\\
@@ -608,7 +606,8 @@
 \actionHeadingNoSpace{Incr. Stab. \normal{(5\adminpower ± current \stability) (p.~14)}}
 \begin{itemize}
 	\item Increase \stability by 1
-	\item Papal Controller pays -1\adminpower
+	\item If Papal Controller, pay -1\adminpower
+	\item If Orthodox and current \stability is -1/0, pay -1\adminpower (p.~38)
 \end{itemize}
 
 \actionHeading{Colonize \normal{(4\adminpower/\colonists) (p.~14)}}
@@ -621,20 +620,13 @@
 \begin{itemize}
 	\item Must Own 1+ Province in Area(s) governed by the Religion slot
 	\item All Provinces must be owned by Realms of the same State Religion
+	\item If Protestant, pay -1\adminpower (p.~38)
 	\item Change Religion to your State Religion
 	\item Add 1\unrest to your affected \towns
-	\item Roll Rebel Dice for all your \unrest in affected Area(s)
+	\item Roll Rebel Dice in affected Area(s)
 \end{itemize}
 
 \subsectionstriped{colorDiplo}{Diplomatic Actions}
-\actionHeadingNoSpace{Influence \normal{(1\diplopower/3\ducats per \influence) (p.~15)}}
-\begin{itemize}
-	\item Pay 1\diplopower or 3\ducats per \influence (min 1\diplopower)
-	\item May place \influence in Areas Adj. to your \towns, \vassals, \alliances, \marriages, \influence that were there at the start of the Turn
-	\item Max 2\influence per Area per Turn
-	\item No \influence on Distant Continents
-\end{itemize}
-
 \actionHeading{Forge Alliance \normal{(1-3\diplopower) (p.~15)}}
 \begin{itemize}
 	\item Only with an NPR
@@ -645,6 +637,14 @@
 	\item Pay \diplopower = ½ of target's Tax Inc. (max 3)
 	\item Add \alliance to target's Capital
 	\item Add 1\influence to target's Cap. Area (if not full)
+\end{itemize}
+
+\actionHeadingNoSpace{Influence \normal{(1\diplopower/3\ducats per \influence) (p.~15)}}
+\begin{itemize}
+	\item Pay 1\diplopower or 3\ducats per \influence (min 1\diplopower)
+	\item May place \influence in Areas Adj. to your \towns, \vassals, \alliances, \marriages, \influence that were there at the start of the Turn
+	\item Max 2\influence per Area per Turn
+	\item No \influence on Distant Continents
 \end{itemize}
 
 \actionHeading{Fabricate Claim \normal{(2\diplopower per \claim) (p.~15)}}
@@ -689,32 +689,22 @@
 	\item Select an available (upright) Merchant
 	\begin{itemize}
 		\item Move it to the selected Node
+		\begin{itemize}
+			\item Max 1 Merchant per PR (p.~34)
+		\end{itemize}
 		\item Activate it (lay it on its side)
 	\end{itemize}
 	\item Eligible PRs collect the Trade Income
 \end{enumerate}
 
-\begin{dynamiccontents*}{frameTrade}\begin{eubox}{\fhTrade}
-	\subsubsection*{\zsavepos{arrowTradeEnd}Trade \normal{(p.~34-35)}}
+\begin{dynamiccontents*}{frameTradeIncome}\begin{eubox}{\fhTrade}
+	\subsubsection*{\zsavepos{arrowTradeEnd}Trade Income \normal{(p.~34-35)}}
 	\begin{itemize}
-		\item Trade Node may contain any number of Merchants, but max 1 per player
 		\item A PR can collect Trade Income only if the Trade Node
 		\begin{itemize}
 			\item Has an own Merchant, \conj{and}
 			\item Is \strong{eligible}: connected to Capital Area by \towns, \vassals, \influence or Light \ships (do not consider the Inland Trade Node Area)
 		\end{itemize}
-	\end{itemize}
-
-	\subsubsection*{Trade Power (\tradepower) \normal{(p.~35)}}
-	\begin{itemize}
-		\item 1 \tradepower for your Merchant
-		\item 1 \tradepower per Key Province you Own
-		\item 1 \tradepower per \ship in Trade Protection slots in Adjacent Sea Zones (only for Maritime Trade Nodes)
-		\item Key Prov. with "+" provide +1\tradepower per "+"
-		\item Key Prov. do not count for Sec. Node
-	\end{itemize}
-	\smallheading{Trade Income}
-	\begin{itemize}
 		\item 1 PR per row may collect Trade Income
 		\item Priority (losers are pushed to lower row):
 		\begin{itemize}
@@ -731,6 +721,14 @@
 			\item Other players collect income from Primary Node as normal
 		\end{itemize}
 		\item May not select a Sec. Node with a Pirate
+	\end{itemize}
+	\smallheading{Trade Power \tradepower}
+	\begin{itemize}
+		\item 1 \tradepower for your Merchant
+		\item 1 \tradepower per Key Province you Own
+		\item 1 \tradepower per \ship in Trade Protection slots in Adjacent Sea Zones (only for Maritime Trade Nodes)
+		\item Key Prov. with "+" provide +1\tradepower per "+"
+		\item Key Prov. do not count for Sec. Node
 	\end{itemize}
 	{\botrules
 	\subsubsection*{Bot Trade \normal{(p.~4)}}
@@ -755,7 +753,7 @@
 
 \begin{dynamiccontents*}{frameActionCards}\begin{eubox}{\fhActionCards}
 	\begin{multicols}{2}
-		\subsubsection*{Action Cards \normal{X\monarchpower Y\ducats (p.~18-19)}}
+		\subsubsection*{Action Cards \normal{X\monarchpower + Y\ducats (p.~18-19)}}
 		\begin{itemize}
 			\item Action cost can never go below 0
 			\item Cards in hand are secret
@@ -766,6 +764,11 @@
 				\item If ≤5 cards in discard pile, shuffle all
 			\end{itemize}
 			\item Papal Controller pays -1\adminpower for actions increasing \stability
+		\end{itemize}
+		\smallheading{Card specific rules}
+		\begin{itemize}
+			\item \action{One Step Ahead}: Cannot be played on an Army with \artillery\xspace > \xspace\cavalry (p.~24)
+			\item \action{Development}: Protest. pay -1\adminpower (p.~38)
 		\end{itemize}
 		\smallheading{Display cards (\displaycard)}
 		\begin{itemize}
@@ -802,7 +805,7 @@
 	\newlength{\tradeStartX} \setlength{\tradeStartX}{\calc{\zposx{arrowTradeStart}sp + \arrowToTextSpacing}}
 	\newlength{\tradeEndY} \setlength{\tradeEndY}{\calc{\zposy{arrowTradeEnd}sp + \arrowAdjustYBeforeSubsub}}
 	\newlength{\tradeEndX} \setlength{\tradeEndX}{\calc{\zposx{arrowTradeEnd}sp}}
-	\newlength{\tradeTurnX} \setlength{\tradeTurnX}{\calc{\tradeEndX + \arrowAdjustXTurnBeforeEnd}}
+	\newlength{\tradeTurnX} \setlength{\tradeTurnX}{\arrowXVerticalMidRight}
 	
 	\drawArrow{(\tradeStartX, \tradeStartY) -- (\tradeTurnX, \tradeStartY) -- (\tradeTurnX,\tradeEndY)  -- (\tradeEndX,\tradeEndY)}
 		
