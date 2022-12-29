@@ -514,25 +514,24 @@
 	\begin{tikzpicture}
 	\useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);
 
-	% Peace Resolution arrow
-	\newlength{\peaceStartY} \setlength{\peaceStartY}{\calc{\zposy{arrowPeaceSeqStart}sp+\arrowAdjustYBeforeSubsub}}
-	\newlength{\peaceStartX} \setlength{\peaceStartX}{\calc{\zposx{arrowPeaceSeqStart}sp}}
-	\newlength{\peaceEndY} \setlength{\peaceEndY}{\calc{\zposy{arrowPeaceSeqEnd}sp-7pt}}
-	\newlength{\peaceEndX} \setlength{\peaceEndX}{\zposx{arrowPeaceSeqEnd}sp}
-	\newlength{\peaceTurnX} \setlength{\peaceTurnX}{\calc{\peaceEndX-3.5mm}}
+	% Peace Resolution arrows (continues in next page)
+	\newlength{\peaceSeqEndY} \setlength{\peaceSeqEndY}{\calc{\zposy{arrowPeaceSeqEnd}sp + \arrowAdjustYBeforeSubsub}}
+	\newlength{\peaceSeqEndX} \setlength{\peaceSeqEndX}{\zposx{arrowPeaceSeqEnd}sp}
+	\newlength{\peaceTurnX} \setlength{\peaceTurnX}{\arrowXVerticalLeft}
+	\newlength{\peaceTurnY} \setlength{\peaceTurnY}{\calc{\margin + \fhPeaceSeq + .5\columnsep}}
 
-	\drawArrow{(\peaceStartX, \peaceStartY) -- (\peaceTurnX,\peaceStartY) -- (\peaceTurnX,\peaceEndY) -- (\peaceEndX,\peaceEndY)}
+	\drawArrow{(\pagewidth,\peaceTurnY) -- (\peaceTurnX,\peaceTurnY) -- (\peaceTurnX,\peaceSeqEndY) -- (\peaceSeqEndX,\peaceSeqEndY)}
 
 	% NPR Invasions arrow
-	\newlength{\nprStartY} \setlength{\nprStartY}{\calc{\zposy{arrowNprInvasionsStart}sp + \arrowAdjustYText}}
-	\newlength{\nprStartX} \setlength{\nprStartX}{\calc{\zposx{arrowNprInvasionsStart}sp + \arrowToTextSpacing}}
+	\newlength{\nprStartY} \setlength{\nprStartY}{\calc{\zposy{arrowNprInvasionsStart}sp + \arrowAdjustYList}}
+	\newlength{\nprStartX} \setlength{\nprStartX}{\calc{\zposx{arrowNprInvasionsStart}sp + \arrowAdjustXBeforeList}}
 	\newlength{\nprEndY} \setlength{\nprEndY}{\calc{\zposy{arrowNprInvasionsEnd}sp + \arrowAdjustYBeforeSubsub}}
 	\newlength{\nprEndX} \setlength{\nprEndX}{\zposx{arrowNprInvasionsEnd}sp}
-	\newlength{\nprTurnX} \setlength{\nprTurnX}{\calc{\nprEndX-5.5mm}}
-	\newlength{\nprTurnY} \setlength{\nprTurnY}{\peaceEndY}
-	\newlength{\nprTurnXTwo} \setlength{\nprTurnXTwo}{\calc{\nprEndX-3.5mm}}
+	\newlength{\nprTurnX} \setlength{\nprTurnX}{\arrowXVerticalMidRight}
+	\newlength{\nprTurnY} \setlength{\nprTurnY}{\calc{\margin + \textheight + .5\columnsep}}
+	\newlength{\nprTurnXTwo} \setlength{\nprTurnXTwo}{\arrowXVerticalLeft}
 
-	\drawArrow{(\nprStartX, \nprStartY) -- (\nprTurnX,\nprStartY) -- (\nprTurnX,\nprTurnY) -- (\nprTurnXTwo,\nprEndY) -- (\nprEndX,\nprEndY)}
+	\drawArrow{(\nprStartX, \nprStartY) -- (\nprTurnX,\nprStartY) -- (\nprTurnX,\nprTurnY) -- (\nprTurnXTwo,\nprTurnY) -- (\nprTurnXTwo,\nprEndY) -- (\nprEndX,\nprEndY)}
 
 	\end{tikzpicture}
 \end{dynamiccontents*}
@@ -576,6 +575,25 @@
 	\item Each human PR rolls Area by Area, for all their \unrest in a given Area (p.~37)
 	\item \botrule{Bots roll for all Areas at once (max 5 dice) (p.~4)}
 \end{itemize}
+
+\begin{dynamiccontents*}{frameArrowsPageTwo}
+	% Must be before the page ends but after all \zsavepos in other dynamic frames
+	\begin{tikzpicture}
+	\useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);
+
+	% Peace Resolution arrows (continues from previous page)
+	\newlength{\peaceTurnYContinue} \setlength{\peaceTurnYContinue}{\calc{\margin + \fhPeaceSeq + .5\columnsep}}
+	\newlength{\peaceStartY} \setlength{\peaceStartY}{\calc{\zposy{arrowPeaceStart}sp + \arrowAdjustYBeforeSubsub}}
+	\newlength{\peaceStartX} \setlength{\peaceStartX}{\zposx{arrowPeaceStart}sp}
+	\newlength{\peaceTermsEndY} \setlength{\peaceTermsEndY}{\calc{\zposy{arrowPeaceTermsEnd}sp + \arrowAdjustYBeforeSubsub}}
+	\newlength{\peaceTermsEndX} \setlength{\peaceTermsEndX}{\zposx{arrowPeaceTermsEnd}sp}
+	\newlength{\peaceTurnXTwo} \setlength{\peaceTurnXTwo}{\arrowXVerticalLeft}
+
+	\drawLine{(\peaceStartX, \peaceStartY) -- (\peaceTurnXTwo,\peaceStartY) -- (\peaceTurnXTwo,\peaceTurnYContinue) -- (0mm,\peaceTurnYContinue)}
+	\drawArrow{(\peaceStartX, \peaceStartY) -- (\peaceTurnXTwo,\peaceStartY) -- (\peaceTurnXTwo,\peaceTermsEndY) -- (\peaceTermsEndX,\peaceTermsEndY)}
+
+	\end{tikzpicture}
+\end{dynamiccontents*}
 
 \framebreak % Forcing frame break due to getting some weird errors after adding color to subsections (looks like some broken interaction between flowfram and other packages)
 \subsection*{4. Income and Upkeep}
@@ -827,7 +845,7 @@
 	\item Score \p1 per \core, \p1 per \marriage, \p2 per \alliance
 	\item Papal Contr. scores \prestige = \# of Cath. PRs
 	\item Emperor scores \prestige = \authority
-	\item Score \prestige = 2 × \stability
+	\item Score \prestige = 2× \stability
 	\item Subtract \p1 per Tax Value of Occup. \towns
 	\item Subtract \p1 per \interest
 	\item PR with most \prestige wins, tie breakers: 1.~most \monarchpower, 2.~most \ducats%
@@ -839,38 +857,38 @@
 		\useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);
 
 		% Manpower arrow
-		\newlength{\manpowerStartY} \setlength{\manpowerStartY}{\calc{\zposy{arrowManpowerStart}sp + \arrowAdjustYText}}
+		\newlength{\manpowerStartY} \setlength{\manpowerStartY}{\calc{\zposy{arrowManpowerStart}sp + \arrowAdjustYList}}
 		\newlength{\manpowerStartX} \setlength{\manpowerStartX}{\calc{\zposx{arrowManpowerStart}sp + \arrowAdjustXBeforeList}}
 		\newlength{\manpowerEndY} \setlength{\manpowerEndY}{\calc{\zposy{arrowManpowerEnd}sp + \arrowAdjustYAfterSubsub}}
 		\newlength{\manpowerEndX} \setlength{\manpowerEndX}{\calc{\zposx{arrowManpowerEnd}sp + \arrowToTextSpacing}}
-		\newlength{\manpowerTurnX} \setlength{\manpowerTurnX}{\calc{\manpowerStartX-2mm}}
+		\newlength{\manpowerTurnX} \setlength{\manpowerTurnX}{\arrowXVerticalMidRight}
 
 		\drawArrow{(\manpowerStartX, \manpowerStartY) -- (\manpowerTurnX,\manpowerStartY) -- (\manpowerTurnX,\manpowerEndY) -- (\manpowerEndX,\manpowerEndY)}
 
 		% Imperial Influence arrow
-		\newlength{\impinfStartY} \setlength{\impinfStartY}{\calc{\zposy{arrowImpInfluenceStart}sp + \arrowAdjustYText}}
+		\newlength{\impinfStartY} \setlength{\impinfStartY}{\calc{\zposy{arrowImpInfluenceStart}sp + \arrowAdjustYList}}
 		\newlength{\impinfStartX} \setlength{\impinfStartX}{\calc{\zposx{arrowImpInfluenceStart}sp + \arrowAdjustXBeforeList}}
 		\newlength{\impinfEndY} \setlength{\impinfEndY}{\calc{\zposy{arrowImpInfluenceEnd}sp + \arrowAdjustYAfterSubsub}}
 		\newlength{\impinfEndX} \setlength{\impinfEndX}{\calc{\zposx{arrowImpInfluenceEnd}sp + \arrowToTextSpacing}}
-		\newlength{\impinfTurnX} \setlength{\impinfTurnX}{\calc{\impinfStartX-2mm}}
+		\newlength{\impinfTurnX} \setlength{\impinfTurnX}{\arrowXVerticalMidRight}
 
 		\drawArrow{(\impinfStartX, \impinfStartY) -- (\impinfTurnX,\impinfStartY) -- (\impinfTurnX,\impinfEndY) -- (\impinfEndX,\impinfEndY)}
 
 		% HRE Religion arrow
-		\newlength{\hreStartY} \setlength{\hreStartY}{\calc{\zposy{arrowHreReligionStart}sp + \arrowAdjustYText}}
+		\newlength{\hreStartY} \setlength{\hreStartY}{\calc{\zposy{arrowHreReligionStart}sp + \arrowAdjustYList}}
 		\newlength{\hreStartX} \setlength{\hreStartX}{\calc{\zposx{arrowHreReligionStart}sp + \arrowAdjustXBeforeList}}
 		\newlength{\hreEndY} \setlength{\hreEndY}{\calc{\zposy{arrowHreReligionEnd}sp + \arrowAdjustYAfterSubsub}}
 		\newlength{\hreEndX} \setlength{\hreEndX}{\calc{\zposx{arrowHreReligionEnd}sp + \arrowToTextSpacing}}
-		\newlength{\hreTurnX} \setlength{\hreTurnX}{\calc{\hreStartX-2mm}}
+		\newlength{\hreTurnX} \setlength{\hreTurnX}{\arrowXVerticalMidRight}
 
 		\drawArrow{(\hreStartX, \hreStartY) -- (\hreTurnX,\hreStartY) -- (\hreTurnX,\hreEndY) -- (\hreEndX,\hreEndY)}
 
 		% Bot Deck arrow
-		\newlength{\botDeckStartY} \setlength{\botDeckStartY}{\calc{\zposy{arrowBotDeckStart}sp + \arrowAdjustYText}}
+		\newlength{\botDeckStartY} \setlength{\botDeckStartY}{\calc{\zposy{arrowBotDeckStart}sp + \arrowAdjustYList}}
 		\newlength{\botDeckStartX} \setlength{\botDeckStartX}{\calc{\zposx{arrowBotDeckStart}sp + \arrowAdjustXBeforeList}}
 		\newlength{\botDeckEndY} \setlength{\botDeckEndY}{\calc{\zposy{arrowBotDeckEnd}sp + \arrowAdjustYAfterSubsub}}
 		\newlength{\botDeckEndX} \setlength{\botDeckEndX}{\calc{\zposx{arrowBotDeckEnd}sp + \arrowToTextSpacing}}
-		\newlength{\botDeckTurnX} \setlength{\botDeckTurnX}{\calc{\botDeckStartX-2mm}}
+		\newlength{\botDeckTurnX} \setlength{\botDeckTurnX}{\arrowXVerticalMidRight}
 
 		\drawArrow{(\botDeckStartX, \botDeckStartY) -- (\botDeckTurnX,\botDeckStartY) -- (\botDeckTurnX,\botDeckEndY) -- (\botDeckEndX,\botDeckEndY)}
 
@@ -879,7 +897,7 @@
 		\newlength{\crusadeStartX} \setlength{\crusadeStartX}{\calc{\zposx{arrowCrusadeStart}sp + \arrowToTextSpacing}}
 		\newlength{\crusadeEndY} \setlength{\crusadeEndY}{\calc{\zposy{arrowCrusadeEnd}sp + \arrowAdjustYBeforeSubsub}}
 		\newlength{\crusadeEndX} \setlength{\crusadeEndX}{\zposx{arrowCrusadeEnd}sp}
-		\newlength{\crusadeTurnX} \setlength{\crusadeTurnX}{\calc{\crusadeEndX-4.5mm}}
+		\newlength{\crusadeTurnX} \setlength{\crusadeTurnX}{\calc{\arrowXVerticalMidLeft - 1mm}}
 
 		\drawArrow{(\crusadeStartX, \crusadeStartY) -- (\crusadeTurnX,\crusadeStartY) -- (\crusadeTurnX,\crusadeEndY) -- (\crusadeEndX,\crusadeEndY)}
 
@@ -888,7 +906,7 @@
 		\newlength{\powerStartX} \setlength{\powerStartX}{\calc{\zposx{arrowPowerStruggleStart}sp + \arrowToTextSpacing}}
 		\newlength{\powerEndY} \setlength{\powerEndY}{\calc{\zposy{arrowPowerStruggleEnd}sp + \arrowAdjustYBeforeSubsub}}
 		\newlength{\powerEndX} \setlength{\powerEndX}{\zposx{arrowPowerStruggleEnd}sp}
-		\newlength{\powerTurnX} \setlength{\powerTurnX}{\calc{\powerEndX-3.4mm}}
+		\newlength{\powerTurnX} \setlength{\powerTurnX}{\arrowXVerticalMidLeft}
 
 		\drawArrow{(\powerStartX, \powerStartY) -- (\powerTurnX,\powerStartY) -- (\powerTurnX,\powerEndY) -- (\powerEndX,\powerEndY)}
 
