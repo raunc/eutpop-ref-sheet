@@ -32,13 +32,11 @@
 		\item Areas/Sea Zones are adj. if they share a border or have Ports facing the same Sea Zone
 		\item A Realm is adj. if an Own Prov. is adj.
 	\end{itemize}
-	\item \strong{Occupied Province}: has Occ. token \conj{or} 2 \rebel/\town/\vassal (Controller on top, Lawful Owner on bottom)
-	\item \strong{Own Province}: has its Realm's flag/\town/\dnpr \conj{and} is non-Occupied
-	\item \strong{Realm}: made of Own Prov. and Areas with such Prov.
+	\item \strong{Deployed}: of a Unit on the board or in an Army/Fleet
+	\item \strong{Friendly}:
 	\begin{itemize}
-		\item \strong{(N)PR}: (Non-)human/Bot Realm
-		\item \strong{Distant R.}: with Dist. Capital
-		\item \strong{R. Core Provinces}: has its flag, \conj{or}, superseding, its \core in the Prov. Area
+		\item Armies/Units/Prov. Controlled by you/\ally/\vassal
+		\item Non-Hostile Areas containing Friendly Prov.
 	\end{itemize}
 	\item \strong{Hostile}:
 	\begin{itemize}
@@ -47,12 +45,18 @@
 		\item Sea Zones containing Hostile Ships
 		\item Sea Zones facing Hostile NPR Ports \conj{and} containing no Ship Hostile to them
 	\end{itemize}
-	\item \strong{Friendly}:
-	\begin{itemize}
-		\item Armies/Units/Prov. Controlled by you/\ally/\vassal
-		\item Non-Hostile Areas containing Friendly Prov.
-	\end{itemize}
 	\item \strong{Neutral}: neither Friendly nor Hostile
+	\item \strong{Opponent}: player other than you
+	\item \strong{Player}: human or Bot
+	\item \strong{You}: the Active Player
+	\item \strong{Occupied Province}: has Occ. token \conj{or} 2 \rebel/\town/\vassal (Controller on top, Lawful Owner on bottom)
+	\item \strong{Own Province}: has its Realm's flag/\town/\dnpr \conj{and} is non-Occupied
+	\item \strong{Realm}: made of Own Prov. and Areas with such Prov.
+	\begin{itemize}
+		\item \strong{(N)PR}: (Non-)Player Realm
+		\item \strong{Distant R.}: with Dist. Capital
+		\item \strong{R. Core Provinces}: has its flag, \conj{or}, superseding, its \core in the Prov. Area
+	\end{itemize}
 \end{itemize}
 
 \subsubsection*{Token Limits}
