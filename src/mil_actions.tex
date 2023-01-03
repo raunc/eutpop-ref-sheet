@@ -18,9 +18,12 @@
 
 \newlength{\fhReceivingCta} \setlength\fhReceivingCta{\calc{\frameDefHreY - \frameToFrameSpacing}}
 
-\newlength{\fhCallToArms} \setlength\fhCallToArms{23\baselineskip}
+\newlength{\fhActiveAlly} \setlength\fhActiveAlly{8\baselineskip}
 
-\newlength{\fhFirstPageLeftCol} \setlength\fhFirstPageLeftCol{\calc{\textheight - \fhCallToArms - \frameToTextSpacing}}
+\newlength{\fhCallToArms} \setlength\fhCallToArms{16\baselineskip}
+\newlength{\frameCallToArmsY} \setlength\frameCallToArmsY{\calc{\fhActiveAlly + \frameToFrameSpacing}}
+
+\newlength{\fhFirstPageLeftCol} \setlength\fhFirstPageLeftCol{\calc{\textheight - \fhCallToArms - \fhActiveAlly - \frameToFrameSpacing - \frameToTextSpacing}}
 \newlength{\firstPageLeftColY} \setlength\firstPageLeftColY{\calc{\textheight - \fhFirstPageLeftCol}}
 
 %Second page
@@ -65,7 +68,8 @@
 \newflowframe[3]{\columnwidth}{\fhThirdPageLeftCol}{0mm}{\thirdPageLeftColY}[thirdPageLeftCol]
 
 % Text Frames
-\newdynamicframe[1]{\columnwidth}{\fhCallToArms}{0mm}{0mm}[frameCallToArms]
+\newdynamicframe[1]{\columnwidth}{\fhCallToArms}{0mm}{\frameCallToArmsY}[frameCallToArms]
+\newdynamicframe[1]{\columnwidth}{\fhActiveAlly}{0mm}{0mm}[frameActiveAlly]
 \newdynamicframe[1]{\fwTwoCols}{\fhDowRestrictions}{\middleColX}{\frameDowRestrictionsY}[frameDowRestrictions]
 \newdynamicframe[1]{\fwTwoCols}{\fhCasusBelli}{\middleColX}{\frameCasusBelliY}[frameCasusBelli]
 \newdynamicframe[1]{\fwTwoCols}{\fhHreIntWars}{\middleColX}{\frameHreIntWarsY}[frameHreIntWars]
@@ -252,8 +256,14 @@
 			\item At Peace, \conj{and}
 			\item Adjacent to you or your new Enemy
 		\end{itemize}
-		\botrule{\item Bot sends \emph{Def. CtA}s to \allies Adj. to Aggres.}
-		\item For each NPR Ally called to arms
+		\botrule{\item Bot sends \emph{Def. CtA}s to \allies Adjacent to the Aggressor (p.~4)}
+	\end{itemize}
+\end{eubox}\end{dynamiccontents*}
+
+\begin{dynamiccontents*}{frameActiveAlly}\begin{eubox}{\fhActiveAlly}
+	\subsubsection*{Active Ally \normal{(\activeally) (p.~33)}}
+	\begin{itemize}
+		\item For each called NPR Ally
 		\begin{itemize}
 			\item Flip the \alliance to \activeally
 			\item Add Allied Units to Available \manpower equal to ½ of Tax Value of the Ally + its Vassals (max 5)
@@ -261,10 +271,10 @@
 		\end{itemize}
 		{\botrules
 		\begin{itemize}
-			\item Bot gains 2\botpower if \emph{Def. CtA} (p.~4)
+			\item Bot gains 2\botpower and no Units (p.~4)
 		\end{itemize}
 		}
-\end{itemize}
+	\end{itemize}
 \end{eubox}\end{dynamiccontents*}
 
 \begin{dynamiccontents*}{frameReceivingCta}\begin{eubox}{\fhReceivingCta}
@@ -287,13 +297,14 @@
 				\item If from NPR, you may
 				\begin{itemize}
 					\item Make them Active Ally or not
+					\begin{itemize}
+						\botrule{\item Bot chooses not to (p.~4)}
+					\end{itemize}
 					\item Send \emph{Def. CtA} to other NPR Allies
 				\end{itemize}
 				\item If you are Allied to a PR on opposing side, this Alliance ends
 			\end{itemize}
 		\end{itemize}
-		\columnbreak
-
 		\smallheading{Refusing a CtA}
 		\begin{itemize}
 			\item Remove \alliance
@@ -310,7 +321,6 @@
 			\end{itemize}
 			\item Place Truce tokens, unless former Ally is PR who chose to place a CB
 		\end{itemize}
-		\vfill
 	\end{multicols}
 \end{eubox}\end{dynamiccontents*}
 
