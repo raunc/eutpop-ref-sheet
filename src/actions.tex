@@ -24,7 +24,7 @@
 
 % Third page
 \newlength{\fhTrade} \setlength\fhTrade{40.5\baselineskip}
-\newlength{\fhActionCards} \setlength\fhActionCards{14\baselineskip}
+\newlength{\fhActionCards} \setlength\fhActionCards{15\baselineskip}
 \newlength{\frameTradeIncomeY} \setlength\frameTradeIncomeY{\calc{\textheight - \fhTrade}}
 
 \newlength{\fhThirdPageSmallCol} \setlength\fhThirdPageSmallCol{\calc{\textheight - \fhActionCards - \frameToTextSpacing}}
@@ -41,7 +41,6 @@
 \newflowframe[2]{\columnwidth}{\fhSecondPageCol}{\rightColX}{0mm}[secondPageRightCol]
 
 \newflowframe[3]{\columnwidth}{\fhThirdPageSmallCol}{\middleColX}{\thirdPageSmallColY}[thirdPageMiddleCol]
-\newflowframe[3]{\columnwidth}{\fhThirdPageSmallCol}{\rightColX}{\thirdPageSmallColY}[thirdPageRightCol]
 
 % Text Frames
 \newdynamicframe[1]{\fwTwoCols}{\fhEventGuidelines}{\middleColX}{\frameEventGuidelinesY}[frameEventGuidelines]
@@ -632,11 +631,15 @@
 	\item Only with an NPR
 	\item Both must be at Peace
 	\item Must have at least 2\influence in target Realm
-	\item If target is a Distant NPR, then must have a \claim on 1+ of target's Areas
+	\item If target is a Distant NPR, then 
+	\begin{itemize}
+		\item must have a \claim on 1+ of target's Areas
+		\item may use \colonist instead of \influence
+	\end{itemize}
 	\item If target has Alliance, then must have more \influence and remove previous \alliance
 	\item Pay \diplopower = ½ of target's Tax Inc. (max 3)
 	\item Add \alliance to target's Capital
-	\item Add 1\influence to target's Cap. Area (if not full)
+	\item Add 1\influence to target's Cap. Area
 \end{itemize}
 
 \actionHeadingNoSpace{Influence \normal{(1\diplopower/3\ducats per \influence) (p.~15)}}
@@ -668,7 +671,7 @@
 	\end{itemize}
 \end{itemize}
 
-\actionHeading{Trade \normal{(1\diplopower) (p.~15)}\zsavepos{arrowTradeStart}}
+\actionHeading{Trade \normal{(1\diplopower) (p.~15)}}
 \begin{itemize}
 	\item Must have an available (upright) Merchant
 \end{itemize}
@@ -677,10 +680,10 @@
 	\item May collect 2\ducats and end Action
 	\item May move 1 Light \ship
 	\begin{itemize}
-		\item Only if
+		\item Only if, selecting a Trade Node
 		\begin{itemize}
-			\item It increases Trade Power in Node you will select, \conj{or}
-			\item It creates a connection to the Node you will select
+			\item It increases your Trade Power, \conj{or}
+			\item It creates a connection to the Node
 		\end{itemize}
 		\item May displace Opp.'s \ship if no vac. slot
 		\item May not enter a Hostile Sea Zone
@@ -694,7 +697,7 @@
 		\end{itemize}
 		\item Activate it (lay it on its side)
 	\end{itemize}
-	\item Eligible PRs collect the Trade Income
+	\item Eligible PRs collect the Trade Income\zsavepos{arrowTradeStart}
 \end{enumerate}
 
 \begin{dynamiccontents*}{frameTradeIncome}\begin{eubox}{\fhTrade}
@@ -722,7 +725,7 @@
 		\end{itemize}
 		\item May not select a Sec. Node with a Pirate
 	\end{itemize}
-	\smallheading{Trade Power \tradepower}
+	\smallheading{Trade Power (\tradepower)}
 	\begin{itemize}
 		\item 1 \tradepower for your Merchant
 		\item 1 \tradepower per Key Province you Own
@@ -765,10 +768,14 @@
 			\end{itemize}
 			\item Papal Controller pays -1\adminpower for actions increasing \stability
 		\end{itemize}
-		\smallheading{Card specific rules}
+		\smallheading{Covert Actions (\covertaction)}
 		\begin{itemize}
-			\item \action{One Step Ahead}: Cannot be played on an Army with \artillery\xspace > \xspace\cavalry (p.~24)
-			\item \action{Development}: Protest. pay -1\adminpower (p.~38)
+			\item Can be countered by \action{Counterespion.}
+			\item When countered
+			\begin{itemize}
+				\item Cost must be payed
+				\item Display Card uses must be spent
+			\end{itemize}
 		\end{itemize}
 		\smallheading{Display cards (\displaycard)}
 		\begin{itemize}
@@ -780,18 +787,16 @@
 			\item Fully charge the card with \cubes when played
 			\item 1+ charges are exhausted per use
 		\end{itemize}
-		\smallheading{Covert Actions (\covertaction)}
-		\begin{itemize}
-			\item Can be countered by \action{Counterespion.}
-			\item When countered
-			\begin{itemize}
-				\item Cost must be payed
-				\item Display Card uses must be spent
-			\end{itemize}
-		\end{itemize}
 		\smallheading{Reactions (\reaction)}
 		\begin{itemize}
 			\item May be played outside your Action Turn, under specific circumstances
+		\end{itemize}
+		\smallheading{Card specific rules}
+		\begin{itemize}
+			\item \action{One Step Ahead}: Cannot be played on an Army with \artillery\xspace > \xspace\cavalry (p.~24)
+			\item \action{Development}: Protest. pay -1\adminpower (p.~38)
+			\item \action{Integrate Area}: see \strong{Core Prov.} (p.~21)
+			\item \action{Subjugate}: see \strong{Vassals} (p.~33)
 		\end{itemize}
 	\end{multicols}
 \end{eubox}\end{dynamiccontents*}
