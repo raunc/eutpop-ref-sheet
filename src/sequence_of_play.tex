@@ -3,9 +3,10 @@
 \usepackage{eucommon}
 
 % Define frame heights and widths
-\newlength{\fhPeaceSeq} \setlength\fhPeaceSeq{26.5\baselineskip}
-\newlength{\fhNprInvasions} \setlength\fhNprInvasions{\calc{\textheight - \fhPeaceSeq - \frameToFrameSpacing}}
-\newlength{\fhFirstPage} \setlength\fhFirstPage{\calc{\textheight - \fhPeaceSeq - \frameToTextSpacing}}
+\newlength{\fhPeaceSeq} \setlength\fhPeaceSeq{23.5\baselineskip}
+\newlength{\fhNprInvasions} \setlength\fhNprInvasions{29.5\baselineskip}
+\newlength{\fhFirstPageLong} \setlength\fhFirstPageLong{\calc{\textheight - \fhPeaceSeq - \frameToTextSpacing}}
+\newlength{\fhFirstPageShort} \setlength\fhFirstPageShort{\calc{\textheight - \fhPeaceSeq - \fhNprInvasions - 2\frameToTextSpacing}}
 
 \newlength{\fhPeaceTerms} \setlength\fhPeaceTerms{45.5\baselineskip}
 \newlength{\fhSecondPage} \setlength\fhSecondPage{\calc{\textheight - \fhPeaceTerms - \frameToTextSpacing}}
@@ -25,8 +26,9 @@
 
 % Text Columns
 \usepackage{flowfram}
-\newflowframe[1]{\columnwidth}{\fhFirstPage}{\middleColX}{\calc{\textheight - \fhFirstPage}}[firstPageMiddleCol]
-\newflowframe[1]{\columnwidth}{\fhFirstPage}{\rightColX}{\calc{\textheight - \fhFirstPage}}[firstPageRightCol]
+\newflowframe[1]{\columnwidth}{\fhFirstPageLong}{0mm}{\calc{\textheight - \fhFirstPageLong}}[firstPageLeftCol]
+\newflowframe[1]{\columnwidth}{\fhFirstPageShort}{\middleColX}{\calc{\fhPeaceSeq + \frameToTextSpacing}}[firstPageMiddleCol]
+\newflowframe[1]{\columnwidth}{\fhFirstPageLong}{\rightColX}{\calc{\textheight - \fhFirstPageLong}}[firstPageRightCol]
 \newflowframe[2]{\columnwidth}{\fhSecondPage}{0mm}{\calc{\textheight - \fhSecondPage}}[secondPageLeftCol]
 \newflowframe[2]{\columnwidth}{\fhSecondPage}{\middleColX}{\calc{\textheight - \fhSecondPage}}[secondPageMiddleCol]
 \newflowframe[2]{\columnwidth}{\fhSecondPage}{\rightColX}{\calc{\textheight - \fhSecondPage}}[secondPageRightCol]
@@ -35,7 +37,7 @@
 
 % Text Frames
 \newdynamicframe[1]{\textwidth}{\fhPeaceSeq}{0mm}{0mm}[framePeaceSeq]
-\newdynamicframe[1]{\columnwidth}{\fhNprInvasions}{0mm}{\calc{\textheight - \fhNprInvasions}}[frameNprInvasions]
+\newdynamicframe[1]{\columnwidth}{\fhNprInvasions}{\middleColX}{\calc{\textheight - \fhNprInvasions}}[frameNprInvasions]
 
 \newdynamicframe[2]{\textwidth}{\fhPeaceTerms}{0mm}{0mm}[framePeaceTerms]
 
@@ -71,7 +73,7 @@
 \addfooter
 
 \begin{dynamiccontents*}{frameNprInvasions}\begin{eubox}{\fhNprInvasions}
-	\subsubsection*{\zsavepos{arrowNprInvasionsEnd}NPR Invasions \normal{(p.~36)}}
+	\subsubsection*{NPR Invasions \normal{(p.~36)}\zsavepos{arrowNprInvasionsEnd}}
 	\begin{itemize}
 		\item Resolve NPRs in alphabetical order
 		\item \strong{Invasion takes place if}
@@ -98,7 +100,7 @@
 		\end{enumerate}
 		\item Add \unrest to 2 Enemy \towns/\vassals in the target Area (pick \az)
 		\item Place NPR Units equal to ½ of Tax Value currently Controlled by the NPR (including Vassals)
-		\item NPRs invade at normal strength even if not enough tokens in Supply
+		\item NPRs invade at normal strength even if not enough tokens in Supply (p.~2)
 		\item Resolve Battle immediately (if any)
 		\begin{itemize}
 			\botrule{\item Place Bot Army in Area (p.~2)}
@@ -121,9 +123,9 @@
 			\item In each step, resolve Peace in Turn order
 			\item Victory is only assigned to PR
 			\begin{itemize}
-				\item who achieved Total/Partial Victory, \conj{or}
-				\item whose Enemy Surrendered, \conj{or}
-				\item if agreed as such in Negotiated Peace
+				\item Who achieved Total/Partial Victory, \conj{or}
+				\item Whose Enemy Surrendered, \conj{or}
+				\item If agreed as such in Negotiated Peace
 			\end{itemize}
 			\botrule{\item Bots use the Peace Resolution chart (p.~15)}
 		\end{itemize}
@@ -148,7 +150,7 @@
 			\end{itemize}
 			\item \strong{Requirements}
 			\begin{itemize}
-				\item Must Occupy all single Enemy's \emph{de jure} Provinces, \conj{and}
+				\item Occ. all single Enemy's \emph{de jure} Prov.
 				\item Enemy has no Deployed Land Units
 			\end{itemize}
 		\end{itemize}
@@ -183,16 +185,6 @@
 
 		\subsubsection*{4. Aftermath}
 		\begin{itemize}
-			\item Raise \authority by 1 (p.~44-45)
-			\begin{itemize}
-				\item if PR Emp. wins against ext. Aggressor \conj{and} no HRE Prov. is ceded
-				\item for each Area joining HRE
-			\end{itemize}
-			\item Drop \authority by 1 (p.~44-45)
-			\begin{itemize}
-				\item if PR Emp. loses against ext. Aggressor
-				\item for each Area leaving HRE
-			\end{itemize}
 			\item PRs at Peace must move Units to the nearest Friendly Area (count 1 for each Area/Sea Zone)
 			\begin{itemize}
 				\item If equally close, then PR may choose
@@ -200,7 +192,6 @@
 			\end{itemize}
 			\item PRs at Peace flip their \activeallies back to \alliance
 			\item PRs at Peace remove Allied Units
-			\item PRs at Peace flip their War/Truce tokens
 			{\botrules
 			\item If a Bot is now at Peace (p.~2-3)
 			\begin{itemize}
@@ -215,7 +206,6 @@
 \sectionbg{Sequence \normal{\Large{(p.~8-11)}}}
 \subsection*{1. Draw Cards}
 \begin{itemize}
-	\item May not score Missions in Phase 1 (p.~42)
 	\botrule{\item Bots ignore this Phase (p.~2)}
 \end{itemize}
 \subsubsection*{A. Reveal Events}
@@ -253,7 +243,7 @@
 \begin{itemize}
 	\item Allowed only if \action{Event} taken
 	\item May take Minor Actions on same Turn
-	\item First 2-4 PRs to Pass gain \ducats
+	\item First 2/3/3/4 PRs to Pass gain \ducats
 	\item If no more PRs eligible to gain \ducats,\\ \strong{End of Action Phase} is triggered
 	\begin{itemize}
 		\item Each remaining PR may take 1 more Action of their choice, \conj{then}
@@ -288,12 +278,30 @@
 	\begin{itemize}
 		\item If an Area with \unrest is Adj. by Land \conj{and} \rebels will not be outnum. there by PRs
 		\begin{itemize}
-			\item Move all but 1 \rebel. Priority: 1. most \unrest; 2. most PR \towns; 3. \az
+			\item Move all but 1 \rebel. Priority:\\ 1. most \unrest; 2. most PR \towns; 3. \az
 			\item Resolve Battle immediately
 		\end{itemize}
 		\item Otherwise remove 1\rebel
 	\end{itemize}
 \end{itemize}
+
+\subsubsection*{\zsavepos{arrowPeaceStart}D. Peace Resolutions}
+\begin{itemize}
+	\item When Emperor makes peace with an External Aggressor (p.~44-45)
+	\begin{itemize}
+		\item If Emp. won \conj{and} no HRE Prov. is lost
+		\begin{itemize}
+			\item Raise \authority by \# of Areas joining HRE
+		\end{itemize}
+		\item If Emp. lost
+		\begin{itemize}
+			\item Drop \authority by \# of Areas leaving HRE
+		\end{itemize}
+	\end{itemize}
+	\item PRs making peace flip the relative War/Truce tokens
+\end{itemize}
+
+\framebreak
 
 \begin{dynamiccontents*}{frameArrowsPageOne}
 	% Must be before the page ends but after all \zsavepos in other dynamic frames
@@ -301,30 +309,24 @@
 	\useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);
 
 	% Peace Resolution arrows (continues in next page)
-	\newlength{\peaceSeqEndY} \setlength{\peaceSeqEndY}{\calc{\zposy{arrowPeaceSeqEnd}sp + \arrowAdjustYBeforeSubsub}}
-	\newlength{\peaceSeqEndX} \setlength{\peaceSeqEndX}{\zposx{arrowPeaceSeqEnd}sp}
-	\newlength{\peaceTurnX} \setlength{\peaceTurnX}{\calc{\peaceSeqEndX + \arrowAdjustXTurnBeforeEnd}}
-	\newlength{\peaceTurnY} \setlength{\peaceTurnY}{\calc{\peaceSeqEndY + \arrowAdjustYTurnBeforeBox}}
+	% \newlength{\peaceSeqEndY} \setlength{\peaceSeqEndY}{\calc{\zposy{arrowPeaceSeqEnd}sp + \arrowAdjustYBeforeSubsub}}
+	% \newlength{\peaceSeqEndX} \setlength{\peaceSeqEndX}{\zposx{arrowPeaceSeqEnd}sp}
+	% \newlength{\peaceTurnX} \setlength{\peaceTurnX}{\calc{\peaceSeqEndX + \arrowAdjustXTurnBeforeEnd}}
+	% \newlength{\peaceTurnY} \setlength{\peaceTurnY}{\calc{\peaceSeqEndY + \arrowAdjustYTurnBeforeBox}}
 
-	\drawArrow{(\pagewidth,\peaceTurnY) -- (\peaceTurnX,\peaceTurnY) -- (\peaceTurnX,\peaceSeqEndY) -- (\peaceSeqEndX,\peaceSeqEndY)}
+	% \drawArrow{(\pagewidth,\peaceTurnY) -- (\peaceTurnX,\peaceTurnY) -- (\peaceTurnX,\peaceSeqEndY) -- (\peaceSeqEndX,\peaceSeqEndY)}
 
 	% NPR Invasions arrow
 	\newlength{\nprStartY} \setlength{\nprStartY}{\calc{\zposy{arrowNprInvasionsStart}sp + \arrowAdjustYList}}
 	\newlength{\nprStartX} \setlength{\nprStartX}{\calc{\zposx{arrowNprInvasionsStart}sp + \arrowAdjustXBeforeList}}
-	\newlength{\nprEndY} \setlength{\nprEndY}{\calc{\zposy{arrowNprInvasionsEnd}sp + \arrowAdjustYBeforeSubsub}}
-	\newlength{\nprEndX} \setlength{\nprEndX}{\zposx{arrowNprInvasionsEnd}sp}
+	\newlength{\nprEndY} \setlength{\nprEndY}{\calc{\zposy{arrowNprInvasionsEnd}sp + \arrowAdjustYAfterSubsub}}
+	\newlength{\nprEndX} \setlength{\nprEndX}{\calc{\zposx{arrowNprInvasionsEnd}sp + \arrowToTextSpacing}}
 	\newlength{\nprTurnX} \setlength{\nprTurnX}{\calc{\nprStartX + \arrowAdjustXTurnBeforeStart}}
-	\newlength{\nprTurnY} \setlength{\nprTurnY}{\calc{\nprEndY + \arrowAdjustYTurnBeforeBox}}
-	\newlength{\nprTurnXTwo} \setlength{\nprTurnXTwo}{\calc{\nprEndX + \arrowAdjustXTurnBeforeEnd}}
 
-	\drawArrow{(\nprStartX, \nprStartY) -- (\nprTurnX,\nprStartY) -- (\nprTurnX,\nprTurnY) -- (\nprTurnXTwo,\nprTurnY) -- (\nprTurnXTwo,\nprEndY) -- (\nprEndX,\nprEndY)}
+	\drawArrow{(\nprStartX, \nprStartY) -- (\nprTurnX,\nprStartY) -- (\nprTurnX,\nprEndY) -- (\nprEndX,\nprEndY)}
 
 	\end{tikzpicture}
 \end{dynamiccontents*}
-
-\framebreak
-
-\subsubsection*{\zsavepos{arrowPeaceStart}D. Peace Resolutions}
 
 \subsubsection*{E. Prestige Penalties}
 \begin{itemize}
@@ -507,7 +509,7 @@
 				\end{itemize}
 			}
 			\item Remove all Loser's \alliances/\marriages
-			\item If Loser is Active Ally, then lose \p2
+			\item If Loser is \activeally, the Allied PR loses \p2
 			\item Victor may discard \claims in Area(s) of gained Prov. to remove 2 \unrest from same Area(s)
 			\item If Emp. enforces Full Annex. on Subject with the same State Religion, drop \authority by 1 (p.~45)
 		\end{itemize}
@@ -570,15 +572,15 @@
 	\useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);
 
 	% Peace Resolution arrows (continues from previous page)
-	\newlength{\peaceTurnYContinue} \setlength{\peaceTurnYContinue}{\calc{\zposy{arrowPeaceSeqEnd}sp + \arrowAdjustYBeforeSubsub + \arrowAdjustYTurnBeforeBox}}
-	\newlength{\peaceStartY} \setlength{\peaceStartY}{\calc{\zposy{arrowPeaceStart}sp + \arrowAdjustYBeforeSubsub}}
-	\newlength{\peaceStartX} \setlength{\peaceStartX}{\zposx{arrowPeaceStart}sp}
-	\newlength{\peaceTermsEndY} \setlength{\peaceTermsEndY}{\calc{\zposy{arrowPeaceTermsEnd}sp + \arrowAdjustYBeforeSubsub}}
-	\newlength{\peaceTermsEndX} \setlength{\peaceTermsEndX}{\zposx{arrowPeaceTermsEnd}sp}
-	\newlength{\peaceTurnXTwo} \setlength{\peaceTurnXTwo}{\calc{\peaceTermsEndX + \arrowAdjustXTurnBeforeEnd}}
+	% \newlength{\peaceTurnYContinue} \setlength{\peaceTurnYContinue}{\calc{\zposy{arrowPeaceSeqEnd}sp + \arrowAdjustYBeforeSubsub + \arrowAdjustYTurnBeforeBox}}
+	% \newlength{\peaceStartY} \setlength{\peaceStartY}{\calc{\zposy{arrowPeaceStart}sp + \arrowAdjustYBeforeSubsub}}
+	% \newlength{\peaceStartX} \setlength{\peaceStartX}{\zposx{arrowPeaceStart}sp}
+	% \newlength{\peaceTermsEndY} \setlength{\peaceTermsEndY}{\calc{\zposy{arrowPeaceTermsEnd}sp + \arrowAdjustYBeforeSubsub}}
+	% \newlength{\peaceTermsEndX} \setlength{\peaceTermsEndX}{\zposx{arrowPeaceTermsEnd}sp}
+	% \newlength{\peaceTurnXTwo} \setlength{\peaceTurnXTwo}{\calc{\peaceTermsEndX + \arrowAdjustXTurnBeforeEnd}}
 
-	\drawLine{(\peaceStartX, \peaceStartY) -- (\peaceTurnXTwo,\peaceStartY) -- (\peaceTurnXTwo,\peaceTurnYContinue) -- (0mm,\peaceTurnYContinue)}
-	\drawArrow{(\peaceStartX, \peaceStartY) -- (\peaceTurnXTwo,\peaceStartY) -- (\peaceTurnXTwo,\peaceTermsEndY) -- (\peaceTermsEndX,\peaceTermsEndY)}
+	% \drawLine{(\peaceStartX, \peaceStartY) -- (\peaceTurnXTwo,\peaceStartY) -- (\peaceTurnXTwo,\peaceTurnYContinue) -- (0mm,\peaceTurnYContinue)}
+	% \drawArrow{(\peaceStartX, \peaceStartY) -- (\peaceTurnXTwo,\peaceStartY) -- (\peaceTurnXTwo,\peaceTermsEndY) -- (\peaceTermsEndX,\peaceTermsEndY)}
 
 	\end{tikzpicture}
 \end{dynamiccontents*}
@@ -609,7 +611,7 @@
 
 \begin{tabularx}{\columnwidth}{ | X | X | }
 \hline
-\rowcolor{tblbgTax} + Base and Vassal Tax Income & Do not count Occupied \towns (p.~28) \\ \hline
+\rowcolor{tblbgTax} + Base and Vassal Tax Income & Do not count slots with \cubes (p.~28) \\ \hline
 \rowcolor{tblbgCost} - Advisor Upkeep & Papal Controller pays 1\ducat less per Advisor \\ \hline
 \rowcolor{tblbgCost} - Military Maintenance & {
 1\ducat per Regular Unit \newline
@@ -711,7 +713,7 @@
 	\item Repair Heavy Ships in Port
 	\item Refresh Merchants
 	\item Add \colonists = \# of Colonial \claims (max 4)
-	\item \botrule{Discard Bot \colonists if there is no vacant Territory nor own Colonial \claim (p.~3)}
+	\item \botrule{Discard Bot \colonists if there is no vacant Territory (p.~3)}
 	\item Remove \cube from \emph{Changed Nat. Focus} slot
 \end{itemize}
 \begin{dynamiccontents*}{frameManpower}\begin{eubox}{\fhManpower}
@@ -796,19 +798,10 @@
 \end{eubox}\end{dynamiccontents*}
 
 \subsubsection*{C. Discard down to 5 Action Cards}
-\begin{itemize}
-	\item \displaycard in play do not count
-\end{itemize}
 
 \subsubsection*{D. End of Age Routine}
 \begin{itemize}
-	\item Go to Final Scoring if
-	\begin{itemize}
-		\item No more Events left, \conj{or}
-		\item PR has ≥100 \prestige and lead of ≥20 \prestige, \conj{or}
-		\item PR has all \towns and \vassals on the Map
-	\end{itemize}
-	\item If end of Age
+	\item If end of Age and no Final Scoring\zsavepos{arrowFinalStart}
 	\begin{itemize}
 		\item Place the Event deck for the next Age
 		\item Replace all Milestones
@@ -826,6 +819,12 @@
 
 \subsection*{Final Scoring}
 \begin{itemize}
+	\item Trigger Final Scoring if\zsavepos{arrowFinalEnd}
+	\begin{itemize}
+		\item No more Events left, \conj{or}
+		\item PR has ≥100 \prestige and lead of ≥20 \prestige, \conj{or}
+		\item PR has all \towns and \vassals on the Map
+	\end{itemize}
 	\item Score Missions from hand (no effects)
 	\item Score \prestige = Base and Vassal Tax Income
 	\item Score \p1 per \core, \p1 per \marriage, \p2 per \alliance
@@ -896,6 +895,15 @@
 
 		\drawArrow{(\powerStartX, \powerStartY) -- (\powerTurnX,\powerStartY) -- (\powerTurnX,\powerEndY) -- (\powerEndX,\powerEndY)}
 
+		% Final Scoring arrow
+		\newlength{\finalStartY} \setlength{\finalStartY}{\calc{\zposy{arrowFinalStart}sp + \arrowAdjustYText}}
+		\newlength{\finalStartX} \setlength{\finalStartX}{\calc{\zposx{arrowFinalStart}sp + \arrowToTextSpacing}}
+		\newlength{\finalEndY} \setlength{\finalEndY}{\calc{\zposy{arrowFinalEnd}sp + \arrowAdjustYText}}
+		\newlength{\finalEndX} \setlength{\finalEndX}{\calc{\zposx{arrowFinalEnd}sp + \arrowToTextSpacing}}
+		\newlength{\finalTurnX} \setlength{\finalTurnX}{\calc{\pagewidth - 5mm}}
+
+		\drawArrow{(\finalStartX, \finalStartY) -- (\finalTurnX,\finalStartY) -- (\finalTurnX,\finalEndY) -- (\finalEndX,\finalEndY)}
+		
 	\end{tikzpicture}
 \end{dynamiccontents*}
 
