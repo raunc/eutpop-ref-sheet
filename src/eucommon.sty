@@ -10,7 +10,8 @@
 \usepackage{euarguments}
 
 %% Layout %%
-\RequirePackage[a4paper, portrait, margin=10mm]{geometry}
+\newlength{\margin} \setlength{\margin}{10mm}
+\RequirePackage[a4paper, portrait, margin=\margin]{geometry}
 \RequirePackage{multicol}
 \setlength{\columnsep}{5mm}
 \setlength{\multicolsep}{0mm}
@@ -106,9 +107,9 @@
 \computebottomedge{\pagemarginbottom}
 
 \newcommand{\arrowwidth}{1.6pt}
-\newcommand{\arrowradius}{1mm}
+\newcommand{\arrowradius}{0.7mm}
 \tikzset{
-	myarrow/.tip={Stealth[length=3mm]},
+	myarrow/.tip={Stealth[length=2.2mm, width=2mm]},
 }
 \newcommand{\drawArrow}[1]{
 	\draw[arrows=-myarrow, rounded corners=\arrowradius, line width=\arrowwidth, arrowcolor] #1;
@@ -122,9 +123,15 @@
 \newlength{\arrowAdjustYBeforeSubsub} \setlength\arrowAdjustYBeforeSubsub{-7pt}
 \newlength{\arrowAdjustYAfterSubsub} \setlength\arrowAdjustYAfterSubsub{3pt}
 \newlength{\arrowAdjustYText} \setlength\arrowAdjustYText{3pt}
+\newlength{\arrowAdjustYList} \setlength\arrowAdjustYList{3.75pt}
 
 \newlength{\arrowAdjustXBeforeList} \setlength\arrowAdjustXBeforeList{-4mm}
 \newlength{\arrowAdjustXBeforeListNum} \setlength\arrowAdjustXBeforeListNum{\calc{\arrowAdjustXBeforeList - 1mm}}
+
+\newlength{\arrowXVerticalLeft} \setlength\arrowXVerticalLeft{\calc{\margin - .5\columnsep}}
+\newlength{\arrowXVerticalMidLeft} \setlength\arrowXVerticalMidLeft{\calc{\arrowXVerticalLeft + \columnwidth + \columnsep}}
+\newlength{\arrowXVerticalMidRight} \setlength\arrowXVerticalMidRight{\calc{\arrowXVerticalMidLeft + \columnwidth + \columnsep}}
+\newlength{\arrowXVerticalRight} \setlength\arrowXVerticalRight{\calc{\arrowXVerticalMidRight + \columnwidth + \columnsep}}
 
 % To be used before \zsavepos if it is in the beginning of \item.
 % This forces it to save pos inside text box making it more consistent
