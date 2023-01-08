@@ -8,7 +8,7 @@
 
 % Define frame sizes and positioning
 % First page
-\newlength{\fhEventGuidelines} \setlength\fhEventGuidelines{34\baselineskip}
+\newlength{\fhEventGuidelines} \setlength\fhEventGuidelines{35.5\baselineskip}
 \newlength{\frameEventGuidelinesY} \setlength\frameEventGuidelinesY{\calc{\textheight - \fhEventGuidelines}}
 \newlength{\fhDistantTrade} \setlength\fhDistantTrade{4\baselineskip}
 \newlength{\frameDistantTradeY} \setlength\frameDistantTradeY{\calc{\frameEventGuidelinesY - \fhDistantTrade - \frameToFrameSpacing}}
@@ -74,11 +74,9 @@
 \actionHeadingNoSpace{Event \normal{(p.~12)}}
 \begin{itemize}
 	\item Must be taken exactly once per Round
-	\item Must select a face-up Event
 \end{itemize}
 \begin{enumerate}
-	\item Collect \ducats on the card and move Round Status marker
-	\item Add 2 \ducats to remaining face-up Events
+	\item \strong{Select} a face-up Event, \strong{collect} \ducats on the card and \strong{move} Round Status marker	\item Add 2 \ducats to remaining face-up Events
 	\item Resolve effects\zsavepos{arrowEventEffectsStart}
 	\item \hspacezero\zsavepos{arrowEventSymbolsStart}Resolve secondary effects, left to right
 	\item Replace Ruler (opt. if other PR's Turn)
@@ -108,6 +106,7 @@
 		\subsubsection*{Standard Event effects \normal{(p.~40)}}
 		\smallheading{Gain/place Influence}
 		\begin{itemize}
+			\item 1+ Province in Area must be Owned by NPR/Vassal
 			\item If Area is full, then may replace \influence
 		\end{itemize}
 		\smallheading{Gain Alliance}
@@ -121,6 +120,7 @@
 		\end{itemize}
 		\smallheading{Gain Royal Marriage}
 		\begin{itemize}
+			\item Target must be eligible
 			\item If out of \marriages, may remove one (except \disputedsuccession)
 		\end{itemize}
 		\smallheading{Gain \claim}
@@ -131,23 +131,23 @@
 		\begin{itemize}
 			\item Target Prov. may not have Opp.'s \town/\vassal
 		\end{itemize}
+		\smallheading{Gain Merchant}
+		\begin{itemize}
+			\item Only if you have 2 merchants
+		\end{itemize}
 		\smallheading{Gain Military Unit}
 		\begin{itemize}
 			\item Must take Reg. Units from Available \manpower
 			\item May not trigger a Battle
 		\end{itemize}
-		\smallheading{Develop a Small \town into a Large \town}
-		\begin{itemize}
-			\item \town must be Owned by you
-		\end{itemize}	
-		\smallheading{Gain Merchant}
-		\begin{itemize}
-			\item Only if you have 2 merchants
-		\end{itemize}
 		\smallheading{Gain Action}
 		\begin{itemize}
 			\item Must be taken immediately
 		\end{itemize}
+		\smallheading{Develop a Small \town into a Large \town}
+		\begin{itemize}
+			\item \town must be Owned by you
+		\end{itemize}	
 		\smallheading{\action{Research} Idea}
 		\begin{itemize}
 			\item Score \prestige as normal (Active PR first)
@@ -264,8 +264,8 @@
 				\item If DNPR has a Port facing any Main Map Sea Zone without */\textdagger, \conj{and} it is Age II or later
 				\begin{itemize}
 					\item May place the \dnpr on vacant Territor.
-					\item \hspacezero\zsavepos{arrowdistantTradeStartThree}If first \dnpr on a Distant Continent, add Trade Cards
-				\end{itemize}
+					\item \hspacezero\zsavepos{arrowDistantTradeStartThree}If first \dnpr on a Distant Continent, add Trade Cards
+					\end{itemize}
 				\item If \dnpr was placed on a PR \town/\vassal, then
 				\begin{itemize}
 					\item \dnpr goes underneath the \town/\vassal
@@ -366,14 +366,15 @@
 \actionHeading{Research Idea \normal{(X\monarchpower) (p.~12)}}
 \begin{itemize}
 	\item Mark it with a Tag
+	\item Apply immediate effects
 	\item Score \p2
 	\item If ≤2 other PRs tagged it, they score \p1
-	\item If you \action{Research} another Government Form Idea while having one (p.~21)
+	\item If you \action{Research} another \strong{Government Form} Idea while having one (p.~21)
 	\begin{itemize}
-			\item Lose the previous one (no \prestige loss)
-			\item Score \prestige as normal for the new one
+		\item Lose the previous one (no \prestige loss)
+		\item Score \prestige as normal for the new one
 	\end{itemize}
-	\item If \authority ≥ 3, Imperial Subjects may not \action{Research} Government Form Ideas (p.~44)
+	\item If \authority ≥ 3, \strong{Imperial Subjects} may not \action{Research} Government Form Ideas (p.~44)
 \end{itemize}
 
 \actionHeading{Change State Religion \normal{(p.~13)}}
@@ -429,7 +430,7 @@
 		\item Your Realm, \conj{or}
 		\item If having \idea{QftNW}, your \ship
 	\end{itemize}
-	\item Place Colonial \claim on Discovered Area
+	\item Place \claim on Discovered Area
 	\item If first \claim on a Dist. Cont., add Tr. Cards\zsavepos{arrowdistantTradeStartTwo}
 \end{itemize}
 
@@ -462,11 +463,12 @@
 	\newlength{\distantTradeStartTwoX} \setlength{\distantTradeStartTwoX}{\calc{\zposx{arrowdistantTradeStartTwo}sp + \arrowToTextSpacing}}
 	\newlength{\distantTradeEndY} \setlength{\distantTradeEndY}{\calc{\zposy{arrowdistantTradeEnd}sp + \arrowAdjustYAfterSubsub}}
 	\newlength{\distantTradeEndX} \setlength{\distantTradeEndX}{\calc{\zposx{arrowdistantTradeEnd}sp + \arrowAdjustYText}}
+	\newlength{\distantTradeTurnY} \setlength{\distantTradeTurnY}{\calc{\margin + \frameSecondaryEventEffectsY - .5\columnsep}}
 	\newlength{\distantTradeTurnX} \setlength{\distantTradeTurnX}{\arrowXVerticalRight}
 
 	\drawArrow{(\distantTradeStartOneX, \distantTradeStartOneY) -- (\distantTradeTurnX, \distantTradeStartOneY) -- (\distantTradeTurnX,\distantTradeEndY) -- (\distantTradeEndX,\distantTradeEndY)}
 	\drawArrow{(\distantTradeStartTwoX, \distantTradeStartTwoY) -- (\distantTradeTurnX, \distantTradeStartTwoY) -- (\distantTradeTurnX,\distantTradeEndY) -- (\distantTradeEndX,\distantTradeEndY)}
-	\drawArrow{(\pagewidth, \distantTradeEndY) -- (\distantTradeEndX, \distantTradeEndY)} % continues in next page
+	\drawArrow{(\pagewidth, \distantTradeTurnY) -- (\distantTradeTurnX, \distantTradeTurnY) -- (\distantTradeTurnX, \distantTradeEndY) -- (\distantTradeEndX, \distantTradeEndY)} % continues in next page
 
 	\end{tikzpicture}
 \end{dynamiccontents*}
@@ -484,9 +486,9 @@
 	\drawArrow{(0mm, \eventSymbolsTurnYContinue) -- (\eventSymbolsTurnXTwo, \eventSymbolsTurnYContinue) -- (\eventSymbolsTurnXTwo,\eventSymbolsEndY)  -- (\eventSymbolsEndX,\eventSymbolsEndY)}
 	
 	% Trade arrow (continues from previous page)
-	\newlength{\distantTradeTurnYContinue} \setlength{\distantTradeTurnYContinue}{\calc{\zposy{arrowdistantTradeEnd}sp + \arrowAdjustYAfterSubsub}}
-	\newlength{\distantTradeStartThreeY} \setlength{\distantTradeStartThreeY}{\calc{\zposy{arrowdistantTradeStartThree}sp + \arrowAdjustYList}}
-	\newlength{\distantTradeStartThreeX} \setlength{\distantTradeStartThreeX}{\calc{\zposx{arrowdistantTradeStartThree}sp + \arrowAdjustXBeforeList}}
+	\newlength{\distantTradeTurnYContinue} \setlength{\distantTradeTurnYContinue}{\calc{\margin + \frameSecondaryEventEffectsY - .5\columnsep}}
+	\newlength{\distantTradeStartThreeY} \setlength{\distantTradeStartThreeY}{\calc{\zposy{arrowDistantTradeStartThree}sp + \arrowAdjustYList}}
+	\newlength{\distantTradeStartThreeX} \setlength{\distantTradeStartThreeX}{\calc{\zposx{arrowDistantTradeStartThree}sp + \arrowAdjustXBeforeList}}
 	\newlength{\distantTradeTurnXTwo} \setlength{\distantTradeTurnXTwo}{\arrowXVerticalMidLeft}
 	
 	\drawLine{(\distantTradeStartThreeX, \distantTradeStartThreeY) -- (\distantTradeTurnXTwo,\distantTradeStartThreeY) -- (\distantTradeTurnXTwo,\distantTradeTurnYContinue) -- (0mm,\distantTradeTurnYContinue)}
@@ -633,8 +635,8 @@
 	\item Must have at least 2\influence in target Realm
 	\item If target is a Distant NPR, then 
 	\begin{itemize}
-		\item must have a \claim on 1+ of target's Areas
-		\item may use \colonist instead of \influence
+		\item Must have a \claim on 1+ of target's Areas
+		\item Use \colonist instead of \influence (p.~32)
 	\end{itemize}
 	\item If target has Alliance, then must have more \influence and remove previous \alliance
 	\item Pay \diplopower = ½ of target's Tax Inc. (max 3)
