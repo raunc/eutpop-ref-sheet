@@ -206,13 +206,13 @@
 \sectionbg{Sequence \normal{\Large{(p.~8-11)}}}
 \subsection*{1. Draw Cards}
 \begin{itemize}
-	\botrule{\item Bots ignore this Phase (p.~2)}
+	\item May not score Missions in Phase 1 (p.~42)
 \end{itemize}
 \subsubsection*{A. Reveal Events}
 \begin{itemize}
 	\item Draw 1 + \# PRs events, reveal 3 of them
 \end{itemize}
-\smallheading{Optional Rule 7: Revealing More (p.~39)}
+\smallheading{Optional Rule 7: Revealing More \normal{(p.~39)}}
 \begin{itemize}
 	\item If 6 PRs, reveal 4 of them
 \end{itemize}
@@ -262,7 +262,7 @@
 \begin{itemize}
 	\item \hspacezero\zsavepos{arrowNprInvasionsStart}NPRs at War might invade PRs
 	\botrules
-	\item Bots suffer max 1 NPR invasion. Priority: 1. most \rebels; 2. \az (p.~2)
+	\item Bots suffer max 1 NPR invasion. Priority: 1. most NPR Units; 2. \az (p.~2)
 \end{itemize}
 
 \subsubsection*{C. Rebels Siege \& Move}
@@ -289,16 +289,11 @@
 \begin{itemize}
 	\item When Emperor makes peace with an External Aggressor (p.~44-45)
 	\begin{itemize}
-		\item If Emp. won \conj{and} no HRE Prov. is lost
-		\begin{itemize}
-			\item Raise \authority by \# of Areas joining HRE
-		\end{itemize}
-		\item If Emp. lost
-		\begin{itemize}
-			\item Drop \authority by \# of Areas leaving HRE
-		\end{itemize}
+		\item If Emp. won \conj{and} no HRE Prov. is ceded, raise \authority by 1
+		\item If Emp. lost, drop \authority by 1
 	\end{itemize}
-	\item PRs making peace flip the relative War/Truce tokens
+	\item Raise/drop \authority by \# of Areas joining/leaving HRE (p.~45)
+	\item Making peace flips resp. War/Truce tokens
 \end{itemize}
 
 \begin{dynamiccontents*}{frameArrowsPageOne}
@@ -361,10 +356,10 @@
 		\begin{itemize}
 			\item Add 1\unrest to any \town of yours
 		\end{itemize}
-		\item If \conj{any} Area contains your \vassals
+		\item In \conj{1} Area containing your \vassals
 		\begin{itemize}
 			\item Add 1\unrest to any \vassal of yours, \conj{or}
-			\item Remove 1\influence in an affected Area
+			\item Remove 1\influence
 		\end{itemize}
 	\end{itemize}
 	\item \botrule{Bots gain max 1 \unrest (p.~3)}
@@ -457,7 +452,7 @@
 			\item Add \unrest to all Provinces gained in Areas where the Victor Occupied no Provinces
 			\item Remove all Loser's \alliances/\marriages
 			\item Victor may discard \claim from Area(s) of gained \vassalprovinces to remove 2 \unrest from same Area(s)
-			\item Remove War token from the Loser
+			\item Remove War/Truce tokens from the Loser
 		\end{itemize}
 
 		\subsubsection*{Force Conversion}
@@ -621,7 +616,7 @@
 2\ducats per Mercenary \newline
 ½\ducat per Ship at sea
 } \\ \hline
-\rowcolor{tblbgCost} - Plague & ½\ducat per Tax Income in \plague Areas (r. down)\\ \hline
+\rowcolor{tblbgCost} - Plague & ½\ducat per Tax Income in \plague Areas (r. up)\\ \hline
 \rowcolor{tblbgCost} - Interest on Loans & 1\ducat per \interest \\ \hline
 \rowcolor{tblbgStab} +/- \stability Modifier & \\ \hline
 \rowcolor{tblbgExtra} + Emperor's \authority & \ducats = \authority \\ \hline
