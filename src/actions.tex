@@ -607,7 +607,7 @@
 \actionHeadingNoSpace{Incr. Stab. \normal{(5\adminpower ± current \stability) (p.~14)}}
 \begin{itemize}
 	\item Increase \stability by 1
-	\item If Papal Controller, pay -1\adminpower
+	\item If Papal Controller, pay -1\adminpower (p.~46)
 	\item If Orthodox and current \stability is -1/0, pay -1\adminpower (p.~38)
 \end{itemize}
 
@@ -628,7 +628,7 @@
 \end{itemize}
 
 \subsectionstriped{colorDiplo}{Diplomatic Actions}
-\actionHeading{Forge Alliance \normal{(1-3\diplopower) (p.~15)}}
+\actionHeadingNoSpace{Forge Alliance \normal{(1-3\diplopower) (p.~15)}}
 \begin{itemize}
 	\item Only with an NPR
 	\item Both must be at Peace
@@ -644,11 +644,12 @@
 	\item Add 1\influence to target's Cap. Area
 \end{itemize}
 
-\actionHeadingNoSpace{Influence \normal{(1\diplopower/3\ducats per \influence) (p.~15)}}
+\actionHeading{Influence \normal{(1\diplopower/3\ducats per \influence) (p.~15)}}
 \begin{itemize}
 	\item Pay 1\diplopower or 3\ducats per \influence (min 1\diplopower)
 	\item May place \influence in Areas Adj. to your \towns, \vassals, \alliances, \marriages, \influence that were there at the start of the Turn
 	\item Max 2\influence per Area per Turn
+	\item Area may contain max 5\influence
 	\item No \influence on Distant Continents
 \end{itemize}
 
@@ -682,7 +683,7 @@
 	\item May collect 2\ducats and end Action
 	\item May move 1 Light \ship
 	\begin{itemize}
-		\item Only if, selecting a Trade Node
+		\item Only if selecting a Trade Node where
 		\begin{itemize}
 			\item It increases your Trade Power, \conj{or}
 			\item It creates a connection to the Node
@@ -768,26 +769,22 @@
 				\item If >5 cards in discard pile, keep the top 5, shuffle others
 				\item If ≤5 cards in discard pile, shuffle all
 			\end{itemize}
-			\item Papal Controller pays -1\adminpower for actions increasing \stability
+			\item Papal Controller pays -1\adminpower for actions increasing \stability (p.~46)
+			\item If Orthodox and current \stability is -1/0, pay -1\adminpower for actions increasing \stability (p.~38)
 		\end{itemize}
 		\smallheading{Covert Actions (\covertaction)}
 		\begin{itemize}
-			\item Can be countered by \action{Counterespion.}
-			\item When countered
-			\begin{itemize}
-				\item Cost must be payed
-				\item Display Card uses must be spent
-			\end{itemize}
+			\item Can be countered by \action{Counterespionage}
+			\item When countered, pay cost and \displaycard uses 
 		\end{itemize}
 		\smallheading{Display cards (\displaycard)}
 		\begin{itemize}
 			\item Max 2 in play per player (must be diff.)
-			\item If already having 2 and playing another
 			\begin{itemize}
-				\item Must discard one in play
+				\item Must discard 1 of them to play another
 			\end{itemize}
 			\item Fully charge the card with \cubes when played
-			\item 1+ charges are exhausted per use
+			\item 1+ charges are exhausted per use (in addition to \monarchpower cost)
 		\end{itemize}
 		\smallheading{Reactions (\reaction)}
 		\begin{itemize}
