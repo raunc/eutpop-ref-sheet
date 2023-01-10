@@ -23,8 +23,8 @@
 \newlength{\fhSecondPageCol} \setlength\fhSecondPageCol{\calc{\frameSecondaryEventEffectsY - \frameToTextSpacing}}
 
 % Third page
-\newlength{\fhTrade} \setlength\fhTrade{40.5\baselineskip}
 \newlength{\fhActionCards} \setlength\fhActionCards{15\baselineskip}
+\newlength{\fhTrade} \setlength\fhTrade{\calc{\textheight - \fhActionCards - \frameToFrameSpacing}}
 \newlength{\frameTradeIncomeY} \setlength\frameTradeIncomeY{\calc{\textheight - \fhTrade}}
 
 \newlength{\fhThirdPageSmallCol} \setlength\fhThirdPageSmallCol{\calc{\textheight - \fhActionCards - \frameToTextSpacing}}
@@ -644,6 +644,35 @@
 	\item Add 1\influence to target's Cap. Area
 \end{itemize}
 
+\actionHeading{Trade \normal{(1\diplopower) (p.~15)}}
+\begin{itemize}
+	\item Must have an available (upright) Merchant
+\end{itemize}
+\begin{enumerate}
+	\item Reveal 3 Trade cards
+	\item May collect 2\ducats and end Action
+	\item May move 1 Light \ship
+	\begin{itemize}
+		\item Only if selecting a Trade Node where
+		\begin{itemize}
+			\item It increases your Trade Power, \conj{or}
+			\item It creates a connection to the Node
+		\end{itemize}
+		\item May displace Opp.'s \ship if no vac. slot
+		\item May not enter a Hostile Sea Zone
+	\end{itemize}
+	\item Select an eligible Trade Node
+	\item Select an available (upright) Merchant
+	\begin{itemize}
+		\item Move it to the selected Node
+		\begin{itemize}
+			\item Max 1 Merchant per PR (p.~34)
+		\end{itemize}
+		\item Activate it (lay it on its side)
+	\end{itemize}
+	\item Eligible PRs collect the Trade Income\zsavepos{arrowTradeStart}
+\end{enumerate}
+
 \actionHeading{Influence \normal{(1\diplopower/3\ducats per \influence) (p.~15)}}
 \begin{itemize}
 	\item Pay 1\diplopower or 3\ducats per \influence (min 1\diplopower)
@@ -674,49 +703,20 @@
 	\end{itemize}
 \end{itemize}
 
-\actionHeading{Trade \normal{(1\diplopower) (p.~15)}}
-\begin{itemize}
-	\item Must have an available (upright) Merchant
-\end{itemize}
-\begin{enumerate}
-	\item Reveal 3 Trade cards
-	\item May collect 2\ducats and end Action
-	\item May move 1 Light \ship
-	\begin{itemize}
-		\item Only if selecting a Trade Node where
-		\begin{itemize}
-			\item It increases your Trade Power, \conj{or}
-			\item It creates a connection to the Node
-		\end{itemize}
-		\item May displace Opp.'s \ship if no vac. slot
-		\item May not enter a Hostile Sea Zone
-	\end{itemize}
-	\item Select an eligible Trade Node
-	\item Select an available (upright) Merchant
-	\begin{itemize}
-		\item Move it to the selected Node
-		\begin{itemize}
-			\item Max 1 Merchant per PR (p.~34)
-		\end{itemize}
-		\item Activate it (lay it on its side)
-	\end{itemize}
-	\item Eligible PRs collect the Trade Income\zsavepos{arrowTradeStart}
-\end{enumerate}
-
 \begin{dynamiccontents*}{frameTradeIncome}\begin{eubox}{\fhTrade}
 	\subsubsection*{\zsavepos{arrowTradeEnd}Trade Income \normal{(p.~34-35)}}
 	\begin{itemize}
-		\item A PR can collect Trade Income only if the Trade Node
+		\item Human PRs collect Trade Inc. if the Node
 		\begin{itemize}
-			\item Has an own Merchant, \conj{and}
-			\item Is \strong{eligible}: connected to Capital Area by \towns, \vassals, \influence or Light \ships (do not consider the Inland Trade Node Area)
+			\item Has their Merchant, \conj{and}
+			\item Is \strong{eligible}: connected to Capital Area by \towns, \vassals, \influence or Light \ships (not required in Inland Trade Node's Area; Occupied \towns/\vassals count)
 		\end{itemize}
-		\item 1 PR per row may collect Trade Income
-		\item Priority (losers are pushed to lower row):
-		\begin{itemize}
-			\item Trade Power
+		\item Expanded - red column, otherwise - green
+		\item \strong{1 PR per row} may collect Trade Income. Priority (losers are pushed to lower row):
+		\begin{enumerate}
+			\item Highest Trade Power
 			\item Active PR breaks ties as they please
-		\end{itemize}
+		\end{enumerate}
 		\item Each Pirate Ship lowers all PRs by 1 row
 	\end{itemize}
 	\smallheading{Secondary Trade Nodes}
@@ -732,16 +732,17 @@
 	\begin{itemize}
 		\item 1 \tradepower for your Merchant
 		\item 1 \tradepower per Key Province you Own
-		\item 1 \tradepower per \ship in Trade Protection slots in Adjacent Sea Zones (only for Maritime Trade Nodes)
+		\item 1 \tradepower per \ship in Adj. Trade Protection slots (only for Maritime Trade Nodes)
 		\item Key Prov. with "+" provide +1\tradepower per "+"
 		\item Key Prov. do not count for Sec. Node
 	\end{itemize}
 	{\botrules
 	\subsubsection*{Bot Trade \normal{(p.~4)}}
 	\begin{itemize}
+		\item Bots have 1 Merchant (never exhausted)
 		\item When human PR \action{Trades}, Bots collect Trade Income if Node is eligible for them
 		\begin{itemize}
-			\item Maritime Trade Node
+			\item Maritime Trade Node (-1\botpower per Pirate)
 			\begin{itemize}
 				\item Main Map Nodes: 2\botpower
 				\item Distant Nodes: 3\botpower
@@ -750,8 +751,8 @@
 			\begin{itemize}
 				\item Bot must have 1+ Adjacent \town
 			\end{itemize}
+			\item -1\botpower if hum. PR has 3+ \tradepower from Key Prov. and \idea{Mercantilism} Idea
 		\end{itemize}
-		\item If hum. PR has 3+ \tradepower from Key Prov. and \idea{Mercantilism} Idea, Bots gain 1\botpower fewer
 		\item When Bot collects Trade Income, move its Merchant to that Node	
 	\end{itemize}
 	}
@@ -792,7 +793,7 @@
 		\end{itemize}
 		\smallheading{Card specific rules}
 		\begin{itemize}
-			\item \action{One Step Ahead}: Cannot be played on an Army with \artillery\xspace > \xspace\cavalry (p.~24)
+			\item \action{One Step Ahead}: Cannot be played on an Army with \artillery\xspace > \cavalry (p.~24)
 			\item \action{Development}: Protest. pay -1\adminpower (p.~38)
 			\item \action{Integrate Area}: see \strong{Core Prov.} (p.~21)
 			\item \action{Subjugate}: see \strong{Vassals} (p.~33)
