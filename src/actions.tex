@@ -8,67 +8,53 @@
 
 % Define frame sizes and positioning
 % First page
-\newlength{\fhEventGuidelines} \setlength\fhEventGuidelines{35\baselineskip}
-\newlength{\fhMarriage} \setlength\fhMarriage{5\baselineskip}
-\newlength{\frameMarriageY} \setlength\frameMarriageY{\calc{\textheight - \fhEventGuidelines - \fhMarriage - \frameToFrameSpacing}}
+\newlength{\fhEventGuidelines} \setlength\fhEventGuidelines{35.5\baselineskip}
+\newlength{\frameEventGuidelinesY} \setlength\frameEventGuidelinesY{\calc{\textheight - \fhEventGuidelines}}
+\newlength{\fhDistantTrade} \setlength\fhDistantTrade{4\baselineskip}
+\newlength{\frameDistantTradeY} \setlength\frameDistantTradeY{\calc{\frameEventGuidelinesY - \fhDistantTrade - \frameToFrameSpacing}}
 
-\newlength{\fhFirstPageShortCol} \setlength\fhFirstPageShortCol{\calc{\textheight - \fhEventGuidelines - \frameToTextSpacing}}
-\newlength{\fhFirstPageMiddleCol} \setlength\fhFirstPageMiddleCol{\calc{\fhFirstPageShortCol - \fhMarriage - \frameToFrameSpacing}}
+\newlength{\fhFirstPageMiddleCol} \setlength\fhFirstPageMiddleCol{\calc{\textheight - \fhEventGuidelines - \frameToTextSpacing}}
+\newlength{\fhFirstPageRightCol} \setlength\fhFirstPageRightCol{\calc{\frameDistantTradeY - \frameToFrameSpacing}}
 
 % Second page
 \newlength{\fhSecondaryEventEffects} \setlength\fhSecondaryEventEffects{35\baselineskip}
 \newlength{\frameSecondaryEventEffectsY} \setlength\frameSecondaryEventEffectsY{\calc{\textheight - \fhSecondaryEventEffects}}
-\newlength{\fhEventEffectsNote} \setlength\fhEventEffectsNote{2\baselineskip}
-\newlength{\frameEventEffectsNoteY} \setlength\frameEventEffectsNoteY{\calc{\frameSecondaryEventEffectsY - \fhEventEffectsNote - \frameToTextSpacing}}
-\newlength{\fhDistantTrade} \setlength\fhDistantTrade{4\baselineskip}
-\newlength{\frameDistantTradeY} \setlength\frameDistantTradeY{\calc{\frameEventEffectsNoteY - \fhDistantTrade - \frameToFrameSpacing}}
-\newlength{\fhGovFormIdeas} \setlength\fhGovFormIdeas{7\baselineskip}
-\newlength{\frameGovFormIdeasY} \setlength\frameGovFormIdeasY{\calc{\frameDistantTradeY - \fhGovFormIdeas - \frameToFrameSpacing}}
 
 \newlength{\fhSecondPageCol} \setlength\fhSecondPageCol{\calc{\frameSecondaryEventEffectsY - \frameToTextSpacing}}
-\newlength{\fhSecondPageLeftCol} \setlength\fhSecondPageLeftCol{\calc{\frameGovFormIdeasY - \frameToTextSpacing}}
 
 % Third page
-\newlength{\fhTrade} \setlength\fhTrade{15\baselineskip}
-\newlength{\fhActionCards} \setlength\fhActionCards{17\baselineskip}
-\newlength{\frameActionCardsY} \setlength\frameActionCardsY{\calc{\textheight - \fhActionCards}}
-\newlength{\fhBotTrade} \setlength\fhBotTrade{17\baselineskip}
-\newlength{\frameBotTradeY} \setlength\frameBotTradeY{\calc{\frameActionCardsY - \fhBotTrade - \frameToFrameSpacing}}
+\newlength{\fhActionCards} \setlength\fhActionCards{15\baselineskip}
+\newlength{\fhTrade} \setlength\fhTrade{\calc{\textheight - \fhActionCards - \frameToFrameSpacing}}
+\newlength{\frameTradeIncomeY} \setlength\frameTradeIncomeY{\calc{\textheight - \fhTrade}}
 
-\newlength{\thirdPageMiddleColY} \setlength\thirdPageMiddleColY{\calc{\fhTrade + \frameToTextSpacing}}
-\newlength{\fhThirdPageMiddleCol} \setlength\fhThirdPageMiddleCol{\calc{\textheight - \thirdPageMiddleColY}}
-\newlength{\fhThirdPageRightCol} \setlength\fhThirdPageRightCol{\calc{\textheight - \fhTrade - \fhBotTrade - \fhActionCards - \frameToFrameSpacing - 2\frameToTextSpacing}}
-\newlength{\thirdPageRightColY} \setlength\thirdPageRightColY{\calc{\fhTrade + \frameToTextSpacing}}
+\newlength{\fhThirdPageSmallCol} \setlength\fhThirdPageSmallCol{\calc{\textheight - \fhActionCards - \frameToTextSpacing}}
+\newlength{\thirdPageSmallColY} \setlength\thirdPageSmallColY{\calc{\textheight - \fhThirdPageSmallCol}}
 
 % Text Columns
 \usepackage{flowfram}
 \newflowframe[1,3]{\columnwidth}{\textheight}{0mm}{0mm}[leftColFullHeight]
 \newflowframe[1]{\columnwidth}{\fhFirstPageMiddleCol}{\middleColX}{0mm}[firstPageMiddleCol]
-\newflowframe[1]{\columnwidth}{\fhFirstPageShortCol}{\rightColX}{0mm}[firstPageRightCol]
+\newflowframe[1]{\columnwidth}{\fhFirstPageRightCol}{\rightColX}{0mm}[firstPageRightCol]
 
-\newflowframe[2]{\columnwidth}{\fhSecondPageLeftCol}{0mm}{0mm}[secondPageLeftCol]
+\newflowframe[2]{\columnwidth}{\fhSecondPageCol}{0mm}{0mm}[secondPageLeftCol]
 \newflowframe[2]{\columnwidth}{\fhSecondPageCol}{\middleColX}{0mm}[secondPageMiddleCol]
 \newflowframe[2]{\columnwidth}{\fhSecondPageCol}{\rightColX}{0mm}[secondPageRightCol]
 
-\newflowframe[3]{\columnwidth}{\fhThirdPageMiddleCol}{\middleColX}{\thirdPageMiddleColY}[thirdPageMiddleCol]
-\newflowframe[3]{\columnwidth}{\fhThirdPageRightCol}{\rightColX}{\thirdPageRightColY}[thirdPageRightCol]
+\newflowframe[3]{\columnwidth}{\fhThirdPageSmallCol}{\middleColX}{\thirdPageSmallColY}[thirdPageMiddleCol]
 
 % Text Frames
-\newdynamicframe[1]{\fwTwoCols}{\fhEventGuidelines}{\middleColX}{\calc{\textheight - \fhEventGuidelines}}[frameEventGuidelines]
-\newdynamicframe[1]{\columnwidth}{\fhMarriage}{\middleColX}{\frameMarriageY}[frameMarriage]
+\newdynamicframe[1]{\fwTwoCols}{\fhEventGuidelines}{\middleColX}{\frameEventGuidelinesY}[frameEventGuidelines]
+\newdynamicframe[1]{\columnwidth}{\fhDistantTrade}{\rightColX}{\frameDistantTradeY}[frameDistantTrade]
 
 \newdynamicframe[2]{\textwidth}{\fhSecondaryEventEffects}{0mm}{\frameSecondaryEventEffectsY}[frameSecondaryEventEffects]
-\newdynamicframe[2]{\columnwidth}{\fhEventEffectsNote}{0mm}{\frameEventEffectsNoteY}[frameEventEffectsNote]
-\newdynamicframe[2]{\columnwidth}{\fhGovFormIdeas}{0mm}{\frameGovFormIdeasY}[frameGovFormIdeas]
-\newdynamicframe[2]{\columnwidth}{\fhDistantTrade}{0mm}{\frameDistantTradeY}[frameDistantTrade]
 
-\newdynamicframe[3]{\fwTwoCols}{\fhTrade}{\middleColX}{0mm}[frameTrade]
-\newdynamicframe[3]{\columnwidth}{\fhBotTrade}{\rightColX}{\frameBotTradeY}[frameBotTrade]
-\newdynamicframe[3]{\columnwidth}{\fhActionCards}{\rightColX}{\frameActionCardsY}[frameActionCards]
+\newdynamicframe[3]{\fwTwoCols}{\fhActionCards}{\middleColX}{0mm}[frameActionCards]
+\newdynamicframe[3]{\columnwidth}{\fhTrade}{\rightColX}{\frameTradeIncomeY}[frameTradeIncome]
 
 % Arrows
 \newdynamicframe[1]{\textwidth}{\textheight}{\pagemarginleft}{-\pagemarginbottom}[frameArrowsPageOne]
 \newdynamicframe[2]{\textwidth}{\textheight}{\pagemarginleft}{-\pagemarginbottom}[frameArrowsPageTwo]
+\newdynamicframe[3]{\textwidth}{\textheight}{\pagemarginleft}{-\pagemarginbottom}[frameArrowsPageThree]
 
 % Section colors
 \definecolor{colorGeneric}{RGB}{145,143,143}
@@ -90,24 +76,25 @@
 	\item Must be taken exactly once per Round
 \end{itemize}
 \begin{enumerate}
-	\item Collect \ducats on the card and move Round Status marker
-	\item Add 2 \ducats to remaining face-up Events
-	\item Resolve effects
-	\item Resolve symbols
+	\item \strong{Select} a face-up Event, \strong{collect} \ducats on the card and \strong{move} Round Status marker	\item Add 2 \ducats to remaining face-up Events
+	\item Resolve effects\zsavepos{arrowEventEffectsStart}
+	\item \hspacezero\zsavepos{arrowEventSymbolsStart}Resolve secondary effects, left to right
 	\item Replace Ruler (opt. if other PR's Turn)
 	\item If everyone has taken an \action{Event} and unpicked Event remains
 	\begin{itemize}
-		\item Auto-resolve symbols
+		\item Auto-resolve secondary effects
 		\item Ruler may be appointed for 2\adminpower
 	\end{itemize}
 	\item Flip a face-down Event, if any remain
 \end{enumerate}
+
 \begin{dynamiccontents*}{frameEventGuidelines}\begin{eubox}{\fhEventGuidelines}
-	\begin{multicols}{2}
-		\subsubsection*{General Event guidelines \normal{(p.~40)}}
+	\begin{multicols*}{2}
+		\subsubsection*{\zsavepos{arrowEventEffectsEnd}General Event guidelines \normal{(p.~40)}}
 		\begin{itemize}
 			\item In lists, word "or" is inclusive
 			\item Ignore effects if conditions are not met
+			\item Pick only one of A/B options (p.~12)
 			\item When cannot meet req. or pay for one of A/B options, must pick the other one
 			\item When cannot pay for either of A/B options, choose either one of them
 			\item If an effect/choice affects >1 PR, resolve starting from Active player
@@ -144,10 +131,6 @@
 		\begin{itemize}
 			\item Target Prov. may not have Opp.'s \town/\vassal
 		\end{itemize}
-		\smallheading{Develop a Small \town into a Large \town}
-		\begin{itemize}
-			\item \town must be Owned by you
-		\end{itemize}	
 		\smallheading{Gain Merchant}
 		\begin{itemize}
 			\item Only if you have 2 merchants
@@ -161,6 +144,10 @@
 		\begin{itemize}
 			\item Must be taken immediately
 		\end{itemize}
+		\smallheading{Develop a Small \town into a Large \town}
+		\begin{itemize}
+			\item \town must be Owned by you
+		\end{itemize}	
 		\smallheading{\action{Research} Idea}
 		\begin{itemize}
 			\item Score \prestige as normal (Active PR first)
@@ -175,7 +162,7 @@
 			\item Use the token with C as Capital (underlined in Event text)
 			\item If target Province has \town/\vassal, then \dnpr goes underneath
 			\item May not be placed on PR's Core Prov.
-			\item If first \dnpr on a Dist. Cont., add Tr. Cards\zsavepos{arrowDistantTradeLeftStartOne}
+			\item If first \dnpr on a Dist. Cont., add Tr. Cards\zsavepos{arrowdistantTradeStartOne}
 		\end{itemize}
 		\smallheading{Terminate/remove Alliance}
 		\begin{itemize}
@@ -198,11 +185,12 @@
 			\item If not marked as \action{Declare War} Action, do steps 3-7 (DoW restrictions apply)
 			\item PR that has Passed cannot Declare War
 		\end{itemize}
-	\end{multicols}
+	\end{multicols*}
 \end{eubox}\end{dynamiccontents*}
+
 \begin{dynamiccontents*}{frameSecondaryEventEffects}\begin{eubox}{\fhSecondaryEventEffects}
 	\begin{multicols}{3}
-		\subsubsection*{Secondary Event Effects \normal{(p.~41)}}
+		\subsubsection*{\zsavepos{arrowEventSymbolsEnd}Secondary Event Effects \normal{(p.~41)}}
 		\begin{itemize}
 			\item When auto-resolving, no one is Active Player (you)
 		\end{itemize}
@@ -276,8 +264,8 @@
 				\item If DNPR has a Port facing any Main Map Sea Zone without */\textdagger, \conj{and} it is Age II or later
 				\begin{itemize}
 					\item May place the \dnpr on vacant Territor.
-					\item \hspacezero\zsavepos{arrowDistantTradeRightStart}If first \dnpr on a Distant Continent, add Trade Cards
-				\end{itemize}
+					\item \hspacezero\zsavepos{arrowDistantTradeStartThree}If first \dnpr on a Distant Continent, add Trade Cards
+					\end{itemize}
 				\item If \dnpr was placed on a PR \town/\vassal, then
 				\begin{itemize}
 					\item \dnpr goes underneath the \town/\vassal
@@ -329,18 +317,13 @@
 				\item If no existing \revolution, then select targets by: 1.~lowest \stability; 2.~random
 			\end{itemize}
 		\end{itemize}
-		\smallheading{Activate Power Struggle \eventIcon{power_struggle}}
+		\smallheading{Activate Power Struggle (adv. rules) \eventIcon{power_struggle}}
 		\begin{itemize}
 			\item Move Upcoming Power Struggle to the Active Power Struggle slot
 			\item Place \battlegroundareas on Areas named on the card
 		\end{itemize}
 	\end{multicols}
 \end{eubox}\end{dynamiccontents*}
-\begin{dynamiccontents*}{frameEventEffectsNote}
-	\botrule{
-		NOTE: When resolving Event effec. for Bots, there are differences not covered here (p.~9)
-	}
-\end{dynamiccontents*}
 
 \actionHeading{Player-to-player Diplomacy \normal{(p.~12)}}
 \begin{itemize}
@@ -370,7 +353,7 @@
 	\item Both pay 1\adminpower
 	\item PR selling Core Provinces
 	\begin{itemize}
-		\item Loses \prestige = 2 × Tax Value
+		\item Loses \prestige = 2× Tax Value
 	\end{itemize}
 	\item \vassals cannot be sold
 \end{itemize}
@@ -379,102 +362,20 @@
 	\item Pay 1\diplopower for a private 3-minute conference
 	\item All other communication must be public
 \end{itemize}
-\begin{dynamiccontents*}{frameMarriage}\begin{eubox}{\fhMarriage}
-	\subsubsection*{Eligible Marriage Partners \normal{(p.~32)}}
-	\begin{itemize}
-		\item Christians may Marry only other Christ.
-		\item Muslilms may Marry only other Muslilms
-		\item Revolutionary PRs may not Marry
-		\item PR may not Marry other PR's Vassals
-	\end{itemize}
-\end{eubox}\end{dynamiccontents*}
 
-\actionHeading{Change National Focus \normal{(p.~13)}}
+\actionHeading{Research Idea \normal{(X\monarchpower) (p.~12)}}
 \begin{itemize}
-	\item Only once per Round
-	\item Place \cube in \emph{Change Nat. Focus} slot
-	\item Do one or both in order:
-	\begin{enumerate}
-		\item Move 0‑1\monarchpower from 2 pools to 3rd pool
-		\item Choose ≤3 cards to discard from hand (discard after this Action)
-		\begin{itemize}
-			\item Draw 1 fewer from any Act. Decks
-			\item May pay 1\monarchpower and 2\ducats to instead pick 1 of the cards from the top 5 discards of type matching paid \monarchpower
-		\end{itemize}
-	\end{enumerate}
+	\item Mark it with a Tag
+	\item Apply immediate effects
+	\item Score \p2
+	\item If ≤2 other PRs tagged it, they score \p1
+	\item If you \action{Research} another \strong{Government Form} Idea while having one (p.~21)
+	\begin{itemize}
+		\item Lose the previous one (no \prestige loss)
+		\item Score \prestige as normal for the new one
+	\end{itemize}
+	\item If \authority ≥ 3, \strong{Imperial Subjects} may not \action{Research} Government Form Ideas (p.~44)
 \end{itemize}
-
-\actionHeading{Explore \normal{(1\diplopower + 1\milpower) (p.~12)}}
-\begin{itemize}
-	\item If having \idea{QftNW}, may move 1 Light \ship
-	\begin{itemize}
-		\item Must move to a Distant Sea Zone
-		\item May not enter a Hostile Sea Zone
-	\end{itemize}
-	\item Roll. May reroll for 1\diplopower, max 2^^^^00d7. Use the last result
-	\begin{itemize}
-		\item No \skull: Discover a matching Territory \conj{or} an NPR Province \conj{or} \town \conj{or} \vassal
-		\item \skull: Pay 1\diplopower to Disc. a match. Terr., \conj{or} remove 1 of your \ships on Dist. Cont.
-	\end{itemize}
-	\item Any Discovery must be Adjacent to
-	\begin{itemize}
-		\item Your Realm, \conj{or}
-		\item If having \idea{QftNW}, your \ship
-	\end{itemize}
-	\item If first \claim on a Distant Continent, add Trade Cards\zsavepos{arrowDistantTradeLeftStartTwo}
-\end{itemize}
-\begin{dynamiccontents*}{frameDistantTrade}\begin{eubox}{\fhDistantTrade}
-	\subsubsection*{\zsavepos{arrowDistantTradeLeftEnd}Distant Trade \normal{(p.~35)}\zsavepos{arrowDistantTradeRightEnd}}
-	\begin{itemize}
-		\item When the first \claim/\dnpr is placed on a Distant Continent, add matching Trade Cards and shuffle Trade Deck, including discard pile
-	\end{itemize}
-\end{eubox}\end{dynamiccontents*}
-
-\begin{dynamiccontents*}{frameArrowsPageOne}
-	% Must be before the page ends but after all \savepos in other dynamic frames
-	\begin{tikzpicture}
-	\useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);
-	
-	% These arrows are partly on the next page, only drawing start of them
-	\newlength{\distantTradeLeftStartOneY} \setlength{\distantTradeLeftStartOneY}{\calc{\zposy{arrowDistantTradeLeftStartOne}sp + \arrowAdjustYText}}
-	\newlength{\distantTradeLeftStartOneX} \setlength{\distantTradeLeftStartOneX}{\calc{\zposx{arrowDistantTradeLeftStartOne}sp + \arrowToTextSpacing}}
-
-	\drawLine{(\distantTradeLeftStartOneX, \distantTradeLeftStartOneY) -- (\pagewidth, \distantTradeLeftStartOneY)}
-
-	\newlength{\distantTradeLeftStartTwoY} \setlength{\distantTradeLeftStartTwoY}{\calc{\zposy{arrowDistantTradeLeftStartTwo}sp + \arrowAdjustYText}}
-	\newlength{\distantTradeLeftStartTwoX} \setlength{\distantTradeLeftStartTwoX}{\calc{\zposx{arrowDistantTradeLeftStartTwo}sp + \arrowToTextSpacing}}
-
-	\drawLine{(\distantTradeLeftStartTwoX,\distantTradeLeftStartTwoY) -- (\pagewidth,\distantTradeLeftStartTwoY)}
-
-	\end{tikzpicture}
-\end{dynamiccontents*}
-\begin{dynamiccontents*}{frameArrowsPageTwo}
-	\begin{tikzpicture}
-	\useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);
-	
-	% Left Distant Trade arrow
-	\newlength{\distantTradeLeftStartOneYContinue} \setlength{\distantTradeLeftStartOneYContinue}{\calc{\zposy{arrowDistantTradeLeftStartOne}sp + \arrowAdjustYText}}
-	\newlength{\distantTradeLeftStartTwoYContinue} \setlength{\distantTradeLeftStartTwoYContinue}{\calc{\zposy{arrowDistantTradeLeftStartTwo}sp + \arrowAdjustYText}}
-	
-	\newlength{\distantTradeLeftEndY} \setlength{\distantTradeLeftEndY}{\calc{\zposy{arrowDistantTradeLeftEnd}sp + \arrowAdjustYBeforeSubsub}}
-	\newlength{\distantTradeLeftEndX} \setlength{\distantTradeLeftEndX}{\zposx{arrowDistantTradeLeftEnd}sp}
-	
-	\newlength{\distantTradeLeftTurnX} \setlength{\distantTradeLeftTurnX}{\calc{\distantTradeLeftEndX - 4mm}}
-	\drawArrow{(0mm, \distantTradeLeftStartOneYContinue) -- (\distantTradeLeftTurnX, \distantTradeLeftStartOneYContinue) -- (\distantTradeLeftTurnX,\distantTradeLeftEndY)  -- (\distantTradeLeftEndX,\distantTradeLeftEndY)}
-	
-	\drawArrow{(0mm,\distantTradeLeftStartTwoYContinue) -- (\distantTradeLeftTurnX,\distantTradeLeftStartTwoYContinue) -- (\distantTradeLeftTurnX,\distantTradeLeftEndY) -- (\distantTradeLeftEndX,\distantTradeLeftEndY)}
-
-	% Right Distant Trade arrow
-	\newlength{\distantTradeRightStartY} \setlength{\distantTradeRightStartY}{\calc{\zposy{arrowDistantTradeRightStart}sp + \arrowAdjustYText}}
-	\newlength{\distantTradeRightStartX} \setlength{\distantTradeRightStartX}{\calc{\zposx{arrowDistantTradeRightStart}sp + \arrowAdjustXBeforeListNum}}
-	\newlength{\distantTradeRightEndY} \setlength{\distantTradeRightEndY}{\calc{\zposy{arrowDistantTradeRightEnd}sp + \arrowAdjustYAfterSubsub}}
-	\newlength{\distantTradeRightEndX} \setlength{\distantTradeRightEndX}{\calc{\zposx{arrowDistantTradeRightEnd}sp + \arrowToTextSpacing}}
-	\newlength{\distantTradeRightTurnX} \setlength{\distantTradeRightTurnX}{\calc{\distantTradeRightStartX + 2\arrowAdjustXBeforeList - 1mm}}
-	
-	\drawArrow{(\distantTradeRightStartX, \distantTradeRightStartY) -- (\distantTradeRightTurnX,\distantTradeRightStartY) -- (\distantTradeRightTurnX,\distantTradeRightEndY) -- (\distantTradeRightEndX,\distantTradeRightEndY)}
-	
-	\end{tikzpicture}	
-\end{dynamiccontents*}
 
 \actionHeading{Change State Religion \normal{(p.~13)}}
 \begin{itemize}
@@ -505,35 +406,115 @@
 	\item Place Ctr-Ref. token to your Capital Area
 \end{itemize}
 
-\actionHeading{Research Idea \normal{(X\ducats) (p.~12)}}
-\begin{itemize}
-	\item Mark with a Tag
-	\item Apply immediate effects
-	\item Score \p2
-	\item If ≤2 other PRs have it, they score \p1
-\end{itemize}
-\begin{dynamiccontents*}{frameGovFormIdeas}\begin{eubox}{\fhGovFormIdeas}
-	\subsubsection*{Government Form Ideas \normal{(p.~21)}}
+\begin{dynamiccontents*}{frameDistantTrade}\begin{eubox}{\fhDistantTrade}
+	\subsubsection*{Distant Trade \normal{(p.~35)}\zsavepos{arrowdistantTradeEnd}}
 	\begin{itemize}
-		\item Max 1 at a time
-		\item If you \action{Research} another
-		\begin{itemize}
-			\item Lose the previous one (no \prestige loss)
-			\item Score \prestige as normal for the new one
-		\end{itemize}
-		\item If \authority ≥ 3, Imperial Subjects may not \action{Research} Government Form Ideas (p.~44)
+		\item When the first \claim/\dnpr is placed on a Distant Continent, add matching Trade Cards and shuffle Trade Deck, including discard pile
 	\end{itemize}
 \end{eubox}\end{dynamiccontents*}
 
-\framebreak
-\subsectionstriped{colorHre}{HRE Actions}
-\actionHeadingNoSpace{Increase \authority \normal{(1\adminpower + current \authority) (p.~43)}}
+\actionHeading{Explore \normal{(1\diplopower + 1\milpower) (p.~12)}}
 \begin{itemize}
-	\item You must be the Emperor
-	\item Increase \authority by 1
+	\item If having \idea{QftNW}, may move 1 Light \ship
+	\begin{itemize}
+		\item Must move to a Distant Sea Zone
+		\item May not enter a Hostile Sea Zone
+	\end{itemize}
+	\item Roll. May reroll for 1\diplopower, max 2^^^^00d7. Use the last result
+	\begin{itemize}
+		\item No \skull: Discover a matching Territory \conj{or} an NPR Province \conj{or} \town \conj{or} \vassal
+		\item \skull: Pay 1\diplopower to Disc. a match. Terr., \conj{or} remove 1 of your \ships on Dist. Cont.
+	\end{itemize}
+	\item Any Discovery must be Adjacent to
+	\begin{itemize}
+		\item Your Realm, \conj{or}
+		\item If having \idea{QftNW}, your \ship
+	\end{itemize}
+	\item Place \claim on Discovered Area
+	\item If first \claim on a Dist. Cont., add Tr. Cards\zsavepos{arrowdistantTradeStartTwo}
+\end{itemize}
+
+\begin{dynamiccontents*}{frameArrowsPageOne}
+	% Must be before the page ends but after all \savepos in other dynamic frames
+	\begin{tikzpicture}
+	\useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);
+
+	% Event Effects arrow
+	\newlength{\eventEffectStartY} \setlength{\eventEffectStartY}{\calc{\zposy{arrowEventEffectsStart}sp + \arrowAdjustYText}}
+	\newlength{\eventEffectStartX} \setlength{\eventEffectStartX}{\calc{\zposx{arrowEventEffectsStart}sp + \arrowToTextSpacing}}
+	\newlength{\eventEffectEndY} \setlength{\eventEffectEndY}{\calc{\zposy{arrowEventEffectsEnd}sp + \arrowAdjustYBeforeSubsub}}
+	\newlength{\eventEffectEndX} \setlength{\eventEffectEndX}{\zposx{arrowEventEffectsEnd}sp}
+	\newlength{\eventEffectTurnX} \setlength{\eventEffectTurnX}{\arrowXVerticalMidLeft}
+
+	\drawArrow{(\eventEffectStartX, \eventEffectStartY) -- (\eventEffectTurnX,\eventEffectStartY) -- (\eventEffectTurnX,\eventEffectEndY) -- (\eventEffectEndX,\eventEffectEndY)}
+
+	% Event Symbols arrow (continues in next page)
+	\newlength{\eventSymbolsStartY} \setlength{\eventSymbolsStartY}{\calc{\zposy{arrowEventSymbolsStart}sp + \arrowAdjustYList}}
+	\newlength{\eventSymbolsStartX} \setlength{\eventSymbolsStartX}{\calc{\zposx{arrowEventSymbolsStart}sp + \arrowAdjustXBeforeListNum}}
+	\newlength{\eventSymbolsTurnY} \setlength{\eventSymbolsTurnY}{\calc{\margin + \textheight + .5\columnsep}}
+	\newlength{\eventSymbolsTurnX} \setlength{\eventSymbolsTurnX}{\arrowXVerticalLeft}
+
+	\drawLine{(\eventSymbolsStartX, \eventSymbolsStartY) -- (\eventSymbolsTurnX,\eventSymbolsStartY) -- (\eventSymbolsTurnX,\eventSymbolsTurnY) -- (\pagewidth,\eventSymbolsTurnY)}	
+
+	% Trade arrows
+	\newlength{\distantTradeStartOneY} \setlength{\distantTradeStartOneY}{\calc{\zposy{arrowdistantTradeStartOne}sp + \arrowAdjustYText}}
+	\newlength{\distantTradeStartOneX} \setlength{\distantTradeStartOneX}{\calc{\zposx{arrowdistantTradeStartOne}sp + \arrowToTextSpacing}}
+	\newlength{\distantTradeStartTwoY} \setlength{\distantTradeStartTwoY}{\calc{\zposy{arrowdistantTradeStartTwo}sp + \arrowAdjustYText}}
+	\newlength{\distantTradeStartTwoX} \setlength{\distantTradeStartTwoX}{\calc{\zposx{arrowdistantTradeStartTwo}sp + \arrowToTextSpacing}}
+	\newlength{\distantTradeEndY} \setlength{\distantTradeEndY}{\calc{\zposy{arrowdistantTradeEnd}sp + \arrowAdjustYAfterSubsub}}
+	\newlength{\distantTradeEndX} \setlength{\distantTradeEndX}{\calc{\zposx{arrowdistantTradeEnd}sp + \arrowAdjustYText}}
+	\newlength{\distantTradeTurnY} \setlength{\distantTradeTurnY}{\calc{\margin + \frameSecondaryEventEffectsY - .5\columnsep}}
+	\newlength{\distantTradeTurnX} \setlength{\distantTradeTurnX}{\arrowXVerticalRight}
+
+	\drawArrow{(\distantTradeStartOneX, \distantTradeStartOneY) -- (\distantTradeTurnX, \distantTradeStartOneY) -- (\distantTradeTurnX,\distantTradeEndY) -- (\distantTradeEndX,\distantTradeEndY)}
+	\drawArrow{(\distantTradeStartTwoX, \distantTradeStartTwoY) -- (\distantTradeTurnX, \distantTradeStartTwoY) -- (\distantTradeTurnX,\distantTradeEndY) -- (\distantTradeEndX,\distantTradeEndY)}
+	\drawArrow{(\pagewidth, \distantTradeTurnY) -- (\distantTradeTurnX, \distantTradeTurnY) -- (\distantTradeTurnX, \distantTradeEndY) -- (\distantTradeEndX, \distantTradeEndY)} % continues in next page
+
+	\end{tikzpicture}
+\end{dynamiccontents*}
+
+\begin{dynamiccontents*}{frameArrowsPageTwo}
+	\begin{tikzpicture}
+	\useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);
+
+	% Event Symbols arrow (continues from previous page)
+	\newlength{\eventSymbolsEndY} \setlength{\eventSymbolsEndY}{\calc{\zposy{arrowEventSymbolsEnd}sp + \arrowAdjustYBeforeSubsub}}
+	\newlength{\eventSymbolsEndX} \setlength{\eventSymbolsEndX}{\zposx{arrowEventSymbolsEnd}sp}
+	\newlength{\eventSymbolsTurnYContinue} \setlength{\eventSymbolsTurnYContinue}{\calc{\margin + \textheight + .5\columnsep}}
+	\newlength{\eventSymbolsTurnXTwo} \setlength{\eventSymbolsTurnXTwo}{\arrowXVerticalLeft}
+	
+	\drawArrow{(0mm, \eventSymbolsTurnYContinue) -- (\eventSymbolsTurnXTwo, \eventSymbolsTurnYContinue) -- (\eventSymbolsTurnXTwo,\eventSymbolsEndY)  -- (\eventSymbolsEndX,\eventSymbolsEndY)}
+	
+	% Trade arrow (continues from previous page)
+	\newlength{\distantTradeTurnYContinue} \setlength{\distantTradeTurnYContinue}{\calc{\margin + \frameSecondaryEventEffectsY - .5\columnsep}}
+	\newlength{\distantTradeStartThreeY} \setlength{\distantTradeStartThreeY}{\calc{\zposy{arrowDistantTradeStartThree}sp + \arrowAdjustYList}}
+	\newlength{\distantTradeStartThreeX} \setlength{\distantTradeStartThreeX}{\calc{\zposx{arrowDistantTradeStartThree}sp + \arrowAdjustXBeforeList}}
+	\newlength{\distantTradeTurnXTwo} \setlength{\distantTradeTurnXTwo}{\arrowXVerticalMidLeft}
+	
+	\drawLine{(\distantTradeStartThreeX, \distantTradeStartThreeY) -- (\distantTradeTurnXTwo,\distantTradeStartThreeY) -- (\distantTradeTurnXTwo,\distantTradeTurnYContinue) -- (0mm,\distantTradeTurnYContinue)}
+	
+	\end{tikzpicture}	
+\end{dynamiccontents*}
+
+\actionHeading{Change National Focus \normal{(p.~13)}}
+\begin{itemize}
+	\item Only once per Round
+	\item Place \cube in \emph{Change Nat. Focus} slot
+	\item Do one or both in order:
+	\begin{enumerate}
+		\item Move 0-1\monarchpower from 2 pools to 3rd pool
+		\item Choose ≤3 cards to discard from hand (discard after this Action)
+		\begin{itemize}
+			\item Draw 1 fewer from any Act. Decks
+			\item May pay 1\monarchpower and 2\ducats to instead pick 1 of the cards from the top 5 discards of type matching paid \monarchpower
+		\end{itemize}
+	\end{enumerate}
 \end{itemize}
 
 \subsectionstriped{colorMinor}{Minor Actions}
+\begin{itemize}
+	\item \reaction~ -- May be played outside your Actions Turn, under specific circumstances
+\end{itemize}
 \actionHeadingNoSpace{Appoint Advisor/Leader \normal{(p.~13)}}
 \strong{Advisor} -- Pay the \ducat cost\\
 \strong{Admiral} -- Pay the \milpower cost\\
@@ -546,22 +527,6 @@
 \begin{itemize}
 	\item Allowed if no Ruler or Ruler is \dprime Interregn.\dprime
 	\item \reaction~-- When Ruler is discarded with no replacement
-\end{itemize}
-
-\actionHeading{Replen. Manp. \normal{(1\milpower per 3\manpower) (p.~14)}}
-\begin{itemize}
-	\item Move \manpower from Exhausted to Available
-\end{itemize}
-
-\actionHeading{Take/Repay Loan \normal{(p.~14)}}
-\strong{Take} -- Gain 5\ducats, gain 1\interest
-\begin{itemize}
-	\item Allowed only if <5\interest
-	\item \reaction~-- When must cover a cost
-\end{itemize}
-\strong{Repay} -- Pay 6\ducats, remove 1\interest
-\begin{itemize}
-	\item May be done immediately after Passing
 \end{itemize}
 
 \actionHeading{Cut ties \normal{(p.~14)}}
@@ -585,9 +550,25 @@
 	\end{itemize}
 \end{itemize}
 
-\framebreak % NOTE: forcing frame break because color is not applied correctly if section title is naturally pushed to the next frame
+\actionHeading{Replen. Manp. \normal{(1\milpower per 3\manpower) (p.~14)}}
+\begin{itemize}
+	\item Move \manpower from Exhausted to Available
+\end{itemize}
+
+\actionHeading{Take/Repay Loan \normal{(p.~14)}}
+\strong{Take} -- Gain 5\ducats, gain 1\interest
+\begin{itemize}
+	\item Allowed only if <5\interest
+	\item \reaction~-- When must cover a cost
+\end{itemize}
+\strong{Repay} -- Pay 6\ducats, remove 1\interest
+\begin{itemize}
+	\item \reaction~-- When gaining \ducats from Passing
+\end{itemize}
+
 \subsectionstriped{colorPapal}{Papal Actions \rulesref{(p.~46)}}
 \begin{itemize}
+	\item You must be the Papal Controller
 	\item Max 1 Papal Action per Round
 	\item Only in Ages I and II
 \end{itemize}
@@ -615,10 +596,19 @@
 	\item Cath. Realms have Holy War CB against Muslim Realms Owning Prov. in the Area	
 \end{itemize}
 
+\subsectionstriped{colorHre}{HRE Actions}
+\actionHeadingNoSpace{Increase \authority \normal{(1\adminpower + current \authority) (p.~43)}}
+\begin{itemize}
+	\item You must be the Emperor
+	\item Increase \authority by 1
+\end{itemize}
+
 \subsectionstriped{colorAdmin}{Admin. Actions}
 \actionHeadingNoSpace{Incr. Stab. \normal{(5\adminpower ± current \stability) (p.~14)}}
 \begin{itemize}
 	\item Increase \stability by 1
+	\item If Papal Controller, pay 1\adminpower less (p.~46)
+	\item If Orthodox and current \stability is -1/0, pay 1\adminpower less (p.~38)
 \end{itemize}
 
 \actionHeading{Colonize \normal{(4\adminpower/\colonists) (p.~14)}}
@@ -631,13 +621,59 @@
 \begin{itemize}
 	\item Must Own 1+ Province in Area(s) governed by the Religion slot
 	\item All Provinces must be owned by Realms of the same State Religion
+	\item If Protestant, pay 1\adminpower less (p.~38)
 	\item Change Religion to your State Religion
 	\item Add 1\unrest to your affected \towns
-	\item Roll Rebel Dice for all your \unrest in affected Area(s)
+	\item Roll Rebel Dice in affected Area(s)
 \end{itemize}
 
 \subsectionstriped{colorDiplo}{Diplomatic Actions}
-\actionHeadingNoSpace{Influence \normal{(1\diplopower/3\ducats per \influence) (p.~15)}}
+\actionHeadingNoSpace{Forge Alliance \normal{(1-3\diplopower) (p.~15)}}
+\begin{itemize}
+	\item Only with an NPR
+	\item Both must be at Peace
+	\item Must have at least 2\influence in target Realm
+	\item If target is a Distant NPR, then 
+	\begin{itemize}
+		\item Must have a \claim on 1+ of target's Areas
+		\item Use \colonist instead of \influence (p.~32)
+	\end{itemize}
+	\item If target has Alliance, then must have more \influence and remove previous \alliance
+	\item Pay \diplopower = ½ of target's Tax Inc. (max 3)
+	\item Add \alliance to target's Capital
+	\item Add 1\influence to target's Cap. Area
+\end{itemize}
+
+\actionHeading{Trade \normal{(1\diplopower) (p.~15)}}
+\begin{itemize}
+	\item Must have an available (upright) Merchant
+\end{itemize}
+\begin{enumerate}
+	\item Reveal 3 Trade cards
+	\item May collect 2\ducats and end Action
+	\item May move 1 Light \ship
+	\begin{itemize}
+		\item Only if selecting a Trade Node where
+		\begin{itemize}
+			\item It increases your Trade Power, \conj{or}
+			\item It creates a connection to the Node
+		\end{itemize}
+		\item May displace Opp.'s \ship if no vac. slot
+		\item May not enter a Hostile Sea Zone
+	\end{itemize}
+	\item Select an eligible Trade Node
+	\item Select an available (upright) Merchant
+	\begin{itemize}
+		\item Move it to the selected Node
+		\begin{itemize}
+			\item Max 1 Merchant per PR (p.~34)
+		\end{itemize}
+		\item Activate it (lay it on its side)
+	\end{itemize}
+	\item Eligible PRs collect the Trade Income\zsavepos{arrowTradeStart}
+\end{enumerate}
+
+\actionHeading{Influence \normal{(1\diplopower/3\ducats per \influence) (p.~15)}}
 \begin{itemize}
 	\item Pay 1\diplopower or 3\ducats per \influence (min 1\diplopower)
 	\item May place \influence in Areas Adj. to your \towns, \vassals, \alliances, \marriages, \influence that were there at the start of the Turn
@@ -646,25 +682,14 @@
 	\item No \influence on Distant Continents
 \end{itemize}
 
-\actionHeading{Forge Alliance \normal{(1-3\diplopower) (p.~15)}}
-\begin{itemize}
-	\item Only with an NPR
-	\item Both must be at Peace
-	\item Must have at least 2\influence in target Realm
-	\item If target is a Distant NPR, then must have a \claim on 1+ of target's Areas
-	\item If target has Alliance, then must have more \influence and remove previous \alliance
-	\item Pay \diplopower = ½ of target's Tax Inc. (max 3)
-	\item Add \alliance to target's Capital
-	\item Add 1\influence to target's Cap. Area (if not full)
-\end{itemize}
-
 \actionHeading{Fabricate Claim \normal{(2\diplopower per \claim) (p.~15)}}
 \begin{itemize}
-	\item \covertaction~-- may be intercepted by \action{Counterespion.}
+	\item \covertaction~-- may be countered by \action{Counterespion.}
 	\item In Areas listed on Active or Upcoming Power Struggle, costs 1\diplopower per \claim (p.~43)
 	\item \strong{Requirements}
 	\begin{itemize}
 		\item You must be at Peace
+		\item May be placed only in Areas adjacent to your Realm
 		\item May not place \claim on Areas where you
 		\begin{itemize}
 			\item Own all Provinces, \conj{or} 
@@ -678,82 +703,46 @@
 	\end{itemize}
 \end{itemize}
 
-\actionHeading{Trade \normal{(1\diplopower) (p.~15)}}
-\begin{itemize}
-	\item Must have an available Merchant
-\end{itemize}
-\begin{enumerate}
-	\item Reveal 3 Trade cards
-	\item May collect 2\ducats and end Action
-	\item May move 1 Light \ship
+\begin{dynamiccontents*}{frameTradeIncome}\begin{eubox}{\fhTrade}
+	\subsubsection*{\zsavepos{arrowTradeEnd}Trade Income \normal{(p.~34-35)}}
 	\begin{itemize}
-		\item Only if
+		\item Human PRs collect Trade Inc. if the Node
 		\begin{itemize}
-			\item It increases Trade Power in Node you will select, \conj{or}
-			\item It creates a connection to the Node you will select
+			\item Has their Merchant, \conj{and}
+			\item Is \strong{eligible}: connected to Capital Area by \towns, \vassals, \influence or Light \ships (not required in Inland Trade Node's Area; Occupied \towns/\vassals count)
 		\end{itemize}
-		\item May displace Opp.'s \ship if no vac. slot
-		\item May not enter a Hostile Sea Zone
+		\item Expanded - red column, otherwise - green
+		\item \strong{1 PR per row} may collect Trade Income. Priority (losers are pushed to lower row):
+		\begin{enumerate}
+			\item Highest Trade Power
+			\item Active PR breaks ties as they please
+		\end{enumerate}
+		\item Each Pirate Ship lowers all PRs by 1 row
 	\end{itemize}
-	\item Select eligible Trade Node (connected to Capital Area by \towns, \vassals, \influence or Light \ships)
-	\item Select an available (upright) Merchant
+	\smallheading{Secondary Trade Nodes}
 	\begin{itemize}
-		\item Move it to the selected Node
-		\item Activate it (lay it on its side)
+		\item If Active PR has highest (may be tied) Trade Power in eligible Sec. Trade Node
+		\begin{itemize}
+			\item They may collect Income from the lowest row of the Secondary Node
+			\item Other players collect income from Primary Node as normal
+		\end{itemize}
+		\item May not select a Sec. Node with a Pirate
 	\end{itemize}
-	\item Calculate Tr. Power for all eligible PRs with Merch. in selec. Node and collect \ducats
-\end{enumerate}
-\begin{dynamiccontents*}{frameTrade}\begin{eubox}{\fhTrade}
-	\begin{multicols}{2}
-		\subsubsection*{Merchants \normal{(p.~34-35)}}
-		\begin{itemize}
-			\item Merchant may be activated once per Round
-			\item Trade Node may contain any number of Merchants, but max 1 per player
-		\end{itemize}
-
-		\subsubsection*{Trade Power (\tradepower) \normal{(p.~35)}}
-		\begin{itemize}
-			\item 1 \tradepower for your Merchant
-			\item 1 \tradepower per Key Province you Own
-			\item 1 \tradepower per \ship in Trade Protection slots in Adjacent Sea Zones (only for Maritime Trade Nodes)
-			\item Key Prov. with "+" provide +1\tradepower per "+"
-			\item Key Provinces do not count for Secondary Nodes
-		\end{itemize}
-		\smallheading{Income Rows}
-		\begin{itemize}
-			\item 1 PR per row may collect Trade Income
-			\item If 2+ PRs qualify for the same row
-			\begin{itemize}
-				\item PR with highest Trade Power pushes others down
-				\item Active PR breaks ties as they please
-			\end{itemize}
-			\item Each Pirate Ship pushes all players down 
-		\end{itemize}
-		\smallheading{Secondary Trade Nodes}
-		\begin{itemize}
-			\item If Active PR has highest (may be tied) Trade Power in eligible Sec. Trade Node
-			\begin{itemize}
-				\item They may collect Income from the lowest row of the Secondary Node
-				\item Other players collect income from Primary Node as normal
-			\end{itemize}
-			\item May not select a Sec. Node with a Pirate
-		\end{itemize}
-	\end{multicols}
-\end{eubox}\end{dynamiccontents*}
-\begin{dynamiccontents*}{frameBotTrade}\begin{eubox}[botrulescolor]{\fhBotTrade}
-	\botrules
+	\smallheading{Trade Power (\tradepower)}
+	\begin{itemize}
+		\item 1 \tradepower for your Merchant
+		\item 1 \tradepower per Key Province you Own
+		\item 1 \tradepower per \ship in Adj. Trade Protection slots (only for Maritime Trade Nodes)
+		\item Key Prov. with "+" provide +1\tradepower per "+"
+		\item Key Prov. do not count for Sec. Node
+	\end{itemize}
+	{\botrules
 	\subsubsection*{Bot Trade \normal{(p.~4)}}
 	\begin{itemize}
-		\item Bots have only one Merchant
-		\item Bots gain 1\botpower fewer per Pirate
-		\item Bot \ships do not occupy Trade Prot. slots
-		\item Bot's Merchants are never exhausted
-	\end{itemize}
-	\smallheading{Humans Trading}
-	\begin{itemize}
-		\item When human PR \action{Trades}, Bots collect Trade Income if eligible in that Node
+		\item Bots have 1 Merchant (never exhausted)
+		\item When human PR \action{Trades}, Bots collect Trade Income if Node is eligible for them
 		\begin{itemize}
-			\item Maritime Trade Node
+			\item Maritime Trade Node (-1\botpower per Pirate)
 			\begin{itemize}
 				\item Main Map Nodes: 2\botpower
 				\item Distant Nodes: 3\botpower
@@ -762,40 +751,70 @@
 			\begin{itemize}
 				\item Bot must have 1+ Adjacent \town
 			\end{itemize}
+			\item -1\botpower if hum. PR has 3+ \tradepower from Key Prov. and \idea{Mercantilism} Idea
 		\end{itemize}
-		\item If hum. PR has 3+ \tradepower from Key Prov. and \idea{Mercantilism} Idea, Bots gain 1\botpower fewer
-		\item When Bot collects Trade Income, move its Merchant to that Node
+		\item When Bot collects Trade Income, move its Merchant to that Node	
 	\end{itemize}
+	}
 \end{eubox}\end{dynamiccontents*}
+
 \begin{dynamiccontents*}{frameActionCards}\begin{eubox}{\fhActionCards}
-	\subsubsection*{Action Cards \normal{(p.~18-19)}}
-	\begin{itemize}
-		\item Action cost can never go below 0
-		\item Cards in hand are secret
-		\item Discard piles are public information
-		\item If deck is empty when need to draw 
+	\begin{multicols}{2}
+		\subsubsection*{Action Cards \normal{X\monarchpower + Y\ducats (p.~18-19)}}
 		\begin{itemize}
-			\item If >5 cards in discard pile, keep the top 5, shuffle others
-			\item If ≤5 cards in discard pile, shuffle all
+			\item Action cost can never go below 0
+			\item Cards in hand are secret
+			\item Discard piles are public information
+			\item If deck is empty when need to draw 
+			\begin{itemize}
+				\item If >5 cards in discard pile, keep the top 5, shuffle others
+				\item If ≤5 cards in discard pile, shuffle all
+			\end{itemize}
+			\item Papal Controller pays 1\adminpower less for actions increasing \stability (p.~46)
+			\item If Orthodox and current \stability is -1/0, pay 1\adminpower less for actions increasing \stability (p.~38)
 		\end{itemize}
-	\end{itemize}
-	\smallheading{Display cards (\displaycard)}
-	\begin{itemize}
-		\item Max 2 in play per player (must be diff.)
-		\item If already having 2 and playing another
+		\smallheading{Covert Actions (\covertaction)}
 		\begin{itemize}
-			\item Must discard one in play
+			\item Can be countered by \action{Counterespionage}
+			\item When countered, pay cost and \displaycard uses 
 		\end{itemize}
-	\end{itemize}
-	\smallheading{Covert Actions (\covertaction)}
-	\begin{itemize}
-		\item Can be countered by \action{Counterespion.}
-		\item When countered
+		\smallheading{Display cards (\displaycard)}
 		\begin{itemize}
-			\item Cost must be payed
-			\item Display Card uses must be spent
+			\item Max 2 in play per player (must be diff.)
+			\begin{itemize}
+				\item Must discard 1 of them to play another
+			\end{itemize}
+			\item Fully charge the card with \cubes when played
+			\item 1+ charges are exhausted per use (in addition to \monarchpower cost)
 		\end{itemize}
-	\end{itemize}
+		\smallheading{Reactions (\reaction)}
+		\begin{itemize}
+			\item May be played outside your Action Turn, under specific circumstances
+		\end{itemize}
+		\smallheading{Card specific rules}
+		\begin{itemize}
+			\item \action{One Step Ahead}: Cannot be played on an Army with \artillery\xspace > \cavalry (p.~24)
+			\item \action{Development}: Protest. pay -1\adminpower (p.~38)
+			\item \action{Integrate Area}: see \strong{Core Prov.} (p.~21)
+			\item \action{Subjugate}: see \strong{Vassals} (p.~33)
+		\end{itemize}
+	\end{multicols}
 \end{eubox}\end{dynamiccontents*}
+
+\begin{dynamiccontents*}{frameArrowsPageThree}
+	\begin{tikzpicture}
+	\useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);
+
+	% Trade arrow
+	\newlength{\tradeStartY} \setlength{\tradeStartY}{\calc{\zposy{arrowTradeStart}sp + \arrowAdjustYAfterSubsub}}
+	\newlength{\tradeStartX} \setlength{\tradeStartX}{\calc{\zposx{arrowTradeStart}sp + \arrowToTextSpacing}}
+	\newlength{\tradeEndY} \setlength{\tradeEndY}{\calc{\zposy{arrowTradeEnd}sp + \arrowAdjustYBeforeSubsub}}
+	\newlength{\tradeEndX} \setlength{\tradeEndX}{\calc{\zposx{arrowTradeEnd}sp}}
+	\newlength{\tradeTurnX} \setlength{\tradeTurnX}{\arrowXVerticalMidRight}
+	
+	\drawArrow{(\tradeStartX, \tradeStartY) -- (\tradeTurnX, \tradeStartY) -- (\tradeTurnX,\tradeEndY)  -- (\tradeEndX,\tradeEndY)}
+		
+	\end{tikzpicture}	
+\end{dynamiccontents*}
 
 \end{document}
