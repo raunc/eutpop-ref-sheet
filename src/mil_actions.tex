@@ -54,7 +54,7 @@
 \newlength{\fhThirdPageLeftCol} \setlength\fhThirdPageLeftCol{\calc{\textheight - \fhNprWarfare - \fhArmiesFleets - 2\frameToTextSpacing}}
 \newlength{\thirdPageLeftColY} \setlength\thirdPageLeftColY{\calc{\fhArmiesFleets + \frameToTextSpacing}}
 
-\newlength{\fhBattleSequence} \setlength\fhBattleSequence{50\baselineskip}
+\newlength{\fhBattleSequence} \setlength\fhBattleSequence{49\baselineskip}
 
 \newlength{\fhBattleTriggers} \setlength\fhBattleTriggers{\calc{\textheight - \fhBattleSequence - \frameToFrameSpacing}}
 \newlength{\frameBattleTriggersY} \setlength\frameBattleTriggersY{\calc{\textheight - \fhBattleTriggers}}
@@ -833,10 +833,10 @@
 	\begin{multicols}{2}
 		\begin{itemize}
 			\item It is specified in \action{Activate Units}, \conj{or}
-			\item Units/Ships Hostile to each other end up in the same Area/Sea Zone, \conj{or}
-			\item \hspacezero\zsavepos{arrowNPRWarStart}Units are Recruited in an Area containing NPR Prov. which are or become Hostile
+			\item Units/Ships Hostile to each other are in the same Area/Sea Zone, \conj{or}
+			\item \hspacezero\zsavepos{arrowNPRWarStart}Units/Ships are in an Area/Sea Zone containing Hostile NPR Prov./\\facing Hostile NPR Ports
 			\begin{itemize}
-				\item Unless Units Hostile to that NPR were in that Area prior to the current Turn
+				\item Unless Units/Ships Hostile to that NPR were in that Area/Sea Zone prior to the current Turn
 			\end{itemize}
 			\item Order if multiple Battles (p.~22):
 			\begin{enumerate}
@@ -858,16 +858,12 @@
 		\begin{itemize}
 			\item Emperor may use Imperial \manpower (p.~44)
 			\begin{itemize}
-				\item Only usable in
-				\begin{itemize}
-					\item HRE Areas
-					\item Emp.'s Areas Adj. by Land to HRE
-				\end{itemize}
+				\item Only usable in HRE Areas \conj{or} Emp.'s Areas Adj. by Land to HRE
 				\item May not be used when Enemy force consists of only NPR HRE Members
 				\item Add as Ally Infantry when Battle starts
 			\end{itemize}
 			\item Multiple Defenders defend together
-			\item If 2+ PR Def., pick \strong{Main Defender}
+			\item If 2+ PR Def., pick \strong{Main Defender}.
 			\begin{itemize}
 				\item Priority for Main Defender selection:
 				\begin{enumerate}
@@ -895,8 +891,7 @@
 			\item If more than 1 Leader, then player may choose which one to use (p.~25)
 			\item If only \strong{NPR/Rebel Defenders} with total of 3+ Units (p.~36,~37)
 			\begin{itemize}
-				\item Draw \milcard
-				\item Use as Defender's Leader, if any
+				\item Draw \milcard as Defender's Leader, if any
 			\end{itemize}
 			\item Apply Military Ideas effects
 		\end{itemize}
