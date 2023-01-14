@@ -27,10 +27,10 @@
 \begin{itemize}
 	\item \strong{Adjacency}:
 	\begin{itemize}
-		\item A \strong{Prov.}/\strong{Unit}/\strong{token} is Adj. to their Area, to ones sharing a border with it and to Prov. in them
-		\item A \strong{Port} is Adj. also to its Sea Zones, to Ports facing them and to their Areas
-		\item \strong{Areas}/\strong{Sea Zones} are Adj. if they share a border or have Ports facing the same Sea Zone
-		\item A \strong{Realm} is Adj. if an Own Prov. is Adj.
+		\item \strong{Prov.}/\strong{Unit}/\strong{token} is Adj. to its Area, bordering Areas, Prov. in those Areas
+		\item \strong{Port} is also Adj. to its Sea Zones, Ports facing same Sea Z., Areas of such Ports
+		\item \strong{Areas}/\strong{Sea Zones} are Adj. if they share a border. \strong{Areas} are also Adj. to Areas with Ports facing the same Sea Zone
+		\item \strong{Realm} is Adj. if an Own Prov. is Adj.
 	\end{itemize}
 	\item \strong{Deployed}: Unit on board or in Army/Fleet
 	\item \strong{Friendly}:
@@ -40,41 +40,40 @@
 	\end{itemize}
 	\item \strong{Hostile}:
 	\begin{itemize}
-		\item Armies/Units/Prov. Controlled by \rebels/Realms at War with you
+		\item Armies/Units/Prov. Controlled by \rebels or Realms at War with you
 		\item Areas with Hostile Units/Prov.
 		\item Sea Zones with Hostile Ships
-		\item Sea Zones facing Hostile NPR Ports \conj{and} with no Ship Hostile to them
+		\item Sea Zones facing Hostile NPR Ports \conj{and} with no Ships Hostile to them
 	\end{itemize}
 	\item \strong{Neutral}: neither Friendly nor Hostile
 	\item \strong{Opponent}: player other than you
 	\item \strong{Player}: human or Bot
 	\item \strong{You}: the Active Player
-	\item \strong{Occupied Province}: has Occ. token \conj{or} 2 \rebeltown/\town/\vassal (Controller on top, Lawful Owner on bottom)
+	\item \strong{Occupied Province}: has Occ. token \conj{or} 2 \rebeltown/\town/\vassal (Controller on top, Lawful Owner beneath)
 	\item \strong{Own Province}: has its Realm's flag/\town/\dnpr \conj{and} is non-Occupied
 	\item \strong{Realm}: made of Own Prov. and Areas with such Prov.
 	\begin{itemize}
 		\item \strong{(N)PR}: (Non-)Player Realm
 		\item \strong{Distant R.}: with Dist. Capital
-		\item \strong{R. Core Provinces}: has its flag, \conj{or}, superseding, its \core in the Prov. Area
 	\end{itemize}
-	\item \strong{Colonial Claim}: \claim on vacant Territory
+	\item Realm's \strong{Core Prov.}: has its flag/\dnpr on Prov. or \core in Area (\core/\dnpr supercede flags)
+	\item \strong{Colonial \claim}: \claim on vacant Territory (p.~12)
 \end{itemize}
 
-\subsubsection*{Token Limits}
+\subsubsection*{Token Limits \rulesref{(p.2)}}
 \begin{itemize}
 	\item Generally limited. If nothing in supply, take from anywhere. Exceptions below
 	\item \strong{May not be moved}
 	\begin{itemize}
-		\item Towns (\town), but have replacements (p.~21)
+		\item Towns (\town). If out of (p.~21)
 		\begin{itemize}
-			\item If out of Large \towns, use 2 Small \towns
-			\item If out of Small \towns, use a \vassal
+			\item Large \towns, use 2 Small \towns instead
+			\item Small \towns, use a \vassal instead
 		\end{itemize}
 		\item Vassal tokens (\vassal)
 		\item Alliances (\alliance/\activeally), Marriages (\marriage/\disputedsuccession)
 		\item Crusade/Excommunicated token
-		\item Mercenary Units
-		\item Allied Units
+		\item Mercenary and Allied Units
 		\item Religion tokens in State Religion slot
 		\item Ill health tokens (\illhealth) on Characters
 		\item \dprime Unlimited\dprime\xspace tokens
@@ -158,6 +157,9 @@
 
 \subsubsection*{Marriages (\marriage) \rulesref{(p.~32)}}
 \begin{itemize}
+	\item Max 3\marriages (\idea{Cabinet} Idea allows 1 more)
+	\item \marriage counts as \influence, but cannot be removed and is excluded from Area's 5 \influence limit
+	\item When taking an Action that requires to remove \influence, remove 1 fewer \influence if you have 1+ \marriages in the Area
 	\item May not enter Marriage
 	\begin{itemize}
 		\item Christian and non-Christian partner
@@ -166,9 +168,6 @@
 		\item PR and other PR's Vassal
 		\item During Interregnum
 	\end{itemize}
-	\item Max 3\marriages (\idea{Cabinet} Idea allows 1 more)
-	\item \marriage counts as \influence, but cannot be removed and is excluded from Area's 5 \influence limit
-	\item When taking an Action that requires to remove \influence, remove 1 fewer \influence if you have 1+ \marriages in the Area
 \end{itemize}
 
 \subsubsection*{Alliances (\ally) \rulesref{(p.~32)}}
@@ -192,7 +191,7 @@
 		\end{itemize}
 		\item If the \strong{target has Vassals}
 		\begin{itemize}
-			\item You need a \marriage to Vassalize them
+			\item You need a \marriage to Vassalize that target
 			\item If you also discard \influence from target's Vassals equal to their Tax Income
 			\begin{itemize}
 				\item They also become you Vassals
@@ -205,11 +204,10 @@
 		\end{itemize}
 		\item When \strong{Annexing}
 		\begin{itemize}
-			\item Replace \vassals with \towns
-			\item Remove any \marriage
+			\item Replace \vassals with \towns, remove any \marriage
 		\end{itemize}
 	\end{itemize}
-	\item \strong{\guilsinglright Papal States} and \strong{Emp.} cannot be Vassal
+	\item \strong{\guilsinglright Papal Stat.} and \strong{Emp.} cannot be Vassalized
 	\item \strong{Vassals in Wars}
 	\begin{itemize}
 		\item \claim on Vassal counts as \claim on Overlord
@@ -228,12 +226,6 @@
 	\end{itemize}
 \end{itemize}
 
-\subsubsection*{DNPRs (\dnpr) \rulesref{(p.~35)}}
-\begin{itemize}
-	\item When a DNPR's Province is Annexed or Vassalized, keep \dnpr underneath the \town/\vassal 
-	\item \dnpr cannot be placed on PR Core Provinces
-\end{itemize}
-
 \subsubsection*{+1\manpower tokens \rulesref{(p.~36)}}
 \begin{itemize}
 	\item Provide +1 MC
@@ -245,6 +237,12 @@
 	\end{itemize}
 	\item Do not affect Sieges
 	\item Removed if Prov. is Annex. or Vassalized
+\end{itemize}
+
+\subsubsection*{DNPRs (\dnpr) \rulesref{(p.~35)}}
+\begin{itemize}
+	\item When a DNPR's Province is Annexed or Vassalized, keep \dnpr underneath the \town/\vassal 
+	\item \dnpr cannot be placed on PR Core Provinces
 \end{itemize}
 
 \subsection*{Rebels (\rebel) \rulesref{(p.~37)}}
@@ -316,36 +314,44 @@
 		\item A PR whose Province is Liberated by Rebels must \strong{place a CB} on the new Owner's Capital and remove any Truce
 		\item \botrule{Bot \strong{places a \claim} if their Province gets Liberated by Rebels (p.~4)}
 	\end{itemize}
-	\item \strong{Optional rule 5: Religious Rebels}
+\end{itemize}
+\subsubsection*{Optional rule 5: Religious Rebels}
+\begin{itemize}
+	\item Turn/place all \rebeltowns pentagram side up in Areas with Religious Dissent
+	\item If Religious Rebels Occupy your Capit. \conj{and} 2+ other Provinces, you may
 	\begin{itemize}
-		\item Turn/place all \rebeltowns pentagram side up in Areas with Religious Dissent
-		\item If Religious Rebels Occupy your Capit. \conj{and} 2+ other Provinces, you may
-		\begin{itemize}
-			\item \action{Change State Religion} to the Religion of your Capital Area, \conj{and}
-			\item Remove \rebels and \rebeltowns in Areas of your new State Religion
-		\end{itemize}
+		\item \action{Change State Religion} to the Religion of your Capital Area, \conj{and}
+		\item Remove \rebels and \rebeltowns in Areas of your new State Religion
 	\end{itemize}
 \end{itemize}
 
 \subsection*{Religion, Faith \rulesref{(p.~38)}}
 \begin{itemize}
 	\item NPRs change State Religion if the Religion of their Capital Area changes
-\end{itemize}
-
-\subsubsection*{Catholicism}
-\begin{itemize}
 	\item Counter-Reformed Realms and Areas are also considered to be Catholic
-	\item Abilities
-	\begin{itemize}
-		\item Have access to Papal Curia
-		\item May \action{Change State Religion} to Protestantism from Age II onwards
-	\end{itemize}
 	\item The \guilsinglright Papal States is always Catholic (p.~5)
 \end{itemize}
 
-\subsubsection*{Protestantism}
+\subsubsection*{Religion abilities}
 \begin{itemize}
-	\item May \action{Change State Rel.} to Catholicism
+	\item Catholicism
+	\begin{itemize}
+		\item Have access to Papal Curia
+		\item May \action{Change State Religion}
+	\end{itemize}
+	\item Protestantism
+	\begin{itemize}
+		\item \action{Conv. Area} and \action{Developm.} cost -1\adminpower
+		\item May \action{Change State Religion}
+	\end{itemize}
+	\item{Orthodoxy}
+	\begin{itemize}
+		\item Discount of 1\adminpower when \action{Increasing Stab.} from -1 to 0 or from 0 to 1
+	\end{itemize}
+	\item{Islam}
+	\begin{itemize}
+		\item May replace default 3\infantry Dice with 3\cavalry
+	\end{itemize}
 \end{itemize}
 
 \subsubsection*{Diverse Faiths}
@@ -364,21 +370,9 @@
 	\end{itemize}
 \end{itemize}
 
-\subsection*{Prestige (\prestige) \rulesref{(p.~42-43)}}
-
-\subsubsection*{Missions \rulesref{(p.~42)}}
-\begin{itemize}
-	\item Rewards follow Standard Event Effects
-\end{itemize}
-
-\subsubsection*{Milestones \rulesref{(p.~42-43)}}
-\begin{itemize}
-	\item When completed at same time, then tie breaker is Turn order (starting with Active Player in Phase 2, otherwise with the First Player), unless otherwise stated on the Milestone
-\end{itemize}
-
 \subsection*{Papal Curia \rulesref{(p.~45-46)}}
 \begin{itemize}
-	\item \# of Regular Cardinal Slots = \# of Catholic PRs + 1
+	\item \# of Regular \cardinal Slots = \# of Cath. PRs + 1
 	\item Only Catholic PRs may have Cardinals
 	\item \strong{Roma Cardinal} belongs to PR who
 	\begin{itemize}
@@ -391,27 +385,39 @@
 	\end{itemize}
 	\item \strong{Papal Controller}
 	\begin{itemize}
-		\item PR with most \cardinals
-		\item The left-most \cardinal breaks ties
+		\item PR with most \cardinals (left-most breaks ties)
 		\item Bonuses
 		\begin{itemize}
 			\item +1\diplopower in Phase 4, Step D
 			\item Discount of 1\ducat per Advisor in Phase 4, Step B
-			\item Discount of 1\adminpower for all Actions that Increase \stability
+			\item Discount of 1\adminpower for Actions Incr. \stability
 			\item Has Access to Papal Actions
 		\end{itemize}
 	\end{itemize}
 	\item \strong{Uncontested Papal Controller}
 	\begin{itemize}
 		\item PR with most \cardinals, min 2 and no tie
+		\item Extra \prestige in Phase 4, Step E
 	\end{itemize}
+\end{itemize}
+
+\subsection*{Prestige (\prestige) \rulesref{(p.~42-43)}}
+
+\subsubsection*{Missions \rulesref{(p.~42)}}
+\begin{itemize}
+	\item Rewards follow Standard Event Effects
+\end{itemize}
+
+\subsubsection*{Milestones \rulesref{(p.~42-43)}}
+\begin{itemize}
+	\item If completed at the same time, then tie breaker is Turn order (start with Active Player in Phase 2, otherwise First Player), unless stated otherwise on Milestone
 \end{itemize}
 
 \subsection*{HRE \rulesref{(p.~43-45)}}
 \subsubsection*{Imperial Authority (\authority) \rulesref{(p.~43)}}
 \begin{itemize}
 	\item Max \authority = \# of Elector Areas + 1
-	\item Lose \authority if max \authority goes below current \authority
+	\item Drop \authority if max \authority goes below current \authority
 \end{itemize}
 
 \subsubsection*{Imperial Influence \rulesref{(p.~44)}}
@@ -457,6 +463,7 @@
 
 \subsubsection*{HRE Religion \rulesref{(adv. rules) (p.~45)}}
 \begin{itemize}
+	\item Emp. may \action{Change State Rel.} only when HRE Rel. is different from Emp.'s Rel.
 	\item If Emperor adopts Revolutionary Ideology, then HRE is permanently dissolved
 \end{itemize}
 
@@ -469,11 +476,7 @@
 \subsubsection*{Imperial Elections \rulesref{(adv. rules) (p.~45)}}
 \begin{itemize}
 	\item Not used when Emp. is NPR \botrule{or Bot (p.~6)}
-	\item Triggered when
-	\begin{itemize}
-		\item \authority ≤ 4, \conj{and}
-		\item Emp.'s Ruler is replaced/discarded
-	\end{itemize}
+	\item Triggered when Emp.'s Ruler is replaced or discarded \conj{and} \authority ≤ 4
 	\item Eligible \strong{candidate Realm}
 	\begin{itemize}
 		\item Must be a PR
@@ -576,7 +579,7 @@
 
 \subsubsection*{Towns}
 \begin{itemize}
-	\item If out of \towns (after using the +20 income token), the Bot will not Siege Provinces or Colonize Territories
+	\item If out of \towns (and has +20 income token), Bot will not Siege Prov. or Colonize Terr.
 \end{itemize}
 
 \subsubsection*{Claims \& Core Tokens}
@@ -692,13 +695,15 @@
 		\item DNPR with 10+ Tax Income
 		\item All target's Prov. Owned by PRs or DNPRs
 	\end{itemize}
-	\item If \strong{Invalid target}, prioritize:
+	\item If \strong{Invalid target}, choose another:
 	\begin{enumerate}
-		\item Preferred substitute
-		\item Rolled children node
-		\item Next children nodes (wrapping around)
-		\item Backtracking, next sibling nodes (wrapping around)
-		\item Backtracking, next cousin nodes (wrapping around)
+		\item Substitute (if a valid one exists)
+		\item Roll between children nodes
+		\item If no valid descendant nodes
+		\begin{enumerate}[label=\arabic*.]
+			\item Next sibling (increase die value, wrap around)
+			\item Next cousin (increase die value, wrap around)
+		\end{enumerate}
 	\end{enumerate}
 \end{itemize}
 
