@@ -266,7 +266,7 @@
 	\item Bots suffer max 1 NPR invasion. Priority: 1. most NPR Units; 2. \az (p.~2)
 \end{itemize}
 
-\subsubsection*{C. Rebels Siege \& Move}
+\subsubsection*{C. Rebels Siege or Move}
 \begin{itemize}
 	\item Resolve by Area: 1. most \rebels; 2. \az
 	\item In \strong{Areas with \unrest}, Rebels Siege \unrest. Priority:
@@ -489,7 +489,7 @@
 				\item \strong{Requirements}
 				\begin{itemize}
 					\item Partial or Total Victory to Enforce
-					\item Victor must Occupy Loser's Capital or Loser must have Surrendered
+					\item Victor must Occupy Loser's Capital \conj{or} Loser must have Surrendered
 					\item Loser may not be an NPR
 				\end{itemize}
 			}
@@ -509,9 +509,9 @@
 				\begin{itemize}
 					\item Total Victory to Enforce
 					\item Loser must be an NPR or Bot
-					\item With Active Allies only possible when resolved separately (p.~30)
 				\end{itemize}
 			}
+			\item With \strong{Active Allies} only possible when resolved separately (p.~30)
 			\item Remove all Loser's \alliances/\marriages
 			\item If Loser is \activeally, the Allied PR loses \p2
 			\item Victor may discard \claims in Area(s) of gained Prov. to remove 2 \unrest from same Area(s)
@@ -525,7 +525,7 @@
 				\item \strong{Requirements}
 				\begin{itemize}
 					\item Partial or Total Victory to Enforce
-					\item Loser Capital must have a \disputedsuccession
+					\item Loser's Capital must have a \disputedsuccession
 					\item Victor must Occupy Loser's Capital
 					\item Ignore Loser's Active Ally status
 				\end{itemize}
@@ -533,7 +533,7 @@
 			\item All Occupied Prov. must be returned
 			\item If Loser is NPR, all their other Wars end on White Peace terms
 			\item Remove all \marriage/\disputedsuccession and \alliance/\activeally, except Victor's, from the Loser
-			\item Victor scores 3 per \marriage/\disputedsuccession removed
+			\item Victor scores \p3 per \marriage/\disputedsuccession removed
 			\item PRs whose \marriage/\disputedsuccession was removed, lose \p3
 			\item If Victor has \disputedsuccession on Loser, they
 			\begin{itemize}
@@ -802,25 +802,25 @@
 
 \subsubsection*{D. End of Age Routine}
 \begin{itemize}
-	\item If end of Age and no Final Scoring\zsavepos{arrowFinalStart}
+	\item Skip if not end of Age \conj{or} Final Scoring triggered\zsavepos{arrowFinalStart}
+	\item Place the Event deck for the next Age
+	\item Replace all Milestones
+	\item Replace unresearch. non-Basic Ideas
+	\item The player with least \prestige (no ties) may replace 1 new Milestone or Idea
+	\item Players with 1+ \marriage score \p1
 	\begin{itemize}
-		\item Place the Event deck for the next Age
-		\item Replace all Milestones
-		\item Replace unresearch. non-Basic Ideas
-		\item The player with least \prestige (no ties) may replace 1 new Milestone or Idea
-		\item Players with 1+ \marriage (in turn order)
+		\item Then in turn order
 		\begin{itemize}
-			\item Score \p1
 			\item Rem. 1\marriage (prefer NPR) or pay 2\diplopower
 			\item \botrule{Bots do not remove \marriages (p.~3)}
-		\end{itemize}
-		\item \botrule{Reset Bot decks (p. 3)}
+			\end{itemize}
 	\end{itemize}
+	\item \botrule{Reset Bot decks (p. 3)}
 \end{itemize}
 
 \subsection*{Final Scoring}
 \begin{itemize}
-	\item Trigger Final Scoring if\zsavepos{arrowFinalEnd}
+	\item Trigger Final Scoring \strong{after Phase 5} if\zsavepos{arrowFinalEnd}
 	\begin{itemize}
 		\item No more Events left, \conj{or}
 		\item PR has ≥100 \prestige and lead of ≥20 \prestige, \conj{or}
