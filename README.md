@@ -31,7 +31,7 @@ make
 
 ### Troubleshooting
 
-If pdf generation fails with the following error:
+* If pdf generation fails with the following error:
 ```
 error:  (type 0): cannot find file ''
   ==> Fatal error occurred, no output PDF file produced!
@@ -40,6 +40,8 @@ try removing cache:
 ```shell
 rm -rf ~/.texlive2017/texmf-var/luatex-cache/generic/*
 ```
+
+* Sometimes arrows do not render properly. Running `make` again has fixed it so far
 
 ### Notes about source files
 
