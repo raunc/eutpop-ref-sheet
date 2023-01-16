@@ -6,7 +6,7 @@
 \newlength{\fhPeaceSeq} \setlength\fhPeaceSeq{23.5\baselineskip}
 \newlength{\fhNprInvasions} \setlength\fhNprInvasions{29.5\baselineskip}
 \newlength{\fhFirstPageLong} \setlength\fhFirstPageLong{\calc{\textheight - \fhPeaceSeq - \frameToTextSpacing}}
-\newlength{\fhFirstPageShort} \setlength\fhFirstPageShort{\calc{\textheight - \fhPeaceSeq - \fhNprInvasions - 2\frameToTextSpacing}}
+\newlength{\fhFirstPageShort} \setlength\fhFirstPageShort{\calc{\textheight - \fhPeaceSeq - \fhNprInvasions - \frameToFrameSpacing}}
 
 \newlength{\fhPeaceTerms} \setlength\fhPeaceTerms{45.5\baselineskip}
 \newlength{\fhSecondPage} \setlength\fhSecondPage{\calc{\textheight - \fhPeaceTerms - \frameToTextSpacing}}
@@ -26,8 +26,8 @@
 
 % Text Columns
 \usepackage{flowfram}
-\newflowframe[1]{\columnwidth}{\fhFirstPageLong}{0mm}{\calc{\textheight - \fhFirstPageLong}}[firstPageLeftCol]
-\newflowframe[1]{\columnwidth}{\fhFirstPageShort}{\middleColX}{\calc{\fhPeaceSeq + \frameToTextSpacing}}[firstPageMiddleCol]
+\newflowframe[1]{\columnwidth}{\fhFirstPageShort}{0mm}{\calc{\textheight - \fhFirstPageShort}}[firstPageLeftCol]
+\newflowframe[1]{\columnwidth}{\fhFirstPageLong}{\middleColX}{\calc{\fhPeaceSeq + \frameToTextSpacing}}[firstPageMiddleCol]
 \newflowframe[1]{\columnwidth}{\fhFirstPageLong}{\rightColX}{\calc{\textheight - \fhFirstPageLong}}[firstPageRightCol]
 \newflowframe[2]{\columnwidth}{\fhSecondPage}{0mm}{\calc{\textheight - \fhSecondPage}}[secondPageLeftCol]
 \newflowframe[2]{\columnwidth}{\fhSecondPage}{\middleColX}{\calc{\textheight - \fhSecondPage}}[secondPageMiddleCol]
@@ -37,7 +37,7 @@
 
 % Text Frames
 \newdynamicframe[1]{\textwidth}{\fhPeaceSeq}{0mm}{0mm}[framePeaceSeq]
-\newdynamicframe[1]{\columnwidth}{\fhNprInvasions}{\middleColX}{\calc{\textheight - \fhNprInvasions}}[frameNprInvasions]
+\newdynamicframe[1]{\columnwidth}{\fhNprInvasions}{0mm}{\calc{\fhPeaceSeq + \frameToFrameSpacing}}[frameNprInvasions]
 
 \newdynamicframe[2]{\textwidth}{\fhPeaceTerms}{0mm}{0mm}[framePeaceTerms]
 
@@ -111,7 +111,7 @@
 
 \begin{dynamiccontents*}{framePeaceSeq}\begin{eubox}{\fhPeaceSeq}
 	\begin{multicols}{3}
-		\subsubsection*{\zsavepos{arrowPeaceSeqEnd}Peace Resolution \normal{(p.~29-30)}}
+		\subsubsection*{Peace Resolution \normal{(p.~29-30)}\zsavepos{arrowPeaceSeqEnd}}
 		\begin{itemize}
 			\item While \strong{Def. the HRE} is active (p.~44)
 			\begin{itemize}
@@ -204,6 +204,7 @@
 \end{eubox}\end{dynamiccontents*}
 
 \sectionbg{Sequence \normal{\Large{(p.~8-11)}}}
+\framebreak % Hack: without manual frame break subsection heading is not red
 \subsection*{1. Draw Cards}
 \begin{itemize}
 	\item May not score Missions in Phase 1 (p.~42)
@@ -265,7 +266,7 @@
 	\item Bots suffer max 1 NPR invasion. Priority: 1. most NPR Units; 2. \az (p.~2)
 \end{itemize}
 
-\subsubsection*{C. Rebels Siege \& Move}
+\subsubsection*{C. Rebels Siege or Move}
 \begin{itemize}
 	\item Resolve by Area: 1. most \rebels; 2. \az
 	\item In \strong{Areas with \unrest}, Rebels Siege \unrest. Priority:
@@ -306,11 +307,11 @@
 	\newlength{\peaceTermsStartX} \setlength{\peaceTermsStartX}{\calc{\zposx{arrowPeaceTermsStart}sp + \arrowToTextSpacing}}
 	\newlength{\peaceSeqStartY} \setlength{\peaceSeqStartY}{\calc{\zposy{arrowPeaceSeqStart}sp + \arrowAdjustYBeforeSubsub - 5pt}}
 	\newlength{\peaceSeqStartX} \setlength{\peaceSeqStartX}{\zposx{arrowPeaceSeqStart}sp}
-	\newlength{\peaceSeqEndY} \setlength{\peaceSeqEndY}{\calc{\zposy{arrowPeaceSeqEnd}sp + \arrowAdjustYBeforeSubsub}}
+	\newlength{\peaceSeqEndY} \setlength{\peaceSeqEndY}{\calc{\zposy{arrowPeaceSeqEnd}sp + \arrowAdjustYAfterSubsub}}
 	\newlength{\peaceSeqEndX} \setlength{\peaceSeqEndX}{\zposx{arrowPeaceSeqEnd}sp}
 	\newlength{\peaceSeqTurnX} \setlength{\peaceSeqTurnX}{\arrowXVerticalMidRight}
 	\newlength{\peaceSeqTurnY} \setlength{\peaceSeqTurnY}{\calc{\margin + \fhPeaceSeq + .5\columnsep}}
-	\newlength{\peaceSeqTurnXTwo} \setlength{\peaceSeqTurnXTwo}{\arrowXVerticalLeft}
+	\newlength{\peaceSeqTurnXTwo} \setlength{\peaceSeqTurnXTwo}{\calc{\arrowXVerticalLeft + \middleColX}}
 
 	\drawArrow{(\peaceSeqStartX,\peaceSeqStartY) -- (\peaceSeqTurnX,\peaceSeqStartY) -- (\peaceSeqTurnX,\peaceSeqTurnY) -- (\peaceSeqTurnXTwo,\peaceSeqTurnY) -- (\peaceSeqTurnXTwo,\peaceSeqEndY) -- (\peaceSeqEndX,\peaceSeqEndY)}
 	\drawLine{(\peaceTermsStartX,\peaceTermsStartY) -- (\pagewidth,\peaceTermsStartY)}
@@ -321,10 +322,12 @@
 	\newlength{\nprEndY} \setlength{\nprEndY}{\calc{\zposy{arrowNprInvasionsEnd}sp + \arrowAdjustYAfterSubsub}}
 	\newlength{\nprEndX} \setlength{\nprEndX}{\calc{\zposx{arrowNprInvasionsEnd}sp + \arrowToTextSpacing}}
 	\newlength{\nprTurnX} \setlength{\nprTurnX}{\arrowXVerticalMidRight}
+	\newlength{\nprTurnY} \setlength{\nprTurnY}{\calc{\margin + \textheight + .5\columnsep}}
+	\newlength{\nprTurnXTwo} \setlength{\nprTurnXTwo}{\calc{\arrowXVerticalLeft + \middleColX}}
 
-	\drawArrow{(\nprStartX, \nprStartY) -- (\nprTurnX,\nprStartY) -- (\nprTurnX,\nprEndY) -- (\nprEndX,\nprEndY)}
+	\drawArrow{(\nprStartX, \nprStartY) -- (\nprTurnX,\nprStartY) -- (\nprTurnX,\nprTurnY) -- (\nprTurnXTwo,\nprTurnY) -- (\nprTurnXTwo,\nprEndY) -- (\nprEndX,\nprEndY)}
 
-	\end{tikzpicture}
+\end{tikzpicture}
 \end{dynamiccontents*}
 
 \framebreak
@@ -486,7 +489,7 @@
 				\item \strong{Requirements}
 				\begin{itemize}
 					\item Partial or Total Victory to Enforce
-					\item Victor must Occupy Loser's Capital or Loser must have Surrendered
+					\item Victor must Occupy Loser's Capital \conj{or} Loser must have Surrendered
 					\item Loser may not be an NPR
 				\end{itemize}
 			}
@@ -506,9 +509,9 @@
 				\begin{itemize}
 					\item Total Victory to Enforce
 					\item Loser must be an NPR or Bot
-					\item With Active Allies only possible when resolved separately (p.~30)
 				\end{itemize}
 			}
+			\item With \strong{Active Allies} only possible when resolved separately (p.~30)
 			\item Remove all Loser's \alliances/\marriages
 			\item If Loser is \activeally, the Allied PR loses \p2
 			\item Victor may discard \claims in Area(s) of gained Prov. to remove 2 \unrest from same Area(s)
@@ -522,7 +525,7 @@
 				\item \strong{Requirements}
 				\begin{itemize}
 					\item Partial or Total Victory to Enforce
-					\item Loser Capital must have a \disputedsuccession
+					\item Loser's Capital must have a \disputedsuccession
 					\item Victor must Occupy Loser's Capital
 					\item Ignore Loser's Active Ally status
 				\end{itemize}
@@ -530,7 +533,7 @@
 			\item All Occupied Prov. must be returned
 			\item If Loser is NPR, all their other Wars end on White Peace terms
 			\item Remove all \marriage/\disputedsuccession and \alliance/\activeally, except Victor's, from the Loser
-			\item Victor scores 3 per \marriage/\disputedsuccession removed
+			\item Victor scores \p3 per \marriage/\disputedsuccession removed
 			\item PRs whose \marriage/\disputedsuccession was removed, lose \p3
 			\item If Victor has \disputedsuccession on Loser, they
 			\begin{itemize}
@@ -799,25 +802,25 @@
 
 \subsubsection*{D. End of Age Routine}
 \begin{itemize}
-	\item If end of Age and no Final Scoring\zsavepos{arrowFinalStart}
+	\item Skip if not end of Age \conj{or} Final Scoring triggered\zsavepos{arrowFinalStart}
+	\item Place the Event deck for the next Age
+	\item Replace all Milestones
+	\item Replace unresearch. non-Basic Ideas
+	\item The player with least \prestige (no ties) may replace 1 new Milestone or Idea
+	\item Players with 1+ \marriage score \p1
 	\begin{itemize}
-		\item Place the Event deck for the next Age
-		\item Replace all Milestones
-		\item Replace unresearch. non-Basic Ideas
-		\item The player with least \prestige (no ties) may replace 1 new Milestone or Idea
-		\item Players with 1+ \marriage (in turn order)
+		\item Then in turn order
 		\begin{itemize}
-			\item Score \p1
 			\item Rem. 1\marriage (prefer NPR) or pay 2\diplopower
 			\item \botrule{Bots do not remove \marriages (p.~3)}
-		\end{itemize}
-		\item \botrule{Reset Bot decks (p. 3)}
+			\end{itemize}
 	\end{itemize}
+	\item \botrule{Reset Bot decks (p. 3)}
 \end{itemize}
 
 \subsection*{Final Scoring}
 \begin{itemize}
-	\item Trigger Final Scoring if\zsavepos{arrowFinalEnd}
+	\item Trigger Final Scoring \strong{after Phase 5} if\zsavepos{arrowFinalEnd}
 	\begin{itemize}
 		\item No more Events left, \conj{or}
 		\item PR has ≥100 \prestige and lead of ≥20 \prestige, \conj{or}
