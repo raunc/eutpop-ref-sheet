@@ -22,17 +22,58 @@
 
 \sectionbg{Other Rules}
 
-\subsection*{General Notes \rulesref{(p.~2)}}
-\subsubsection*{Token Limits}
+\subsection*{General Notes \rulesref{(p.~2-4)}}
+\subsubsection*{Concepts \& Terms}
+\begin{itemize}
+	\item \strong{Adjacency}:
+	\begin{itemize}
+		\item \strong{Prov.}/\strong{Unit}/\strong{token} is Adj. to its Area, bordering Areas, Prov. in those Areas
+		\item \strong{Port} is also Adj. to its Sea Zones, Ports facing same Sea Z., Areas of such Ports
+		\item \strong{Areas}/\strong{Sea Zones} are Adj. if they share a border. \strong{Areas} are also Adj. to Areas with Ports facing the same Sea Zone
+		\item \strong{Realm} is Adj. if an Own Prov. is Adj.
+	\end{itemize}
+	\item \strong{Deployed}: Unit on board or in Army/Fleet
+	\item \strong{Friendly}:
+	\begin{itemize}
+		\item Armies/Units/Prov. Controlled by you/\ally/\vassal
+		\item Non-Hostile Areas with Friendly Prov.
+	\end{itemize}
+	\item \strong{Hostile}:
+	\begin{itemize}
+		\item Armies/Units/Prov. Controlled by \rebels or Realms at War with you
+		\item Areas with Hostile Units/Prov.
+		\item Sea Zones with Hostile Ships
+		\item Sea Zones facing Hostile NPR Ports \conj{and} with no Ships Hostile to them
+	\end{itemize}
+	\item \strong{Neutral}: neither Friendly nor Hostile
+	\item \strong{Opponent}: player other than you
+	\item \strong{Player}: human or Bot
+	\item \strong{You}: the Active Player
+	\item \strong{Occupied Province}: has Occ. token \conj{or} 2 \rebeltown/\town/\vassal (Controller on top, Lawful Owner beneath)
+	\item \strong{Own Province}: has its Realm's flag/\town/\dnpr \conj{and} is non-Occupied
+	\item \strong{Realm}: made of Own Prov. and Areas with such Prov.
+	\begin{itemize}
+		\item \strong{(N)PR}: (Non-)Player Realm
+		\item \strong{Distant R.}: with Dist. Capital
+	\end{itemize}
+	\item Realm's \strong{Core Prov.}: has its flag/\dnpr on Prov. or \core in Area (\core/\dnpr supercede flags)
+	\item \strong{Colonial \claim}: \claim on vacant Territory (p.~12)
+\end{itemize}
+
+\subsubsection*{Token Limits \rulesref{(p.2)}}
 \begin{itemize}
 	\item Generally limited. If nothing in supply, take from anywhere. Exceptions below
 	\item \strong{May not be moved}
 	\begin{itemize}
-		\item Towns (\town), Vassal tokens (\vassal)
+		\item Towns (\town). If out of (p.~21)
+		\begin{itemize}
+			\item Large \towns, use 2 Small \towns instead
+			\item Small \towns, use a \vassal instead
+		\end{itemize}
+		\item Vassal tokens (\vassal)
 		\item Alliances (\alliance/\activeally), Marriages (\marriage/\disputedsuccession)
 		\item Crusade/Excommunicated token
-		\item Mercenary Units
-		\item Allied Units
+		\item Mercenary and Allied Units
 		\item Religion tokens in State Religion slot
 		\item Ill health tokens (\illhealth) on Characters
 		\item \dprime Unlimited\dprime\xspace tokens
@@ -40,10 +81,11 @@
 	\item \strong{Cubes} (\cube)
 	\begin{itemize}
 		\item Take from anywhere except
-		\item Roma Cardinal
-		\item \emph{Changed Nat. Focus} slot
-		\item Cubes covering income slots
-		\item No more than 10 \monarchpower of any type (p.~3)
+		\begin{itemize}
+			\item Roma \cardinal
+			\item \emph{Changed Nat. Focus} slot
+			\item \cubes covering income slots
+		\end{itemize}
 	\end{itemize}
 	\item \strong{Unlimited}
 	\begin{itemize}
@@ -60,8 +102,20 @@
 	\item Round up unless stated otherwise
 \end{itemize}
 
-\subsection*{Governing PR \rulesref{(p.~20-21)}}
-\subsubsection*{Stability \rulesref{(p.~20)}}
+\subsection*{Governing PR \rulesref{(p.~19-21)}}
+\subsubsection*{Monarch Power (\monarchpower) \rulesref{(p.~19)}}
+\begin{itemize}
+	\item No more than 10 \monarchpower of any type
+\end{itemize}
+
+\subsubsection*{Characters \rulesref{(p.~19)}}
+\begin{itemize}
+	\item Max 1 Ruler
+	\item Max 1 General/Admiral per Army/Fleet
+	\item Max 1 Advisor per \monarchpower type
+\end{itemize}
+
+\subsubsection*{Stability (\stability) \rulesref{(p.~20)}}
 \begin{itemize}
 	\item If gaining \stability and \stability = 3, gain 2\adminpower per step
 	\item If losing \stability and \stability = -3, lose 2\adminpower per step
@@ -84,13 +138,7 @@
 	\end{itemize}
 \end{itemize}
 
-\subsubsection*{Towns \rulesref{(p.~21)}}
-\begin{itemize}
-	\item If out of Large \towns, use 2 Small \towns instead
-	\item If out of Small \towns, use a \vassal instead
-\end{itemize}
-
-\subsubsection*{Core Provinces \rulesref{(p.~21)}}
+\subsubsection*{Core Provinces (\core) \rulesref{(p.~21)}}
 \begin{itemize}
 	\item To place a \core, a player needs to Own all Provinces in the Area
 	\item \core may not be placed to an Area where all Provinces already that PR's Core Prov.
@@ -99,62 +147,51 @@
 \end{itemize}
 
 \subsection*{Dip. Relations \rulesref{(p.~32-33)}}
-\subsubsection*{Influence \rulesref{(p.~32)}}
+\subsubsection*{Influence (\influence) \rulesref{(p.~32)}}
 \begin{itemize}
 	\item Area may contain max 5 \influence
 	\item \influence may not be placed in Areas where all Provinces are owned by PRs
 	\item Once all Provinces in an Area are Owned by PRs, all \influence must be removed
 	\item No \influence may be placed in Distant Areas
-	\item \colonists may be used as \influence for \action{Forge Alliance} and \action{Call to Arms} in any Distant Area
 \end{itemize}
 
-\subsubsection*{Marriages \rulesref{(p.~32)}}
+\subsubsection*{Marriages (\marriage) \rulesref{(p.~32)}}
 \begin{itemize}
 	\item Max 3\marriages (\idea{Cabinet} Idea allows 1 more)
-	\item May not enter Marriages during Interregn.
 	\item \marriage counts as \influence, but cannot be removed and is excluded from Area's 5 \influence limit
 	\item When taking an Action that requires to remove \influence, remove 1 fewer \influence if you have 1+ \marriages in the Area
+	\item May not enter Marriage
+	\begin{itemize}
+		\item Christian and non-Christian partner
+		\item Muslim and non-Muslim partner
+		\item Revolutionary PR
+		\item PR and other PR's Vassal
+		\item During Interregnum
+	\end{itemize}
 \end{itemize}
 
-\subsubsection*{Alliances \rulesref{(p.~32)}}
+\subsubsection*{Alliances (\ally) \rulesref{(p.~32)}}
 \begin{itemize}
 	\item Max 3\alliances (\idea{Cabinet} Idea allows 1 more)
 	\item NPR may only be Allied to 1 PR
-	\item \strong{Active Allies} (p.~33)
-	\begin{itemize}
-		\item Part of every War you are involved in (or enter into while they are active)
-		\item They defend their Areas with ½ of MC
-	\end{itemize}
-	\item Alliances with \strong{Distant NPRs} (p.~33)
-	\begin{itemize}
-		\item Use \colonists instead of \influence for sending CtA
-		\item They contribute Allied Units as normal (despite double MC for defense)
-	\end{itemize}
+	\item \activeallies are part of every War you are involved in (or enter into while they are active)
 \end{itemize}
 
-\subsubsection*{Vassals \rulesref{(p.~33)}}
+\subsubsection*{Vassals (\vassal) \rulesref{(p.~33)}}
 \begin{itemize}
 	\item Vassals are a separate category of Realms (not part of Overlord's Realm, not NPR)
 	\item Using \action{Subjugate} Action Card
 	\begin{itemize}
 		\item Target may not be a Distant Realm
-		\item \strong{Without \marriage}, your Base Tax must be ≥ 2× target's Base Tax
-		\item \strong{With \marriage}, your Base Tax must be > target's Base Tax
-		\item Discard \influence from target Realm = target Tax Inc. + Oppon. \influence in target Realm
 		\item When \strong{Vassalizing} your Ally
 		\begin{itemize}
 			\item Remove your \alliance
 			\item Place \vassals on their Prov. (2 on Large)
 			\item All other PRs must remove their \marriages
 		\end{itemize}
-		\item When \strong{Annexing}
-		\begin{itemize}
-			\item Replace \vassals with \towns
-			\item Remove any \marriage
-		\end{itemize}
 		\item If the \strong{target has Vassals}
 		\begin{itemize}
-			\item You need a \marriage to Vassalize them
+			\item You need a \marriage to Vassalize that target
 			\item If you also discard \influence from target's Vassals equal to their Tax Income
 			\begin{itemize}
 				\item They also become you Vassals
@@ -165,14 +202,16 @@
 				\item Place \claim in one of their Areas
 			\end{itemize}
 		\end{itemize}
+		\item When \strong{Annexing}
+		\begin{itemize}
+			\item Replace \vassals with \towns, remove any \marriage
+		\end{itemize}
 	\end{itemize}
-	\item \strong{\guilsinglright Papal States} and \strong{Emp.} cannot be Vassal.
+	\item \strong{\guilsinglright Papal Stat.} and \strong{Emp.} cannot be Vassalized
 	\item \strong{Vassals in Wars}
 	\begin{itemize}
 		\item \claim on Vassal counts as \claim on Overlord
 		\item Vassals do not defend themselves
-		\item Vassals contribute to Overlord's MC, but not NC
-		\item Overlord may Recruit Regular Units and Mercenaries in their Vassals' Areas
 	\end{itemize}
 \end{itemize}
 
@@ -185,12 +224,6 @@
 		\item May be ceded in Peace Resolutions
 		\item If Overlord does not exist, or PR \vassal was removed, Vassals become independent
 	\end{itemize}
-\end{itemize}
-
-\subsubsection*{DNPRs \rulesref{(p.~35)}}
-\begin{itemize}
-	\item When a DNPR's Province is Annexed or Vassalized, keep \dnpr underneath the \town/\vassal 
-	\item \dnpr cannot be placed on PR Core Provinces
 \end{itemize}
 
 \subsubsection*{+1\manpower tokens \rulesref{(p.~36)}}
@@ -206,10 +239,17 @@
 	\item Removed if Prov. is Annex. or Vassalized
 \end{itemize}
 
-\subsection*{Rebels \rulesref{(p.~37)}}
+\subsubsection*{DNPRs (\dnpr) \rulesref{(p.~35)}}
+\begin{itemize}
+	\item When a DNPR's Province is Annexed or Vassalized, keep \dnpr underneath the \town/\vassal 
+	\item \dnpr cannot be placed on PR Core Provinces
+\end{itemize}
+
+\subsection*{Rebels (\rebel) \rulesref{(p.~37)}}
 \subsubsection*{Rebel Dice}
 \begin{itemize}
 	\item Roll Area by Area
+	\item Roll 1 die per \unrest you have in a given Area
 	\item \rebellion: Rebellion
 	\begin{itemize}
 		\item If you have Military Units in the Area
@@ -247,7 +287,7 @@
 \end{itemize}
 }
 
-\subsubsection*{Rebel Units}
+\subsubsection*{Rebel Units (\rebel)}
 \begin{itemize}
 	\item \rebels are Hostile to all PRs
 	\item \strong{Sieging}
@@ -255,6 +295,7 @@
 		\item If Province is Core of its Owner
 		\begin{itemize}
 			\item Place \rebeltown on top of it
+			\item The Lawful Owner must cover a Town/Vassal slot with a \cube
 		\end{itemize}
 		\item If Occupied \conj{or} not Core of its Owner
 		\begin{itemize}
@@ -273,43 +314,44 @@
 		\item A PR whose Province is Liberated by Rebels must \strong{place a CB} on the new Owner's Capital and remove any Truce
 		\item \botrule{Bot \strong{places a \claim} if their Province gets Liberated by Rebels (p.~4)}
 	\end{itemize}
-	\item \strong{Optional rule 5: Religious Rebels}
+\end{itemize}
+\subsubsection*{Optional rule 5: Religious Rebels}
+\begin{itemize}
+	\item Turn/place all \rebeltowns pentagram side up in Areas with Religious Dissent
+	\item If Religious Rebels Occupy your Capit. \conj{and} 2+ other Provinces, you may
 	\begin{itemize}
-		\item Turn/place all \rebeltowns pentagram side up in Areas with Religious Dissent
-		\item If Religious Rebels Occupy your Capit. \conj{and} 2+ other Provinces, you may
-		\begin{itemize}
-			\item \action{Change State Religion} to the Religion of your Capital Area, \conj{and}
-			\item Remove \rebels and \rebeltowns in Areas of your new State Religion
-		\end{itemize}
+		\item \action{Change State Religion} to the Religion of your Capital Area, \conj{and}
+		\item Remove \rebels and \rebeltowns in Areas of your new State Religion
 	\end{itemize}
 \end{itemize}
 
 \subsection*{Religion, Faith \rulesref{(p.~38)}}
-\subsubsection*{Catholicism}
 \begin{itemize}
+	\item NPRs change State Religion if the Religion of their Capital Area changes
 	\item Counter-Reformed Realms and Areas are also considered to be Catholic
-	\item Abilities
+	\item The \guilsinglright Papal States is always Catholic (p.~5)
+\end{itemize}
+
+\subsubsection*{Religion abilities}
+\begin{itemize}
+	\item Catholicism
 	\begin{itemize}
 		\item Have access to Papal Curia
-		\item May \action{Change State Religion} to Protestantism from Age II onwards
+		\item May \action{Change State Religion}
 	\end{itemize}
-\end{itemize}
-
-\subsubsection*{Protestantism abilities}
-\begin{itemize}
-	\item Discount of 1\adminpower on \action{Convert Area}
-	\item Discount of 1\adminpower on \action{Development}
-	\item May \action{Change State Rel.} to Catholicism
-\end{itemize}
-
-\subsubsection*{Orthodoxy abilities}
-\begin{itemize}
-	\item Discount of 1\adminpower when \action{Increasing Stab.} from -1 to 0 or from 0 to 1
-\end{itemize}
-
-\subsubsection*{Islam abilities}
-\begin{itemize}
-	\item May replace the default 3 Infantry Dice with 3 Cavalry Dice
+	\item Protestantism
+	\begin{itemize}
+		\item \action{Conv. Area} and \action{Developm.} cost -1\adminpower
+		\item May \action{Change State Religion}
+	\end{itemize}
+	\item{Orthodoxy}
+	\begin{itemize}
+		\item Discount of 1\adminpower when \action{Increasing Stab.} from -1 to 0 or from 0 to 1
+	\end{itemize}
+	\item{Islam}
+	\begin{itemize}
+		\item May replace default 3\infantry Dice with 3\cavalry
+	\end{itemize}
 \end{itemize}
 
 \subsubsection*{Diverse Faiths}
@@ -328,22 +370,10 @@
 	\end{itemize}
 \end{itemize}
 
-\subsection*{Prestige (\prestige) \rulesref{(p.~42-43)}}
-
-\subsubsection*{Missions}
-\begin{itemize}
-	\item May not be completed in Phase 1
-	\item Rewards follow Standard Event Effects
-\end{itemize}
-
-\subsubsection*{Milestones}
-\begin{itemize}
-	\item When completed at same time, then tie breaker is Turn order (starting with Active Player in Phase 2, otherwise with the First Player), unless otherwise stated on the Milestone
-\end{itemize}
-
 \subsection*{Papal Curia \rulesref{(p.~45-46)}}
 \begin{itemize}
-	\item \# of Regular Cardinal Slots = \# of Catholic PRs + 1
+	\item \# of Regular \cardinal Slots = \# of Cath. PRs + 1
+	\item Only Catholic PRs may have Cardinals
 	\item \strong{Roma Cardinal} belongs to PR who
 	\begin{itemize}
 		\item Is Allied to the \guilsinglright Papal States, \conj{or}
@@ -355,13 +385,12 @@
 	\end{itemize}
 	\item \strong{Papal Controller}
 	\begin{itemize}
-		\item PR with most \cardinals
-		\item The left-most \cardinal breaks ties
+		\item PR with most \cardinals (left-most breaks ties)
 		\item Bonuses
 		\begin{itemize}
 			\item +1\diplopower in Phase 4, Step D
 			\item Discount of 1\ducat per Advisor in Phase 4, Step B
-			\item Discount of 1\adminpower for all Actions that Increase \stability
+			\item Discount of 1\adminpower for Actions Incr. \stability
 			\item Has Access to Papal Actions
 		\end{itemize}
 	\end{itemize}
@@ -372,35 +401,23 @@
 	\end{itemize}
 \end{itemize}
 
+\subsection*{Prestige (\prestige) \rulesref{(p.~42-43)}}
+
+\subsubsection*{Missions \rulesref{(p.~42)}}
+\begin{itemize}
+	\item Rewards follow Standard Event Effects
+\end{itemize}
+
+\subsubsection*{Milestones \rulesref{(p.~42-43)}}
+\begin{itemize}
+	\item If completed at the same time, then tie breaker is Turn order (start with Active Player in Phase 2, otherwise First Player), unless stated otherwise on Milestone
+\end{itemize}
+
 \subsection*{HRE \rulesref{(p.~43-45)}}
-\subsubsection*{Imperial Authority \normal{(p.~43)}}
+\subsubsection*{Imperial Authority (\authority) \rulesref{(p.~43)}}
 \begin{itemize}
 	\item Max \authority = \# of Elector Areas + 1
-	\item Emperor's bonuses
-	\begin{itemize}
-		\item Additional \manpower = \authority
-		\item Additional Tax Income = \authority
-		\item If \authority ≥ 1, may use \emph{Defending the HRE}
-		\item If \authority = 2 or 3, then +1\diplopower
-		\item If \authority = 4 or 5, then +1\diplopower, +1\milpower
-		\item If \authority = 6, then +2\diplopower, +1\milpower, +\p1
-	\end{itemize}
-	\item Gaining 1 \authority
-	\begin{itemize}
-		\item \action{Increase Authority}: Pay \adminpower = 1 + current \authority
-		\item Win a War vs non-HRE Aggressor (if no HRE Provinces ceded (p.~44))
-		\item Reincorporate HRE Area
-		\item If \authority~< 3 upon Election
-	\end{itemize}
-	\item Losing 1 \authority
-	\begin{itemize}
-		\item Refusing CtA when non-HRE Aggressor Declares War on an Imperial Subject
-		\item An Area leaves the HRE
-		\item Lose a War vs non-HRE Aggressor
-		\item Emperor Declares War on HRE Member without a CB
-		\item Emp. enforces Full Annex. on HRE Member with the same State Religion
-	\end{itemize}
-	\item Lose \authority if max \authority goes below current \authority
+	\item Drop \authority if max \authority goes below current \authority
 \end{itemize}
 
 \subsubsection*{Imperial Influence \rulesref{(p.~44)}}
@@ -418,12 +435,6 @@
 \begin{itemize}
 	\item \strong{HRE Members} -- Realms with Capital in HRE (can be PRs, NPRs, Vassal Realms)
 	\item \strong{Imperial Subjects} -- HRE Members except the Emperor
-	\item \strong{Unlawful Occupant} -- Capital not in HRE but
-	\begin{itemize}
-		\item Occupies \town in HRE, \conj{or}
-		\item Owns \town in HRE, \conj{or}
-		\item Has \vassal in HRE
-	\end{itemize}
 	\item \strong{Elector Area}
 	\begin{itemize}
 		\item Marked with \authority on the Map
@@ -458,19 +469,6 @@
 
 \subsubsection*{NPR Emperor \rulesref{(p.~45)}}
 \begin{itemize}
-	\item Changes in \authority
-	\begin{itemize}
-		\item When Area leaves the HRE, lose 1\authority
-		\item When Area rejoins, gain 1\authority
-		\item Based on a die-roll at the end of Round
-	\end{itemize}
-	%\framebreak
-	\item Number of Units defending an HRE Area
-	\begin{itemize}
-		\item MC of Defending NPRs (as normal)
-		\item +3 × \authority
-		\item -2 × number of HRE Areas with non-HRE Units prior to this Turn
-	\end{itemize}
 	\item Emperor cannot be Vassalized
 	\item If Emp. is Fully Annexed, HRE dissolves
 \end{itemize}
@@ -478,11 +476,7 @@
 \subsubsection*{Imperial Elections \rulesref{(adv. rules) (p.~45)}}
 \begin{itemize}
 	\item Not used when Emp. is NPR \botrule{or Bot (p.~6)}
-	\item Triggered when
-	\begin{itemize}
-		\item \authority ≤ 4, \conj{and}
-		\item Emp.'s Ruler is replaced/discarded
-	\end{itemize}
+	\item Triggered when Emp.'s Ruler is replaced or discarded \conj{and} \authority ≤ 4
 	\item Eligible \strong{candidate Realm}
 	\begin{itemize}
 		\item Must be a PR
@@ -585,7 +579,7 @@
 
 \subsubsection*{Towns}
 \begin{itemize}
-	\item If out of \towns, the Bot will not Siege Provinces or Colonize Territories
+	\item If out of \towns (and has +20 income token), Bot will not Siege Prov. or Colonize Terr.
 \end{itemize}
 
 \subsubsection*{Claims \& Core Tokens}
@@ -624,8 +618,9 @@
 	\item Bots never counter Covert Actions 
 \end{itemize}
 
-\subsectionbot{Bot Warfare \botrulesref{(p.~5)}}
+\subsectionbot{Bot Warfare \botrulesref{(p.~4-6)}}
 \begin{itemize}
+	\item Bot recruits always into its Army
 	\item When recruiting, Bots always pay full \botpower price, even if less Available \manpower
 \end{itemize}
 
@@ -700,6 +695,16 @@
 		\item DNPR with 10+ Tax Income
 		\item All target's Prov. Owned by PRs or DNPRs
 	\end{itemize}
+	\item If \strong{Invalid target}, choose another:
+	\begin{enumerate}
+		\item Substitute (if a valid one exists)
+		\item Roll between children nodes
+		\item If no valid descendant nodes
+		\begin{enumerate}[label=\arabic*.]
+			\item Next sibling (increase die value, wrap around)
+			\item Next cousin (increase die value, wrap around)
+		\end{enumerate}
+	\end{enumerate}
 \end{itemize}
 
 
