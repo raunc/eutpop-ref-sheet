@@ -353,8 +353,8 @@
 		}
 	\end{itemize}
 	\item Remove all your \influence from target Realms
-	\item \hspacezero\zsavepos{arrowBattleFiveStart}Resolve triggered Naval Battles
-	\item \hspacezero\zsavepos{arrowBattleSixStart}Resolve triggered Land Battles
+	\item Resolve triggered Naval Battles
+	\item Resolve triggered Land Battles
 	\item If no Battle is triggered, may \action{Activate Units} or \action{Recruit Units} (no \milpower cost)
 \end{enumerate}
 
@@ -423,19 +423,7 @@
 	\newlength{\empAcceptCtAEndX} \setlength{\empAcceptCtAEndX}{\calc{\zposx{arrowEmpAcceptCtAEnd}sp + \arrowToTextSpacing}}
 	\newlength{\empAcceptCtATurnX} \setlength{\empAcceptCtATurnX}{\arrowXVerticalMidRight}
 
-	\drawArrow{(\empAcceptCtAStartX, \empAcceptCtAStartY) -- (\empAcceptCtATurnX,\empAcceptCtAStartY) -- (\empAcceptCtATurnX,\empAcceptCtAEndY) -- (\empAcceptCtAEndX,\empAcceptCtAEndY)}
-
-	% Battle arrow (continues in next page)
-	\newlength{\battleFiveStartY} \setlength{\battleFiveStartY}{\calc{\zposy{arrowBattleFiveStart}sp + \arrowAdjustYList}}
-	\newlength{\battleFiveStartX} \setlength{\battleFiveStartX}{\calc{\zposx{arrowBattleFiveStart}sp + \arrowAdjustXBeforeListNum}}
-	\newlength{\battleSixStartY} \setlength{\battleSixStartY}{\calc{\zposy{arrowBattleSixStart}sp + \arrowAdjustYList}}
-	\newlength{\battleSixStartX} \setlength{\battleSixStartX}{\calc{\zposx{arrowBattleSixStart}sp + \arrowAdjustXBeforeListNum}}
-	\newlength{\battleTurnYThree} \setlength{\battleTurnYThree}{\calc{\margin + \textheight + .5\columnsep}}
-	\newlength{\battleTurnXThree} \setlength{\battleTurnXThree}{\arrowXVerticalLeft}
-
-	\drawLine{(\battleFiveStartX, \battleFiveStartY) -- (\battleTurnXThree,\battleFiveStartY) -- (\battleTurnXThree,\battleTurnYThree) -- (\pagewidth,\battleTurnYThree)}
-	\drawLine{(\battleSixStartX, \battleSixStartY) -- (\battleTurnXThree,\battleSixStartY) -- (\battleTurnXThree,\battleTurnYThree) -- (\pagewidth,\battleTurnYThree)}
-	
+	\drawArrow{(\empAcceptCtAStartX, \empAcceptCtAStartY) -- (\empAcceptCtATurnX,\empAcceptCtAStartY) -- (\empAcceptCtATurnX,\empAcceptCtAEndY) -- (\empAcceptCtAEndX,\empAcceptCtAEndY)}	
 \end{tikzpicture}
 \end{dynamiccontents*}
 
@@ -560,8 +548,7 @@
 		\item May shift Units between Armies
 		\item May be split up or merged with another Army
 	\end{itemize}
-	\item A \strong{Battle is triggered} when Units enter\zsavepos{arrowBattleOneStart}\\
-	an Area containing
+	\item A \strong{Battle is triggered} when Units enter an Area containing
 	\begin{itemize}
 		\item Hostile Units
 		\item Enemy NPR Provinces (unless there are already Units Hostile to the NPR)
@@ -597,12 +584,12 @@
 	\begin{itemize}
 		\item Light Ships may occupy vacant \strong{Trade Protection} slots there (p. 25)
 	\end{itemize}
-	\item \hspacezero\zsavepos{arrowBattleTwoStart}A \strong{Battle is triggered} when destination
+	\item A \strong{Battle is triggered} when destination
 	\begin{itemize}
 		\item Contains Enemy Ships, \conj{or}
 		\item Faces Enemy NPR Ports (unless there already are Ships Hostile to the NPR)
 	\end{itemize}
-	\item \hspacezero\zsavepos{arrowBattleThreeStart}May choose to \strong{fight Pirates} in a Trade Node Adjacent to Activated Ships (p.~28)
+	\item May choose to \strong{fight Pirates} in a Trade Node Adjacent to Activated Ships (p.~28)
 	\item May use \strong{Naval Bridge} if (p.~26)\zsavepos{arrowNavalBridgeTwoStart}
 	\begin{itemize}
 		\item Destination Sea Zone is part of it, \conj{and}
@@ -613,7 +600,7 @@
 \subsubsection*{Undock}
 \begin{itemize}
 	\item Move any number of your Ships from Ports to Adjacent non-Hostile Sea Zones
-	\item \hspacezero\zsavepos{arrowBattleFourStart}May choose to \strong{fight Pirates} in a Trade Node Adjacent to Activated Ships (p.~28)
+	\item May choose to \strong{fight Pirates} in a Trade Node Adjacent to Activated Ships (p.~28)
 \end{itemize}
 
 \subsubsection*{Siege \normal{(p.~28)}}
@@ -699,24 +686,6 @@
 	\newlength{\navalBridgeTwoTurnX} \setlength{\navalBridgeTwoTurnX}{\arrowXVerticalMidRight}
 	
 	\drawArrow{(\navalBridgeTwoStartX, \navalBridgeTwoStartY) -- (\navalBridgeTwoTurnX,\navalBridgeTwoStartY) -- (\navalBridgeTwoTurnX,\navalBridgeTwoEndY) -- (\navalBridgeTwoEndX,\navalBridgeTwoEndY)}
-
-	% Battle arrows (continues from previous and in next pages)
-	\newlength{\battleOneStartY} \setlength{\battleOneStartY}{\calc{\zposy{arrowBattleOneStart}sp + \arrowAdjustYList}}
-	\newlength{\battleOneStartX} \setlength{\battleOneStartX}{\calc{\zposx{arrowBattleOneStart}sp + \arrowToTextSpacing}}
-	\newlength{\battleTwoStartY} \setlength{\battleTwoStartY}{\calc{\zposy{arrowBattleTwoStart}sp + \arrowAdjustYList}}
-	\newlength{\battleTwoStartX} \setlength{\battleTwoStartX}{\calc{\zposx{arrowBattleTwoStart}sp + \arrowAdjustXBeforeList}}
-	\newlength{\battleThreeStartY} \setlength{\battleThreeStartY}{\calc{\zposy{arrowBattleThreeStart}sp + \arrowAdjustYList}}
-	\newlength{\battleThreeStartX} \setlength{\battleThreeStartX}{\calc{\zposx{arrowBattleThreeStart}sp + \arrowAdjustXBeforeList}}
-	\newlength{\battleFourStartY} \setlength{\battleFourStartY}{\calc{\zposy{arrowBattleFourStart}sp + \arrowAdjustYList}}
-	\newlength{\battleFourStartX} \setlength{\battleFourStartX}{\calc{\zposx{arrowBattleFourStart}sp + \arrowAdjustXBeforeList}}
-	\newlength{\battleTurnY} \setlength{\battleTurnY}{\calc{\margin + \textheight + .5\columnsep}}
-	\newlength{\battleTurnX} \setlength{\battleTurnX}{\arrowXVerticalMidLeft}
-	
-	\drawLine{(\battleOneStartX, \battleOneStartY) -- (\battleTurnX,\battleOneStartY) -- (\battleTurnX,\battleTurnY) -- (\pagewidth,\battleTurnY)}
-	\drawLine{(\battleTwoStartX, \battleTwoStartY) -- (\battleTurnX,\battleTwoStartY) -- (\battleTurnX,\battleTurnY) -- (\pagewidth,\battleTurnY)}
-	\drawLine{(\battleThreeStartX, \battleThreeStartY) -- (\battleTurnX,\battleThreeStartY) -- (\battleTurnX,\battleTurnY) -- (\pagewidth,\battleTurnY)}
-	\drawLine{(\battleFourStartX, \battleFourStartY) -- (\battleTurnX,\battleFourStartY) -- (\battleTurnX,\battleTurnY) -- (\pagewidth,\battleTurnY)}
-	\drawLine{(0mm,\battleTurnY) -- (\pagewidth,\battleTurnY)}
 
 	% War capacity arrows (continues in next page)
 	\newlength{\warCapacityEndY} \setlength{\warCapacityEndY}{\calc{\zposy{arrowWarCapacityEnd}sp + \arrowAdjustYAfterSubsub}}
@@ -829,7 +798,7 @@
 \end{eubox}\end{dynamiccontents*}
 
 \begin{dynamiccontents*}{frameBattleTriggers}\begin{eubox}{\fhBattleTriggers}
-	\subsubsection*{Battle Triggers \normal{(p.~27-28)}\zsavepos{arrowBattleTriggerEnd}}
+	\subsubsection*{Battle Triggers \normal{(p.~27-28)}}
 	\begin{multicols}{2}
 		\begin{itemize}
 			\item It is specified in \action{Activate Units}, \conj{or}
@@ -849,7 +818,7 @@
 
 \begin{dynamiccontents*}{frameBattleSequence}\begin{eubox}{\fhBattleSequence}
 	\begin{multicols}{2}
-		\subsubsection*{Battle Sequence \normal{(p.~26-28)}\zsavepos{arrowBattleSequenceEnd}}
+		\subsubsection*{Battle Sequence \normal{(p.~26-28)}}
 		\begin{itemize}
 			\item Ships vacate Trade Prot. slots (p.~28)
 			\botrule{\item Bots use Land/Naval Res. charts (p.~16)}
@@ -1006,17 +975,6 @@
 \begin{dynamiccontents*}{frameArrowsPageThree}
 	\begin{tikzpicture}
 	\useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);
-
-	% Battle arrows (continues from previous page)
-	\newlength{\battleTriggerEndY} \setlength{\battleTriggerEndY}{\calc{\zposy{arrowBattleTriggerEnd}sp + \arrowAdjustYAfterSubsub}}
-	\newlength{\battleTriggerEndX} \setlength{\battleTriggerEndX}{\calc{\zposx{arrowBattleTriggerEnd}sp + \arrowToTextSpacing}}
-	\newlength{\battleSequenceEndY} \setlength{\battleSequenceEndY}{\calc{\zposy{arrowBattleSequenceEnd}sp + \arrowAdjustYAfterSubsub}}
-	\newlength{\battleSequenceEndX} \setlength{\battleSequenceEndX}{\calc{\zposx{arrowBattleSequenceEnd}sp + \arrowToTextSpacing}}
-	\newlength{\battleTurnYContinue} \setlength{\battleTurnYContinue}{\calc{\margin + \textheight + .5\columnsep}}
-	\newlength{\battleTurnXTwo} \setlength{\battleTurnXTwo}{\arrowXVerticalMidRight}
-	
-	\drawArrow{(0mm, \battleTurnYContinue) -- (\battleTurnXTwo,\battleTurnYContinue) -- (\battleTurnXTwo,\battleTriggerEndY) -- (\battleTriggerEndX,\battleTriggerEndY)}
-	\drawArrow{(0mm, \battleTurnYContinue) -- (\battleTurnXTwo,\battleTurnYContinue) -- (\battleTurnXTwo,\battleSequenceEndY) -- (\battleSequenceEndX,\battleSequenceEndY)}
 
 	% War capacity arrows (continues from previous page)
 	\newlength{\warCapacityOneStartY} \setlength{\warCapacityOneStartY}{\calc{\zposy{arrowWarCapacityOneStart}sp + \arrowAdjustYText}}
