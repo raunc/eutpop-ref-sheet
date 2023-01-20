@@ -54,7 +54,7 @@
 \newlength{\fhThirdPageLeftCol} \setlength\fhThirdPageLeftCol{\calc{\textheight - \fhNprWarfare - \fhArmiesFleets - 2\frameToTextSpacing}}
 \newlength{\thirdPageLeftColY} \setlength\thirdPageLeftColY{\calc{\fhArmiesFleets + \frameToTextSpacing}}
 
-\newlength{\fhBattleSequence} \setlength\fhBattleSequence{49\baselineskip}
+\newlength{\fhBattleSequence} \setlength\fhBattleSequence{50\baselineskip}
 
 \newlength{\fhBattleTriggers} \setlength\fhBattleTriggers{\calc{\textheight - \fhBattleSequence - \frameToFrameSpacing}}
 \newlength{\frameBattleTriggersY} \setlength\frameBattleTriggersY{\calc{\textheight - \fhBattleTriggers}}
@@ -801,20 +801,16 @@
 \end{eubox}\end{dynamiccontents*}
 
 \begin{dynamiccontents*}{frameBattleTriggers}\begin{eubox}{\fhBattleTriggers}
-	\subsubsection*{Battle Triggers \normal{(p.~27-28)}}
 	\begin{multicols}{2}
+		\subsubsection*{Battle Triggers \normal{(p.~27, 28)}}
 		\begin{itemize}
-			\item It is specified in \action{Activate Units}, \conj{or}
-			\item Units/Ships Hostile to each other are in the same Area/Sea Zone, \conj{or}
-			\item \hspacezero\zsavepos{arrowNPRWarStart}Units/Ships are in an Area/Sea Zone containing Hostile NPR Prov./\\facing Hostile NPR Ports
+			\item Land Units/Ships Hostile to each other end up in the same Area/Sea Zone
+			\item \hspacezero\zsavepos{arrowNPRWarStart}Land Units are in Area with Hostile NPR Prov., \conj{or} Ships in Sea Zone facing Hostile NPR Ports, \conj{unless} Units/Ships Hostile to that NPR were there before current Turn
+			\item PR wishes to fight Pirates Adj. to where their Activated Ships ended \action{Naval Activ.}
 			\begin{itemize}
-				\item Unless Units/Ships Hostile to that NPR were in that Area/Sea Zone prior to the current Turn
+				\item Attacking Ships must be in the same Sea Zone (p.~25)
 			\end{itemize}
-			\item Order if multiple Battles (p.~22):
-			\begin{enumerate}
-				\item Naval before Land Battles
-				\item Active Player decides
-			\end{enumerate}
+			\item If 2+ Battles, Active PR decides the order
 		\end{itemize}
 	\end{multicols}
 \end{eubox}\end{dynamiccontents*}
@@ -824,7 +820,7 @@
 		\subsubsection*{Battle Sequence \normal{(p.~26-28)}}
 		\begin{itemize}
 			\item Ships vacate Trade Prot. slots (p.~28)
-			\botrule{\item Bots use Land/Naval Res. charts (p.~16)}
+			\botrule{\item If Bot is Attacker or Main Defender, follow Bot Action charts on p.~16 (p.~5)}
 		\end{itemize}
 		\smallheading{1. Battle Preparations}
 		\begin{itemize}
@@ -832,7 +828,7 @@
 			\begin{itemize}
 				\item Only usable in HRE Areas \conj{or} Emp.'s Areas Adj. by Land to HRE
 				\item May not be used when Enemy force consists of only NPR HRE Members
-				\item Add as Ally Infantry when Battle starts
+				\item Add as Allied Infantry (keep separately)
 			\end{itemize}
 			\item Multiple Defenders defend together
 			\item If 2+ PR Def., pick \strong{Main Defender}.
@@ -861,9 +857,9 @@
 			\item May not \action{App. Leader} later in the Battle
 			\item Max 1 Leader on each side (p.~25,~27)
 			\item If more than 1 Leader, then player may choose which one to use (p.~25)
-			\item If only \strong{NPR/Rebel Defenders} with total of 3+ Units (p.~36,~37)
+			\item If \strong{only NPR/Rebel} Defenders with total of 3+ Units (p.~36,~37)
 			\begin{itemize}
-				\item Draw \milcard as Defender's Leader, if any
+				\item Draw \milcard, use as their Leader, if any
 			\end{itemize}
 			\item Apply Military Ideas effects
 		\end{itemize}
@@ -885,15 +881,18 @@
 				\begin{itemize}
 					\item 3\infantry/3\cavalry for Muslim PRs (p.~38)
 				\end{itemize}
-				\item 1 hit per matching unit
-				\item By default, \tercios=\infantry
 			\end{itemize}
 			\item If \strong{Naval Battle}
 			\begin{itemize}
 				\item Default 3\artillery Dice
-				\item Hits = \artillery + \# Heavy Ships
 			\end{itemize}
 			\item Additional Dice from Leaders and \battleactions
+			\item 1 hit per your Unit matched with \infantry/\cavalry/\artillery
+			\begin{itemize}
+				\item Ships are matched with \artillery
+				\item +1 automatic hit per Heavy Ship
+				\item With respective Ideas, count \tercios as 2\infantry
+			\end{itemize}
 		\end{itemize}
 		\smallheading{4. Assign Casualties}
 		\begin{itemize}
@@ -930,11 +929,7 @@
 		\end{itemize}
 		\smallheading{5B. Captured Enemy Ships}
 		\begin{itemize}
-			\item Only if you have
-			\begin{itemize}
-				\item Ships remaining, \conj{and}
-				\item Eliminated all Enemy Ships
-			\end{itemize}
+			\item Only if you have Ships remaining, \conj{and} eliminated all Enemy Ships
 			\item Capt. 1 Enemy Casualty per \tercios (last roll)
 			\begin{itemize}
 				\item Enemy decides which Ships 
@@ -945,7 +940,7 @@
 		\smallheading{6. Retreat}
 		\begin{itemize}
 			\item Attacker chooses first, then defender
-			\item \strong{NPRs retreat} if outnum., unless (p.~36)
+			\item \strong{NPRs retreat} (remove from board) if outnumbered, \conj{unless} (p.~36)
 			\begin{itemize}
 				\item Fighting alongside Rebels, \conj{or}
 				\item In their Capital Area, \conj{or}
@@ -964,13 +959,13 @@
 					\item Each PR may choose diff. dest.
 				\end{itemize}
 			\end{itemize}
-			\item Remove retreating/defending NPR units
 		\end{itemize}
 		\smallheading{7. Proclaim a Winner}
 		\begin{itemize}
 			\item The side with Units left in the Area wins
-			\item Winner Active PR gains 1\milpower (max 1/Turn)
+			\item If Active PR won, gains 1\milpower (max 1/Turn)
 			\item Return surviving Imperial \manpower (p.~44)
+			\item Remove remaining NPR units
 		\end{itemize}
 	\end{multicols}
 \end{eubox}\end{dynamiccontents*}
