@@ -20,7 +20,7 @@
 
 \newlength{\fhActiveAlly} \setlength\fhActiveAlly{8\baselineskip}
 
-\newlength{\fhCallToArms} \setlength\fhCallToArms{16\baselineskip}
+\newlength{\fhCallToArms} \setlength\fhCallToArms{15\baselineskip}
 \newlength{\frameCallToArmsY} \setlength\frameCallToArmsY{\calc{\fhActiveAlly + \frameToFrameSpacing}}
 
 \newlength{\fhFirstPageLeftCol} \setlength\fhFirstPageLeftCol{\calc{\textheight - \fhCallToArms - \fhActiveAlly - \frameToFrameSpacing - \frameToTextSpacing}}
@@ -152,7 +152,7 @@
 			\item If you have \idea{Deus Vult} Idea and target
 			\begin{itemize}
 				\item Is Adjacent to you, \conj{and}
-				\item Has different State Religion (except other Christians)
+				\item Has diff. State Religion (except other Christians), incl. any Distant Realm
 			\end{itemize}
 			\item If you are Catholic
 			\begin{itemize}
@@ -160,7 +160,7 @@
 				\item Tag \emph{Committed to Crusade} slot when using this CB
 			\end{itemize}
 		\end{itemize}
-		\strong{Imperial Liberation} -- You are the Emperor and the non-HRE member target Controls Provinces or has Vassals in HRE
+		\strong{Imperial Liberation} -- You are the Emperor \conj{and} target Controls Provinces or has Vassals in HRE \conj{and} is not HRE member
 	\end{multicols}
 \end{eubox}\end{dynamiccontents*}
 
@@ -238,10 +238,10 @@
 	\actionHeadingNoSpace{\zsavepos{arrowCtAEnd}Call to Arms \normal{(0-2\influence per \ally) (p.~13)}}
 	\begin{itemize}
 		\item Call Allies to join your War (Minor Act.)
-		\item Only during a DoW
+		\item Only during
 		\begin{itemize}
-			\item Your own, \conj{or}
-			\item \reaction~-- Targeting you or your NPR Ally
+			\item Your own DoW, \conj{or}
+			\item \reaction~-- DoW on you or your NPR Ally
 		\end{itemize}
 		\item Calling a PR Ally has no cost\zsavepos{arrowReceiveCtAStart}
 		\item Only def. may call PR Allied to both sides
@@ -249,24 +249,24 @@
 		\begin{itemize}
 			\item If \emph{Offensive CtA}, 2\influence
 			\item If \emph{Defensive CtA}, 1\influence
-			\item If \strong{Distant NPR}, may use \colonists instead
+			\item If \strong{Dist. NPR}, use \colonists instead (p.~32)
 		\end{itemize}
 		\item NPR Allies can only be called if they are
 		\begin{itemize}
 			\item At Peace, \conj{and}
 			\item Adjacent to you or your new Enemy
 		\end{itemize}
-		\botrule{\item Bot sends \emph{Def. CtA}s to \allies Adjacent to the Aggressor (p.~4)}
+		\item Activate called NPR Ally
 	\end{itemize}
 \end{eubox}\end{dynamiccontents*}
 
 \begin{dynamiccontents*}{frameActiveAlly}\begin{eubox}{\fhActiveAlly}
 	\subsubsection*{Active Ally \normal{(\activeally) (p.~33)}}
 	\begin{itemize}
-		\item For each called NPR Ally
+		\item When activating an NPR Ally
 		\begin{itemize}
 			\item Flip the \alliance to \activeally
-			\item Add Allied Units to Available \manpower equal to ½ of Tax Value of the Ally + its Vassals (max 5)
+			\item Add Allied Units to Available \manpower equal to ½ of Tax Value of the NPR (including Vassals (p.~13)) (max 5)
 			\item Gain 1\milpower if Ally is Adj. to a new Enemy
 		\end{itemize}
 		{\botrules
@@ -339,6 +339,9 @@
 		\item Target HRE Members might send \emph{Defensive CtA} to the Emperor
 		\item Target NPRs send \emph{Defensive CtA}s
 		\item Target PRs may send \emph{Defensive CtA}s
+		\begin{itemize}
+			\botrule{\item Bot sends \emph{Def. CtA}s to \allies Adjacent to the Aggressor (p.~4)}
+		\end{itemize}
 	\end{enumerate}
 	\item PRs gain 1\milpower if they are
 	\begin{itemize}
