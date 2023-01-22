@@ -4,24 +4,25 @@
 
 % Define frame sizes and positioning
 % First page
-\newlength{\fhDowRestrictions} \setlength\fhDowRestrictions{6\baselineskip}
+\newlength{\fhDowRestrictions} \setlength\fhDowRestrictions{15\baselineskip}
 \newlength{\frameDowRestrictionsY} \setlength\frameDowRestrictionsY{\calc{\textheight - \fhDowRestrictions}}
 
-\newlength{\fhCasusBelli} \setlength\fhCasusBelli{12\baselineskip}
-\newlength{\frameCasusBelliY} \setlength\frameCasusBelliY{\calc{\frameDowRestrictionsY - \fhCasusBelli - \frameToFrameSpacing}}
+\newlength{\fhCasusBelli} \setlength\fhCasusBelli{24\baselineskip}
+\newlength{\frameCasusBelliY} \setlength\frameCasusBelliY{\calc{\textheight - \fhCasusBelli}}
 
-\newlength{\fhHreIntWars} \setlength\fhHreIntWars{4\baselineskip}
-\newlength{\frameHreIntWarsY} \setlength\frameHreIntWarsY{\calc{\frameCasusBelliY - \fhHreIntWars - \frameToFrameSpacing}}
+\newlength{\fhHreIntWars} \setlength\fhHreIntWars{9\baselineskip}
+\newlength{\frameHreIntWarsY} \setlength\frameHreIntWarsY{\calc{\frameDowRestrictionsY - \fhHreIntWars - \frameToFrameSpacing}}
 
-\newlength{\fhDefHre} \setlength\fhDefHre{14\baselineskip}
+\newlength{\fhDefHre} \setlength\fhDefHre{28.5\baselineskip}
 \newlength{\frameDefHreY} \setlength\frameDefHreY{\calc{\frameHreIntWarsY - \fhDefHre - \frameToFrameSpacing}}
 
-\newlength{\fhReceivingCta} \setlength\fhReceivingCta{\calc{\frameDefHreY - \frameToFrameSpacing}}
+\newlength{\fhReceivingCta} \setlength\fhReceivingCta{\calc{17\baselineskip}}
 
 \newlength{\fhActiveAlly} \setlength\fhActiveAlly{8\baselineskip}
+\newlength{\frameActiveAllyY} \setlength\frameActiveAllyY{\calc{\fhReceivingCta + \frameToFrameSpacing}}
 
-\newlength{\fhCallToArms} \setlength\fhCallToArms{15\baselineskip}
-\newlength{\frameCallToArmsY} \setlength\frameCallToArmsY{\calc{\fhActiveAlly + \frameToFrameSpacing}}
+\newlength{\fhCallToArms} \setlength\fhCallToArms{14\baselineskip}
+\newlength{\frameCallToArmsY} \setlength\frameCallToArmsY{\calc{\fhReceivingCta + \frameToFrameSpacing}}
 
 \newlength{\fhFirstPageLeftCol} \setlength\fhFirstPageLeftCol{\calc{\textheight - \fhCallToArms - \fhActiveAlly - \frameToFrameSpacing - \frameToTextSpacing}}
 \newlength{\firstPageLeftColY} \setlength\firstPageLeftColY{\calc{\textheight - \fhFirstPageLeftCol}}
@@ -61,19 +62,19 @@
 
 % Text Columns
 \usepackage{flowfram}
-\newflowframe[1]{\columnwidth}{\fhFirstPageLeftCol}{0mm}{\firstPageLeftColY}[firstPageLeftCol]
+\newflowframe[1]{\columnwidth}{\fhFirstPageLeftCol}{\middleColX}{\firstPageLeftColY}[firstPageLeftCol]
 \newflowframe[2]{\columnwidth}{\fhSecondPageLeftCol}{0mm}{0mm}[secondPageLeftCol]
 \newflowframe[2]{\columnwidth}{\fhSecondPageMiddleCol}{\middleColX}{\secondPageMiddleColY}[secondPageMiddleCol]
 \newflowframe[2]{\columnwidth}{\fhSecondPageRightCol}{\rightColX}{0mm}[secondPageRightCol]
 \newflowframe[3]{\columnwidth}{\fhThirdPageLeftCol}{0mm}{\thirdPageLeftColY}[thirdPageLeftCol]
 
 % Text Frames
-\newdynamicframe[1]{\columnwidth}{\fhCallToArms}{0mm}{\frameCallToArmsY}[frameCallToArms]
-\newdynamicframe[1]{\columnwidth}{\fhActiveAlly}{0mm}{0mm}[frameActiveAlly]
-\newdynamicframe[1]{\fwTwoCols}{\fhDowRestrictions}{\middleColX}{\frameDowRestrictionsY}[frameDowRestrictions]
-\newdynamicframe[1]{\fwTwoCols}{\fhCasusBelli}{\middleColX}{\frameCasusBelliY}[frameCasusBelli]
-\newdynamicframe[1]{\fwTwoCols}{\fhHreIntWars}{\middleColX}{\frameHreIntWarsY}[frameHreIntWars]
-\newdynamicframe[1]{\fwTwoCols}{\fhDefHre}{\middleColX}{\frameDefHreY}[frameDefHre]
+\newdynamicframe[1]{\columnwidth}{\fhCallToArms}{\rightColX}{\frameCallToArmsY}[frameCallToArms]
+\newdynamicframe[1]{\columnwidth}{\fhActiveAlly}{\middleColX}{\frameActiveAllyY}[frameActiveAlly]
+\newdynamicframe[1]{\columnwidth}{\fhDowRestrictions}{0mm}{\frameDowRestrictionsY}[frameDowRestrictions]
+\newdynamicframe[1]{\columnwidth}{\fhCasusBelli}{\rightColX}{\frameCasusBelliY}[frameCasusBelli]
+\newdynamicframe[1]{\columnwidth}{\fhHreIntWars}{0mm}{\frameHreIntWarsY}[frameHreIntWars]
+\newdynamicframe[1]{\columnwidth}{\fhDefHre}{0mm}{\frameDefHreY}[frameDefHre]
 \newdynamicframe[1]{\fwTwoCols}{\fhReceivingCta}{\middleColX}{0mm}[frameReceivingCta]
 
 \newdynamicframe[2]{\columnwidth}{\fhMilitaryAccess}{0mm}{\frameMilitaryAccessY}[frameMilitaryAccess]
@@ -111,13 +112,11 @@
 \addfooter
 
 \begin{dynamiccontents*}{frameDowRestrictions}\begin{eubox}{\fhDowRestrictions}
-	\begin{multicols}{2}
-		\subsubsection*{\zsavepos{arrowDowRestrictionsEnd}Restrictions on DoW \normal{(p.~22)}}
+	% \begin{multicols}{2}
+		\subsubsection*{Restrictions on DoW \normal{(p.~22)}\zsavepos{arrowDowRestrictionsEnd}}
 		\begin{enumerate}[label=\strong{\alph*}.]
-			\begin{multicols}{2}
-				\item Your Ally
-				\item Truce
-			\end{multicols}
+			\item Your Ally
+			\item Truce
 			\item PR who has Passed
 			\item NPR Ally of PR who matches (\strong{b}) or (\strong{c})
 			\item HRE Member at Peace with Emperor if Emperor matches (\strong{a}), (\strong{b}) or (\strong{c})
@@ -127,24 +126,26 @@
 		\smallheading{Exceptions:}
 		\begin{itemize}
 			\item If you have \disputedsuccession on target and use Disputed Succession CB, then (\strong{a}) and (\strong{g}) do not apply, but Alliance ends
+			\item No restrictions when answering \emph{Def. CtA}
+			\item Events may specify other restrictions
 		\end{itemize}
-	\end{multicols}
+	% \end{multicols}
 \end{eubox}\end{dynamiccontents*}
 
 \begin{dynamiccontents*}{frameCasusBelli}\begin{eubox}{\fhCasusBelli}
-	\begin{multicols}{2}
+	% \begin{multicols}{2}
 		\subsubsection*{\zsavepos{arrowCbEnd}Casus Belli \normal{(p.~22)}}
 		\strong{Conquest (Claim)} -- Have \claim in Area where target Owns Provinces\\
 		\strong{Call to Arms} -- Receive a \emph{CtA}\\
 		\strong{General CB} -- Have CB token target\\
 		\strong{Event} -- Event that lets you Declare War\\
 		\begin{itemize}
-			\item Also negates penalty for DoW on \marriage
+			\item \hspacezero\zsavepos{arrowMarriageEndOne}Also negates penalty for DoW on \marriage
 		\end{itemize}
 		\strong{Disputed Succession} -- Any \disputedsuccession on target\\
 		\begin{itemize}
 			\item Also against PRs at War with the target
-			\item Also negates penalty for DoW on \marriage
+			\item \hspacezero\zsavepos{arrowMarriageEndTwo}Also negates penalty for DoW on \marriage
 		\end{itemize}
 		\strong{Excommunication} -- You are Catholic and the target is \emph{Excommunicated}\\
 		\strong{Holy War (Crusade)}\\
@@ -161,15 +162,16 @@
 			\end{itemize}
 		\end{itemize}
 		\strong{Imperial Liberation} -- You are the Emperor \conj{and} target Controls Provinces or has Vassals in HRE \conj{and} is not HRE member
-	\end{multicols}
+	% \end{multicols}
 \end{eubox}\end{dynamiccontents*}
 
 \begin{dynamiccontents*}{frameHreIntWars}\begin{eubox}{\fhHreIntWars}
-	\begin{multicols}{2}
-		\subsubsection*{\zsavepos{arrowHreIntWarsEnd}HRE Int. Wars with no CB \normal{(p.~45)}}
+	% \begin{multicols}{2}
+		\subsubsection*{HRE Int. Wars with no CB \normal{(p.~45)}\zsavepos{arrowHreIntWarsEnd}}
 		\begin{itemize}
 			\item Emp.'s DoW on Subject
 			\begin{itemize}
+				\item Apply normal penalties for missing CB
 				\item Lose 1\authority
 				\item Remove 3\influence from HRE Areas
 			\end{itemize}
@@ -179,12 +181,12 @@
 				\item \botrule{\hspacezero\zsavepos{arrowBotDefSubjectStart}Bot Emp. defends targeted Subj. (p.~6)}
 			\end{itemize}
 		\end{itemize}
-	\end{multicols}
+	% \end{multicols}
 \end{eubox}\end{dynamiccontents*}
 
 \begin{dynamiccontents*}{frameDefHre}\begin{eubox}{\fhDefHre}
-	\begin{multicols}{2}
-		\subsubsection*{\zsavepos{arrowHreCtaEnd}Defending the HRE \normal{(p.~44)}}
+	% \begin{multicols}{2}
+		\subsubsection*{Defending the HRE \normal{(p.~44)}\zsavepos{arrowHreCtaEnd}}
 		\smallheading{External Realm's DoW on Imp. Subject}
 		\begin{itemize}
 			\item PR Emperor receives \emph{Defensive CtA} if\zsavepos{arrowBotDefSubjectEnd}
@@ -231,7 +233,7 @@
 			\end{itemize}
 			\item \botrule{\strong{Bot Imperial Subject} loses 1\botpower, unless at War, including this DoW (p.~6)}
 		\end{itemize}
-	\end{multicols}
+	% \end{multicols}
 \end{eubox}\end{dynamiccontents*}
 
 \begin{dynamiccontents*}{frameCallToArms}\begin{eubox}{\fhCallToArms}
@@ -243,12 +245,11 @@
 			\item Your own DoW, \conj{or}
 			\item \reaction~-- DoW on you or your NPR Ally
 		\end{itemize}
-		\item Calling a PR Ally has no cost\zsavepos{arrowReceiveCtAStart}
+		\item \hspacezero\zsavepos{arrowReceiveCtAStart}Calling a PR Ally has no cost
 		\item Only def. may call PR Allied to both sides
 		\item To call an NPR, remove \influence from its Areas
 		\begin{itemize}
-			\item If \emph{Offensive CtA}, 2\influence
-			\item If \emph{Defensive CtA}, 1\influence
+			\item \emph{Offens. CtA} -- \strong{2\influence}, \emph{Defen. CtA} -- \strong{1\influence}
 			\item If \strong{Dist. NPR}, use \colonists instead (p.~32)
 		\end{itemize}
 		\item NPR Allies can only be called if they are
@@ -261,25 +262,23 @@
 \end{eubox}\end{dynamiccontents*}
 
 \begin{dynamiccontents*}{frameActiveAlly}\begin{eubox}{\fhActiveAlly}
-	\subsubsection*{Active Ally \normal{(\activeally) (p.~33)}}
+	\subsubsection*{Activating NPR Ally \normal{(\activeally) (p.~33)}}
 	\begin{itemize}
-		\item When activating an NPR Ally
+		\item Flip the \alliance to \activeally
+		\item Human PR
 		\begin{itemize}
-			\item Flip the \alliance to \activeally
-			\item Add Allied Units to Available \manpower equal to ½ of Tax Value of the NPR (including Vassals (p.~13)) (max 5)
-			\item Gain 1\milpower if Ally is Adj. to a new Enemy
-		\end{itemize}
+			\item Gains Allied Units to Available \manpower equal to ½ of Tax Value of the NPR (including Vassals (p.~13)) (max 5)
+			\item Gains 1\milpower if Ally is Adj. to new Enemy
+			\end{itemize}
 		{\botrules
-		\begin{itemize}
-			\item Bot gains 2\botpower and no Units (p.~4)
-		\end{itemize}
+		\item Bot gains 2\botpower (p.~4)
 		}
 	\end{itemize}
 \end{eubox}\end{dynamiccontents*}
 
 \begin{dynamiccontents*}{frameReceivingCta}\begin{eubox}{\fhReceivingCta}
 	\begin{multicols}{2}
-		\subsubsection*{\zsavepos{arrowReceiveCtAEnd}Receiving a CtA \normal{(p.~32-33)}}
+		\subsubsection*{Receiving a CtA \normal{(p.~32-33)}\zsavepos{arrowReceiveCtAEnd}}
 		\begin{itemize}
 			\item \emph{Defensive CtA}s can always be accepted
 			\item \emph{Offensive CtA}s must be refused in case of DoW restrictions
@@ -298,13 +297,15 @@
 				\begin{itemize}
 					\item Make them Active Ally or not
 					\begin{itemize}
-						\botrule{\item Bot chooses not to (p.~4)}
+						% TODO: This is not explicitly written in rules. Instead, it was clarified on Aegir Games Discord. Add reference once it is added to FAQ/Errata
+						\botrule{\item Bot chooses not to}
 					\end{itemize}
 					\item Send \emph{Def. CtA} to other NPR Allies
 				\end{itemize}
-				\item If you are Allied to a PR on opposing side, this Alliance ends
+				\item \alliances with PRs on opposing side end
 			\end{itemize}
 		\end{itemize}
+		\framebreak
 		\smallheading{Refusing a CtA}
 		\begin{itemize}
 			\item Remove \alliance
@@ -327,16 +328,16 @@
 \subsectionstriped{colorMilitary}{Military Actions}
 \actionHeadingNoSpace{Declare War \normal{(1\milpower) (p.~16)}}
 \begin{enumerate}
-	\item Pick target Realm(s), place War tokens\zsavepos{arrowDowRestrictionsStart}
-	\item Lose \stability
+	\item \hspacezero\zsavepos{arrowDowRestrictionsStart}Pick target Realm(s), place War tokens
+	\item Penalties for no CB and DoW on your \marriage
 	\begin{itemize}
-		\item 2\stability per missing CB\zsavepos{arrowCbStart}
-		\item 1\stability per your \marriage on targets
+		\item \hspacezero\zsavepos{arrowHreIntWarsStart}2\stability per missing CB\zsavepos{arrowCbStart}
+		\item 1\stability per your \marriage on targets, exceptions\zsavepos{arrowMarriageStart}
 	\end{itemize}
 	\item \action{Calls to Arms} (in listed order)\zsavepos{arrowCtAStart}
 	\begin{enumerate}[label=\alph*.]
 		\item You may send \emph{Offensive CtA}s
-		\item Target HRE Members might send \emph{Defensive CtA} to the Emperor
+		\item \hspacezero\zsavepos{arrowHreCtaStart}Target HRE Members might send \emph{Defensive CtA} to the Emperor
 		\item Target NPRs send \emph{Defensive CtA}s
 		\item Target PRs may send \emph{Defensive CtA}s
 		\begin{itemize}
@@ -351,7 +352,7 @@
 		\item Bots gain 1\botpower instead (p.~4)
 		\begin{itemize}
 			\item If then the Bot has < 5/5/6/7 \botpower, it gains \botpower until it reaches 5/5/6/7
-			\item If Bot has any Available \manpower, they spend 1\botpower to recruit 7/9/9/11 Units, and check MAC if Army is on the map
+			\item If Bot has any Available \manpower, they spend 1\botpower to recruit 7/9/9/11 Units, and check MAC if Army is on map
 		\end{itemize}
 		}
 	\end{itemize}
@@ -367,9 +368,9 @@
 	\useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);
 	
 	% DoW Restrictions arrow
-	\newlength{\dowRestrictionsStartY} \setlength{\dowRestrictionsStartY}{\calc{\zposy{arrowDowRestrictionsStart}sp + \arrowAdjustYText}}
-	\newlength{\dowRestrictionsStartX} \setlength{\dowRestrictionsStartX}{\calc{\zposx{arrowDowRestrictionsStart}sp + \arrowToTextSpacing}}
-	\newlength{\dowRestrictionsEndY} \setlength{\dowRestrictionsEndY}{\calc{\zposy{arrowDowRestrictionsEnd}sp + \arrowAdjustYBeforeSubsub}}
+	\newlength{\dowRestrictionsStartY} \setlength{\dowRestrictionsStartY}{\calc{\zposy{arrowDowRestrictionsStart}sp + \arrowAdjustYAfterSubsub}}
+	\newlength{\dowRestrictionsStartX} \setlength{\dowRestrictionsStartX}{\calc{\zposx{arrowDowRestrictionsStart}sp + \arrowAdjustXBeforeList}}
+	\newlength{\dowRestrictionsEndY} \setlength{\dowRestrictionsEndY}{\calc{\zposy{arrowDowRestrictionsEnd}sp + \arrowAdjustYAfterSubsub}}
 	\newlength{\dowRestrictionsEndX} \setlength{\dowRestrictionsEndX}{\zposx{arrowDowRestrictionsEnd}sp}
 	\newlength{\dowRestrictionsTurnX} \setlength{\dowRestrictionsTurnX}{\arrowXVerticalMidLeft}
 
@@ -380,33 +381,59 @@
 	\newlength{\cbStartX} \setlength{\cbStartX}{\calc{\zposx{arrowCbStart}sp + \arrowToTextSpacing}}
 	\newlength{\cbEndY} \setlength{\cbEndY}{\calc{\zposy{arrowCbEnd}sp + \arrowAdjustYBeforeSubsub}}
 	\newlength{\cbEndX} \setlength{\cbEndX}{\zposx{arrowCbEnd}sp}
-	\newlength{\cbTurnX} \setlength{\cbTurnX}{\arrowXVerticalMidLeft}
-	\newlength{\hreIntWarsEndY} \setlength{\hreIntWarsEndY}{\calc{\zposy{arrowHreIntWarsEnd}sp + \arrowAdjustYBeforeSubsub}}
-	\newlength{\hreIntWarsEndX} \setlength{\hreIntWarsEndX}{\zposx{arrowHreIntWarsEnd}sp}
-	
-	\drawArrow{(\cbStartX, \cbStartY) -- (\cbTurnX,\cbStartY) -- (\cbTurnX,\cbEndY) -- (\cbEndX,\cbEndY)}
-	\drawArrow{(\cbStartX, \cbStartY) -- (\cbTurnX,\cbStartY) -- (\cbTurnX,\hreIntWarsEndY) -- (\hreIntWarsEndX,\hreIntWarsEndY)}
+	\newlength{\cbTurnX} \setlength{\cbTurnX}{\arrowXVerticalMidRight}
 
-	% Call to Arms arrows
+	\drawArrow{(\cbStartX, \cbStartY) -- (\cbTurnX,\cbStartY) -- (\cbTurnX,\cbEndY) -- (\cbEndX,\cbEndY)}
+
+	% HRE Internal Wars arrow
+	\newlength{\hreIntWarsStartY} \setlength{\hreIntWarsStartY}{\calc{\zposy{arrowHreIntWarsStart}sp + \arrowAdjustYText}}
+	\newlength{\hreIntWarsStartX} \setlength{\hreIntWarsStartX}{\calc{\zposx{arrowHreIntWarsStart}sp + \arrowAdjustXBeforeList}}
+	\newlength{\hreIntWarsEndY} \setlength{\hreIntWarsEndY}{\calc{\zposy{arrowHreIntWarsEnd}sp + \arrowAdjustYAfterSubsub}}
+	\newlength{\hreIntWarsEndX} \setlength{\hreIntWarsEndX}{\calc{\zposx{arrowHreIntWarsEnd}sp + \arrowToTextSpacing}}
+	\newlength{\hreIntWarsTurnX} \setlength{\hreIntWarsTurnX}{\calc{\arrowXVerticalMidLeft}}
+	\newlength{\hreIntWarsTurnY} \setlength{\hreIntWarsTurnY}{\calc{\hreIntWarsEndY + 1.5mm}}
+
+	\drawArrow{(\hreIntWarsStartX, \hreIntWarsStartY) -- (\hreIntWarsTurnX,\hreIntWarsStartY) -- (\hreIntWarsTurnX,\hreIntWarsTurnY) -- (\hreIntWarsEndX,\hreIntWarsEndY)}
+
+	% Marriage exceptions arrow
+	\newlength{\marriageStartY} \setlength{\marriageStartY}{\calc{\zposy{arrowMarriageStart}sp + \arrowAdjustYText}}
+	\newlength{\marriageStartX} \setlength{\marriageStartX}{\calc{\zposx{arrowMarriageStart}sp + \arrowToTextSpacing}}
+
+	\newlength{\marriageEndOneY} \setlength{\marriageEndOneY}{\calc{\zposy{arrowMarriageEndOne}sp + \arrowAdjustYList}}
+	\newlength{\marriageEndOneX} \setlength{\marriageEndOneX}{\calc{\zposx{arrowMarriageEndOne}sp + \arrowAdjustXBeforeList}}
+	\newlength{\marriageEndTwoY} \setlength{\marriageEndTwoY}{\calc{\zposy{arrowMarriageEndTwo}sp + \arrowAdjustYList}}
+	\newlength{\marriageEndTwoX} \setlength{\marriageEndTwoX}{\calc{\zposx{arrowMarriageEndTwo}sp + \arrowAdjustXBeforeList}}
+	\newlength{\marriageTurnX} \setlength{\marriageTurnX}{\calc{\arrowXVerticalMidRight}}
+
+	\drawArrow{(\marriageStartX, \marriageStartY) -- (\marriageTurnX,\marriageEndOneY) -- (\marriageEndOneX,\marriageEndOneY)}
+	\drawArrow{(\marriageStartX, \marriageStartY) -- (\marriageTurnX,\marriageEndOneY) -- (\marriageTurnX,\marriageEndTwoY) -- (\marriageEndTwoX,\marriageEndTwoY)}
+
+	% Call to Arms arrow
 	\newlength{\ctaStartY} \setlength{\ctaStartY}{\calc{\zposy{arrowCtAStart}sp + \arrowAdjustYList}}
-	\newlength{\ctaStartX} \setlength{\ctaStartX}{\calc{\zposx{arrowCtAStart}sp + \arrowAdjustXBeforeListNum}}
-	\newlength{\ctaEndY} \setlength{\ctaEndY}{\calc{\zposy{arrowCtAEnd}sp + \arrowAdjustYBeforeSubsub + 10pt}}
+	\newlength{\ctaStartX} \setlength{\ctaStartX}{\calc{\zposx{arrowCtAStart}sp + \arrowToTextSpacing}}
+	\newlength{\ctaEndY} \setlength{\ctaEndY}{\calc{\zposy{arrowCtAEnd}sp + \arrowAdjustYText}}
 	\newlength{\ctaEndX} \setlength{\ctaEndX}{\zposx{arrowCtAEnd}sp}
-	\newlength{\hreCtaEndY} \setlength{\hreCtaEndY}{\calc{\zposy{arrowHreCtaEnd}sp + \arrowAdjustYBeforeSubsub}}
-	\newlength{\hreCtaEndX} \setlength{\hreCtaEndX}{\zposx{arrowHreCtaEnd}sp}
 	\newlength{\ctaTurnY} \setlength{\ctaTurnY}{\calc{\margin + \fhCallToArms + .5\columnsep}}
-	\newlength{\ctaTurnX} \setlength{\ctaTurnX}{\calc{\arrowXVerticalMidLeft - 1mm}}
+	\newlength{\ctaTurnX} \setlength{\ctaTurnX}{\calc{\arrowXVerticalMidRight - 1.3mm}}
 	\newlength{\ctaTurnXTwo} \setlength{\ctaTurnXTwo}{\arrowXVerticalLeft}
 
-	\drawArrow{(\ctaStartX, \ctaStartY) -- (\ctaTurnX,\ctaStartY) -- (\ctaTurnX,\ctaTurnY) -- (\ctaTurnXTwo,\ctaTurnY) -- (\ctaTurnXTwo,\ctaEndY) -- (\ctaEndX,\ctaEndY)}
-	\drawArrow{(\ctaStartX, \ctaStartY) -- (\ctaTurnX,\ctaStartY) -- (\ctaTurnX,\hreCtaEndY) -- (\hreCtaEndX,\hreCtaEndY)}
+	\drawArrow{(\ctaStartX, \ctaStartY) -- (\ctaTurnX,\ctaStartY) -- (\ctaTurnX,\ctaEndY) -- (\ctaEndX,\ctaEndY)}
+
+	% Defending HRE arrow
+	\newlength{\hreCtaStartY} \setlength{\hreCtaStartY}{\calc{\zposy{arrowHreCtaStart}sp + \arrowAdjustYList}}
+	\newlength{\hreCtaStartX} \setlength{\hreCtaStartX}{\calc{\zposx{arrowHreCtaStart}sp + \arrowAdjustXBeforeList}}
+	\newlength{\hreCtaEndY} \setlength{\hreCtaEndY}{\calc{\zposy{arrowHreCtaEnd}sp + \arrowAdjustYAfterSubsub}}
+	\newlength{\hreCtaEndX} \setlength{\hreCtaEndX}{\zposx{arrowHreCtaEnd}sp}
+	\newlength{\hreCtaTurnX} \setlength{\hreCtaTurnX}{\calc{\arrowXVerticalMidLeft + 1.5mm}}
+
+	\drawArrow{(\hreCtaStartX, \hreCtaStartY) -- (\hreCtaTurnX,\hreCtaStartY) -- (\hreCtaTurnX,\hreCtaEndY) -- (\hreCtaEndX,\hreCtaEndY)}
 		
 	% Receive Call to Arms line
-	\newlength{\receiveCtaStartY} \setlength{\receiveCtaStartY}{\calc{\zposy{arrowReceiveCtAStart}sp + \arrowAdjustYText}}
-	\newlength{\receiveCtaStartX} \setlength{\receiveCtaStartX}{\calc{\zposx{arrowReceiveCtAStart}sp + \arrowToTextSpacing}}
-	\newlength{\receiveCtaEndY} \setlength{\receiveCtaEndY}{\calc{\zposy{arrowReceiveCtAEnd}sp + \arrowAdjustYBeforeSubsub}}
+	\newlength{\receiveCtaStartY} \setlength{\receiveCtaStartY}{\calc{\zposy{arrowReceiveCtAStart}sp + \arrowAdjustYList}}
+	\newlength{\receiveCtaStartX} \setlength{\receiveCtaStartX}{\calc{\zposx{arrowReceiveCtAStart}sp + \arrowAdjustXBeforeList}}
+	\newlength{\receiveCtaEndY} \setlength{\receiveCtaEndY}{\calc{\zposy{arrowReceiveCtAEnd}sp + \arrowAdjustYAfterSubsub}}
 	\newlength{\receiveCtaEndX} \setlength{\receiveCtaEndX}{\zposx{arrowReceiveCtAEnd}sp}
-	\newlength{\receiveCtaTurnX} \setlength{\receiveCtaTurnX}{\arrowXVerticalMidLeft}
+	\newlength{\receiveCtaTurnX} \setlength{\receiveCtaTurnX}{\arrowXVerticalMidRight}
 
 	\drawArrow{(\receiveCtaStartX, \receiveCtaStartY) -- (\receiveCtaTurnX,\receiveCtaStartY) -- (\receiveCtaTurnX,\receiveCtaEndY) -- (\receiveCtaEndX,\receiveCtaEndY)}
 
@@ -417,7 +444,7 @@
 	\newlength{\botDefSubjectEndX} \setlength{\botDefSubjectEndX}{\calc{\zposx{arrowBotDefSubjectEnd}sp + \arrowToTextSpacing}}
 	\newlength{\botDefSubjectTurnX} \setlength{\botDefSubjectTurnX}{\arrowXVerticalMidRight}
 
-	\drawArrow{(\botDefSubjectStartX, \botDefSubjectStartY) -- (\botDefSubjectTurnX,\botDefSubjectStartY) -- (\botDefSubjectTurnX,\botDefSubjectEndY) -- (\botDefSubjectEndX,\botDefSubjectEndY)}
+	% \drawArrow{(\botDefSubjectStartX, \botDefSubjectStartY) -- (\botDefSubjectTurnX,\botDefSubjectStartY) -- (\botDefSubjectTurnX,\botDefSubjectEndY) -- (\botDefSubjectEndX,\botDefSubjectEndY)}
 
 	% Emperor accepts CtA arrow
 	\newlength{\empAcceptCtAStartY} \setlength{\empAcceptCtAStartY}{\calc{\zposy{arrowEmpAcceptCtAStart}sp + \arrowAdjustYText}}
@@ -426,7 +453,7 @@
 	\newlength{\empAcceptCtAEndX} \setlength{\empAcceptCtAEndX}{\calc{\zposx{arrowEmpAcceptCtAEnd}sp + \arrowToTextSpacing}}
 	\newlength{\empAcceptCtATurnX} \setlength{\empAcceptCtATurnX}{\arrowXVerticalMidRight}
 
-	\drawArrow{(\empAcceptCtAStartX, \empAcceptCtAStartY) -- (\empAcceptCtATurnX,\empAcceptCtAStartY) -- (\empAcceptCtATurnX,\empAcceptCtAEndY) -- (\empAcceptCtAEndX,\empAcceptCtAEndY)}	
+	% \drawArrow{(\empAcceptCtAStartX, \empAcceptCtAStartY) -- (\empAcceptCtATurnX,\empAcceptCtAStartY) -- (\empAcceptCtATurnX,\empAcceptCtAEndY) -- (\empAcceptCtAEndX,\empAcceptCtAEndY)}	
 \end{tikzpicture}
 \end{dynamiccontents*}
 
