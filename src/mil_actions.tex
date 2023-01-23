@@ -10,11 +10,14 @@
 \newlength{\fhCasusBelli} \setlength\fhCasusBelli{24\baselineskip}
 \newlength{\frameCasusBelliY} \setlength\frameCasusBelliY{\calc{\textheight - \fhCasusBelli}}
 
-\newlength{\fhHreIntWars} \setlength\fhHreIntWars{9\baselineskip}
+\newlength{\fhHreIntWars} \setlength\fhHreIntWars{8\baselineskip}
 \newlength{\frameHreIntWarsY} \setlength\frameHreIntWarsY{\calc{\frameDowRestrictionsY - \fhHreIntWars - \frameToFrameSpacing}}
 
-\newlength{\fhDefHre} \setlength\fhDefHre{28.5\baselineskip}
+\newlength{\fhDefHre} \setlength\fhDefHre{16\baselineskip}
 \newlength{\frameDefHreY} \setlength\frameDefHreY{\calc{\frameHreIntWarsY - \fhDefHre - \frameToFrameSpacing}}
+
+\newlength{\fhActivatingDefHre} \setlength\fhActivatingDefHre{14\baselineskip}
+\newlength{\frameActivatingDefHreY} \setlength\frameActivatingDefHreY{\calc{\frameDefHreY - \fhActivatingDefHre - \frameToFrameSpacing}}
 
 \newlength{\fhReceivingCta} \setlength\fhReceivingCta{\calc{17\baselineskip}}
 
@@ -75,6 +78,7 @@
 \newdynamicframe[1]{\columnwidth}{\fhCasusBelli}{\rightColX}{\frameCasusBelliY}[frameCasusBelli]
 \newdynamicframe[1]{\columnwidth}{\fhHreIntWars}{0mm}{\frameHreIntWarsY}[frameHreIntWars]
 \newdynamicframe[1]{\columnwidth}{\fhDefHre}{0mm}{\frameDefHreY}[frameDefHre]
+\newdynamicframe[1]{\columnwidth}{\fhActivatingDefHre}{0mm}{\frameActivatingDefHreY}[frameActivatingDefHre]
 \newdynamicframe[1]{\fwTwoCols}{\fhReceivingCta}{\middleColX}{0mm}[frameReceivingCta]
 
 \newdynamicframe[2]{\columnwidth}{\fhMilitaryAccess}{0mm}{\frameMilitaryAccessY}[frameMilitaryAccess]
@@ -169,16 +173,16 @@
 	% \begin{multicols}{2}
 		\subsubsection*{HRE Int. Wars with no CB \normal{(p.~45)}\zsavepos{arrowHreIntWarsEnd}}
 		\begin{itemize}
+			\item Apply regular \stability penalty for missing CB
 			\item Emp.'s DoW on Subject
 			\begin{itemize}
-				\item Apply normal penalties for missing CB
 				\item Lose 1\authority
 				\item Remove 3\influence from HRE Areas
 			\end{itemize}
 			\item Subject's DoW on another Subject
 			\begin{itemize}
 				\item Human Emperor must place CB on Aggressor's Capital
-				\item \botrule{\hspacezero\zsavepos{arrowBotDefSubjectStart}Bot Emp. defends targeted Subj. (p.~6)}
+				% \item \botrule{\hspacezero\zsavepos{arrowBotDefSubjectStart}Bot Emp. defends targeted Subj. (p.~6)\zsavepos{arrowBotDefSubjectEnd}}
 			\end{itemize}
 		\end{itemize}
 	% \end{multicols}
@@ -189,7 +193,8 @@
 		\subsubsection*{Defending the HRE \normal{(p.~44)}\zsavepos{arrowHreCtaEnd}}
 		\smallheading{External Realm's DoW on Imp. Subject}
 		\begin{itemize}
-			\item PR Emperor receives \emph{Defensive CtA} if\zsavepos{arrowBotDefSubjectEnd}
+				\item \botrule{Bot Emp. also defends Subjects if attacked by another Subject without CB (p.~6)}
+				\item \hspacezero\zsavepos{arrowBotDefSubjectEnd}PR Emperor receives \emph{Defensive CtA} if
 			\begin{itemize}
 				\item \authority ≥ 1, \conj{and}
 				\item They are at Peace with the Subject
@@ -197,7 +202,7 @@
 			\item If the Emperor accepts
 			\begin{itemize}
 				\item Apply \dprime Accepting a CtA\dprime procedure\zsavepos{arrowEmpAcceptCtAStart}
-				\item Activate \emph{Defending the HRE}
+				\item \hspacezero\zsavepos{arrowActivateDefHreStartOne}Activate \emph{Defending the HRE}
 			\end{itemize}
 			\item If the Emperor refuses
 			\begin{itemize}
@@ -208,13 +213,16 @@
 		\begin{itemize}
 			\item If Emperor's Capital is in HRE
 			\begin{itemize}
-				\item May activate \emph{Defending the HRE}
+				\item \hspacezero\zsavepos{arrowActivateDefHreStartTwo}May activate \emph{Defending the HRE}
 				\begin{itemize}
 					\botrule{\item Bot Emperor activates it (p.~4)}
 				\end{itemize}
 			\end{itemize}
 		\end{itemize}
-		\subsubsection*{Activating Def. the HRE \normal{(p.~44)}}
+\end{eubox}\end{dynamiccontents*}
+
+\begin{dynamiccontents*}{frameActivatingDefHre}\begin{eubox}{\fhActivatingDefHre}
+		\subsubsection*{\zsavepos{arrowActivateDefHreEnd}Activating Def. the HRE \normal{(p.~44)}}
 		\begin{itemize}
 			\item Tag \emph{Defending the HRE} slot
 			\item If \strong{human PR is Emperor}, add NPR Units to \strong{Imperial} \manpower = Emperor's \influence (incl. Imperial \influence) in Elec. Areas (max~8)
@@ -245,7 +253,7 @@
 			\item Your own DoW, \conj{or}
 			\item \reaction~-- DoW on you or your NPR Ally
 		\end{itemize}
-		\item \hspacezero\zsavepos{arrowReceiveCtAStart}Calling a PR Ally has no cost
+		\item Calling a PR Ally has no cost\zsavepos{arrowReceiveCtAStart}
 		\item Only def. may call PR Allied to both sides
 		\item To call an NPR, remove \influence from its Areas
 		\begin{itemize}
@@ -257,12 +265,12 @@
 			\item At Peace, \conj{and}
 			\item Adjacent to you or your new Enemy
 		\end{itemize}
-		\item Activate called NPR Ally
+		\item \hspacezero\zsavepos{arrowActivateAllyStartOne}Activate called NPR Allies
 	\end{itemize}
 \end{eubox}\end{dynamiccontents*}
 
 \begin{dynamiccontents*}{frameActiveAlly}\begin{eubox}{\fhActiveAlly}
-	\subsubsection*{Activating NPR Ally \normal{(\activeally) (p.~33)}}
+	\subsubsection*{Activating NPR Ally \normal{(\activeally) (p.~33)}\zsavepos{arrowActivateAllyEndOne}}
 	\begin{itemize}
 		\item Flip the \alliance to \activeally
 		\item Human PR
@@ -278,7 +286,7 @@
 
 \begin{dynamiccontents*}{frameReceivingCta}\begin{eubox}{\fhReceivingCta}
 	\begin{multicols}{2}
-		\subsubsection*{Receiving a CtA \normal{(p.~32-33)}\zsavepos{arrowReceiveCtAEnd}}
+		\subsubsection*{Receiving a CtA \normal{(p.~32-33)}}
 		\begin{itemize}
 			\item \emph{Defensive CtA}s can always be accepted
 			\item \emph{Offensive CtA}s must be refused in case of DoW restrictions
@@ -287,7 +295,7 @@
 			\item Bot always refuses \emph{Offensive CtA}s (p.~4)
 			}
 		\end{itemize}
-		\smallheading{Accepting a CtA\zsavepos{arrowEmpAcceptCtAEnd}}
+		\smallheading{\zsavepos{arrowEmpAcceptCtAEnd}Accepting a CtA}
 		\begin{itemize}
 			\item If \emph{Offensive CtA}, place War tokens on your Ally's Enemies
 			\item If \emph{Defensive CtA}
@@ -295,9 +303,11 @@
 				\item Enemy places War tokens on you
 				\item If from NPR, you may
 				\begin{itemize}
-					\item Make them Active Ally or not
+					\item Make them Active Ally or not\zsavepos{arrowActivateAllyStartTwo}
 					\begin{itemize}
-						% TODO: This is not explicitly written in rules. Instead, it was clarified on Aegir Games Discord. Add reference once it is added to FAQ/Errata
+						% TODO: This is not explicitly written in rules. Instead, it was clarified on Aegir Games Discord:
+						% https://discord.com/channels/567337533462151178/567337955576905728/1066706010124857436
+						% Add reference once it is added to FAQ/Errata
 						\botrule{\item Bot chooses not to}
 					\end{itemize}
 					\item Send \emph{Def. CtA} to other NPR Allies
@@ -427,33 +437,65 @@
 	\newlength{\hreCtaTurnX} \setlength{\hreCtaTurnX}{\calc{\arrowXVerticalMidLeft + 1.5mm}}
 
 	\drawArrow{(\hreCtaStartX, \hreCtaStartY) -- (\hreCtaTurnX,\hreCtaStartY) -- (\hreCtaTurnX,\hreCtaEndY) -- (\hreCtaEndX,\hreCtaEndY)}
-		
-	% Receive Call to Arms line
-	\newlength{\receiveCtaStartY} \setlength{\receiveCtaStartY}{\calc{\zposy{arrowReceiveCtAStart}sp + \arrowAdjustYList}}
-	\newlength{\receiveCtaStartX} \setlength{\receiveCtaStartX}{\calc{\zposx{arrowReceiveCtAStart}sp + \arrowAdjustXBeforeList}}
-	\newlength{\receiveCtaEndY} \setlength{\receiveCtaEndY}{\calc{\zposy{arrowReceiveCtAEnd}sp + \arrowAdjustYAfterSubsub}}
-	\newlength{\receiveCtaEndX} \setlength{\receiveCtaEndX}{\zposx{arrowReceiveCtAEnd}sp}
-	\newlength{\receiveCtaTurnX} \setlength{\receiveCtaTurnX}{\arrowXVerticalMidRight}
 
-	\drawArrow{(\receiveCtaStartX, \receiveCtaStartY) -- (\receiveCtaTurnX,\receiveCtaStartY) -- (\receiveCtaTurnX,\receiveCtaEndY) -- (\receiveCtaEndX,\receiveCtaEndY)}
+	% Receive Call to Arms arrow
+	\newlength{\receiveCtaStartY} \setlength{\receiveCtaStartY}{\calc{\zposy{arrowReceiveCtAStart}sp + \arrowAdjustYList}}
+	\newlength{\receiveCtaStartX} \setlength{\receiveCtaStartX}{\calc{\zposx{arrowReceiveCtAStart}sp + \arrowAdjustYText}}
+	\newlength{\receiveCtaEndY} \setlength{\receiveCtaEndY}{\calc{\margin + \fhReceivingCta + 0.3mm}}
+	\newlength{\receiveCtaEndX} \setlength{\receiveCtaEndX}{\calc{\margin + \middleColX + \fwTwoCols + 0.3mm}}
+	\newlength{\receiveCtaTurnX} \setlength{\receiveCtaTurnX}{\arrowXVerticalRight}
+	\newlength{\receiveCtaTurnY} \setlength{\receiveCtaTurnY}{\calc{\receiveCtaEndY + 2mm}}
+
+	\drawArrow{(\receiveCtaStartX, \receiveCtaStartY) -- (\receiveCtaTurnX,\receiveCtaStartY) -- (\receiveCtaTurnX,\receiveCtaTurnY) -- (\receiveCtaEndX,\receiveCtaEndY)}
+
+	% Activate Ally arrow (from CtA)
+	\newlength{\activateAllyOneStartY} \setlength{\activateAllyOneStartY}{\calc{\zposy{arrowActivateAllyStartOne}sp + \arrowAdjustYList}}
+	\newlength{\activateAllyOneStartX} \setlength{\activateAllyOneStartX}{\calc{\zposx{arrowActivateAllyStartOne}sp + \arrowAdjustXBeforeList}}
+	\newlength{\activateAllyOneEndY} \setlength{\activateAllyOneEndY}{\calc{\zposy{arrowActivateAllyEndOne}sp + \arrowAdjustYAfterSubsub}}
+	\newlength{\activateAllyOneEndX} \setlength{\activateAllyOneEndX}{\zposx{arrowActivateAllyEndOne}sp}
+	\newlength{\activateAllyOneTurnX} \setlength{\activateAllyOneTurnX}{\arrowXVerticalMidRight}
+
+	\drawArrow{(\activateAllyOneStartX,\activateAllyOneStartY) -- (\activateAllyOneTurnX,\activateAllyOneStartY) -- (\activateAllyOneTurnX,\activateAllyOneEndY) -- (\activateAllyOneEndX,\activateAllyOneEndY)}
+
+	% Activate Ally arrow (from Receiving CtA)
+	\newlength{\activateAllyTwoStartY} \setlength{\activateAllyTwoStartY}{\calc{\zposy{arrowActivateAllyStartTwo}sp + \arrowAdjustYList}}
+	\newlength{\activateAllyTwoStartX} \setlength{\activateAllyTwoStartX}{\calc{\zposx{arrowActivateAllyStartTwo}sp + \arrowAdjustYText}}
+	\newlength{\activateAllyTwoEndY} \setlength{\activateAllyTwoEndY}{\activateAllyOneEndY}
+	\newlength{\activateAllyTwoEndX} \setlength{\activateAllyTwoEndX}{\activateAllyOneEndX}
+	\newlength{\activateAllyTwoTurnX} \setlength{\activateAllyTwoTurnX}{\activateAllyOneTurnX}
+
+	\drawArrow{(\activateAllyTwoStartX,\activateAllyTwoStartY) -- (\activateAllyTwoTurnX,\activateAllyTwoStartY) -- (\activateAllyTwoTurnX,\activateAllyTwoEndY) -- (\activateAllyTwoEndX,\activateAllyTwoEndY)}
 
 	% Bot defending HRE Subject arrow
 	\newlength{\botDefSubjectStartY} \setlength{\botDefSubjectStartY}{\calc{\zposy{arrowBotDefSubjectStart}sp + \arrowAdjustYList}}
 	\newlength{\botDefSubjectStartX} \setlength{\botDefSubjectStartX}{\calc{\zposx{arrowBotDefSubjectStart}sp + \arrowAdjustXBeforeList}}
 	\newlength{\botDefSubjectEndY} \setlength{\botDefSubjectEndY}{\calc{\zposy{arrowBotDefSubjectEnd}sp + \arrowAdjustYText}}
-	\newlength{\botDefSubjectEndX} \setlength{\botDefSubjectEndX}{\calc{\zposx{arrowBotDefSubjectEnd}sp + \arrowToTextSpacing}}
-	\newlength{\botDefSubjectTurnX} \setlength{\botDefSubjectTurnX}{\arrowXVerticalMidRight}
+	\newlength{\botDefSubjectEndX} \setlength{\botDefSubjectEndX}{\calc{\zposx{arrowBotDefSubjectEnd}sp + \arrowAdjustXBeforeList}}
+	\newlength{\botDefSubjectTurnX} \setlength{\botDefSubjectTurnX}{\arrowXVerticalLeft}
 
 	% \drawArrow{(\botDefSubjectStartX, \botDefSubjectStartY) -- (\botDefSubjectTurnX,\botDefSubjectStartY) -- (\botDefSubjectTurnX,\botDefSubjectEndY) -- (\botDefSubjectEndX,\botDefSubjectEndY)}
+
+	% Activating Defending HRE arrows
+	\newlength{\activateDefHreStartOneY} \setlength{\activateDefHreStartOneY}{\calc{\zposy{arrowActivateDefHreStartOne}sp + \arrowAdjustYList}}
+	\newlength{\activateDefHreStartOneX} \setlength{\activateDefHreStartOneX}{\calc{\zposx{arrowActivateDefHreStartOne}sp + \arrowAdjustXBeforeList}}
+	\newlength{\activateDefHreEndY} \setlength{\activateDefHreEndY}{\calc{\zposy{arrowActivateDefHreEnd}sp + \arrowAdjustYBeforeSubsub}}
+	\newlength{\activateDefHreEndX} \setlength{\activateDefHreEndX}{\zposx{arrowActivateDefHreEnd}sp}
+	\newlength{\activateDefHreTurnX} \setlength{\activateDefHreTurnX}{\arrowXVerticalLeft}
+
+	\newlength{\activateDefHreStartTwoY} \setlength{\activateDefHreStartTwoY}{\calc{\zposy{arrowActivateDefHreStartTwo}sp + \arrowAdjustYList}}
+	\newlength{\activateDefHreStartTwoX} \setlength{\activateDefHreStartTwoX}{\calc{\zposx{arrowActivateDefHreStartTwo}sp + \arrowAdjustXBeforeList}}
+
+	\drawArrow{(\activateDefHreStartOneX,\activateDefHreStartOneY) -- (\activateDefHreTurnX,\activateDefHreStartOneY) -- (\activateDefHreTurnX,\activateDefHreEndY) -- (\activateDefHreEndX,\activateDefHreEndY)}
+	\drawArrow{(\activateDefHreStartTwoX,\activateDefHreStartTwoY) -- (\activateDefHreTurnX,\activateDefHreStartTwoY) -- (\activateDefHreTurnX,\activateDefHreEndY) -- (\activateDefHreEndX,\activateDefHreEndY)}
 
 	% Emperor accepts CtA arrow
 	\newlength{\empAcceptCtAStartY} \setlength{\empAcceptCtAStartY}{\calc{\zposy{arrowEmpAcceptCtAStart}sp + \arrowAdjustYText}}
 	\newlength{\empAcceptCtAStartX} \setlength{\empAcceptCtAStartX}{\calc{\zposx{arrowEmpAcceptCtAStart}sp + \arrowToTextSpacing}}
 	\newlength{\empAcceptCtAEndY} \setlength{\empAcceptCtAEndY}{\calc{\zposy{arrowEmpAcceptCtAEnd}sp + \arrowAdjustYText}}
-	\newlength{\empAcceptCtAEndX} \setlength{\empAcceptCtAEndX}{\calc{\zposx{arrowEmpAcceptCtAEnd}sp + \arrowToTextSpacing}}
-	\newlength{\empAcceptCtATurnX} \setlength{\empAcceptCtATurnX}{\arrowXVerticalMidRight}
+	\newlength{\empAcceptCtAEndX} \setlength{\empAcceptCtAEndX}{\calc{\zposx{arrowEmpAcceptCtAEnd}sp}}
+	\newlength{\empAcceptCtATurnX} \setlength{\empAcceptCtATurnX}{\arrowXVerticalMidLeft}
 
-	% \drawArrow{(\empAcceptCtAStartX, \empAcceptCtAStartY) -- (\empAcceptCtATurnX,\empAcceptCtAStartY) -- (\empAcceptCtATurnX,\empAcceptCtAEndY) -- (\empAcceptCtAEndX,\empAcceptCtAEndY)}	
+	\drawArrow{(\empAcceptCtAStartX, \empAcceptCtAStartY) -- (\empAcceptCtATurnX,\empAcceptCtAStartY) -- (\empAcceptCtATurnX,\empAcceptCtAEndY) -- (\empAcceptCtAEndX,\empAcceptCtAEndY)}
 \end{tikzpicture}
 \end{dynamiccontents*}
 
