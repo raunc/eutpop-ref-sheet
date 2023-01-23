@@ -116,132 +116,123 @@
 \addfooter
 
 \begin{dynamiccontents*}{frameDowRestrictions}\begin{eubox}{\fhDowRestrictions}
-	% \begin{multicols}{2}
-		\subsubsection*{Restrictions on DoW \normal{(p.~22)}\zsavepos{arrowDowRestrictionsEnd}}
-		\begin{enumerate}[label=\strong{\alph*}.]
-			\item Your Ally
-			\item Truce
-			\item PR who has Passed
-			\item NPR Ally of PR who matches (\strong{b}) or (\strong{c})
-			\item HRE Member at Peace with Emperor if Emperor matches (\strong{a}), (\strong{b}) or (\strong{c})
-			\item Distant Realm undiscovered by you
-			\item During an Interregnum
-		\end{enumerate}
-		\smallheading{Exceptions:}
-		\begin{itemize}
-			\item If you have \disputedsuccession on target and use Disputed Succession CB, then (\strong{a}) and (\strong{g}) do not apply, but Alliance ends
-			\item No restrictions when answering \emph{Def. CtA}
-			\item Events may specify other restrictions
-		\end{itemize}
-	% \end{multicols}
+	\subsubsection*{Restrictions on DoW \normal{(p.~22)}\zsavepos{arrowDowRestrictionsEnd}}
+	\begin{enumerate}[label=\strong{\alph*}.]
+		\item Your Ally
+		\item Truce
+		\item PR who has Passed
+		\item NPR Ally of PR who matches (\strong{b}) or (\strong{c})
+		\item HRE Member at Peace with Emperor if Emperor matches (\strong{a}), (\strong{b}) or (\strong{c})
+		\item Distant Realm undiscovered by you
+		\item During an Interregnum
+	\end{enumerate}
+	\smallheading{Exceptions:}
+	\begin{itemize}
+		\item If you have \disputedsuccession on target and use Disputed Succession CB, then (\strong{a}) and (\strong{g}) do not apply, but Alliance ends
+		\item No restrictions when answering \emph{Def. CtA}
+		\item Events may specify other restrictions
+	\end{itemize}
 \end{eubox}\end{dynamiccontents*}
 
 \begin{dynamiccontents*}{frameCasusBelli}\begin{eubox}{\fhCasusBelli}
-	% \begin{multicols}{2}
-		\subsubsection*{\zsavepos{arrowCbEnd}Casus Belli \normal{(p.~22)}}
-		\strong{Conquest (Claim)} -- Have \claim in Area where target Owns Provinces\\
-		\strong{Call to Arms} -- Receive a \emph{CtA}\\
-		\strong{General CB} -- Have CB token target\\
-		\strong{Event} -- Event that lets you Declare War\\
+	\subsubsection*{\zsavepos{arrowCbEnd}Casus Belli \normal{(p.~22)}}
+	\strong{Conquest (Claim)} -- Have \claim in Area where target Owns Provinces\\
+	\strong{Call to Arms} -- Receive a \emph{CtA}\\
+	\strong{General CB} -- Have CB token target\\
+	\strong{Event} -- Event that lets you Declare War\\
+	\begin{itemize}
+		\item \hspacezero\zsavepos{arrowMarriageEndOne}Also negates penalty for DoW on \marriage
+	\end{itemize}
+	\strong{Disputed Succession} -- Any \disputedsuccession on target\\
+	\begin{itemize}
+		\item Also against PRs at War with the target
+		\item \hspacezero\zsavepos{arrowMarriageEndTwo}Also negates penalty for DoW on \marriage
+	\end{itemize}
+	\strong{Excommunication} -- You are Catholic and the target is \emph{Excommunicated}\\
+	\strong{Holy War (Crusade)}\\
+	\begin{itemize}
+		\item If you have \idea{Deus Vult} Idea and target
 		\begin{itemize}
-			\item \hspacezero\zsavepos{arrowMarriageEndOne}Also negates penalty for DoW on \marriage
+			\item Is Adjacent to you, \conj{and}
+			\item Has diff. State Religion (except other Christians), incl. any Distant Realm
 		\end{itemize}
-		\strong{Disputed Succession} -- Any \disputedsuccession on target\\
+		\item If you are Catholic
 		\begin{itemize}
-			\item Also against PRs at War with the target
-			\item \hspacezero\zsavepos{arrowMarriageEndTwo}Also negates penalty for DoW on \marriage
+			\item Target Realm is a target of a \emph{Crusade}
+			\item Tag \emph{Committed to Crusade} slot when using this CB
 		\end{itemize}
-		\strong{Excommunication} -- You are Catholic and the target is \emph{Excommunicated}\\
-		\strong{Holy War (Crusade)}\\
-		\begin{itemize}
-			\item If you have \idea{Deus Vult} Idea and target
-			\begin{itemize}
-				\item Is Adjacent to you, \conj{and}
-				\item Has diff. State Religion (except other Christians), incl. any Distant Realm
-			\end{itemize}
-			\item If you are Catholic
-			\begin{itemize}
-				\item Target Realm is a target of a \emph{Crusade}
-				\item Tag \emph{Committed to Crusade} slot when using this CB
-			\end{itemize}
-		\end{itemize}
-		\strong{Imperial Liberation} -- You are the Emperor \conj{and} target Controls Provinces or has Vassals in HRE \conj{and} is not HRE member
-	% \end{multicols}
+	\end{itemize}
+	\strong{Imperial Liberation} -- You are the Emperor \conj{and} target Controls Provinces or has Vassals in HRE \conj{and} is not HRE member
 \end{eubox}\end{dynamiccontents*}
 
 \begin{dynamiccontents*}{frameHreIntWars}\begin{eubox}{\fhHreIntWars}
-	% \begin{multicols}{2}
-		\subsubsection*{HRE Int. Wars with no CB \normal{(p.~45)}\zsavepos{arrowHreIntWarsEnd}}
+	\subsubsection*{HRE Int. Wars with no CB \normal{(p.~45)}\zsavepos{arrowHreIntWarsEnd}}
+	\begin{itemize}
+		\item Apply regular \stability penalty for missing CB
+		\item Emp.'s DoW on Subject
 		\begin{itemize}
-			\item Apply regular \stability penalty for missing CB
-			\item Emp.'s DoW on Subject
-			\begin{itemize}
-				\item Lose 1\authority
-				\item Remove 3\influence from HRE Areas
-			\end{itemize}
-			\item Subject's DoW on another Subject
-			\begin{itemize}
-				\item Human Emperor must place CB on Aggressor's Capital
-				% \item \botrule{\hspacezero\zsavepos{arrowBotDefSubjectStart}Bot Emp. defends targeted Subj. (p.~6)\zsavepos{arrowBotDefSubjectEnd}}
-			\end{itemize}
+			\item Lose 1\authority
+			\item Remove 3\influence from HRE Areas
 		\end{itemize}
-	% \end{multicols}
+		\item Subject's DoW on another Subject
+		\begin{itemize}
+			\item Human Emperor must place CB on Aggressor's Capital
+		\end{itemize}
+	\end{itemize}
 \end{eubox}\end{dynamiccontents*}
 
 \begin{dynamiccontents*}{frameDefHre}\begin{eubox}{\fhDefHre}
-	% \begin{multicols}{2}
-		\subsubsection*{Defending the HRE \normal{(p.~44)}\zsavepos{arrowHreCtaEnd}}
-		\smallheading{External Realm's DoW on Imp. Subject}
+	\subsubsection*{Defending the HRE \normal{(p.~44)}\zsavepos{arrowHreCtaEnd}}
+	\smallheading{External Realm's DoW on Imp. Subject}
+	\begin{itemize}
+			\item \botrule{Bot Emp. also defends Subjects if attacked by another Subject without CB (p.~6)}
+			\item PR Emperor receives \emph{Defensive CtA} if
 		\begin{itemize}
-				\item \botrule{Bot Emp. also defends Subjects if attacked by another Subject without CB (p.~6)}
-				\item \hspacezero\zsavepos{arrowBotDefSubjectEnd}PR Emperor receives \emph{Defensive CtA} if
+			\item \authority ≥ 1, \conj{and}
+			\item They are at Peace with the Subject
+		\end{itemize}
+		\item If the Emperor accepts
+		\begin{itemize}
+			\item Apply \dprime Accepting a CtA\dprime procedure\zsavepos{arrowEmpAcceptCtAStart}
+			\item \hspacezero\zsavepos{arrowActivateDefHreStartOne}Activate \emph{Defending the HRE}
+		\end{itemize}
+		\item If the Emperor refuses
+		\begin{itemize}
+			\item Lose 1\authority (no normal penalties)
+		\end{itemize}
+	\end{itemize}
+	\smallheading{External Realm's DoW on the Emperor}
+	\begin{itemize}
+		\item If Emperor's Capital is in HRE
+		\begin{itemize}
+			\item \hspacezero\zsavepos{arrowActivateDefHreStartTwo}May activate \emph{Defending the HRE}
 			\begin{itemize}
-				\item \authority ≥ 1, \conj{and}
-				\item They are at Peace with the Subject
-			\end{itemize}
-			\item If the Emperor accepts
-			\begin{itemize}
-				\item Apply \dprime Accepting a CtA\dprime procedure\zsavepos{arrowEmpAcceptCtAStart}
-				\item \hspacezero\zsavepos{arrowActivateDefHreStartOne}Activate \emph{Defending the HRE}
-			\end{itemize}
-			\item If the Emperor refuses
-			\begin{itemize}
-				\item Lose 1\authority (no normal penalties)
+				\botrule{\item Bot Emperor activates it (p.~4)}
 			\end{itemize}
 		\end{itemize}
-		\smallheading{External Realm's DoW on the Emperor}
-		\begin{itemize}
-			\item If Emperor's Capital is in HRE
-			\begin{itemize}
-				\item \hspacezero\zsavepos{arrowActivateDefHreStartTwo}May activate \emph{Defending the HRE}
-				\begin{itemize}
-					\botrule{\item Bot Emperor activates it (p.~4)}
-				\end{itemize}
-			\end{itemize}
-		\end{itemize}
+	\end{itemize}
 \end{eubox}\end{dynamiccontents*}
 
 \begin{dynamiccontents*}{frameActivatingDefHre}\begin{eubox}{\fhActivatingDefHre}
-		\subsubsection*{\zsavepos{arrowActivateDefHreEnd}Activating Def. the HRE \normal{(p.~44)}}
+	\subsubsection*{\zsavepos{arrowActivateDefHreEnd}Activating Def. the HRE \normal{(p.~44)}}
+	\begin{itemize}
+		\item Tag \emph{Defending the HRE} slot
+		\item If \strong{human PR is Emperor}, add NPR Units to \strong{Imperial} \manpower = Emperor's \influence (incl. Imperial \influence) in Elec. Areas (max~8)
+		{\botrules
+		\item If a \strong{Bot is Emperor} (p.~6)
 		\begin{itemize}
-			\item Tag \emph{Defending the HRE} slot
-			\item If \strong{human PR is Emperor}, add NPR Units to \strong{Imperial} \manpower = Emperor's \influence (incl. Imperial \influence) in Elec. Areas (max~8)
-			{\botrules
-			\item If a \strong{Bot is Emperor} (p.~6)
-			\begin{itemize}
-				\item Gain \botpower = \authority, if activating due to \emph{CtA}
-			\end{itemize}
-			}
-			\item \strong{Human Imperial Subject} must
-			\begin{itemize}
-				\item Exhaust 2\manpower (max ½ of total \manpower), \conj{or}
-				\item Lose 6\ducats (max ½ of Tax Inc.), \conj{or}
-				\item Lose \p1, \conj{or}
-				\item Place CB on Aggressor's Capital
-			\end{itemize}
-			\item \botrule{\strong{Bot Imperial Subject} loses 1\botpower, unless at War, including this DoW (p.~6)}
+			\item Gain \botpower = \authority, if activating due to \emph{CtA}
 		\end{itemize}
-	% \end{multicols}
+		}
+		\item \strong{Human Imperial Subject} must
+		\begin{itemize}
+			\item Exhaust 2\manpower (max ½ of total \manpower), \conj{or}
+			\item Lose 6\ducats (max ½ of Tax Inc.), \conj{or}
+			\item Lose \p1, \conj{or}
+			\item Place CB on Aggressor's Capital
+		\end{itemize}
+		\item \botrule{\strong{Bot Imperial Subject} loses 1\botpower, unless at War, including this DoW (p.~6)}
+	\end{itemize}
 \end{eubox}\end{dynamiccontents*}
 
 \begin{dynamiccontents*}{frameCallToArms}\begin{eubox}{\fhCallToArms}
@@ -465,15 +456,6 @@
 	\newlength{\activateAllyTwoTurnX} \setlength{\activateAllyTwoTurnX}{\activateAllyOneTurnX}
 
 	\drawArrow{(\activateAllyTwoStartX,\activateAllyTwoStartY) -- (\activateAllyTwoTurnX,\activateAllyTwoStartY) -- (\activateAllyTwoTurnX,\activateAllyTwoEndY) -- (\activateAllyTwoEndX,\activateAllyTwoEndY)}
-
-	% Bot defending HRE Subject arrow
-	\newlength{\botDefSubjectStartY} \setlength{\botDefSubjectStartY}{\calc{\zposy{arrowBotDefSubjectStart}sp + \arrowAdjustYList}}
-	\newlength{\botDefSubjectStartX} \setlength{\botDefSubjectStartX}{\calc{\zposx{arrowBotDefSubjectStart}sp + \arrowAdjustXBeforeList}}
-	\newlength{\botDefSubjectEndY} \setlength{\botDefSubjectEndY}{\calc{\zposy{arrowBotDefSubjectEnd}sp + \arrowAdjustYText}}
-	\newlength{\botDefSubjectEndX} \setlength{\botDefSubjectEndX}{\calc{\zposx{arrowBotDefSubjectEnd}sp + \arrowAdjustXBeforeList}}
-	\newlength{\botDefSubjectTurnX} \setlength{\botDefSubjectTurnX}{\arrowXVerticalLeft}
-
-	% \drawArrow{(\botDefSubjectStartX, \botDefSubjectStartY) -- (\botDefSubjectTurnX,\botDefSubjectStartY) -- (\botDefSubjectTurnX,\botDefSubjectEndY) -- (\botDefSubjectEndX,\botDefSubjectEndY)}
 
 	% Activating Defending HRE arrows
 	\newlength{\activateDefHreStartOneY} \setlength{\activateDefHreStartOneY}{\calc{\zposy{arrowActivateDefHreStartOne}sp + \arrowAdjustYList}}
