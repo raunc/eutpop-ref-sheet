@@ -31,17 +31,17 @@
 \newlength{\firstPageLeftColY} \setlength\firstPageLeftColY{\calc{\textheight - \fhFirstPageLeftCol}}
 
 %Second page
-\newlength{\fhMilitaryAccess} \setlength\fhMilitaryAccess{15\baselineskip}
+\newlength{\fhMilitaryAccess} \setlength\fhMilitaryAccess{14\baselineskip}
 \newlength{\frameMilitaryAccessY} \setlength\frameMilitaryAccessY{\calc{\textheight - \fhMilitaryAccess}}
 
 \newlength{\fhSecondPageLeftCol} \setlength\fhSecondPageLeftCol{\calc{\textheight - \fhMilitaryAccess - \frameToTextSpacing}}
 
-\newlength{\fhShipsInPort} \setlength\fhShipsInPort{11\baselineskip}
-\newlength{\frameShipsInPortY} \setlength\frameShipsInPortY{\calc{\textheight - \fhShipsInPort}}
+\newlength{\fhArmiesFleets} \setlength\fhArmiesFleets{8\baselineskip}
+\newlength{\frameArmiesFleetsY} \setlength\frameArmiesFleetsY{\calc{\textheight - \fhArmiesFleets}}
 
-\newlength{\fhNavalBridge} \setlength\fhNavalBridge{9\baselineskip}
+\newlength{\fhNavalBridge} \setlength\fhNavalBridge{11\baselineskip}
 
-\newlength{\fhSecondPageMiddleCol} \setlength\fhSecondPageMiddleCol{\calc{\textheight - \fhShipsInPort - \fhNavalBridge - 2\frameToTextSpacing}}
+\newlength{\fhSecondPageMiddleCol} \setlength\fhSecondPageMiddleCol{\calc{\textheight - \fhArmiesFleets - \fhNavalBridge - 2\frameToTextSpacing}}
 \newlength{\secondPageMiddleColY} \setlength\secondPageMiddleColY{\calc{\fhNavalBridge + \frameToTextSpacing}}
 
 \newlength{\fhWarCapacities} \setlength\fhWarCapacities{17\baselineskip}
@@ -53,10 +53,10 @@
 \newlength{\fhNprWarfare} \setlength\fhNprWarfare{20\baselineskip}
 \newlength{\frameNprWarfareY} \setlength\frameNprWarfareY{\calc{\textheight - \fhNprWarfare}}
 
-\newlength{\fhArmiesFleets} \setlength\fhArmiesFleets{8\baselineskip}
+\newlength{\fhShipsInPort} \setlength\fhShipsInPort{10\baselineskip}
 
-\newlength{\fhThirdPageLeftCol} \setlength\fhThirdPageLeftCol{\calc{\textheight - \fhNprWarfare - \fhArmiesFleets - 2\frameToTextSpacing}}
-\newlength{\thirdPageLeftColY} \setlength\thirdPageLeftColY{\calc{\fhArmiesFleets + \frameToTextSpacing}}
+\newlength{\fhThirdPageLeftCol} \setlength\fhThirdPageLeftCol{\calc{\textheight - \fhNprWarfare - \fhShipsInPort - 2\frameToTextSpacing}}
+\newlength{\thirdPageLeftColY} \setlength\thirdPageLeftColY{\calc{\fhShipsInPort + \frameToTextSpacing}}
 
 \newlength{\fhBattleSequence} \setlength\fhBattleSequence{50\baselineskip}
 
@@ -83,11 +83,11 @@
 
 \newdynamicframe[2]{\columnwidth}{\fhMilitaryAccess}{0mm}{\frameMilitaryAccessY}[frameMilitaryAccess]
 \newdynamicframe[2]{\columnwidth}{\fhNavalBridge}{\middleColX}{0mm}[frameNavalBridge]
-\newdynamicframe[2]{\columnwidth}{\fhShipsInPort}{\middleColX}{\frameShipsInPortY}[frameShipsInPort]
+\newdynamicframe[2]{\columnwidth}{\fhArmiesFleets}{\middleColX}{\frameArmiesFleetsY}[frameArmiesFleets]
 \newdynamicframe[2]{\columnwidth}{\fhWarCapacities}{\rightColX}{\frameWarCapacitiesY}[frameWarCapacities]
 
 \newdynamicframe[3]{\columnwidth}{\fhNprWarfare}{0mm}{\frameNprWarfareY}[frameNprWarfare]
-\newdynamicframe[3]{\columnwidth}{\fhArmiesFleets}{0mm}{0mm}[frameArmiesFleets]
+\newdynamicframe[3]{\columnwidth}{\fhShipsInPort}{0mm}{0mm}[frameShipsInPort]
 \newdynamicframe[3]{\fwTwoCols}{\fhBattleTriggers}{\middleColX}{\frameBattleTriggersY}[frameBattleTriggers]
 \newdynamicframe[3]{\fwTwoCols}{\fhBattleSequence}{\middleColX}{0mm}[frameBattleSequence]
 
@@ -495,7 +495,7 @@
 			\item Not available in Areas with your \claims
 			\item You must be at War
 			\item Remove 1\influence from the Area or pay 3\ducats
-			\item If all Prov. in Area are Owned by PRs, you need permission from one of those PRs
+			\item If all Prov. in Area are Owned by PRs, you need permission from one of them
 		\end{itemize}
 		\item In \strong{HRE} while \emph{Def. HRE} is active (p.~44)
 		\begin{itemize}
@@ -504,21 +504,6 @@
 				\item Emperor
 				\item Anyone at War with Emperor
 			\end{itemize}
-		\end{itemize}
-	\end{itemize}
-\end{eubox}\end{dynamiccontents*}
-
-\begin{dynamiccontents*}{frameShipsInPort}\begin{eubox}{\fhShipsInPort}
-	\subsubsection*{Ships in Port \normal{(p.~26)}\zsavepos{arrowPortEnd}}
-	\begin{itemize}
-		\item Max 2 in a Small Port
-		\item Max 4 in a Large Port
-		\item Max 6 in a Large Port in a single Fleet
-		\item Heavy Ships are repaired at Turn/Round end
-		\item If a Port ceases to be Friendly due to an ending \alliance
-		\begin{itemize}
-			\item Ships must move to Adjacent non-Hostile Sea Zone
-			\item If can't move, must be disbanded 
 		\end{itemize}
 	\end{itemize}
 \end{eubox}\end{dynamiccontents*}
@@ -534,6 +519,24 @@
 			\item That Sea Zone has Enemy Ships, \conj{or}
 			\item Disembarking in a Hostile Area where the Ally has no Enemies
 		\end{itemize}
+		\item Movement must end in the Area where Units disembark
+	\end{itemize}
+\end{eubox}\end{dynamiccontents*}
+
+\begin{dynamiccontents*}{frameArmiesFleets}\begin{eubox}{\fhArmiesFleets}
+	\subsubsection*{Armies/Fleets \normal{(p.~24)}}
+	\begin{itemize}
+		\item To deploy an Army, assign Unit(s) to it 
+		\begin{itemize}
+			\item From its Area (\action{Land Activ.}), \conj{or}
+			\item From Available \manpower (during \action{Recruit})
+		\end{itemize}
+		\item To deploy a Fleet, assign Ship(s) to it
+		\begin{itemize}
+			\item From Sea Zone (\action{Naval Activ.}), \conj{or}
+			\item From your Supply (during \action{Recruit})
+		\end{itemize}
+		\item If it becomes empty, remove from map
 	\end{itemize}
 \end{eubox}\end{dynamiccontents*}
 
@@ -562,18 +565,20 @@
 	\end{itemize}
 \end{eubox}\end{dynamiccontents*}
 
-\actionHeading{Activate Units \normal{(1\milpower) (p.~16,25-26)}}
+\actionHeading{Suppress Unrest \normal{(1\milpower per \unrest) (p.~17)}}
 \begin{itemize}
-	\item Do \strong{Land Activation}
-	\begin{itemize}
-		\item \strong{Land Movement}, \conj{or}
-		\item \strong{Siege}, \conj{or}
-	\end{itemize}
-	\item Do \strong{Naval Activation}
-	\begin{itemize}
-		\item \strong{Naval Movement}, \conj{or}
-		\item \strong{Undock}
-	\end{itemize}
+	\item \town/\vassal may not be Occupied
+	\item Area may not contain any Hostile Units
+\end{itemize}
+
+\actionHeading{Activate Units \normal{(p.~16)}}
+\begin{itemize}
+	\item Do \action{Land Activation} \conj{or} \action{Naval Activ.}
+\end{itemize}
+
+\actionHeading{Land Activation \normal{(1\milpower) (p.~16, 25-26)}}
+\begin{itemize}
+	\item Do \strong{Land Movement} \conj{or} \strong{Siege}
 \end{itemize}
 
 \subsubsection*{Land Movement}
@@ -581,9 +586,8 @@
 	\item Move an Army or a Unit up to 2 spaces
 	\begin{itemize}
 		\item \hspacezero\zsavepos{arrowMilAccessStart}Check \strong{Military Access} (p.~25)
-		\item \hspacezero\zsavepos{arrowNavalBridgeOneStart}May use \strong{Naval Bridge}
+		\item May use \strong{Naval Bridge}\zsavepos{arrowNavalBridgeOneStart}
 		\item Stop when entering a Distant, Hostile or Neutral Area (p.~25)
-		\item Stop when disembarking (p.~26)
 	\end{itemize}
 	\item On \strong{Distant Cont.} only allowed in (p.~26)
 	\begin{itemize}
@@ -613,48 +617,6 @@
 		\item May recruit up to 3 Mercenary Units (normal cost)
 		\item They must move with the Army
 	\end{itemize}
-\end{itemize}
-
-\subsubsection*{Naval Movement}
-\begin{itemize}
-	\item Select 1 Sea Zone or Friendly Port\zsavepos{arrowPortOneStart}\\
-	as destination
-	\item Move any number of Ships within range to the destination (Ports have limits)
-	\begin{itemize}
-		\item Ship/Fleet may move up to 2 spaces
-		\item May not pass through Hostile or Distant Sea Zones (p.~25)
-	\end{itemize}
-	\item On \strong{Distant Continents} (p.~26)
-	\begin{itemize}
-		\item If you have no \claim, \town or \vassal Adj. to Dist. Sea Zone, you must \action{Explore} to enter it
-		\item To move across the Pacific Ocean, spend an additional \monarchpower of any type
-	\end{itemize}
-	\item \strong{Galleys} are disbanded if the Fleet moves to a Sea Zone without */\textdagger\xspace(p.~24)
-	\item \strong{Fleet reorganization} may be done at the start and destination (p.~25)
-	\begin{itemize}
-		\item May pick up or drop off Light Ships
-	\end{itemize}
-	\item If destination Sea Zone is not Hostile
-	\begin{itemize}
-		\item Light Ships may occupy vacant \strong{Trade Protection} slots there (p. 25)
-	\end{itemize}
-	\item A \strong{Battle is triggered} when destination
-	\begin{itemize}
-		\item Contains Enemy Ships, \conj{or}
-		\item Faces Enemy NPR Ports (unless there already are Ships Hostile to the NPR)
-	\end{itemize}
-	\item May choose to \strong{fight Pirates} in a Trade Node Adjacent to Activated Ships (p.~28)
-	\item May use \strong{Naval Bridge} if (p.~26)\zsavepos{arrowNavalBridgeTwoStart}
-	\begin{itemize}
-		\item Destination Sea Zone is part of it, \conj{and}
-		\item Moved Land Units are Adjacent to it
-	\end{itemize}
-\end{itemize}
-
-\subsubsection*{Undock}
-\begin{itemize}
-	\item Move any number of your Ships from Ports to Adjacent non-Hostile Sea Zones
-	\item May choose to \strong{fight Pirates} in a Trade Node Adjacent to Activated Ships (p.~28)
 \end{itemize}
 
 \subsubsection*{Siege \normal{(p.~28)}}
@@ -701,11 +663,54 @@
 	\item Players regaining Control of Provinces remove \cubes from Town/Vassal track
 \end{enumerate}
 
-\actionHeading{Suppress Unrest \normal{(1\milpower per \unrest) (p.~17)}}
+\actionHeading{Naval Activation \normal{(1\milpower) (p.~16, 25-26)}}
 \begin{itemize}
-	\item \town/\vassal may not be Occupied
-	\item Area may not contain any Hostile Units
+	\item Do \strong{Naval Movement} \conj{or} \strong{Undock}
 \end{itemize}
+
+\subsubsection*{Naval Movement}
+\begin{itemize}
+	\item Select 1 Sea Zone or Friendly Port as destination
+	\item Move any number of Ships within range to the destination (Ports have limits)\zsavepos{arrowPortOneStart}
+	\begin{itemize}
+		\item Ship/Fleet may move up to 2 spaces
+		\item May not pass through Hostile or Distant Sea Zones (p.~25)
+	\end{itemize}
+	\item On \strong{Distant Continents} (p.~26)
+	\begin{itemize}
+		\item If you have no \claim, \town or \vassal Adj. to Dist. Sea Zone, you must \action{Explore} to enter it
+		\item To move across the Pacific Ocean, spend an additional \monarchpower of any type
+	\end{itemize}
+	\item \strong{Galleys} are disbanded if the Fleet moves to a Sea Zone without */\textdagger\xspace(p.~24)
+	\item \strong{Fleet reorganization} may be done at the start and destination (p.~25)
+	\begin{itemize}
+		\item May pick up or drop off Light Ships
+	\end{itemize}
+	\item If destination Sea Zone is not Hostile
+	\begin{itemize}
+		\item Light Ships may occupy vacant \strong{Trade Protection} slots there (p. 25)
+	\end{itemize}
+	\item A \strong{Battle is triggered} when destination
+	\begin{itemize}
+		\item Contains Enemy Ships, \conj{or}
+		\item Faces Enemy NPR Ports (unless there already are Ships Hostile to the NPR)
+	\end{itemize}
+	\item May choose to \strong{fight Pirates} in a Trade Node Adjacent to Activated Ships (p.~28)
+	\item \hspacezero\zsavepos{arrowNavalBridgeTwoStart}May use \strong{Naval Bridge} if (p.~26)
+	\begin{itemize}
+		\item Destination Sea Zone is part of it, \conj{and}
+		\item Moved Land Units are Adjacent to it
+	\end{itemize}
+\end{itemize}
+
+\subsubsection*{Undock}
+\begin{itemize}
+	\item Move any number of your Ships from Ports to Adjacent non-Hostile Sea Zones
+	\item May choose to \strong{fight Pirates} in a Trade Node Adjacent to Activated Ships (p.~28)
+\end{itemize}
+
+% Defining this outside of the frame because it is used in arrow frames on both page 2 and 3
+\newlength{\arrowPortOneTurnY} \setlength{\arrowPortOneTurnY}{120mm}
 
 \begin{dynamiccontents*}{frameArrowsPageTwo}
 	\begin{tikzpicture}
@@ -722,23 +727,20 @@
 
 	% Naval Bridge arrow from Land Movement
 	\newlength{\navalBridgeOneStartY} \setlength{\navalBridgeOneStartY}{\calc{\zposy{arrowNavalBridgeOneStart}sp + \arrowAdjustYList}}
-	\newlength{\navalBridgeOneStartX} \setlength{\navalBridgeOneStartX}{\calc{\zposx{arrowNavalBridgeOneStart}sp + \arrowAdjustXBeforeList}}
+	\newlength{\navalBridgeOneStartX} \setlength{\navalBridgeOneStartX}{\calc{\zposx{arrowNavalBridgeOneStart}sp + \arrowToTextSpacing}}
 	\newlength{\navalBridgeOneEndY} \setlength{\navalBridgeOneEndY}{\calc{\zposy{arrowNavalBridgeOneEnd}sp + \arrowAdjustYBeforeSubsub}}
 	\newlength{\navalBridgeOneEndX} \setlength{\navalBridgeOneEndX}{\zposx{arrowNavalBridgeOneEnd}sp}
-	\newlength{\navalBridgeOneTurnY} \setlength{\navalBridgeOneTurnY}{\calc{\margin - .5\columnsep}}
-	\newlength{\navalBridgeOneTurnX} \setlength{\navalBridgeOneTurnX}{\arrowXVerticalLeft}
-	\newlength{\navalBridgeOneTurnXTwo} \setlength{\navalBridgeOneTurnXTwo}{\arrowXVerticalMidLeft}
+	\newlength{\navalBridgeOneTurnX} \setlength{\navalBridgeOneTurnX}{\arrowXVerticalMidLeft}
 	
-	\drawArrow{(\navalBridgeOneStartX, \navalBridgeOneStartY) -- (\navalBridgeOneTurnX,\navalBridgeOneStartY) -- (\navalBridgeOneTurnX,\navalBridgeOneTurnY) --
-			   (\navalBridgeOneTurnXTwo,\navalBridgeOneTurnY) -- (\navalBridgeOneTurnXTwo,\navalBridgeOneEndY) -- (\navalBridgeOneEndX,\navalBridgeOneEndY)}
+	\drawArrow{(\navalBridgeOneStartX, \navalBridgeOneStartY) -- (\navalBridgeOneTurnX,\navalBridgeOneStartY) -- (\navalBridgeOneTurnX,\navalBridgeOneEndY) -- (\navalBridgeOneEndX,\navalBridgeOneEndY)}
 
 	% Naval Bridge arrow from Naval Movement
-	\newlength{\navalBridgeTwoStartY} \setlength{\navalBridgeTwoStartY}{\calc{\zposy{arrowNavalBridgeTwoStart}sp + \arrowAdjustYText}}
-	\newlength{\navalBridgeTwoStartX} \setlength{\navalBridgeTwoStartX}{\calc{\zposx{arrowNavalBridgeTwoStart}sp + \arrowToTextSpacing}}
+	\newlength{\navalBridgeTwoStartY} \setlength{\navalBridgeTwoStartY}{\calc{\zposy{arrowNavalBridgeTwoStart}sp + \arrowAdjustYList}}
+	\newlength{\navalBridgeTwoStartX} \setlength{\navalBridgeTwoStartX}{\calc{\zposx{arrowNavalBridgeTwoStart}sp + \arrowAdjustXBeforeList}}
 	\newlength{\navalBridgeTwoEndY} \setlength{\navalBridgeTwoEndY}{\calc{\zposy{arrowNavalBridgeTwoEnd}sp + \arrowAdjustYAfterSubsub}}
 	\newlength{\navalBridgeTwoEndX} \setlength{\navalBridgeTwoEndX}{\calc{\zposx{arrowNavalBridgeTwoEnd}sp + \arrowToTextSpacing}}
 	\newlength{\navalBridgeTwoTurnX} \setlength{\navalBridgeTwoTurnX}{\arrowXVerticalMidRight}
-	
+
 	\drawArrow{(\navalBridgeTwoStartX, \navalBridgeTwoStartY) -- (\navalBridgeTwoTurnX,\navalBridgeTwoStartY) -- (\navalBridgeTwoTurnX,\navalBridgeTwoEndY) -- (\navalBridgeTwoEndX,\navalBridgeTwoEndY)}
 
 	% War capacity arrows (continues in next page)
@@ -750,15 +752,8 @@
 	% Ships in Port arrows (continues in next page)
 	\newlength{\portOneStartY} \setlength{\portOneStartY}{\calc{\zposy{arrowPortOneStart}sp + \arrowAdjustYText}}
 	\newlength{\portOneStartX} \setlength{\portOneStartX}{\calc{\zposx{arrowPortOneStart}sp + \arrowToTextSpacing}}
-	\newlength{\portEndY} \setlength{\portEndY}{\calc{\zposy{arrowPortEnd}sp + \arrowAdjustYAfterSubsub}}
-	\newlength{\portEndX} \setlength{\portEndX}{\calc{\zposx{arrowPortEnd}sp + \arrowToTextSpacing}}
-	\newlength{\portTurnY} \setlength{\portTurnY}{\calc{\margin + \frameWarCapacitiesY - .5\columnsep}}
-	\newlength{\portTurnX} \setlength{\portTurnX}{\arrowXVerticalMidRight}
-	\newlength{\portTurnYTwo} \setlength{\portTurnYTwo}{\calc{\zposy{arrowPortTwoStart}sp + \arrowAdjustYList}}
-	\newlength{\portTurnXTwo} \setlength{\portTurnXTwo}{\arrowXVerticalRight}
-	
-	\drawArrow{(\portOneStartX, \portOneStartY) -- (\portTurnX,\portOneStartY) -- (\portTurnX,\portEndY) -- (\portEndX,\portEndY)}
-	\drawArrow{(\pagewidth,\portTurnYTwo) -- (\portTurnXTwo,\portTurnYTwo) -- (\portTurnXTwo,\portTurnY) -- (\portTurnX,\portTurnY) -- (\portTurnX,\portEndY) -- (\portEndX, \portEndY)}
+
+	\drawLine{(\portOneStartX,\portOneStartY) -- (\arrowXVerticalRight,\portOneStartY) -- (\arrowXVerticalRight,\arrowPortOneTurnY) -- (\pagewidth,\arrowPortOneTurnY)}
 
 	\end{tikzpicture}
 \end{dynamiccontents*}
@@ -802,6 +797,21 @@
 	Galley & 2\ducats & - & - \\ \hline
 \end{tabularx}
 
+\begin{dynamiccontents*}{frameShipsInPort}\begin{eubox}{\fhShipsInPort}
+	\subsubsection*{\zsavepos{arrowPortEnd}Ships in Port \normal{(p.~26)}}
+	\begin{itemize}
+		\item Max 2 in a Small Port
+		\item Max 4 in a Large Port
+		\item Max 6 in a Large Port in a single Fleet
+		\item Heavy Ships are repaired at Turn/Round end
+		\item If ending \alliance makes a Port not Friendly
+		\begin{itemize}
+			\item Ships must move to Adjacent non-Hostile Sea Zone
+			\item If can't move, must be disbanded 
+		\end{itemize}
+	\end{itemize}
+\end{eubox}\end{dynamiccontents*}
+
 \begin{dynamiccontents*}{frameNprWarfare}\begin{eubox}{\fhNprWarfare}
 	\subsubsection*{Warfare vs NPRs \normal{(p.~36)}\zsavepos{arrowNPRWarEnd}}
 	\begin{itemize}
@@ -830,23 +840,6 @@
 			\item Largest Enemy force
 			\item First Battle
 		\end{enumerate}
-	\end{itemize}
-\end{eubox}\end{dynamiccontents*}
-
-\begin{dynamiccontents*}{frameArmiesFleets}\begin{eubox}{\fhArmiesFleets}
-	\subsubsection*{Armies/Fleets \normal{(p.~24)}}
-	\begin{itemize}
-		\item To deploy an Army, assign Unit(s) to it 
-		\begin{itemize}
-			\item From its Area (\action{Land Activ.}), \conj{or}
-			\item From Available \manpower (during \action{Recruit})
-		\end{itemize}
-		\item To deploy a Fleet, assign Ship(s) to it
-		\begin{itemize}
-			\item From Sea Zone (\action{Naval Activ.}), \conj{or}
-			\item From your Supply (during \action{Recruit})
-		\end{itemize}
-		\item If it becomes empty, remove from map
 	\end{itemize}
 \end{eubox}\end{dynamiccontents*}
 
@@ -1041,8 +1034,11 @@
 	% Ships in Port arrows (continues from previous page)
 	\newlength{\portTwoStartY} \setlength{\portTwoStartY}{\calc{\zposy{arrowPortTwoStart}sp + \arrowAdjustYList}}
 	\newlength{\portTwoStartX} \setlength{\portTwoStartX}{\calc{\zposx{arrowPortTwoStart}sp + \arrowAdjustXBeforeList}}
-	
-	\drawLine{(\portTwoStartX, \portTwoStartY) -- (0mm,\portTwoStartY)}
+	\newlength{\portEndY} \setlength{\portEndY}{\calc{\zposy{arrowPortEnd}sp + \arrowAdjustYBeforeSubsub}}
+	\newlength{\portEndX} \setlength{\portEndX}{\zposx{arrowPortEnd}sp}
+
+	\drawArrow{(\portTwoStartX, \portTwoStartY) -- (\arrowXVerticalLeft,\portTwoStartY) -- (\arrowXVerticalLeft,\portEndY) -- (\portEndX,\portEndY)}
+	\drawArrow{(0mm,\arrowPortOneTurnY) -- (\arrowXVerticalLeft,\arrowPortOneTurnY) -- (\arrowXVerticalLeft,\portEndY) -- (\portEndX,\portEndY)}
 	
 	% NPR Warfare arrow
 	\newlength{\nprWarStartY} \setlength{\nprWarStartY}{\calc{\zposy{arrowNPRWarStart}sp + \arrowAdjustYList}}
