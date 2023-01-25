@@ -136,7 +136,7 @@
 
 \begin{dynamiccontents*}{frameCasusBelli}\begin{eubox}{\fhCasusBelli}
 	\subsubsection*{\zsavepos{arrowCbEnd}Casus Belli \normal{(p.~22)}}
-	\strong{Conquest (Claim)} -- Have \claim in Area where target Owns Provinces\\
+	\strong{Conquest (Claim)} -- Have \claim (or \core (p.~21)) in Area where target Lawfully Owns or Controls any Provinces\\
 	\strong{Call to Arms} -- Receive a \emph{CtA}\\
 	\strong{General CB} -- Have CB token on target\\
 	\strong{Event} -- Event that lets you Declare War\\
@@ -154,15 +154,15 @@
 		\item If you have \idea{Deus Vult} Idea and target
 		\begin{itemize}
 			\item Is Adjacent to you, \conj{and}
-			\item Has diff. State Religion (except other Christians), incl. any Distant Realm
+			\item Has diff. State Religion (except other Christians), incl. any Distant Realms
 		\end{itemize}
 		\item If you are Catholic
 		\begin{itemize}
 			\item Target Realm is a target of a \emph{Crusade}
-			\item Tag \emph{Committed to Crusade} slot when using this CB
+			\item Tag \emph{Commit. to Crus.} if using this CB
 		\end{itemize}
 	\end{itemize}
-	\strong{Imperial Liberation} -- You are the Emperor \conj{and} target Controls Provinces or has Vassals in HRE \conj{and} is not HRE member
+	\strong{Imperial Liberation} -- You are the Emperor \conj{and} target Controls any Provinces or has any Vassals in HRE \conj{and} is not HRE member
 \end{eubox}\end{dynamiccontents*}
 
 \begin{dynamiccontents*}{frameHreIntWars}\begin{eubox}{\fhHreIntWars}
@@ -406,8 +406,8 @@
 	\newlength{\marriageEndTwoX} \setlength{\marriageEndTwoX}{\calc{\zposx{arrowMarriageEndTwo}sp + \arrowAdjustXBeforeList}}
 	\newlength{\marriageTurnX} \setlength{\marriageTurnX}{\calc{\arrowXVerticalMidRight}}
 
-	\drawArrow{(\marriageStartX, \marriageStartY) -- (\marriageTurnX,\marriageEndOneY) -- (\marriageEndOneX,\marriageEndOneY)}
-	\drawArrow{(\marriageStartX, \marriageStartY) -- (\marriageTurnX,\marriageEndOneY) -- (\marriageTurnX,\marriageEndTwoY) -- (\marriageEndTwoX,\marriageEndTwoY)}
+	\drawArrow{(\marriageStartX, \marriageStartY) -- (\marriageTurnX,\marriageStartY) -- (\marriageTurnX,\marriageEndOneY) -- (\marriageEndOneX,\marriageEndOneY)}
+	\drawArrow{(\marriageStartX, \marriageStartY) -- (\marriageTurnX,\marriageStartY) -- (\marriageTurnX,\marriageEndOneY) -- (\marriageTurnX,\marriageEndTwoY) -- (\marriageEndTwoX,\marriageEndTwoY)}
 
 	% Call to Arms arrow
 	\newlength{\ctaStartY} \setlength{\ctaStartY}{\calc{\zposy{arrowCtAStart}sp + \arrowAdjustYList}}
