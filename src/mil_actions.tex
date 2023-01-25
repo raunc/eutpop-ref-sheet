@@ -4,100 +4,92 @@
 
 % Define frame sizes and positioning
 % First page
-\newlength{\fhBattleSequence} \setlength\fhBattleSequence{31\baselineskip}
-\newlength{\fhBattleSeqNote} \setlength\fhBattleSeqNote{2\baselineskip}
-\newlength{\frameBattleSeqNoteY} \setlength\frameBattleSeqNoteY{\calc{\fhBattleSequence + \frameToTextSpacing}}
-
-\newlength{\fhImpManpower} \setlength\fhImpManpower{9\baselineskip}
-\newlength{\frameImpManpowerY} \setlength\frameImpManpowerY{\calc{\fhBattleSequence + \frameToFrameSpacing}}
-
-\newlength{\fhActivatingDefHre} \setlength\fhActivatingDefHre{15\baselineskip}
-\newlength{\frameActivatingDefHreY} \setlength\frameActivatingDefHreY{\calc{\textheight - \fhActivatingDefHre}}
-
-\newlength{\fhDefHre} \setlength\fhDefHre{15\baselineskip}
-\newlength{\frameDefHreY} \setlength\frameDefHreY{\calc{\fhBattleSequence + \frameToFrameSpacing}}
-
-\newlength{\fhHreIntWars} \setlength\fhHreIntWars{9\baselineskip}
-\newlength{\frameHreIntWarsY} \setlength\frameHreIntWarsY{\calc{\textheight - \fhHreIntWars}}
-
-\newlength{\fhFirstPageRightCol} \setlength\fhFirstPageRightCol{\calc{\textheight - \fhBattleSequence - \frameToFrameSpacing - \fhBattleSeqNote - \frameToTextSpacing}}
-\newlength{\firstPageRightColY} \setlength\firstPageRightColY{\calc{\textheight - \fhFirstPageRightCol}}
-
-%Second page
-\newlength{\fhDowRestrictions} \setlength\fhDowRestrictions{7\baselineskip}
+\newlength{\fhDowRestrictions} \setlength\fhDowRestrictions{15\baselineskip}
 \newlength{\frameDowRestrictionsY} \setlength\frameDowRestrictionsY{\calc{\textheight - \fhDowRestrictions}}
 
-\newlength{\fhCasusBelli} \setlength\fhCasusBelli{12\baselineskip}
-\newlength{\frameCasusBelliY} \setlength\frameCasusBelliY{\calc{\frameDowRestrictionsY - \fhCasusBelli - \frameToFrameSpacing}}
+\newlength{\fhCasusBelli} \setlength\fhCasusBelli{24\baselineskip}
+\newlength{\frameCasusBelliY} \setlength\frameCasusBelliY{\calc{\textheight - \fhCasusBelli}}
 
-\newlength{\fhDowOnBot} \setlength\fhDowOnBot{9\baselineskip}
-\newlength{\frameDowOnBotY} \setlength\frameDowOnBotY{\calc{\frameCasusBelliY - \fhDowOnBot - \frameToFrameSpacing}}
+\newlength{\fhHreIntWars} \setlength\fhHreIntWars{8\baselineskip}
+\newlength{\frameHreIntWarsY} \setlength\frameHreIntWarsY{\calc{\frameDowRestrictionsY - \fhHreIntWars - \frameToFrameSpacing}}
 
-\newlength{\fhCallToArms} \setlength\fhCallToArms{10\baselineskip}
-\newlength{\frameCallToArmsY} \setlength\frameCallToArmsY{\calc{\frameDowOnBotY - \fhCallToArms - \frameToFrameSpacing}}
+\newlength{\fhDefHre} \setlength\fhDefHre{16\baselineskip}
+\newlength{\frameDefHreY} \setlength\frameDefHreY{\calc{\frameHreIntWarsY - \fhDefHre - \frameToFrameSpacing}}
 
-\newlength{\fhReceivingCta} \setlength\fhReceivingCta{\calc{\frameCallToArmsY - \frameToFrameSpacing}}
+\newlength{\fhActivatingDefHre} \setlength\fhActivatingDefHre{14\baselineskip}
+\newlength{\frameActivatingDefHreY} \setlength\frameActivatingDefHreY{\calc{\frameDefHreY - \fhActivatingDefHre - \frameToFrameSpacing}}
 
-\newlength{\fhNprWarfare} \setlength\fhNprWarfare{16\baselineskip}
-\newlength{\frameNprWarfareY} \setlength\frameNprWarfareY{\calc{\textheight - \fhNprWarfare}}
+\newlength{\fhReceivingCta} \setlength\fhReceivingCta{\calc{17\baselineskip}}
+
+\newlength{\fhActiveAlly} \setlength\fhActiveAlly{8\baselineskip}
+\newlength{\frameActiveAllyY} \setlength\frameActiveAllyY{\calc{\fhReceivingCta + \frameToFrameSpacing}}
+
+\newlength{\fhCallToArms} \setlength\fhCallToArms{14\baselineskip}
+\newlength{\frameCallToArmsY} \setlength\frameCallToArmsY{\calc{\fhReceivingCta + \frameToFrameSpacing}}
+
+\newlength{\fhFirstPageLeftCol} \setlength\fhFirstPageLeftCol{\calc{\textheight - \fhCallToArms - \fhActiveAlly - \frameToFrameSpacing - \frameToTextSpacing}}
+\newlength{\firstPageLeftColY} \setlength\firstPageLeftColY{\calc{\textheight - \fhFirstPageLeftCol}}
+
+%Second page
+\newlength{\fhMilitaryAccess} \setlength\fhMilitaryAccess{14\baselineskip}
+\newlength{\frameMilitaryAccessY} \setlength\frameMilitaryAccessY{\calc{\textheight - \fhMilitaryAccess}}
+
+\newlength{\fhSecondPageLeftCol} \setlength\fhSecondPageLeftCol{\calc{\textheight - \fhMilitaryAccess - \frameToTextSpacing}}
 
 \newlength{\fhArmiesFleets} \setlength\fhArmiesFleets{8\baselineskip}
+\newlength{\frameArmiesFleetsY} \setlength\frameArmiesFleetsY{\calc{\textheight - \fhArmiesFleets}}
 
-\newlength{\fhSecondPageRightCol} \setlength\fhSecondPageRightCol{\calc{\textheight - \fhNprWarfare - \fhArmiesFleets - 2\frameToTextSpacing}}
-\newlength{\secondPageRightColY} \setlength\secondPageRightColY{\calc{\fhArmiesFleets + \frameToTextSpacing}}
+\newlength{\fhNavalBridge} \setlength\fhNavalBridge{11\baselineskip}
 
-% Third Page
-% Left
+\newlength{\fhSecondPageMiddleCol} \setlength\fhSecondPageMiddleCol{\calc{\textheight - \fhArmiesFleets - \fhNavalBridge - 2\frameToTextSpacing}}
+\newlength{\secondPageMiddleColY} \setlength\secondPageMiddleColY{\calc{\fhNavalBridge + \frameToTextSpacing}}
+
 \newlength{\fhWarCapacities} \setlength\fhWarCapacities{17\baselineskip}
 \newlength{\frameWarCapacitiesY} \setlength\frameWarCapacitiesY{\calc{\textheight - \fhWarCapacities}}
 
-\newlength{\fhThirdPageLeftCol} \setlength\fhThirdPageLeftCol{\calc{\textheight - \fhWarCapacities - \frameToTextSpacing}}
+\newlength{\fhSecondPageRightCol} \setlength\fhSecondPageRightCol{\calc{\textheight - \fhWarCapacities - \frameToTextSpacing}}
 
-% Middle
-\newlength{\fhMilitaryAccess} \setlength\fhMilitaryAccess{15\baselineskip}
+% Third Page
+\newlength{\fhNprWarfare} \setlength\fhNprWarfare{20\baselineskip}
+\newlength{\frameNprWarfareY} \setlength\frameNprWarfareY{\calc{\textheight - \fhNprWarfare}}
 
-\newlength{\fhNavalBridge} \setlength\fhNavalBridge{9\baselineskip}
-\newlength{\frameNavalBridgeY} \setlength\frameNavalBridgeY{\calc{\fhMilitaryAccess + \frameToFrameSpacing}}
+\newlength{\fhShipsInPort} \setlength\fhShipsInPort{10\baselineskip}
 
-\newlength{\thirdPageMiddleColY} \setlength\thirdPageMiddleColY{\calc{\frameNavalBridgeY + \fhNavalBridge + \frameToTextSpacing}}
-\newlength{\fhThirdPageMiddleCol} \setlength\fhThirdPageMiddleCol{\calc{\textheight - \thirdPageMiddleColY}}
+\newlength{\fhThirdPageLeftCol} \setlength\fhThirdPageLeftCol{\calc{\textheight - \fhNprWarfare - \fhShipsInPort - 2\frameToTextSpacing}}
+\newlength{\thirdPageLeftColY} \setlength\thirdPageLeftColY{\calc{\fhShipsInPort + \frameToTextSpacing}}
 
-% Right
-\newlength{\fhShipsInPort} \setlength\fhShipsInPort{11\baselineskip}
+\newlength{\fhBattleSequence} \setlength\fhBattleSequence{50\baselineskip}
 
-\newlength{\thirdPageRightColY} \setlength\thirdPageRightColY{\calc{\fhShipsInPort + \frameToTextSpacing}}
-\newlength{\fhThirdPageRightCol} \setlength\fhThirdPageRightCol{\calc{\textheight - \thirdPageRightColY}}
+\newlength{\fhBattleTriggers} \setlength\fhBattleTriggers{\calc{\textheight - \fhBattleSequence - \frameToFrameSpacing}}
+\newlength{\frameBattleTriggersY} \setlength\frameBattleTriggersY{\calc{\textheight - \fhBattleTriggers}}
 
 % Text Columns
 \usepackage{flowfram}
-\newflowframe[1]{\columnwidth}{\fhFirstPageRightCol}{\rightColX}{\firstPageRightColY}[firstPageRightCol]
-\newflowframe[2]{\columnwidth}{\fhSecondPageRightCol}{\rightColX}{\secondPageRightColY}[secondPageRightCol]
-\newflowframe[3]{\columnwidth}{\fhThirdPageLeftCol}{0mm}{0mm}[thirdPageLeftCol]
-\newflowframe[3]{\columnwidth}{\fhThirdPageMiddleCol}{\middleColX}{\thirdPageMiddleColY}[thirdPageMiddleCol]
-\newflowframe[3]{\columnwidth}{\fhThirdPageRightCol}{\rightColX}{\thirdPageRightColY}[thirdPageRightCol]
+\newflowframe[1]{\columnwidth}{\fhFirstPageLeftCol}{\middleColX}{\firstPageLeftColY}[firstPageLeftCol]
+\newflowframe[2]{\columnwidth}{\fhSecondPageLeftCol}{0mm}{0mm}[secondPageLeftCol]
+\newflowframe[2]{\columnwidth}{\fhSecondPageMiddleCol}{\middleColX}{\secondPageMiddleColY}[secondPageMiddleCol]
+\newflowframe[2]{\columnwidth}{\fhSecondPageRightCol}{\rightColX}{0mm}[secondPageRightCol]
+\newflowframe[3]{\columnwidth}{\fhThirdPageLeftCol}{0mm}{\thirdPageLeftColY}[thirdPageLeftCol]
 
 % Text Frames
-\newdynamicframe[1]{\textwidth}{\fhBattleSequence}{0mm}{0mm}[frameBattleSequence]
-\newdynamicframe[1]{\columnwidth}{\fhBattleSeqNote}{\rightColX}{\frameBattleSeqNoteY}[frameBattleSeqNote]
-\setdynamicframe*{frameBattleSeqNote}{valign=b}
-
-\newdynamicframe[1]{\columnwidth}{\fhImpManpower}{0mm}{\frameImpManpowerY}[frameImpManpower]
+\newdynamicframe[1]{\columnwidth}{\fhCallToArms}{\rightColX}{\frameCallToArmsY}[frameCallToArms]
+\newdynamicframe[1]{\columnwidth}{\fhActiveAlly}{\middleColX}{\frameActiveAllyY}[frameActiveAlly]
+\newdynamicframe[1]{\columnwidth}{\fhDowRestrictions}{0mm}{\frameDowRestrictionsY}[frameDowRestrictions]
+\newdynamicframe[1]{\columnwidth}{\fhCasusBelli}{\rightColX}{\frameCasusBelliY}[frameCasusBelli]
+\newdynamicframe[1]{\columnwidth}{\fhHreIntWars}{0mm}{\frameHreIntWarsY}[frameHreIntWars]
+\newdynamicframe[1]{\columnwidth}{\fhDefHre}{0mm}{\frameDefHreY}[frameDefHre]
 \newdynamicframe[1]{\columnwidth}{\fhActivatingDefHre}{0mm}{\frameActivatingDefHreY}[frameActivatingDefHre]
-\newdynamicframe[1]{\columnwidth}{\fhDefHre}{\middleColX}{\frameDefHreY}[frameDefHre]
-\newdynamicframe[1]{\columnwidth}{\fhHreIntWars}{\middleColX}{\frameHreIntWarsY}[frameHreIntWars]
+\newdynamicframe[1]{\fwTwoCols}{\fhReceivingCta}{\middleColX}{0mm}[frameReceivingCta]
 
-\newdynamicframe[2]{\fwTwoCols}{\fhDowRestrictions}{0mm}{\frameDowRestrictionsY}[frameDowRestrictions]
-\newdynamicframe[2]{\fwTwoCols}{\fhCasusBelli}{0mm}{\frameCasusBelliY}[frameCasusBelli]
-\newdynamicframe[2]{\fwTwoCols}{\fhDowOnBot}{0mm}{\frameDowOnBotY}[frameDowOnBot]
-\newdynamicframe[2]{\fwTwoCols}{\fhCallToArms}{0mm}{\frameCallToArmsY}[frameCallToArms]
-\newdynamicframe[2]{\fwTwoCols}{\fhReceivingCta}{0mm}{0mm}[frameReceivingCta]
-\newdynamicframe[2]{\columnwidth}{\fhNprWarfare}{\rightColX}{\frameNprWarfareY}[frameNprWarfare]
-\newdynamicframe[2]{\columnwidth}{\fhArmiesFleets}{\rightColX}{0mm}[frameArmiesFleets]
+\newdynamicframe[2]{\columnwidth}{\fhMilitaryAccess}{0mm}{\frameMilitaryAccessY}[frameMilitaryAccess]
+\newdynamicframe[2]{\columnwidth}{\fhNavalBridge}{\middleColX}{0mm}[frameNavalBridge]
+\newdynamicframe[2]{\columnwidth}{\fhArmiesFleets}{\middleColX}{\frameArmiesFleetsY}[frameArmiesFleets]
+\newdynamicframe[2]{\columnwidth}{\fhWarCapacities}{\rightColX}{\frameWarCapacitiesY}[frameWarCapacities]
 
-\newdynamicframe[3]{\columnwidth}{\fhWarCapacities}{0mm}{\frameWarCapacitiesY}[frameWarCapacities]
-\newdynamicframe[3]{\columnwidth}{\fhNavalBridge}{\middleColX}{\frameNavalBridgeY}[frameNavalBridge]
-\newdynamicframe[3]{\columnwidth}{\fhMilitaryAccess}{\middleColX}{0mm}[frameMilitaryAccess]
-\newdynamicframe[3]{\columnwidth}{\fhShipsInPort}{\rightColX}{0mm}[frameShipsInPort]
+\newdynamicframe[3]{\columnwidth}{\fhNprWarfare}{0mm}{\frameNprWarfareY}[frameNprWarfare]
+\newdynamicframe[3]{\columnwidth}{\fhShipsInPort}{0mm}{0mm}[frameShipsInPort]
+\newdynamicframe[3]{\fwTwoCols}{\fhBattleTriggers}{\middleColX}{\frameBattleTriggersY}[frameBattleTriggers]
+\newdynamicframe[3]{\fwTwoCols}{\fhBattleSequence}{\middleColX}{0mm}[frameBattleSequence]
 
 % Arrows
 \newdynamicframe[1]{\textwidth}{\textheight}{\pagemarginleft}{-\pagemarginbottom}[frameArrowsPageOne]
@@ -123,156 +115,178 @@
 \addbackground
 \addfooter
 
-\subsectionstriped{colorMilitary}{Military Actions}
-\actionHeadingNoSpace{Declare War \normal{(1\milpower) (p.~16)}}
-\begin{enumerate}
-	\item Pick target Realm(s), place War tokens\zsavepos{arrowDowRestrictionsStart}
-	\item Lose \stability
-	\begin{itemize}
-		\item \hspacezero\zsavepos{arrowHreIntWarsStart}2\stability per missing CB\zsavepos{arrowCbStart}
-		\item 1\stability per your \marriage on targets, exceptions\zsavepos{arrowMarriageStart}
-	\end{itemize}
-	\item \action{Calls to Arms} (in listed order)\zsavepos{arrowDowOnBotStartUpper}
-	\begin{enumerate}[label=\alph*.]
-		\item You may send \emph{Offensive CtA}s
-		\item \hspacezero\zsavepos{arrowHreCtaStart}Target HRE Members might send \emph{Defensive CtA} to the Emperor
-		\item Target NPRs send \emph{Defensive CtA}s
-		\item Target PRs may send \emph{Defensive CtA}s
-	\end{enumerate}
-	\item PRs gain 1\milpower if they are
-	\begin{itemize}
-		\item Target PR, \conj{or}
-		\item Accepting \emph{Def. CtA}s from NPRs (unless already at War with Aggressor)\zsavepos{arrowDowOnBotStartLower}
-	\end{itemize}
-	\item Remove all your \influence from target Realms
-	\item Resolve Naval Battles
-	\item Resolve Land Battles
-	\item If no Battles, may \action{Activate} or \action{Recruit Units} (no \milpower cost)
-\end{enumerate}
-
 \begin{dynamiccontents*}{frameDowRestrictions}\begin{eubox}{\fhDowRestrictions}
-	\begin{multicols}{2}
-		\subsubsection*{\zsavepos{arrowDowRestrictionsEnd}Restrictions on DoW \normal{(p.~22)}}
-		\begin{enumerate}[label=\strong{\alph*}.]
-			\begin{multicols}{2}
-				\item Your Ally
-				\item Truce
-			\end{multicols}
-			\item PR who has Passed
-			\item NPR Ally of PR who matches (\strong{b}) or (\strong{c})
-			\item HRE Member at Peace with Emperor if Emperor matches (\strong{a}), (\strong{b}) or (\strong{c})
-			\item Distant Realm undiscovered by you
-			\item During an Interregnum
-		\end{enumerate}
-		\smallheading{Exceptions:}
-		\begin{itemize}
-			\item If you have \disputedsuccession on target and use Disputed Succession CB, then (\strong{a}) and (\strong{g}) do not apply, but Alliance ends
-			\item No restrictions when answering \emph{Def. CtA}
-			\item Events may specify other exceptions
-		\end{itemize}
-	\end{multicols}
-\end{eubox}\end{dynamiccontents*}
-\begin{dynamiccontents*}{frameCasusBelli}\begin{eubox}{\fhCasusBelli}
-	\begin{multicols}{2}
-		\subsubsection*{\zsavepos{arrowCbEnd}Casus Belli \normal{(p.~22)}}
-		\strong{Conquest (Claim)} -- Have \claim in Area where target Owns Provinces\\
-		\strong{Call to Arms} -- Receive a \emph{CtA}\\
-		\strong{General CB} -- Have CB token target\\
-		\strong{Event} -- Event that lets you Declare War\\
-		\begin{itemize}
-			\item \zsavepos{arrowMarriageEndOne}Also negates penalty for DoW on \marriage
-		\end{itemize}
-		\strong{Disputed Succession} -- Any \disputedsuccession on target\\
-		\begin{itemize}
-			\item Also against PRs at War with the target
-			\item \zsavepos{arrowMarriageEndTwo}Also negates penalty for DoW on \marriage
-		\end{itemize}
-		\strong{Excommunication} -- You are Catholic and the target is \emph{Excommunicated}\\
-		\columnbreak
-		\strong{Holy War (Crusade)}\\
-		\begin{itemize}
-			\item If you have \idea{Deus Vult} Idea and target
-			\begin{itemize}
-				\item Is Adjacent to you, \conj{and}
-				\item Has different State Religion (except other Christians), \conj{or} is a Distant Realm
-			\end{itemize}
-			\item If you are Catholic
-			\begin{itemize}
-				\item Target Realm is a target of a \emph{Crusade}
-				\item Tag \emph{Committed to Crusade} slot when using this CB
-			\end{itemize}
-		\end{itemize}
-		\strong{Imperial Liberation} -- You are the Emperor and the non-HRE target Controls Provinces or has Vassals in HRE
-	\end{multicols}
+	\subsubsection*{Restrictions on DoW \normal{(p.~22)}\zsavepos{arrowDowRestrictionsEnd}}
+	\begin{enumerate}[label=\strong{\alph*}.]
+		\item Your Ally
+		\item Truce
+		\item PR who has Passed
+		\item NPR Ally of PR who matches (\strong{b}) or (\strong{c})
+		\item HRE Member at Peace with Emperor if Emperor matches (\strong{a}), (\strong{b}) or (\strong{c})
+		\item Distant Realm undiscovered by you
+		\item During an Interregnum
+	\end{enumerate}
+	\smallheading{Exceptions:}
+	\begin{itemize}
+		\item If you have \disputedsuccession on target and use Disputed Succession CB, then (\strong{a}) and (\strong{g}) do not apply, but Alliance ends
+		\item No restrictions when answering \emph{Def. CtA}
+		\item Events may specify other exceptions
+	\end{itemize}
 \end{eubox}\end{dynamiccontents*}
 
-\begin{dynamiccontents*}{frameDowOnBot}\begin{eubox}[botrulescolor]{\fhDowOnBot}
-	{\botrules
-	\begin{multicols}{2}
-		\subsubsection*{\zsavepos{arrowDowOnBotEnd}DoW on Bot or their Ally \normal{(p.~4)}}
-		\smallheading{3. Calls to Arms}
+\begin{dynamiccontents*}{frameCasusBelli}\begin{eubox}{\fhCasusBelli}
+	\subsubsection*{\zsavepos{arrowCbEnd}Casus Belli \normal{(p.~22)}}
+	\strong{Conquest (Claim)} -- Have \claim (or \core (p.~21)) in Area where target Lawfully Owns or Controls any Provinces\\
+	\strong{Call to Arms} -- Receive a \emph{CtA}\\
+	\strong{General CB} -- Have CB token on target\\
+	\strong{Event} -- Event that lets you Declare War\\
+	\begin{itemize}
+		\item \hspacezero\zsavepos{arrowMarriageEndOne}Also negates penalty for DoW on \marriage
+	\end{itemize}
+	\strong{Disputed Succession} -- Any \disputedsuccession on target\\
+	\begin{itemize}
+		\item Also against PRs at War with the target
+		\item \hspacezero\zsavepos{arrowMarriageEndTwo}Also negates penalty for DoW on \marriage
+	\end{itemize}
+	\strong{Excommunication} -- You are Catholic and the target is \emph{Excommunicated}\\
+	\strong{Holy War (Crusade)}\\
+	\begin{itemize}
+		\item If you have \idea{Deus Vult} Idea and target
 		\begin{itemize}
-			\item Bot refuses \emph{Offensive CtA}s
-			\item Bot accepts \emph{Defensive CtA}s, unless
-			\begin{itemize}
-				\item At War with an Opponent
-			\end{itemize}
-			\item Bot Emp. activ. \emph{Def. the HRE} if they can
-			\item Bot sends \emph{Def. CtA}s to \allies Adj. to Aggres.
-			\begin{itemize}
-				\item They gain 2\botpower for each such Ally
-				\item Flip those \alliances to \activeallies
-			\end{itemize}
+			\item Is Adjacent to you, \conj{and}
+			\item Has diff. State Religion (except other Christians), incl. any Distant Realms
 		\end{itemize}
-		\columnbreak
-		\smallheading{4. Gaining \botpower and Recruiting}
+		\item If you are Catholic
 		\begin{itemize}
-			\item Targeted Bots and Bots joining the War by accepting a CtA from NPR, gain 1\botpower
-			\item If then the Bot has < 5/5/6/7 \botpower, it gains \botpower until it reaches 5/5/6/7
-			\item If Bot has any Available \manpower, they spend 1\botpower to recruit 7/9/9/11 Units, and check MAC if Army is on the map
+			\item Target Realm is a target of a \emph{Crusade}
+			\item Tag \emph{Commit. to Crus.} if using this CB
 		\end{itemize}
-	\end{multicols}
-  }
+	\end{itemize}
+	\strong{Imperial Liberation} -- You are the Emperor \conj{and} target Controls any Provinces or has any Vassals in HRE \conj{and} is not HRE member
 \end{eubox}\end{dynamiccontents*}
+
+\begin{dynamiccontents*}{frameHreIntWars}\begin{eubox}{\fhHreIntWars}
+	\subsubsection*{HRE Int. Wars with no CB \normal{(p.~45)}\zsavepos{arrowHreIntWarsEnd}}
+	\begin{itemize}
+		\item Apply regular \stability penalty for missing CB
+		\item Emp.'s DoW on Subject
+		\begin{itemize}
+			\item Lose 1\authority
+			\item Remove 3\influence from HRE Areas
+		\end{itemize}
+		\item Subject's DoW on another Subject
+		\begin{itemize}
+			\item Human Emperor must place CB on Aggressor's Capital
+		\end{itemize}
+	\end{itemize}
+\end{eubox}\end{dynamiccontents*}
+
+\begin{dynamiccontents*}{frameDefHre}\begin{eubox}{\fhDefHre}
+	\subsubsection*{Defending the HRE \normal{(p.~44)}\zsavepos{arrowHreCtaEnd}}
+	\smallheading{External Realm's DoW on Imp. Subject}
+	\begin{itemize}
+			\item \botrule{Bot Emp. also defends Subjects if attacked by another Subject without CB (p.~6)}
+			\item PR Emperor receives \emph{Defensive CtA} if
+		\begin{itemize}
+			\item \authority ≥ 1, \conj{and}
+			\item They are at Peace with the Subject
+		\end{itemize}
+		\item If the Emperor accepts
+		\begin{itemize}
+			\item Apply \dprime Accepting a CtA\dprime procedure\zsavepos{arrowEmpAcceptCtAStart}
+			\item \hspacezero\zsavepos{arrowActivateDefHreStartOne}Activate \emph{Defending the HRE}
+		\end{itemize}
+		\item If the Emperor refuses
+		\begin{itemize}
+			\item Lose 1\authority (no normal penalties)
+		\end{itemize}
+	\end{itemize}
+	\smallheading{External Realm's DoW on the Emperor}
+	\begin{itemize}
+		\item If Emperor's Capital is in HRE
+		\begin{itemize}
+			\item \hspacezero\zsavepos{arrowActivateDefHreStartTwo}May activate \emph{Defending the HRE}
+			\begin{itemize}
+				\botrule{\item Bot Emperor activates it (p.~4)}
+			\end{itemize}
+		\end{itemize}
+	\end{itemize}
+\end{eubox}\end{dynamiccontents*}
+
+\begin{dynamiccontents*}{frameActivatingDefHre}\begin{eubox}{\fhActivatingDefHre}
+	\subsubsection*{\zsavepos{arrowActivateDefHreEnd}Activating Def. the HRE \normal{(p.~44)}}
+	\begin{itemize}
+		\item Tag \emph{Defending the HRE} slot
+		\item If \strong{human PR is Emperor}, add NPR Units to \strong{Imperial} \manpower = Emperor's \influence (incl. Imperial \influence) in Elec. Areas (max~8)
+		{\botrules
+		\item If a \strong{Bot is Emperor} (p.~6)
+		\begin{itemize}
+			\item Gain \botpower = \authority, if activating due to \emph{CtA}
+		\end{itemize}
+		}
+		\item \strong{Human Imperial Subject} must
+		\begin{itemize}
+			\item Exhaust 2\manpower (max ½ of total \manpower), \conj{or}
+			\item Lose 6\ducats (max ½ of Tax Inc.), \conj{or}
+			\item Lose \p1, \conj{or}
+			\item Place CB on Aggressor's Capital
+		\end{itemize}
+		\item \botrule{\strong{Bot Imperial Subject} loses 1\botpower, unless at War, including this DoW (p.~6)}
+	\end{itemize}
+\end{eubox}\end{dynamiccontents*}
+
 \begin{dynamiccontents*}{frameCallToArms}\begin{eubox}{\fhCallToArms}
-	\begin{multicols}{2}
-		\actionHeadingNoSpace{Call to Arms \normal{(minor Action) (p.~13)}}
+	\actionHeadingNoSpace{\zsavepos{arrowCtAEnd}Call to Arms \normal{(0-2\influence per \ally) (p.~13)}}
+	\begin{itemize}
+		\item Call Allies to join your War (Minor Act.)
+		\item Only during
 		\begin{itemize}
-			\item Only
-			\begin{itemize}
-				\item With your own DoW, \conj{or}
-				\item \reaction~-- If DoW on you or your NPR \ally
-			\end{itemize}
-			\item If receiving a CtA from your NPR Ally, you may call other NPR Allies
-			\item Calling a PR has no cost
-			\item To call an NPR, remove \influence from its Areas
-			\begin{itemize}
-				\item If \emph{Offensive CtA}, 2\influence
-				\item If \emph{Defensive CtA}, 1\influence
-			\end{itemize}
-			\item Only def. may call PR Allied to both sides
-			\item NPR Allies can only be called if they are
-			\begin{itemize}
-				\item At Peace, \conj{and}
-				\item Adjacent to you or your new Enemy
-			\end{itemize}
-			\item For each NPR Ally called to arms
-			\begin{itemize}
-				\item Flip the \alliance to \activeally
-				\item Add Allied Units to Available \manpower equal to ½ of Tax Value of the Ally + its Vassals (max 5)
-				\item Gain 1\milpower if Ally is Adj. to a new Enemy
-			\end{itemize}
+			\item Your own DoW, \conj{or}
+			\item \reaction~-- DoW on you or your NPR Ally
 		\end{itemize}
-	\end{multicols}
+		\item Calling a PR Ally has no cost\zsavepos{arrowReceiveCtAStart}
+		\item Only def. may call PR Allied to both sides
+		\item To call an NPR, remove \influence from its Areas
+		\begin{itemize}
+			\item \emph{Offens. CtA} -- \strong{2\influence}, \emph{Defen. CtA} -- \strong{1\influence}
+			\item If \strong{Dist. NPR}, use \colonists instead (p.~32)
+		\end{itemize}
+		\item NPR Allies can only be called if they are
+		\begin{itemize}
+			\item At Peace, \conj{and}
+			\item Adjacent to you or your new Enemy
+		\end{itemize}
+		\item \hspacezero\zsavepos{arrowActivateAllyStartOne}Activate called NPR Allies
+	\end{itemize}
 \end{eubox}\end{dynamiccontents*}
+
+\begin{dynamiccontents*}{frameActiveAlly}\begin{eubox}{\fhActiveAlly}
+	\subsubsection*{Activating NPR Ally \normal{(\activeally) (p.~33)}\zsavepos{arrowActivateAllyEndOne}}
+	\begin{itemize}
+		\item Flip the \alliance to \activeally
+		\item Human PR
+		\begin{itemize}
+			\item Gains Allied Units to Available \manpower equal to ½ of Tax Value of the NPR (including Vassals (p.~13)) (max 5)
+			\item Gains 1\milpower if Ally is Adj. to new Enemy
+			\end{itemize}
+		{\botrules
+		\item Bot gains 2\botpower (p.~4)
+		}
+	\end{itemize}
+\end{eubox}\end{dynamiccontents*}
+
 \begin{dynamiccontents*}{frameReceivingCta}\begin{eubox}{\fhReceivingCta}
 	\begin{multicols}{2}
 		\subsubsection*{Receiving a CtA \normal{(p.~32-33)}}
 		\begin{itemize}
-			\item \emph{Defensive CtA} can always be accepted
-			\item \emph{Offensive CtA} must be refused in case of DoW restrictions
+			\item \emph{Defensive CtA}s can always be accepted
+			\item \emph{Offensive CtA}s must be refused in case of DoW restrictions
+			{\botrules
+			\item Bot accepts \emph{Defensive CtA}s, unless at War with an Opponent (p.~4)
+			\item Bot always refuses \emph{Offensive CtA}s (p.~4)
+			}
 		\end{itemize}
-		\smallheading{Accepting a CtA}
+		\smallheading{\zsavepos{arrowEmpAcceptCtAEnd}Accepting a CtA}
 		\begin{itemize}
 			\item If \emph{Offensive CtA}, place War tokens on your Ally's Enemies
 			\item If \emph{Defensive CtA}
@@ -280,12 +294,19 @@
 				\item Enemy places War tokens on you
 				\item If from NPR, you may
 				\begin{itemize}
-					\item Make them Active Ally or not
+					\item Make them Active Ally or not\zsavepos{arrowActivateAllyStartTwo}
+					\begin{itemize}
+						% TODO: This is not explicitly written in rules. Instead, it was clarified on Aegir Games Discord:
+						% https://discord.com/channels/567337533462151178/567337955576905728/1066706010124857436
+						% Add reference once it is added to FAQ/Errata
+						\botrule{\item Bot chooses not to}
+					\end{itemize}
 					\item Send \emph{Def. CtA} to other NPR Allies
 				\end{itemize}
-				\item If you are Allied to a PR on opposing side, this Alliance ends
+				\item \alliances with PRs on opposing side end
 			\end{itemize}
 		\end{itemize}
+		\framebreak
 		\smallheading{Refusing a CtA}
 		\begin{itemize}
 			\item Remove \alliance
@@ -305,114 +326,555 @@
 	\end{multicols}
 \end{eubox}\end{dynamiccontents*}
 
-\begin{dynamiccontents*}{frameHreIntWars}\begin{eubox}{\fhHreIntWars}
-	\subsubsection*{HRE Int. Wars with no CB \normal{(p.~45)}\zsavepos{arrowHreIntWarsEnd}}
+\subsectionstriped{colorMilitary}{Military Actions}
+\actionHeadingNoSpace{Declare War \normal{(1\milpower) (p.~16)}}
+\begin{enumerate}
+	\item \hspacezero\zsavepos{arrowDowRestrictionsStart}Pick target Realm(s), place War tokens
+	\item Penalties for no CB and DoW on your \marriage
 	\begin{itemize}
-		\item Emp.'s DoW on Subject
-		\begin{itemize}
-			\item Apply normal penalties
-			\item Lose 1\authority
-			\item Remove 3\influence from HRE Areas
-		\end{itemize}
-		\item Subject's DoW on another Subject
-		\begin{itemize}
-			\item Human Emperor must place CB on Aggressor's Capital
-			\item \botrule{Bot Emp. defends targeted Subj. (p.~6)}\zsavepos{arrowBotDefSubjectEnd}
-		\end{itemize}
+		\item \hspacezero\zsavepos{arrowHreIntWarsStart}2\stability per missing CB\zsavepos{arrowCbStart}
+		\item 1\stability per your \marriage on targets, exceptions\zsavepos{arrowMarriageStart}
 	\end{itemize}
-\end{eubox}\end{dynamiccontents*}
-\begin{dynamiccontents*}{frameDefHre}\begin{eubox}{\fhDefHre}
-	\subsubsection*{Defending the HRE \normal{(p.~44)}\zsavepos{arrowHreCtaEnd}}
-	\smallheading{External Realm's DoW on Imp. Subject}
+	\item \action{Calls to Arms} (in listed order)\zsavepos{arrowCtAStart}
+	\begin{enumerate}[label=\alph*.]
+		\item You may send \emph{Offensive CtA}s
+		\item \hspacezero\zsavepos{arrowHreCtaStart}Target HRE Members might send \emph{Defensive CtA} to the Emperor
+		\item Target NPRs send \emph{Defensive CtA}s
+		\item Target PRs may send \emph{Defensive CtA}s
+		\begin{itemize}
+			\botrule{\item Bot sends \emph{Def. CtA}s to \allies Adjacent to the Aggressor (p.~4)}
+		\end{itemize}
+	\end{enumerate}
+	\item PRs gain 1\milpower if they are
 	\begin{itemize}
-		\item PR Emperor receives \emph{Defensive CtA} if 
-		\begin{itemize}
-			\item \authority ≥ 1, \conj{and}
-			\item They are at Peace with the Subject
-		\end{itemize}
-		\item If the Emperor accepts
-		\begin{itemize}
-			\item Apply \dprime Accepting a CtA\dprime procedure
-			\item \hspacezero\zsavepos{arrowActivatingDefHreStart}Activate \emph{Defending the HRE}
-		\end{itemize}
-		\item If the Emperor refuses
-		\begin{itemize}
-			\item Lose 1\authority (no normal penalties)
-		\end{itemize}
+		\item Target PR, \conj{or}
+		\item Accepting \emph{Def. CtA}s from NPRs (unless already at War with Aggressor)
 		{\botrules
-		\item Bot Emperor accepts, unless (p.~6)
+		\item Bots gain 1\botpower instead (p.~4)
 		\begin{itemize}
-			\item At War with an Opponent
+			\item If then the Bot has < 5/5/6/7 \botpower, it gains \botpower until it reaches 5/5/6/7
+			\item If Bot has any Available \manpower, they spend 1\botpower to recruit 7/9/9/11 Units, and check MAC if Army is on map
 		\end{itemize}
 		}
 	\end{itemize}
-	\smallheading{External Realm's DoW on the Emperor}
-	\begin{itemize}
-		\item If Emperor's Capital is in HRE
-		\begin{itemize}
-			\item \hspacezero\zsavepos{arrowActivatingDefHreStartTwo}May activate \emph{Defending the HRE}
-		\end{itemize}
-	\end{itemize}
-\end{eubox}\end{dynamiccontents*}
-\begin{dynamiccontents*}{frameActivatingDefHre}\begin{eubox}{\fhActivatingDefHre}
-	\subsubsection*{Activating Def. the HRE \normal{(p.~44)}\zsavepos{arrowActivatingDefHreEnd}}
-	\begin{itemize}
-		\item Tag \emph{Defending the HRE} slot
-		\item If \strong{human PR is Emperor}, add NPR Units to \strong{Imperial} \manpower = Emperor's \influence (incl. Imperial \influence) in Elec. Areas (max~8)
-		{\botrules
-		\item If a \strong{Bot is Emperor} (p.~6)
-		\begin{itemize}
-			\item No Imperial \manpower
-			\item Gain \botpower = \authority, if activating due to \emph{CtA}
-		\end{itemize}
-		}
-		\item \strong{Human Imperial Subject} must
-		\begin{itemize}
-			\item Exhaust 2\manpower (max ½ of total \manpower), \conj{or}
-			\item Lose 6\ducats (max ½ of Tax Inc.), \conj{or}
-			\item Lose \p1, \conj{or}
-			\item Place CB on Aggressor's Capital
-		\end{itemize}
-		\item \botrule{\strong{Bot Imperial Subject} loses 1\botpower, unless at War, including this DoW (p.~6)}
-	\end{itemize}
-\end{eubox}\end{dynamiccontents*}
+	\item Remove all your \influence from target Realms
+	\item Resolve triggered Naval Battles
+	\item Resolve triggered Land Battles
+	\item If no Battle is triggered, may \action{Activate Units} or \action{Recruit Units} (no \milpower cost)
+\end{enumerate}
 
-\begin{dynamiccontents*}{frameImpManpower}\begin{eubox}{\fhImpManpower}
-	\subsubsection*{\zsavepos{arrowImpManpowerEnd}Imperial \manpower in Battles \normal{(p.~44)}}
-	\begin{itemize}
-		\item Works like Allied Units
-		\item Only usable in
-		\begin{itemize}
-			\item HRE Areas
-			\item Emp.'s Areas Adj. by Land to HRE
-		\end{itemize}
-		\item May not be used when Enemy force consists of only NPR HRE Members
-		\item Add as Infantry when Battle starts
-		\item Return surviving Units to Imperial \manpower
-	\end{itemize}
-\end{eubox}\end{dynamiccontents*}
+\begin{dynamiccontents*}{frameArrowsPageOne}
+	% Must be before the page ends but after all \savepos in other dynamic frames
+	\begin{tikzpicture}
+	\useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);
+	
+	% DoW Restrictions arrow
+	\newlength{\dowRestrictionsStartY} \setlength{\dowRestrictionsStartY}{\calc{\zposy{arrowDowRestrictionsStart}sp + \arrowAdjustYAfterSubsub}}
+	\newlength{\dowRestrictionsStartX} \setlength{\dowRestrictionsStartX}{\calc{\zposx{arrowDowRestrictionsStart}sp + \arrowAdjustXBeforeList}}
+	\newlength{\dowRestrictionsEndY} \setlength{\dowRestrictionsEndY}{\calc{\zposy{arrowDowRestrictionsEnd}sp + \arrowAdjustYAfterSubsub}}
+	\newlength{\dowRestrictionsEndX} \setlength{\dowRestrictionsEndX}{\calc{\zposx{arrowDowRestrictionsEnd}sp + \arrowToTextSpacing}}
+	\newlength{\dowRestrictionsTurnX} \setlength{\dowRestrictionsTurnX}{\arrowXVerticalMidLeft}
 
-\begin{dynamiccontents*}{frameBattleSeqNote}
-	\botrule{
-		NOTE: If Bot is Attacker or Main Def., then Batt. Seq. has differ. not covered here (p.~5-6)
-	}
+	\drawArrow{(\dowRestrictionsStartX, \dowRestrictionsStartY) -- (\dowRestrictionsTurnX,\dowRestrictionsStartY) -- (\dowRestrictionsTurnX,\dowRestrictionsEndY) -- (\dowRestrictionsEndX,\dowRestrictionsEndY)}
+
+	% Casus Belli arrows
+	\newlength{\cbStartY} \setlength{\cbStartY}{\calc{\zposy{arrowCbStart}sp + \arrowAdjustYText}}
+	\newlength{\cbStartX} \setlength{\cbStartX}{\calc{\zposx{arrowCbStart}sp + \arrowToTextSpacing}}
+	\newlength{\cbEndY} \setlength{\cbEndY}{\calc{\zposy{arrowCbEnd}sp + \arrowAdjustYBeforeSubsub}}
+	\newlength{\cbEndX} \setlength{\cbEndX}{\zposx{arrowCbEnd}sp}
+	\newlength{\cbTurnX} \setlength{\cbTurnX}{\arrowXVerticalMidRight}
+
+	\drawArrow{(\cbStartX, \cbStartY) -- (\cbTurnX,\cbStartY) -- (\cbTurnX,\cbEndY) -- (\cbEndX,\cbEndY)}
+
+	% HRE Internal Wars arrow
+	\newlength{\hreIntWarsStartY} \setlength{\hreIntWarsStartY}{\calc{\zposy{arrowHreIntWarsStart}sp + \arrowAdjustYText}}
+	\newlength{\hreIntWarsStartX} \setlength{\hreIntWarsStartX}{\calc{\zposx{arrowHreIntWarsStart}sp + \arrowAdjustXBeforeList}}
+	\newlength{\hreIntWarsEndY} \setlength{\hreIntWarsEndY}{\calc{\zposy{arrowHreIntWarsEnd}sp + \arrowAdjustYAfterSubsub}}
+	\newlength{\hreIntWarsEndX} \setlength{\hreIntWarsEndX}{\calc{\zposx{arrowHreIntWarsEnd}sp + \arrowToTextSpacing}}
+	\newlength{\hreIntWarsTurnX} \setlength{\hreIntWarsTurnX}{\calc{\arrowXVerticalMidLeft}}
+	\newlength{\hreIntWarsTurnY} \setlength{\hreIntWarsTurnY}{\calc{\hreIntWarsEndY + 1.5mm}}
+
+	\drawArrow{(\hreIntWarsStartX, \hreIntWarsStartY) -- (\hreIntWarsTurnX,\hreIntWarsStartY) -- (\hreIntWarsTurnX,\hreIntWarsTurnY) -- (\hreIntWarsEndX,\hreIntWarsEndY)}
+
+	% Marriage exceptions arrow
+	\newlength{\marriageStartY} \setlength{\marriageStartY}{\calc{\zposy{arrowMarriageStart}sp + \arrowAdjustYText}}
+	\newlength{\marriageStartX} \setlength{\marriageStartX}{\calc{\zposx{arrowMarriageStart}sp + \arrowToTextSpacing}}
+
+	\newlength{\marriageEndOneY} \setlength{\marriageEndOneY}{\calc{\zposy{arrowMarriageEndOne}sp + \arrowAdjustYList}}
+	\newlength{\marriageEndOneX} \setlength{\marriageEndOneX}{\calc{\zposx{arrowMarriageEndOne}sp + \arrowAdjustXBeforeList}}
+	\newlength{\marriageEndTwoY} \setlength{\marriageEndTwoY}{\calc{\zposy{arrowMarriageEndTwo}sp + \arrowAdjustYList}}
+	\newlength{\marriageEndTwoX} \setlength{\marriageEndTwoX}{\calc{\zposx{arrowMarriageEndTwo}sp + \arrowAdjustXBeforeList}}
+	\newlength{\marriageTurnX} \setlength{\marriageTurnX}{\calc{\arrowXVerticalMidRight}}
+
+	\drawArrow{(\marriageStartX, \marriageStartY) -- (\marriageTurnX,\marriageStartY) -- (\marriageTurnX,\marriageEndOneY) -- (\marriageEndOneX,\marriageEndOneY)}
+	\drawArrow{(\marriageStartX, \marriageStartY) -- (\marriageTurnX,\marriageStartY) -- (\marriageTurnX,\marriageEndOneY) -- (\marriageTurnX,\marriageEndTwoY) -- (\marriageEndTwoX,\marriageEndTwoY)}
+
+	% Call to Arms arrow
+	\newlength{\ctaStartY} \setlength{\ctaStartY}{\calc{\zposy{arrowCtAStart}sp + \arrowAdjustYList}}
+	\newlength{\ctaStartX} \setlength{\ctaStartX}{\calc{\zposx{arrowCtAStart}sp + \arrowToTextSpacing}}
+	\newlength{\ctaEndY} \setlength{\ctaEndY}{\calc{\zposy{arrowCtAEnd}sp + \arrowAdjustYText}}
+	\newlength{\ctaEndX} \setlength{\ctaEndX}{\zposx{arrowCtAEnd}sp}
+	\newlength{\ctaTurnY} \setlength{\ctaTurnY}{\calc{\margin + \fhCallToArms + .5\columnsep}}
+	\newlength{\ctaTurnX} \setlength{\ctaTurnX}{\calc{\arrowXVerticalMidRight - 1.3mm}}
+	\newlength{\ctaTurnXTwo} \setlength{\ctaTurnXTwo}{\arrowXVerticalLeft}
+
+	\drawArrow{(\ctaStartX, \ctaStartY) -- (\ctaTurnX,\ctaStartY) -- (\ctaTurnX,\ctaEndY) -- (\ctaEndX,\ctaEndY)}
+
+	% Defending HRE arrow
+	\newlength{\hreCtaStartY} \setlength{\hreCtaStartY}{\calc{\zposy{arrowHreCtaStart}sp + \arrowAdjustYList}}
+	\newlength{\hreCtaStartX} \setlength{\hreCtaStartX}{\calc{\zposx{arrowHreCtaStart}sp + \arrowAdjustXBeforeList}}
+	\newlength{\hreCtaEndY} \setlength{\hreCtaEndY}{\calc{\zposy{arrowHreCtaEnd}sp + \arrowAdjustYAfterSubsub}}
+	\newlength{\hreCtaEndX} \setlength{\hreCtaEndX}{\calc{\zposx{arrowHreCtaEnd}sp + \arrowToTextSpacing}}
+	\newlength{\hreCtaTurnX} \setlength{\hreCtaTurnX}{\calc{\arrowXVerticalMidLeft + 1.5mm}}
+
+	\drawArrow{(\hreCtaStartX, \hreCtaStartY) -- (\hreCtaTurnX,\hreCtaStartY) -- (\hreCtaTurnX,\hreCtaEndY) -- (\hreCtaEndX,\hreCtaEndY)}
+
+	% Receive Call to Arms arrow
+	\newlength{\receiveCtaStartY} \setlength{\receiveCtaStartY}{\calc{\zposy{arrowReceiveCtAStart}sp + \arrowAdjustYList}}
+	\newlength{\receiveCtaStartX} \setlength{\receiveCtaStartX}{\calc{\zposx{arrowReceiveCtAStart}sp + \arrowAdjustYText}}
+	\newlength{\receiveCtaEndY} \setlength{\receiveCtaEndY}{\calc{\margin + \fhReceivingCta + 0.3mm}}
+	\newlength{\receiveCtaEndX} \setlength{\receiveCtaEndX}{\calc{\margin + \middleColX + \fwTwoCols + 0.3mm}}
+	\newlength{\receiveCtaTurnX} \setlength{\receiveCtaTurnX}{\arrowXVerticalRight}
+	\newlength{\receiveCtaTurnY} \setlength{\receiveCtaTurnY}{\calc{\receiveCtaEndY + 2mm}}
+
+	\drawArrow{(\receiveCtaStartX, \receiveCtaStartY) -- (\receiveCtaTurnX,\receiveCtaStartY) -- (\receiveCtaTurnX,\receiveCtaTurnY) -- (\receiveCtaEndX,\receiveCtaEndY)}
+
+	% Activate Ally arrow (from CtA)
+	\newlength{\activateAllyOneStartY} \setlength{\activateAllyOneStartY}{\calc{\zposy{arrowActivateAllyStartOne}sp + \arrowAdjustYList}}
+	\newlength{\activateAllyOneStartX} \setlength{\activateAllyOneStartX}{\calc{\zposx{arrowActivateAllyStartOne}sp + \arrowAdjustXBeforeList}}
+	\newlength{\activateAllyOneEndY} \setlength{\activateAllyOneEndY}{\calc{\zposy{arrowActivateAllyEndOne}sp + \arrowAdjustYAfterSubsub}}
+	\newlength{\activateAllyOneEndX} \setlength{\activateAllyOneEndX}{\zposx{arrowActivateAllyEndOne}sp}
+	\newlength{\activateAllyOneTurnX} \setlength{\activateAllyOneTurnX}{\arrowXVerticalMidRight}
+
+	\drawArrow{(\activateAllyOneStartX,\activateAllyOneStartY) -- (\activateAllyOneTurnX,\activateAllyOneStartY) -- (\activateAllyOneTurnX,\activateAllyOneEndY) -- (\activateAllyOneEndX,\activateAllyOneEndY)}
+
+	% Activate Ally arrow (from Receiving CtA)
+	\newlength{\activateAllyTwoStartY} \setlength{\activateAllyTwoStartY}{\calc{\zposy{arrowActivateAllyStartTwo}sp + \arrowAdjustYList}}
+	\newlength{\activateAllyTwoStartX} \setlength{\activateAllyTwoStartX}{\calc{\zposx{arrowActivateAllyStartTwo}sp + \arrowAdjustYText}}
+	\newlength{\activateAllyTwoEndY} \setlength{\activateAllyTwoEndY}{\activateAllyOneEndY}
+	\newlength{\activateAllyTwoEndX} \setlength{\activateAllyTwoEndX}{\activateAllyOneEndX}
+	\newlength{\activateAllyTwoTurnX} \setlength{\activateAllyTwoTurnX}{\activateAllyOneTurnX}
+
+	\drawArrow{(\activateAllyTwoStartX,\activateAllyTwoStartY) -- (\activateAllyTwoTurnX,\activateAllyTwoStartY) -- (\activateAllyTwoTurnX,\activateAllyTwoEndY) -- (\activateAllyTwoEndX,\activateAllyTwoEndY)}
+
+	% Activating Defending HRE arrows
+	\newlength{\activateDefHreStartOneY} \setlength{\activateDefHreStartOneY}{\calc{\zposy{arrowActivateDefHreStartOne}sp + \arrowAdjustYList}}
+	\newlength{\activateDefHreStartOneX} \setlength{\activateDefHreStartOneX}{\calc{\zposx{arrowActivateDefHreStartOne}sp + \arrowAdjustXBeforeList}}
+	\newlength{\activateDefHreEndY} \setlength{\activateDefHreEndY}{\calc{\zposy{arrowActivateDefHreEnd}sp + \arrowAdjustYBeforeSubsub}}
+	\newlength{\activateDefHreEndX} \setlength{\activateDefHreEndX}{\zposx{arrowActivateDefHreEnd}sp}
+	\newlength{\activateDefHreTurnX} \setlength{\activateDefHreTurnX}{\arrowXVerticalLeft}
+
+	\newlength{\activateDefHreStartTwoY} \setlength{\activateDefHreStartTwoY}{\calc{\zposy{arrowActivateDefHreStartTwo}sp + \arrowAdjustYList}}
+	\newlength{\activateDefHreStartTwoX} \setlength{\activateDefHreStartTwoX}{\calc{\zposx{arrowActivateDefHreStartTwo}sp + \arrowAdjustXBeforeList}}
+
+	\drawArrow{(\activateDefHreStartOneX,\activateDefHreStartOneY) -- (\activateDefHreTurnX,\activateDefHreStartOneY) -- (\activateDefHreTurnX,\activateDefHreEndY) -- (\activateDefHreEndX,\activateDefHreEndY)}
+	\drawArrow{(\activateDefHreStartTwoX,\activateDefHreStartTwoY) -- (\activateDefHreTurnX,\activateDefHreStartTwoY) -- (\activateDefHreTurnX,\activateDefHreEndY) -- (\activateDefHreEndX,\activateDefHreEndY)}
+
+	% Emperor accepts CtA arrow
+	\newlength{\empAcceptCtAStartY} \setlength{\empAcceptCtAStartY}{\calc{\zposy{arrowEmpAcceptCtAStart}sp + \arrowAdjustYText}}
+	\newlength{\empAcceptCtAStartX} \setlength{\empAcceptCtAStartX}{\calc{\zposx{arrowEmpAcceptCtAStart}sp + \arrowToTextSpacing}}
+	\newlength{\empAcceptCtAEndY} \setlength{\empAcceptCtAEndY}{\calc{\zposy{arrowEmpAcceptCtAEnd}sp + \arrowAdjustYText}}
+	\newlength{\empAcceptCtAEndX} \setlength{\empAcceptCtAEndX}{\calc{\zposx{arrowEmpAcceptCtAEnd}sp}}
+	\newlength{\empAcceptCtATurnX} \setlength{\empAcceptCtATurnX}{\arrowXVerticalMidLeft}
+
+	\drawArrow{(\empAcceptCtAStartX, \empAcceptCtAStartY) -- (\empAcceptCtATurnX,\empAcceptCtAStartY) -- (\empAcceptCtATurnX,\empAcceptCtAEndY) -- (\empAcceptCtAEndX,\empAcceptCtAEndY)}
+\end{tikzpicture}
 \end{dynamiccontents*}
+
+\framebreak
+
+\begin{dynamiccontents*}{frameMilitaryAccess}\begin{eubox}{\fhMilitaryAccess}
+	\subsubsection*{\zsavepos{arrowMilAccessEnd}Military Access \normal{(p.~25)}}
+	\begin{itemize}
+		\item In Areas with 1+ Province whose \emph{de jure} or \emph{de facto} owner is \strong{Friendly} or \strong{Enemy}
+		\begin{itemize}
+			\item Always available
+		\end{itemize}
+		\item In \strong{Neutral} Areas
+		\begin{itemize}
+			\item Not available in Areas with your \claims
+			\item You must be at War
+			\item Remove 1\influence from the Area or pay 3\ducats
+			\item If all Prov. in Area are Owned by PRs, you need permission from one of them
+		\end{itemize}
+		\item In \strong{HRE} while \emph{Def. HRE} is active (p.~44)
+		\begin{itemize}
+			\item Free for
+			\begin{itemize}
+				\item Emperor
+				\item Anyone at War with Emperor
+			\end{itemize}
+		\end{itemize}
+	\end{itemize}
+\end{eubox}\end{dynamiccontents*}
+
+\begin{dynamiccontents*}{frameNavalBridge}\begin{eubox}{\fhNavalBridge}
+	\subsubsection*{\zsavepos{arrowNavalBridgeOneEnd}Naval Bridge \normal{(p.~26)}\zsavepos{arrowNavalBridgeTwoEnd}}
+	\begin{itemize}
+		\item Across any number of Sea Zones
+		\item A Sea Zone may be crossed by up to \strong{3 Units per 1 Friendly \ship} in that Sea Zone
+		\item Does not count as a space
+		\item May include Ships of PR Allies, \conj{unless}
+		\begin{itemize}
+			\item That Sea Zone has Enemy Ships, \conj{or}
+			\item Disembarking in a Hostile Area where the Ally has no Enemies
+		\end{itemize}
+		\item \strong{Movement must end} in the Area where Units disembark
+	\end{itemize}
+\end{eubox}\end{dynamiccontents*}
+
+\begin{dynamiccontents*}{frameArmiesFleets}\begin{eubox}{\fhArmiesFleets}
+	\subsubsection*{Armies/Fleets \normal{(p.~24)}}
+	\begin{itemize}
+		\item To deploy an Army, assign Unit(s) to it 
+		\begin{itemize}
+			\item From its Area (\action{Land Activ.}), \conj{or}
+			\item From Available \manpower (during \action{Recruit})
+		\end{itemize}
+		\item To deploy a Fleet, assign Ship(s) to it
+		\begin{itemize}
+			\item From Sea Zone (\action{Naval Activ.}), \conj{or}
+			\item From your Supply (during \action{Recruit})
+		\end{itemize}
+		\item If it becomes empty, remove from map
+	\end{itemize}
+\end{eubox}\end{dynamiccontents*}
+
+\begin{dynamiccontents*}{frameWarCapacities}\begin{eubox}{\fhWarCapacities}
+	\subsubsection*{War Capacities \normal{(p.~22-23)}\zsavepos{arrowWarCapacityEnd}}
+	\begin{itemize}
+		\item A Province may contribute to MC/NC once per Turn (but for both)
+	\end{itemize}	
+	\smallheading{Military Capacity (MC)}
+	\begin{itemize}
+		\item MC in Area = Tax Value of Own \towns + \vassals in this Area and Adjacent to this Area
+		\item \strong{Blocking MC}
+		\begin{itemize}
+			\item Occupied Provinces
+			\item MC from Adjacent Area blocked by Hostile Units in that Area
+			\item MC from Provinces only Adj. by Sea blocked by Hostile Sea Zones
+		\end{itemize}
+	\end{itemize}
+	\smallheading{Naval Capacity (NC)}
+	\begin{itemize}
+		\item NC in a Sea Zone = \# of Own Ports facing this Sea Zone (Large Ports count as 2)
+		\item \strong{Blocking NC}
+		\begin{itemize}
+			\item Occupied Ports
+		\end{itemize}
+	\end{itemize}
+\end{eubox}\end{dynamiccontents*}
+
+\actionHeading{Suppress Unrest \normal{(1\milpower per \unrest) (p.~17)}}
+\begin{itemize}
+	\item \town/\vassal may not be Occupied
+	\item Area may not contain any Hostile Units
+\end{itemize}
+
+\actionHeading{Activate Units \normal{(p.~16)}}
+\begin{itemize}
+	\item Do \action{Land Activation} \conj{or} \action{Naval Activ.}
+\end{itemize}
+
+\actionHeading{Land Activation \normal{(1\milpower) (p.~16, 25-26)}}
+\begin{itemize}
+	\item Do \strong{Land Movement} \conj{or} \strong{Siege}
+\end{itemize}
+
+\subsubsection*{Land Movement}
+\begin{itemize}
+	\item Move an Army or a Unit up to 2 spaces
+	\begin{itemize}
+		\item \hspacezero\zsavepos{arrowMilAccessStart}Check \strong{Military Access} (p.~25)
+		\item May use \strong{Naval Bridge}\zsavepos{arrowNavalBridgeOneStart}
+		\item Stop when entering a Distant, Hostile or Neutral Area (p.~25)
+	\end{itemize}
+	\item On \strong{Distant Cont.} only allowed in (p.~26)
+	\begin{itemize}
+		\item Friendly Areas
+		\item Areas with an Enemy Province
+		\item Vacant Terr. with your or Enemy \claim
+	\end{itemize}
+	\item Crossing a \strong{Mountain Border} to a Hostile or Neutral Area (p.~25)
+	\begin{itemize}
+		\item Action cost pays for first 3 Units
+		\item Pay additional 1\milpower per 3 Units
+	\end{itemize}
+	\item \strong{Army reorganization} may be done at any point during its movement (p.~25)
+	\begin{itemize}
+		\item May pick up or drop off Regular Infantry Units
+		\item May shift Units between Armies
+		\item May be split up or merged with another Army
+	\end{itemize}
+	\item A \strong{Battle is triggered} when Units enter an Area containing
+	\begin{itemize}
+		\item Hostile Units
+		\item Enemy NPR Provinces (unless there are already Units Hostile to the NPR)
+	\end{itemize}
+	\item \strong{Optional rule 2: Available Mercenaries}
+	\begin{itemize}
+		\item Only if activating an Army for Land Movement in your Own Area
+		\item May recruit up to 3 Mercenary Units (normal cost)
+		\item They must move with the Army
+	\end{itemize}
+\end{itemize}
+
+\subsubsection*{Siege \normal{(p.~28)}}
+\begin{enumerate}
+	\item Pick an Area with 1+ Enemy Controlled Provinces, where you have 1+ Units
+	\item Calculate total Siege Strength of Units you will use and pay \milpower cost
+	\begin{itemize}
+		\item Strength (round down) (p. 24): \\
+		\infantry = 1, \cavalry = ½, \artillery = 2 
+		\item Pay +1\milpower per Sieging Unit beyond the first (Action cost pays for the first Unit)
+	\end{itemize}
+	\item Siege total Tax Val. ≤ Siege Strength
+	\begin{itemize}
+		\item To Siege an Island Province (blue Port), you need 1+ Ship in a Sea Zone it faces
+	\end{itemize}
+	\item Resolve effects of \idea{Defensive Mentality}
+	\item When successfully Sieging
+	\begin{itemize}
+		\item \strong{Rebel Occupied Province}
+		\begin{itemize}
+			\item Remove \rebeltown
+			\item Remove \unrest
+		\end{itemize}
+		\item \strong{NPR Province}
+		\begin{itemize}
+			\item Add Occupied token
+			\item Add your \town (with \unrest)
+		\end{itemize}
+		\item \strong{Hostile PR's \town/\vassal}
+		\begin{itemize}
+			\item Add your \town (with \unrest) on top of it
+			\item That player must cover a slot on their Town/Vassal track with a \cube
+		\end{itemize}
+		\item \strong{Enemy Occupied Province} whose Lawful Owner is Friendly or Neutral
+		\begin{itemize}
+			\item Remove Occupier's \town
+		\end{itemize}
+		\item \strong{Rebel/Enemy Occupied Province} whose Lawful Owner is your Enemy
+		\begin{itemize}
+			\item Replace Occupier's \town/\rebeltown with your \town (with \unrest)
+		\end{itemize}
+	\end{itemize}
+	\item Ships move out of successfully Sieged Ports and may trigger a Battle
+	\item Players regaining Control of Provinces remove \cubes from Town/Vassal track
+\end{enumerate}
+
+\actionHeading{Naval Activation \normal{(1\milpower) (p.~16, 25-26)}}
+\begin{itemize}
+	\item Do \strong{Naval Movement} \conj{or} \strong{Undock}
+\end{itemize}
+
+\subsubsection*{Naval Movement}
+\begin{itemize}
+	\item Select 1 Sea Zone or Friendly Port as destination
+	\item Move any number of Ships within range to the destination (Ports have limits)\zsavepos{arrowPortOneStart}
+	\begin{itemize}
+		\item Ship/Fleet may move up to 2 spaces
+		\item May not pass through Hostile or Distant Sea Zones (p.~25)
+	\end{itemize}
+	\item On \strong{Distant Continents} (p.~26)
+	\begin{itemize}
+		\item If you have no \claim, \town or \vassal Adj. to Dist. Sea Zone, you must \action{Explore} to enter it
+		\item To move across the Pacific Ocean, spend an additional \monarchpower of any type
+	\end{itemize}
+	\item \strong{Galleys} are disbanded if the Fleet moves to a Sea Zone without */\textdagger\xspace(p.~24)
+	\item \strong{Fleet reorganization} may be done at the start and destination (p.~25)
+	\begin{itemize}
+		\item May pick up or drop off Light Ships
+	\end{itemize}
+	\item If destination Sea Zone is not Hostile
+	\begin{itemize}
+		\item Light Ships may occupy vacant \strong{Trade Protection} slots there (p. 25)
+	\end{itemize}
+	\item A \strong{Battle is triggered} when destination
+	\begin{itemize}
+		\item Contains Enemy Ships, \conj{or}
+		\item Faces Enemy NPR Ports (unless there already are Ships Hostile to the NPR)
+	\end{itemize}
+	\item May choose to \strong{fight Pirates} in a Trade Node Adjacent to Activated Ships (p.~28)
+	\item \hspacezero\zsavepos{arrowNavalBridgeTwoStart}May use \strong{Naval Bridge} to move an Army/Unit if (p.~26)
+	\begin{itemize}
+		\item Destination Sea Zone is part of it, \conj{and}
+		\item The Land Unit/Army is Adjacent to it
+	\end{itemize}
+\end{itemize}
+
+\subsubsection*{Undock}
+\begin{itemize}
+	\item Move any number of your Ships from Ports to Adjacent non-Hostile Sea Zones
+	\item May choose to \strong{fight Pirates} in a Trade Node Adjacent to Activated Ships (p.~28)
+\end{itemize}
+
+% Defining this outside of the frame because it is used in arrow frames on both page 2 and 3
+\newlength{\arrowPortOneTurnY} \setlength{\arrowPortOneTurnY}{120mm}
+
+\begin{dynamiccontents*}{frameArrowsPageTwo}
+	\begin{tikzpicture}
+	\useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);
+
+	% Military Access arrow
+	\newlength{\milAccessStartY} \setlength{\milAccessStartY}{\calc{\zposy{arrowMilAccessStart}sp + \arrowAdjustYList}}
+	\newlength{\milAccessStartX} \setlength{\milAccessStartX}{\calc{\zposx{arrowMilAccessStart}sp + \arrowAdjustXBeforeList}}
+	\newlength{\milAccessEndY} \setlength{\milAccessEndY}{\calc{\zposy{arrowMilAccessEnd}sp + \arrowAdjustYBeforeSubsub}}
+	\newlength{\milAccessEndX} \setlength{\milAccessEndX}{\zposx{arrowMilAccessEnd}sp}
+	\newlength{\milAccessTurnX} \setlength{\milAccessTurnX}{\arrowXVerticalLeft}
+	
+	\drawArrow{(\milAccessStartX, \milAccessStartY) -- (\milAccessTurnX,\milAccessStartY) -- (\milAccessTurnX,\milAccessEndY) -- (\milAccessEndX,\milAccessEndY)}
+
+	% Naval Bridge arrow from Land Movement
+	\newlength{\navalBridgeOneStartY} \setlength{\navalBridgeOneStartY}{\calc{\zposy{arrowNavalBridgeOneStart}sp + \arrowAdjustYList}}
+	\newlength{\navalBridgeOneStartX} \setlength{\navalBridgeOneStartX}{\calc{\zposx{arrowNavalBridgeOneStart}sp + \arrowToTextSpacing}}
+	\newlength{\navalBridgeOneEndY} \setlength{\navalBridgeOneEndY}{\calc{\zposy{arrowNavalBridgeOneEnd}sp + \arrowAdjustYBeforeSubsub}}
+	\newlength{\navalBridgeOneEndX} \setlength{\navalBridgeOneEndX}{\zposx{arrowNavalBridgeOneEnd}sp}
+	\newlength{\navalBridgeOneTurnX} \setlength{\navalBridgeOneTurnX}{\arrowXVerticalMidLeft}
+	
+	\drawArrow{(\navalBridgeOneStartX, \navalBridgeOneStartY) -- (\navalBridgeOneTurnX,\navalBridgeOneStartY) -- (\navalBridgeOneTurnX,\navalBridgeOneEndY) -- (\navalBridgeOneEndX,\navalBridgeOneEndY)}
+
+	% Naval Bridge arrow from Naval Movement
+	\newlength{\navalBridgeTwoStartY} \setlength{\navalBridgeTwoStartY}{\calc{\zposy{arrowNavalBridgeTwoStart}sp + \arrowAdjustYList}}
+	\newlength{\navalBridgeTwoStartX} \setlength{\navalBridgeTwoStartX}{\calc{\zposx{arrowNavalBridgeTwoStart}sp + \arrowAdjustXBeforeList}}
+	\newlength{\navalBridgeTwoEndY} \setlength{\navalBridgeTwoEndY}{\calc{\zposy{arrowNavalBridgeTwoEnd}sp + \arrowAdjustYAfterSubsub}}
+	\newlength{\navalBridgeTwoEndX} \setlength{\navalBridgeTwoEndX}{\calc{\zposx{arrowNavalBridgeTwoEnd}sp + \arrowToTextSpacing}}
+	\newlength{\navalBridgeTwoTurnX} \setlength{\navalBridgeTwoTurnX}{\arrowXVerticalMidRight}
+
+	\drawArrow{(\navalBridgeTwoStartX, \navalBridgeTwoStartY) -- (\navalBridgeTwoTurnX,\navalBridgeTwoStartY) -- (\navalBridgeTwoTurnX,\navalBridgeTwoEndY) -- (\navalBridgeTwoEndX,\navalBridgeTwoEndY)}
+
+	% War capacity arrows (continues in next page)
+	\newlength{\warCapacityEndY} \setlength{\warCapacityEndY}{\calc{\zposy{arrowWarCapacityEnd}sp + \arrowAdjustYAfterSubsub}}
+	\newlength{\warCapacityEndX} \setlength{\warCapacityEndX}{\calc{\zposx{arrowWarCapacityEnd}sp + \arrowToTextSpacing}}
+	
+	\drawArrow{(\pagewidth, \warCapacityEndY) -- (\warCapacityEndX,\warCapacityEndY)}
+	
+	% Ships in Port arrows (continues in next page)
+	\newlength{\portOneStartY} \setlength{\portOneStartY}{\calc{\zposy{arrowPortOneStart}sp + \arrowAdjustYText}}
+	\newlength{\portOneStartX} \setlength{\portOneStartX}{\calc{\zposx{arrowPortOneStart}sp + \arrowToTextSpacing}}
+
+	\drawLine{(\portOneStartX,\portOneStartY) -- (\arrowXVerticalRight,\portOneStartY) -- (\arrowXVerticalRight,\arrowPortOneTurnY) -- (\pagewidth,\arrowPortOneTurnY)}
+
+	\end{tikzpicture}
+\end{dynamiccontents*}
+
+\framebreak
+
+\actionHeading{Recruit Units \normal{(1\milpower + X\ducats) (p.~17)}}
+\begin{itemize}
+	\item May recruit as many as you can afford
+	\item May recruit in multiple Areas/Sea Zones
+	\item Only Regular Infantry/Light Ships can be deployed outside Armies/Fleets
+	\item \strong{Artillery} Units require \idea{Cannons} Idea 
+\end{itemize}
+\smallheading{\zsavepos{arrowWarCapacityOneStart}Regular Units}
+\begin{itemize}
+	\item In your or \vassal Areas (up to your MC)
+\end{itemize}
+\smallheading{\zsavepos{arrowWarCapacityTwoStart}Allied Units}
+\begin{itemize}
+	\item In your Areas (up to your MC)
+	\item In Areas of \activeallies (up to their MC)
+\end{itemize}
+\smallheading{Mercenary Units \normal{(Max 3 per Turn)}}
+\begin{itemize}
+	\item In your or \vassal Areas (MC irrelevant)
+\end{itemize}
+\smallheading{Ships}
+\begin{itemize}
+	\item 1 Ship per Own Port (2 if Large) (p.~4)
+	\item \hspacezero\zsavepos{arrowPortTwoStart}Place in Own Port or Adj. non-Hostile Sea Zone, optionally on vacant Tr. Prot. slots
+\end{itemize}
+\smallheading{Costs}
+\begin{tabularx}{\columnwidth}{ | l | C | C | C | }
+	\hline
+	\null & \cellcolor{tblbgRecruitRegular} \strong{Regular} & \cellcolor{tblbgRecruitMerc} \strong{Merc.} & \cellcolor{tblbgRecruitAllied} \strong{Allied} \\ \hline
+	Infantry & \cellcolor{tblbgRecruitRegular} 2\ducats & \cellcolor{tblbgRecruitMerc} 4\ducats & \cellcolor{tblbgRecruitAllied} free \\ \hline
+	Cavalry & \cellcolor{tblbgRecruitRegular} 5\ducats & \cellcolor{tblbgRecruitMerc} 7\ducats & \cellcolor{tblbgRecruitAllied} 3\ducats \\ \hline
+	Artillery & \cellcolor{tblbgRecruitRegular} 6\ducats & \cellcolor{tblbgRecruitMerc} 8\ducats & - \\ \hline
+	Light Ship & 4\ducats & - & - \\ \hline
+	Heavy Ship & 10\ducats & - & - \\ \hline
+	Galley & 2\ducats & - & - \\ \hline
+\end{tabularx}
+
+\begin{dynamiccontents*}{frameShipsInPort}\begin{eubox}{\fhShipsInPort}
+	\subsubsection*{\zsavepos{arrowPortEnd}Ships in Port \normal{(p.~26)}}
+	\begin{itemize}
+		\item Max 2 in a Small Port
+		\item Max 4 in a Large Port
+		\item Max 6 in a Large Port in a single Fleet
+		\item Heavy Ships are repaired at Turn/Round end
+		\item If ending \alliance makes a Port not Friendly
+		\begin{itemize}
+			\item Ships must move to Adjacent non-Hostile Sea Zone
+			\item If can't move, must be disbanded 
+		\end{itemize}
+	\end{itemize}
+\end{eubox}\end{dynamiccontents*}
+
+\begin{dynamiccontents*}{frameNprWarfare}\begin{eubox}{\fhNprWarfare}
+	\subsubsection*{Warfare vs NPRs \normal{(p.~36)}\zsavepos{arrowNPRWarEnd}}
+	\begin{itemize}
+		\item \hspacezero\zsavepos{arrowWarCapacityThreeStart}\# of def. \strong{NPR Units} = MC or NC
+		\begin{itemize}
+			\item Land Units are Infantry
+			\item Ships are Light Ships
+			\item \strong{Active Ally} defends with ½ of MC
+			\item Additional Units defending HRE Areas if \strong{Emperor is NPR} (p.~45)
+			\begin{itemize}
+				\item (3 × \authority) - (2 × \# of HRE Areas with non-HRE Units before this Turn)
+			\end{itemize}
+		\end{itemize}
+		\item NPR Provinces on \strong{Distant Continents}
+		\begin{itemize}
+			\item Double MC/NC for defense
+			\begin{itemize}
+				\item Except from Areas with \plague
+			\end{itemize}
+			\item Some Ports are Inactive (grayed out) until they have a \dnpr, \town or \vassal
+		\end{itemize}
+		\item NPRs defend at normal strength even if not enough tokens in Supply
+		\item If \strong{multiple Battles}, NPR's priorities:
+		\begin{enumerate}
+			\item Capital Area and Adj. Sea Zones
+			\item Largest Enemy force
+			\item First Battle
+		\end{enumerate}
+	\end{itemize}
+\end{eubox}\end{dynamiccontents*}
+
+\begin{dynamiccontents*}{frameBattleTriggers}\begin{eubox}{\fhBattleTriggers}
+	\begin{multicols}{2}
+		\subsubsection*{Battle Triggers \normal{(p.~27, 28)}}
+		\begin{itemize}
+			\item Land Units/Ships Hostile to each other end up in the same Area/Sea Zone
+			\item \hspacezero\zsavepos{arrowNPRWarStart}Land Units are in Area with Hostile NPR Prov., \conj{or} Ships in Sea Zone facing Hostile NPR Ports, \conj{unless} Units/Ships Hostile to that NPR were there before current Turn
+			\item PR wishes to fight Pirates Adj. to where their Activated Ships ended \action{Naval Activ.}
+			\begin{itemize}
+				\item Attacking Ships must be in the same Sea Zone (p.~25)
+			\end{itemize}
+			\item If 2+ Battles, Active PR decides the order
+		\end{itemize}
+	\end{multicols}
+\end{eubox}\end{dynamiccontents*}
+
 \begin{dynamiccontents*}{frameBattleSequence}\begin{eubox}{\fhBattleSequence}
-	\begin{multicols}{3}
+	\begin{multicols}{2}
 		\subsubsection*{Battle Sequence \normal{(p.~26-28)}}
 		\begin{itemize}
-			\item Order if multiple Battles (p.~22):
-			\begin{enumerate}
-				\item Naval before Land Battles
-				\item Active Player decides
-			\end{enumerate}
 			\item Ships vacate Trade Prot. slots (p.~28)
+			\botrule{\item If Bot is Attacker or Main Defender, follow Bot Action charts on p.~16 (p.~5)}
 		\end{itemize}
 		\smallheading{1. Battle Preparations}
 		\begin{itemize}
-			\item \hspacezero\zsavepos{arrowImpManpowerStart}Emperor may use Imperial \manpower (p.~44)
+			\item Emperor may use Imperial \manpower (p.~44)
+			\begin{itemize}
+				\item Only usable in HRE Areas \conj{or} Emp.'s Areas Adj. by Land to HRE
+				\item May not be used when Enemy force consists of only NPR HRE Members
+				\item Add as Allied Infantry (keep separately)
+			\end{itemize}
 			\item Multiple Defenders defend together
-			\item If 2+ PR Def., pick \strong{Main Defender}
+			\item If 2+ PR Def., pick \strong{Main Defender}.
 			\begin{itemize}
 				\item Priority for Main Defender selection:
 				\begin{enumerate}
@@ -438,10 +900,9 @@
 			\item May not \action{App. Leader} later in the Battle
 			\item Max 1 Leader on each side (p.~25,~27)
 			\item If more than 1 Leader, then player may choose which one to use (p.~25)
-			\item If only \strong{NPR/Rebel Defenders} with total of 3+ Units (p.~36,~37)
+			\item If \strong{only NPR/Rebel} Defenders with total of 3+ Units (p.~36,~37)
 			\begin{itemize}
-				\item Draw \milcard
-				\item Use as Defender's Leader, if any
+				\item Draw \milcard, use as their Leader, if any
 			\end{itemize}
 			\item Apply Military Ideas effects
 		\end{itemize}
@@ -467,9 +928,14 @@
 			\item If \strong{Naval Battle}
 			\begin{itemize}
 				\item Default 3\artillery Dice
-				\item 1 automatic hit per Heavy Ship 
 			\end{itemize}
 			\item Additional Dice from Leaders and \battleactions
+			\item 1 hit per your Unit matched with \infantry/\cavalry/\artillery
+			\begin{itemize}
+				\item Ships are matched with \artillery
+				\item +1 automatic hit per Heavy Ship
+				\item With respective Ideas, count \tercios as 2\infantry
+			\end{itemize}
 		\end{itemize}
 		\smallheading{4. Assign Casualties}
 		\begin{itemize}
@@ -506,12 +972,8 @@
 		\end{itemize}
 		\smallheading{5B. Captured Enemy Ships}
 		\begin{itemize}
-			\item Only if you have
-			\begin{itemize}
-				\item Ships remaining, \conj{and}
-				\item Eliminated all Enemy Ships
-			\end{itemize}
-			\item Capture 1 Enemy Casualty per your \tercios
+			\item Only if you have Ships remaining, \conj{and} eliminated all Enemy Ships
+			\item Capt. 1 Enemy Casualty per \tercios (last roll)
 			\begin{itemize}
 				\item Enemy decides which Ships 
 				\item You may deploy Fleet if available
@@ -521,7 +983,7 @@
 		\smallheading{6. Retreat}
 		\begin{itemize}
 			\item Attacker chooses first, then defender
-			\item \strong{NPRs retreat} if outnum., unless (p.~36)
+			\item \strong{NPRs retreat} (remove from board) if outnumbered, \conj{unless} (p.~36)
 			\begin{itemize}
 				\item Fighting alongside Rebels, \conj{or}
 				\item In their Capital Area, \conj{or}
@@ -544,482 +1006,49 @@
 		\smallheading{7. Proclaim a Winner}
 		\begin{itemize}
 			\item The side with Units left in the Area wins
-			\item Victorious Active PR gains 1\milpower (max 1 per Turn)
+			\item If Active PR won, gains 1\milpower (max 1/Turn)
+			\item Return surviving Imperial \manpower (p.~44)
+			\item Remove remaining NPR units (p.~36)
 		\end{itemize}
 	\end{multicols}
 \end{eubox}\end{dynamiccontents*}
 
-\begin{dynamiccontents*}{frameArrowsPageOne}
-	% Must be before the page ends but after all \savepos in other dynamic frames
-	\begin{tikzpicture}
-	\useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);
-	
-	% Defending the HRE arrow
-	\newlength{\hreCtaStartY} \setlength{\hreCtaStartY}{\calc{\zposy{arrowHreCtaStart}sp + \arrowAdjustYText}}
-	\newlength{\hreCtaStartX} \setlength{\hreCtaStartX}{\calc{\zposx{arrowHreCtaStart}sp + \arrowAdjustXBeforeListNum}}
-	\newlength{\hreCtaEndY} \setlength{\hreCtaEndY}{\calc{\zposy{arrowHreCtaEnd}sp + \arrowAdjustYAfterSubsub}}
-	\newlength{\hreCtaEndX} \setlength{\hreCtaEndX}{\calc{\zposx{arrowHreCtaEnd}sp + \arrowToTextSpacing}}
-	\newlength{\hreCtaTurnX} \setlength{\hreCtaTurnX}{\calc{\hreCtaStartX-4mm}}
-	
-	\drawArrow{(\hreCtaStartX, \hreCtaStartY) -- (\hreCtaTurnX,\hreCtaStartY) -- (\hreCtaTurnX,\hreCtaEndY) -- (\hreCtaEndX,\hreCtaEndY)}
-
-	% Bot defending HRE Subject arrow
-	\newlength{\botDefSubjectEndY} \setlength{\botDefSubjectEndY}{\calc{\zposy{arrowBotDefSubjectEnd}sp + \arrowAdjustYText}}
-	\newlength{\botDefSubjectEndX} \setlength{\botDefSubjectEndX}{\calc{\zposx{arrowBotDefSubjectEnd}sp + \arrowToTextSpacing}}
-
-	\drawArrow{(\hreCtaStartX, \hreCtaStartY) -- (\hreCtaTurnX,\hreCtaStartY) -- (\hreCtaTurnX,\botDefSubjectEndY) -- (\botDefSubjectEndX,\botDefSubjectEndY)}
-
-	% HRE Internal Wars arrow
-	\newlength{\hreIntWarsStartY} \setlength{\hreIntWarsStartY}{\calc{\zposy{arrowHreIntWarsStart}sp + \arrowAdjustYText}}
-	\newlength{\hreIntWarsStartX} \setlength{\hreIntWarsStartX}{\calc{\zposx{arrowHreIntWarsStart}sp + \arrowAdjustXBeforeList}}
-	\newlength{\hreIntWarsEndY} \setlength{\hreIntWarsEndY}{\calc{\zposy{arrowHreIntWarsEnd}sp + \arrowAdjustYAfterSubsub}}
-	\newlength{\hreIntWarsEndX} \setlength{\hreIntWarsEndX}{\calc{\zposx{arrowHreIntWarsEnd}sp + \arrowToTextSpacing}}
-	\newlength{\hreIntWarsTurnX} \setlength{\hreIntWarsTurnX}{\calc{\hreIntWarsStartX-5mm}}
-	
-	\drawArrow{(\hreIntWarsStartX, \hreIntWarsStartY) -- (\hreIntWarsTurnX,\hreIntWarsStartY) -- (\hreIntWarsTurnX,\hreIntWarsEndY) -- (\hreIntWarsEndX,\hreIntWarsEndY)}
-
-	% Activating Def HRE arrow
-	\newlength{\activatingDefHreStartY} \setlength{\activatingDefHreStartY}{\calc{\zposy{arrowActivatingDefHreStart}sp + \arrowAdjustYText}}
-	\newlength{\activatingDefHreStartX} \setlength{\activatingDefHreStartX}{\calc{\zposx{arrowActivatingDefHreStart}sp + \arrowAdjustXBeforeList}}
-	\newlength{\activatingDefHreEndY} \setlength{\activatingDefHreEndY}{\calc{\zposy{arrowActivatingDefHreEnd}sp + \arrowAdjustYAfterSubsub}}
-	\newlength{\activatingDefHreEndX} \setlength{\activatingDefHreEndX}{\calc{\zposx{arrowActivatingDefHreEnd}sp + \arrowToTextSpacing}}
-	\newlength{\activatingDefHreTurnX} \setlength{\activatingDefHreTurnX}{\calc{\activatingDefHreStartX-6mm}}
-	\newlength{\activatingDefHreTurnTwoX} \setlength{\activatingDefHreTurnTwoX}{\calc{\activatingDefHreTurnX - 1mm}}
-
-	\drawArrow{(\activatingDefHreStartX, \activatingDefHreStartY) -- (\activatingDefHreTurnX,\activatingDefHreStartY) -- (\activatingDefHreTurnTwoX,\activatingDefHreEndY) -- (\activatingDefHreEndX,\activatingDefHreEndY)}
-
-	\newlength{\activatingDefHreStartTwoY} \setlength{\activatingDefHreStartTwoY}{\calc{\zposy{arrowActivatingDefHreStartTwo}sp + \arrowAdjustYText}}
-	\newlength{\activatingDefHreStartTwoX} \setlength{\activatingDefHreStartTwoX}{\calc{\zposx{arrowActivatingDefHreStartTwo}sp + \arrowAdjustXBeforeList}}
-
-	\drawLine{
-	(\activatingDefHreStartTwoX, \activatingDefHreStartTwoY) -- (\activatingDefHreTurnX,\activatingDefHreStartTwoY) -- (\activatingDefHreTurnX,\activatingDefHreStartY) -- +(0mm,\arrowradius)}
-
-	% Imperial Manpower arrow
-	\newlength{\impManpowerStartY} \setlength{\impManpowerStartY}{\calc{\zposy{arrowImpManpowerStart}sp + \arrowAdjustYText}}
-	\newlength{\impManpowerStartX} \setlength{\impManpowerStartX}{\calc{\zposx{arrowImpManpowerStart}sp + \arrowAdjustXBeforeList}}
-	\newlength{\impManpowerEndY} \setlength{\impManpowerEndY}{\calc{\zposy{arrowImpManpowerEnd}sp + \arrowAdjustYBeforeSubsub}}
-	\newlength{\impManpowerEndX} \setlength{\impManpowerEndX}{\zposx{arrowImpManpowerEnd}sp}
-	\newlength{\impManpowerTurnX} \setlength{\impManpowerTurnX}{\calc{\impManpowerStartX-4mm}}
-	
-	\drawArrow{(\impManpowerStartX, \impManpowerStartY) -- (\impManpowerTurnX,\impManpowerStartY) -- (\impManpowerTurnX,\impManpowerEndY) -- (\impManpowerEndX,\impManpowerEndY)}
-
-	% The following arrows are partly on the next page, only drawing start of them
-	% DoW Restrictions arrow
-	\newlength{\dowRestrictionsStartY} \setlength{\dowRestrictionsStartY}{\calc{\zposy{arrowDowRestrictionsStart}sp + \arrowAdjustYText}}
-	\newlength{\dowRestrictionsStartX} \setlength{\dowRestrictionsStartX}{\calc{\zposx{arrowDowRestrictionsStart}sp + \arrowToTextSpacing}}
-
-	\drawLine{(\dowRestrictionsStartX, \dowRestrictionsStartY) -- (\paperwidth, \dowRestrictionsStartY)}
-
-	% Casus Belli arrow
-	\newlength{\cbStartY} \setlength{\cbStartY}{\calc{\zposy{arrowCbStart}sp + \arrowAdjustYText}}
-	\newlength{\cbStartX} \setlength{\cbStartX}{\calc{\zposx{arrowCbStart}sp + \arrowToTextSpacing}}
-	
-	\drawLine{(\cbStartX, \cbStartY) -- (\paperwidth, \cbStartY)}
-
-	% Marriage arrow
-	\newlength{\marriageStartY} \setlength{\marriageStartY}{\calc{\zposy{arrowMarriageStart}sp + \arrowAdjustYText}}
-	\newlength{\marriageStartX} \setlength{\marriageStartX}{\calc{\zposx{arrowMarriageStart}sp + \arrowToTextSpacing}}
-
-	\drawLine{
-	(\marriageStartX, \marriageStartY) -- (\paperwidth, \marriageStartY)}
-
-	% DoW involving Bot arrow
-	\newlength{\dowOnBotStartUpperY} \setlength{\dowOnBotStartUpperY}{\calc{\zposy{arrowDowOnBotStartUpper}sp + 1.9ex}}
-	\newlength{\dowOnBotStartUpperX} \setlength{\dowOnBotStartUpperX}{\calc{\zposx{arrowDowOnBotStartUpper}sp + \arrowToTextSpacing}}
-	\newlength{\dowOnBotStartLowerY} \setlength{\dowOnBotStartLowerY}{\calc{\zposy{arrowDowOnBotStartLower}sp - 0.2ex}}
-	\newlength{\dowOnBotStartLowerX} \setlength{\dowOnBotStartLowerX}{\calc{\zposx{arrowDowOnBotStartLower}sp + \arrowToTextSpacing}}
-
-	\newlength{\dowOnBotHandleX} \setlength{\dowOnBotHandleX}{\calc{\dowOnBotStartLowerX + 2mm}}
-	\newlength{\dowOnBotHandleMiddleY} \setlength{\dowOnBotHandleMiddleY}{\calc{(\dowOnBotStartUpperY + \dowOnBotStartLowerY) / 2}}
-
-	\newlength{\dowOnBotTurnX} \setlength{\dowOnBotTurnX}{\calc{\dowOnBotHandleX + 2.5mm}}
-	\newlength{\dowOnBotNextPageY} \setlength{\dowOnBotNextPageY}{\calc{\zposy{arrowDowOnBotEnd}sp + \arrowAdjustYBeforeSubsub}}
-
-	% Draw handle
-	\drawLine{(\dowOnBotStartUpperX,\dowOnBotStartUpperY) -- (\dowOnBotHandleX,\dowOnBotStartUpperY) -- (\dowOnBotHandleX,\dowOnBotStartLowerY) -- (\dowOnBotStartLowerX, \dowOnBotStartLowerY)}
-
-	% Draw arrow from handle middle point
-	\drawLine{(\dowOnBotHandleX,\dowOnBotHandleMiddleY) -- (\dowOnBotTurnX,\dowOnBotHandleMiddleY) -- (\dowOnBotTurnX,\dowOnBotNextPageY) -- (\paperwidth,\dowOnBotNextPageY)}
-	\end{tikzpicture}
-\end{dynamiccontents*}
-\begin{dynamiccontents*}{frameArrowsPageTwo}
-	\begin{tikzpicture}
-	\useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);
-
-	% DoW Restrictions arrow
-	\newlength{\dowRestrictionsStartYContinue} \setlength{\dowRestrictionsStartYContinue}{\calc{\zposy{arrowDowRestrictionsStart}sp + \arrowAdjustYText}}
-	\newlength{\dowRestrictionsEndY} \setlength{\dowRestrictionsEndY}{\calc{\zposy{arrowDowRestrictionsEnd}sp + \arrowAdjustYBeforeSubsub}}
-	\newlength{\dowRestrictionsEndX} \setlength{\dowRestrictionsEndX}{\calc{\zposx{arrowDowRestrictionsEnd}sp}}
-	\newlength{\dowRestrictionsTurnX} \setlength{\dowRestrictionsTurnX}{\calc{\dowRestrictionsEndX-4mm}}
-
-	\drawArrow{(0mm, \dowRestrictionsStartYContinue) -- (\dowRestrictionsTurnX,\dowRestrictionsStartYContinue) -- (\dowRestrictionsTurnX,\dowRestrictionsEndY) -- (\dowRestrictionsEndX,\dowRestrictionsEndY)}
-
-	% Casus Belli arrow
-	\newlength{\cbStartYContinue} \setlength{\cbStartYContinue}{\calc{\zposy{arrowCbStart}sp + \arrowAdjustYText}}
-	\newlength{\cbEndY} \setlength{\cbEndY}{\calc{\zposy{arrowCbEnd}sp + \arrowAdjustYBeforeSubsub}}
-	\newlength{\cbEndX} \setlength{\cbEndX}{\calc{\zposx{arrowCbEnd}sp}}
-	\newlength{\cbTurnX} \setlength{\cbTurnX}{\calc{\cbEndX-3.5mm}}
-	
-	\drawArrow{(0mm, \cbStartYContinue) -- (\cbTurnX,\cbStartYContinue) -- (\cbTurnX,\cbEndY) -- (\cbEndX,\cbEndY)}
-
-	% Marriage arrow
-	\newlength{\marriageStartYContinue} \setlength{\marriageStartYContinue}{\calc{\zposy{arrowMarriageStart}sp + \arrowAdjustYText}}
-	\newlength{\marriageEndOneY} \setlength{\marriageEndOneY}{\calc{\zposy{arrowMarriageEndOne}sp + \arrowAdjustYBeforeSubsub}}
-	\newlength{\marriageEndOneX} \setlength{\marriageEndOneX}{\calc{\zposx{arrowMarriageEndOne}sp}}
-	\newlength{\marriageEndTwoY} \setlength{\marriageEndTwoY}{\calc{\zposy{arrowMarriageEndTwo}sp + \arrowAdjustYBeforeSubsub}}
-\newlength{\marriageEndTwoX} \setlength{\marriageEndTwoX}{\calc{\zposx{arrowMarriageEndTwo}sp}}
-	\newlength{\marriageTurnX} \setlength{\marriageTurnX}{\calc{\marriageEndOneX-5mm}}
-	\newlength{\marriageStartShortY} \setlength{\marriageStartShortY}{\calc{\marriageEndOneY + \arrowradius}}
-	
-	\drawArrow{(0mm, \marriageStartYContinue) -- (\marriageTurnX,\marriageStartYContinue) -- (\marriageTurnX,\marriageEndTwoY) -- (\marriageEndTwoX,\marriageEndTwoY)}
-	\drawArrow{(\marriageTurnX,\marriageStartShortY) -- (\marriageTurnX,\marriageEndOneY) -- (\marriageEndOneX,\marriageEndOneY)}
-
-	% DoW on Bot arrow
-	\newlength{\dowOnBotEndY} \setlength{\dowOnBotEndY}{\calc{\zposy{arrowDowOnBotEnd}sp + \arrowAdjustYBeforeSubsub}}
-	\newlength{\dowOnBotEndX} \setlength{\dowOnBotEndX}{\zposx{arrowDowOnBotEnd}sp}
-
-	\drawArrow{(0mm,\dowOnBotEndY) -- (\dowOnBotEndX,\dowOnBotEndY)}
-	\end{tikzpicture}
-\end{dynamiccontents*}
-
-
-\begin{dynamiccontents*}{frameNprWarfare}\begin{eubox}{\fhNprWarfare}
-	\subsubsection*{Warfare vs NPRs \normal{(p.~36)}}
-	\begin{itemize}
-		\item \# of def. \strong{NPR Units} = MC or NC
-		\begin{itemize}
-			\item Land Units are Infantry
-			\item Ships are Light Ships
-		\end{itemize}
-		\item \strong{Active Ally} defends with ½ of MC
-		\item NPRs defend at normal strength even if not enough tokens in Supply
-		\item If \strong{multiple Battles}, priorities:
-		\begin{enumerate}
-			\item Capital Area and Adj. Sea Zones
-			\item Largest Enemy force
-			\item First Battle
-		\end{enumerate}
-		\item NPR Provinces on \strong{Distant Continents}
-		\begin{itemize}
-			\item Double MC/NC for defense
-			\begin{itemize}
-				\item Except from Areas with \plague
-			\end{itemize}
-			\item Some Ports are Inactive (grayed out) until they have a \dnpr, \town or \vassal
-		\end{itemize}
-	\end{itemize}
-\end{eubox}\end{dynamiccontents*}
-
-\begin{dynamiccontents*}{frameWarCapacities}\begin{eubox}{\fhWarCapacities}
-	\subsubsection*{War Capacities \normal{(p.~22-23)}}
-	\begin{itemize}
-		\item A Province may contribute to MC/NC once per Turn (but for both)
-	\end{itemize}	
-	\smallheading{Military Capacity (MC)}
-	\begin{itemize}
-		\item MC in Area = Tax Value of Own \towns + \vassals in this Area and Adjacent to this Area
-		\item \strong{Blocking MC}
-		\begin{itemize}
-			\item Occupied Provinces
-			\item MC from Adjacent Area blocked by Hostile Units in that Area
-			\item MC from Provinces only Adj. by Sea blocked by Hostile Sea Zones
-		\end{itemize}
-	\end{itemize}
-	\smallheading{Naval Capacity (NC)}
-	\begin{itemize}
-		\item NC in a Sea Zone = \# of Own Ports facing this Sea Zone (Large Ports count as 2)
-		\item \strong{Blocking NC}
-		\begin{itemize}
-			\item Occupied Ports
-		\end{itemize}
-	\end{itemize}
-\end{eubox}\end{dynamiccontents*}
-
-\actionHeading{Recruit Units \normal{(1\milpower + X\ducats) (p.~17)}}
-\begin{itemize}
-	\item May recruit as many as you can afford
-	\item \strong{Artillery} Units require \idea{Cannons} Idea 
-\end{itemize}
-\smallheading{Regular Units \normal{(up to your MC)}}
-\begin{itemize}
-	\item In your Areas
-	\item In your Vassal's Areas
-\end{itemize}
-\smallheading{Allied Units}
-\begin{itemize}
-	\item In your Areas (up to your MC)
-	\item In Areas of \activeallies (up to their MC)
-\end{itemize}
-\smallheading{Mercenary Units \normal{(MC irrelevant)}}
-\begin{itemize}
-	\item In your Areas
-	\item In your Vassal's Areas
-	\item Max 3 per Turn
-\end{itemize}
-\smallheading{Ships}
-\begin{itemize}
-	\item In your Own Ports
-	\item 1 Ship per Port (2 per Large Port (p.~4))
-	\item Place in Port or Adj. non-Hostile Sea Zone, optionally on vacant Tr. Prot. slots
-\end{itemize}
-\smallheading{Costs}
-\begin{tabularx}{\columnwidth}{ | l | C | C | C | }
-	\hline
-	\null & \cellcolor{tblbgRecruitRegular} \strong{Regular} & \cellcolor{tblbgRecruitMerc} \strong{Merc.} & \cellcolor{tblbgRecruitAllied} \strong{Allied} \\ \hline
-	Infantry & \cellcolor{tblbgRecruitRegular} 2\ducats & \cellcolor{tblbgRecruitMerc} 4\ducats & \cellcolor{tblbgRecruitAllied} free \\ \hline
-	Cavalry & \cellcolor{tblbgRecruitRegular} 5\ducats & \cellcolor{tblbgRecruitMerc} 7\ducats & \cellcolor{tblbgRecruitAllied} 3\ducats \\ \hline
-	Artillery & \cellcolor{tblbgRecruitRegular} 6\ducats & \cellcolor{tblbgRecruitMerc} 8\ducats & - \\ \hline
-	Light Ship & 4\ducats & - & - \\ \hline
-	Heavy Ship & 10\ducats & - & - \\ \hline
-	Galley & 2\ducats & - & - \\ \hline
-\end{tabularx}
-
-\actionHeading{Suppress Unrest \normal{(1\milpower per \unrest) (p.~17)}}
-\begin{itemize}
-	\item \town/\vassal may not be Occupied
-	\item Area may not contain any Hostile Units
-\end{itemize}
-
-\begin{dynamiccontents*}{frameArmiesFleets}\begin{eubox}{\fhArmiesFleets}
-	\subsubsection*{Armies/Fleets \normal{(p.~24)}}
-	\begin{itemize}
-		\item To deploy an Army, assign Unit(s) to it 
-		\begin{itemize}
-			\item From its Area (\action{Land Activ.}), \conj{or}
-			\item From Available \manpower (during \action{Recruit})
-		\end{itemize}
-		\item To deploy a Fleet, assign Ship(s) to it
-		\begin{itemize}
-			\item From Sea Zone (\action{Naval Activ.}), \conj{or}
-			\item From your Supply (during \action{Recruit})
-		\end{itemize}
-		\item If it becomes empty, remove from map
-	\end{itemize}
-\end{eubox}\end{dynamiccontents*}
-
-\actionHeading{Activate Units \normal{(p.~16)}}
-\begin{itemize}
-	\item Do \action{Land Activation} \conj{or} \action{Naval Activ.}
-\end{itemize}
-
-\actionHeading{Land Activation \normal{(1\milpower) (p.~16)}}
-\begin{itemize}
-	\item Do \strong{Land Movement} \conj{or} \strong{Siege}
-\end{itemize}
-
-\subsubsection*{Land Movement}
-\begin{itemize}
-	\item Move an Army or a Unit up to 2 spaces
-	\begin{itemize}
-		\item May use \strong{Naval Bridge}\zsavepos{arrowNavalBridgeOneStart}
-		\item Stop when entering a Distant, Hostile or Neutral Area (p.~25)
-		\item Stop when disembarking (p.~26)
-	\end{itemize}
-	\item On \strong{Distant Cont.} only allowed in (p.~26)
-	\begin{itemize}
-		\item Friendly Areas
-		\item Areas with an Enemy Province
-		\item Vacant Terr. with your or Enemy \claim
-	\end{itemize}
-	\item Crossing a \strong{Mountain Border} to a Hostile or Neutral Area (p.~25)
-	\begin{itemize}
-		\item Action cost pays for first 3 Units
-		\item Pay additional 1\milpower per 3 Units
-	\end{itemize}
-	\item Check \strong{Military Access} (p.~25)\zsavepos{arrowMilAccessStart}
-	\item \strong{Army reorganization} may be done at any point during its movement (p.~25)
-	\begin{itemize}
-		\item May pick up or drop off Regular Infantry Units
-		\item May shift Units between Armies
-		\item May be split up or merged with another Army
-	\end{itemize}
-	\item A \strong{Battle is triggered} when Units enter an Area containing
-	\begin{itemize}
-		\item Hostile Units
-		\item Enemy NPR Provinces (unless there are already Units Hostile to the NPR)
-	\end{itemize}
-	\item \strong{Optional rule 2: Available Mercenaries}
-	\begin{itemize}
-		\item Only if activating an Army for Land Movement in your Own Area
-		\item May recruit up to 3 Mercenary Units (normal cost)
-		\item They must move with the Army
-	\end{itemize}
-\end{itemize}
-
-\subsubsection*{Siege \normal{(p.~28)}}
-\begin{enumerate}
-	\item Pick an Area with 1+ Enemy Controlled Provinces, where you have 1+ Units
-	\item Calculate total Siege Strength of Units you will use and pay \milpower cost
-	\begin{itemize}
-		\item Strength: \infantry = 1, \cavalry = ½, \artillery = 2 (p. 24)
-		\item First Unit is included in Action cost
-		\item Pay 1\milpower per additional Sieging Unit
-	\end{itemize}
-	\item Siege total Tax Val. ≤ Siege Strength
-	\begin{itemize}
-		\item To Siege an Island Province (blue Port), you need 1+ Ship in a Sea Zone it faces
-	\end{itemize}
-	\item Resolve effects of \idea{Defensive Mentality}
-	\item When successfully Sieging
-	\begin{itemize}
-		\item \strong{Rebel Occupied Province}
-		\begin{itemize}
-			\item Remove \rebeltown
-			\item Remove \unrest
-		\end{itemize}
-		\item \strong{NPR Province}
-		\begin{itemize}
-			\item Add Occupied token
-			\item Add your \town (with \unrest)
-		\end{itemize}
-		\item \strong{Hostile PR's \town/\vassal}
-		\begin{itemize}
-			\item Add your \town (with \unrest) on top of it
-			\item That player must cover a slot on their Town/Vassal track with a \cube
-		\end{itemize}
-		\item \strong{Enemy Occupied Province} whose Lawful Owner is Friendly or Neutral
-		\begin{itemize}
-			\item Remove Occupier's \town
-		\end{itemize}
-		\item \strong{Rebel/Enemy Occupied Province} whose Lawful Owner is your Enemy
-		\begin{itemize}
-			\item Replace Occupier's \town/\rebeltown with your \town (with \unrest)
-		\end{itemize}
-	\end{itemize}
-	\vfill
-	\item Ships move out of successfully Sieged Ports and may trigger a Battle
-	\item Players regaining Control of Provinces remove \cubes from Town/Vassal track
-\end{enumerate}
-
-\actionHeading{Naval Activation \normal{(1\milpower) (p.~16)}}
-\begin{itemize}
-	\item Do \strong{Naval Movement} \conj{or} \strong{Undock}
-\end{itemize}
-\subsubsection*{Naval Movement}
-\begin{itemize}
-	\item Select 1 Sea Zone or Friendly Port as destination
-	\item Move any number of Ships within range to the destination (Ports have limits)
-	\begin{itemize}
-		\item Ship/Fleet may move up to 2 spaces
-		\item Stop when entering Distant or Hostile Sea Zone (p.~25)
-		\item May not pass through Hostile Sea Zones
-	\end{itemize}
-	\item On \strong{Distant Continents} (p.~26)
-	\begin{itemize}
-		\item If you have no \claim, \town or \vassal Adj. to Dist. Sea Zone, you must \action{Explore} to enter it
-		\item To move across the Pacific Ocean, spend an additional \monarchpower of any type
-	\end{itemize}
-	\item \strong{Galleys} are disbanded if the Fleet moves to a Sea Zone without */\textdagger\xspace(p.~24)
-	\item \strong{Fleet reorganization} may be done at the start and destination (p.~25)
-	\begin{itemize}
-		\item May pick up or drop off Light Ships
-	\end{itemize}
-	\item If destination Sea Zone is not Hostile
-	\begin{itemize}
-		\item Light Ships may occupy vacant \strong{Trade Protection} slots there (p. 25)
-	\end{itemize}
-	\item A \strong{Battle is triggered} when destination
-	\begin{itemize}
-		\item Contains Enemy Ships, \conj{or}
-		\item Faces Enemy NPR Ports (unless there already are Ships Hostile to the NPR)
-	\end{itemize}
-	\item May choose to \strong{fight Pirates} in a Trade Node Adjacent to Activated Ships (p.~28)
-	\item \hspacezero\zsavepos{arrowNavalBridgeTwoStart}May use \strong{Naval Bridge} if (p.~26)
-	\begin{itemize}
-		\item Destination Sea Zone is part of it, \conj{and}
-		\item Moved Land Units are Adjacent to it
-	\end{itemize}
-\end{itemize}
-\subsubsection*{Undock}
-\begin{itemize}
-	\item Move any number of your Ships from Ports to Adjacent non-Hostile Sea Zones
-	\item May choose to \strong{fight Pirates} in a Trade Node Adjacent to Activated Ships (p.~28)
-\end{itemize}
-
-\begin{dynamiccontents*}{frameShipsInPort}\begin{eubox}{\fhShipsInPort}
-	\subsubsection*{Ships in Port \normal{(p.~26)}}
-	\begin{itemize}
-		\item Max 2 in a Small Port
-		\item Max 4 in a Large Port
-		\item Max 6 in a Large Port in a single Fleet
-		\item Heavy Ships are repaired at Turn/Round end
-		\item If a Port ceases to be Friendly due to an ending \alliance
-		\begin{itemize}
-			\item Ships must move to Adjacent non-Hostile Sea Zone
-			\item If can't move, must be disbanded 
-		\end{itemize}
-	\end{itemize}
-\end{eubox}\end{dynamiccontents*}
-
-\begin{dynamiccontents*}{frameNavalBridge}\begin{eubox}{\fhNavalBridge}
-	\subsubsection*{\zsavepos{arrowNavalBridgeOneEnd}Naval Bridge \normal{(p.~26)}\zsavepos{arrowNavalBridgeTwoEnd}}
-	\begin{itemize}
-		\item Across any number of Sea Zones
-		\item A Sea Zone may be crossed by up to 3 Units per 1 Friendly Ship in that Sea Zone
-		\item Does not count as a space
-		\item May include Ships of PR Allies, unless
-		\begin{itemize}
-			\item That Sea Zone has Enemy Ships, \conj{or}
-			\item Disembarking in a Hostile Area where the Ally has no Enemies
-		\end{itemize}
-	\end{itemize}
-\end{eubox}\end{dynamiccontents*}
-
-\begin{dynamiccontents*}{frameMilitaryAccess}\begin{eubox}{\fhMilitaryAccess}
-	\subsubsection*{\zsavepos{arrowMilAccessEnd}Military Access \normal{(p.~25)}}
-	\begin{itemize}
-		\item In Areas with 1+ Province whose \emph{de jure} or \emph{de facto} owner is \strong{Friendly} or \strong{Enemy}
-		\begin{itemize}
-			\item Always available
-		\end{itemize}
-		\item In \strong{Neutral} Areas
-		\begin{itemize}
-			\item Not available in Areas with your \claims
-			\item You must be at War
-			\item Remove 1\influence from the Area or pay 3\ducats
-			\item If all Prov. in Area are Owned by PRs, you need permission from one of those PRs
-		\end{itemize}
-		\item In \strong{HRE} while \emph{Def. HRE} is active (p.~44)
-		\begin{itemize}
-			\item Free for
-			\begin{itemize}
-				\item Emperor
-				\item Anyone at War with Emperor
-			\end{itemize}
-		\end{itemize}
-	\end{itemize}
-\end{eubox}\end{dynamiccontents*}
 \begin{dynamiccontents*}{frameArrowsPageThree}
 	\begin{tikzpicture}
 	\useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);
 
-	% Naval Bridge arrow from Land Movement
-	\newlength{\navalBridgeOneStartY} \setlength{\navalBridgeOneStartY}{\calc{\zposy{arrowNavalBridgeOneStart}sp + \arrowAdjustYAfterSubsub}}
-	\newlength{\navalBridgeOneStartX} \setlength{\navalBridgeOneStartX}{\calc{\zposx{arrowNavalBridgeOneStart}sp + \arrowToTextSpacing}}
-	\newlength{\navalBridgeOneEndY} \setlength{\navalBridgeOneEndY}{\calc{\zposy{arrowNavalBridgeOneEnd}sp + \arrowAdjustYBeforeSubsub}}
-	\newlength{\navalBridgeOneEndX} \setlength{\navalBridgeOneEndX}{\zposx{arrowNavalBridgeOneEnd}sp}
-	\newlength{\navalBridgeOneTurnX} \setlength{\navalBridgeOneTurnX}{\calc{\navalBridgeOneEndX-4mm}}
+	% War capacity arrows (continues from previous page)
+	\newlength{\warCapacityOneStartY} \setlength{\warCapacityOneStartY}{\calc{\zposy{arrowWarCapacityOneStart}sp + \arrowAdjustYText}}
+	\newlength{\warCapacityOneStartX} \setlength{\warCapacityOneStartX}{\zposx{arrowWarCapacityOneStart}sp}
+	\newlength{\warCapacityTwoStartY} \setlength{\warCapacityTwoStartY}{\calc{\zposy{arrowWarCapacityTwoStart}sp + \arrowAdjustYText}}
+	\newlength{\warCapacityTwoStartX} \setlength{\warCapacityTwoStartX}{\zposx{arrowWarCapacityTwoStart}sp}
+	\newlength{\warCapacityThreeStartY} \setlength{\warCapacityThreeStartY}{\calc{\zposy{arrowWarCapacityThreeStart}sp + \arrowAdjustYList}}
+	\newlength{\warCapacityThreeStartX} \setlength{\warCapacityThreeStartX}{\calc{\zposx{arrowWarCapacityThreeStart}sp + \arrowAdjustXBeforeList}}
+	\newlength{\warCapacityTurnY} \setlength{\warCapacityTurnY}{\calc{\zposy{arrowWarCapacityEnd}sp + \arrowAdjustYAfterSubsub}}
+	\newlength{\warCapacityTurnX} \setlength{\warCapacityTurnX}{\arrowXVerticalLeft}
 	
-	\drawArrow{(\navalBridgeOneStartX, \navalBridgeOneStartY) -- (\navalBridgeOneTurnX,\navalBridgeOneStartY) -- (\navalBridgeOneTurnX,\navalBridgeOneEndY) -- (\navalBridgeOneEndX,\navalBridgeOneEndY)}
-
-	% Naval Bridge arrow from Naval Movement
-	\newlength{\navalBridgeTwoStartY} \setlength{\navalBridgeTwoStartY}{\calc{\zposy{arrowNavalBridgeTwoStart}sp + \arrowAdjustYText}}
-	\newlength{\navalBridgeTwoStartX} \setlength{\navalBridgeTwoStartX}{\calc{\zposx{arrowNavalBridgeTwoStart}sp + \arrowAdjustXBeforeList}}
-	\newlength{\navalBridgeTwoEndY} \setlength{\navalBridgeTwoEndY}{\calc{\zposy{arrowNavalBridgeTwoEnd}sp + \arrowAdjustYAfterSubsub}}
-	\newlength{\navalBridgeTwoEndX} \setlength{\navalBridgeTwoEndX}{\calc{\zposx{arrowNavalBridgeTwoEnd}sp + \arrowToTextSpacing}}
-	\newlength{\navalBridgeTwoTurnX} \setlength{\navalBridgeTwoTurnX}{\calc{\navalBridgeTwoStartX-2mm}}
+	\drawLine{(\warCapacityOneStartX, \warCapacityOneStartY) -- (\warCapacityTurnX,\warCapacityOneStartY) -- (\warCapacityTurnX,\warCapacityTurnY) -- (0mm,\warCapacityTurnY)}
+	\drawLine{(\warCapacityTwoStartX, \warCapacityTwoStartY) -- (\warCapacityTurnX,\warCapacityTwoStartY) -- (\warCapacityTurnX,\warCapacityTurnY) -- (0mm,\warCapacityTurnY)}
+	\drawLine{(\warCapacityThreeStartX, \warCapacityThreeStartY) -- (\warCapacityTurnX,\warCapacityThreeStartY) -- (\warCapacityTurnX,\warCapacityTurnY) -- (0mm,\warCapacityTurnY)}
 	
-	\drawArrow{(\navalBridgeTwoStartX, \navalBridgeTwoStartY) -- (\navalBridgeTwoTurnX,\navalBridgeTwoStartY) -- (\navalBridgeTwoTurnX,\navalBridgeTwoEndY) -- (\navalBridgeTwoEndX,\navalBridgeTwoEndY)}
+	% Ships in Port arrows (continues from previous page)
+	\newlength{\portTwoStartY} \setlength{\portTwoStartY}{\calc{\zposy{arrowPortTwoStart}sp + \arrowAdjustYList}}
+	\newlength{\portTwoStartX} \setlength{\portTwoStartX}{\calc{\zposx{arrowPortTwoStart}sp + \arrowAdjustXBeforeList}}
+	\newlength{\portEndY} \setlength{\portEndY}{\calc{\zposy{arrowPortEnd}sp + \arrowAdjustYBeforeSubsub}}
+	\newlength{\portEndX} \setlength{\portEndX}{\zposx{arrowPortEnd}sp}
 
-	% Military Access arrow
-	\newlength{\milAccessStartY} \setlength{\milAccessStartY}{\calc{\zposy{arrowMilAccessStart}sp + \arrowAdjustYAfterSubsub}}
-	\newlength{\milAccessStartX} \setlength{\milAccessStartX}{\calc{\zposx{arrowMilAccessStart}sp + \arrowToTextSpacing}}
-	\newlength{\milAccessEndY} \setlength{\milAccessEndY}{\calc{\zposy{arrowMilAccessEnd}sp + \arrowAdjustYBeforeSubsub}}
-	\newlength{\milAccessEndX} \setlength{\milAccessEndX}{\zposx{arrowMilAccessEnd}sp}
-	\newlength{\milAccessTurnX} \setlength{\milAccessTurnX}{\calc{\milAccessEndX-4mm}}
+	\drawArrow{(\portTwoStartX, \portTwoStartY) -- (\arrowXVerticalLeft,\portTwoStartY) -- (\arrowXVerticalLeft,\portEndY) -- (\portEndX,\portEndY)}
+	\drawArrow{(0mm,\arrowPortOneTurnY) -- (\arrowXVerticalLeft,\arrowPortOneTurnY) -- (\arrowXVerticalLeft,\portEndY) -- (\portEndX,\portEndY)}
 	
-	\drawArrow{(\milAccessStartX, \milAccessStartY) -- (\milAccessTurnX,\milAccessStartY) -- (\milAccessTurnX,\milAccessEndY) -- (\milAccessEndX,\milAccessEndY)}
-
+	% NPR Warfare arrow
+	\newlength{\nprWarStartY} \setlength{\nprWarStartY}{\calc{\zposy{arrowNPRWarStart}sp + \arrowAdjustYList}}
+	\newlength{\nprWarStartX} \setlength{\nprWarStartX}{\calc{\zposx{arrowNPRWarStart}sp + \arrowAdjustXBeforeList}}
+	\newlength{\nprWarEndY} \setlength{\nprWarEndY}{\calc{\zposy{arrowNPRWarEnd}sp + \arrowAdjustYAfterSubsub}}
+	\newlength{\nprWarEndX} \setlength{\nprWarEndX}{\calc{\zposx{arrowNPRWarEnd}sp + \arrowToTextSpacing}}
+	\newlength{\nprWarTurnX} \setlength{\nprWarTurnX}{\arrowXVerticalMidLeft}
+	
+	\drawArrow{(\nprWarStartX, \nprWarStartY) -- (\nprWarTurnX,\nprWarStartY) -- (\nprWarTurnX,\nprWarEndY) -- (\nprWarEndX,\nprWarEndY)}
+	
 	\end{tikzpicture}
 \end{dynamiccontents*}
 
