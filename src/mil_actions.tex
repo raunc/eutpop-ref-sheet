@@ -372,7 +372,7 @@
 	\newlength{\dowRestrictionsStartY} \setlength{\dowRestrictionsStartY}{\calc{\zposy{arrowDowRestrictionsStart}sp + \arrowAdjustYAfterSubsub}}
 	\newlength{\dowRestrictionsStartX} \setlength{\dowRestrictionsStartX}{\calc{\zposx{arrowDowRestrictionsStart}sp + \arrowAdjustXBeforeList}}
 	\newlength{\dowRestrictionsEndY} \setlength{\dowRestrictionsEndY}{\calc{\zposy{arrowDowRestrictionsEnd}sp + \arrowAdjustYAfterSubsub}}
-	\newlength{\dowRestrictionsEndX} \setlength{\dowRestrictionsEndX}{\zposx{arrowDowRestrictionsEnd}sp}
+	\newlength{\dowRestrictionsEndX} \setlength{\dowRestrictionsEndX}{\calc{\zposx{arrowDowRestrictionsEnd}sp + \arrowToTextSpacing}}
 	\newlength{\dowRestrictionsTurnX} \setlength{\dowRestrictionsTurnX}{\arrowXVerticalMidLeft}
 
 	\drawArrow{(\dowRestrictionsStartX, \dowRestrictionsStartY) -- (\dowRestrictionsTurnX,\dowRestrictionsStartY) -- (\dowRestrictionsTurnX,\dowRestrictionsEndY) -- (\dowRestrictionsEndX,\dowRestrictionsEndY)}
@@ -424,7 +424,7 @@
 	\newlength{\hreCtaStartY} \setlength{\hreCtaStartY}{\calc{\zposy{arrowHreCtaStart}sp + \arrowAdjustYList}}
 	\newlength{\hreCtaStartX} \setlength{\hreCtaStartX}{\calc{\zposx{arrowHreCtaStart}sp + \arrowAdjustXBeforeList}}
 	\newlength{\hreCtaEndY} \setlength{\hreCtaEndY}{\calc{\zposy{arrowHreCtaEnd}sp + \arrowAdjustYAfterSubsub}}
-	\newlength{\hreCtaEndX} \setlength{\hreCtaEndX}{\zposx{arrowHreCtaEnd}sp}
+	\newlength{\hreCtaEndX} \setlength{\hreCtaEndX}{\calc{\zposx{arrowHreCtaEnd}sp + \arrowToTextSpacing}}
 	\newlength{\hreCtaTurnX} \setlength{\hreCtaTurnX}{\calc{\arrowXVerticalMidLeft + 1.5mm}}
 
 	\drawArrow{(\hreCtaStartX, \hreCtaStartY) -- (\hreCtaTurnX,\hreCtaStartY) -- (\hreCtaTurnX,\hreCtaEndY) -- (\hreCtaEndX,\hreCtaEndY)}
