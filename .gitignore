@@ -17,3 +17,7 @@ src/images/*
 
 # Images that should not be ignored
 !src/images/background.png
+
+# Files and folders for local notes and experiments
+*.local
+*.local.*
