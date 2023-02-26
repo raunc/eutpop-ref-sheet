@@ -1,30 +1,30 @@
 TEX = lualatex --synctex=1 --interaction=nonstopmode --output-directory ../build
 
-all: overview.pdf print_1_sided.pdf print_2_sided.pdf print_1_sided_bw.pdf print_2_sided_bw.pdf
+all: overview.pdf single_pages.pdf trifold.pdf single_pages_bw.pdf trifold_bw.pdf
 
 clean:
 	rm -rf build
 .PHONY: clean
 
-print_1_sided.pdf: sequence_of_play.pdf actions.pdf mil_actions.pdf other_rules.pdf
-	cd src; $(TEX) print_1_sided.tex
-	cp build/print_1_sided.pdf pdf/eutpop_ref_sheet_print_1_sided.pdf
-.PHONY: print_1_sided.pdf
+single_pages.pdf: sequence_of_play.pdf actions.pdf mil_actions.pdf other_rules.pdf
+	cd src; $(TEX) single_pages.tex
+	cp build/single_pages.pdf pdf/eutpop_ref_sheet_single_pages.pdf
+.PHONY: single_pages.pdf
 
-print_1_sided_bw.pdf: sequence_of_play_bw.pdf actions_bw.pdf mil_actions_bw.pdf other_rules_bw.pdf
-	cd src; $(TEX) --jobname=print_1_sided_bw "\let\ifrenderbw\iftrue\input{print_1_sided.tex}"
-	cp build/print_1_sided_bw.pdf pdf/eutpop_ref_sheet_print_1_sided_bw.pdf
-.PHONY: print_1_sided_bw.pdf
+single_pages_bw.pdf: sequence_of_play_bw.pdf actions_bw.pdf mil_actions_bw.pdf other_rules_bw.pdf
+	cd src; $(TEX) --jobname=single_pages_bw "\let\ifrenderbw\iftrue\input{single_pages.tex}"
+	cp build/single_pages_bw.pdf pdf/eutpop_ref_sheet_single_pages_bw.pdf
+.PHONY: single_pages_bw.pdf
 
-print_2_sided.pdf: sequence_of_play.pdf actions.pdf mil_actions.pdf other_rules.pdf
-	cd src; $(TEX) print_2_sided.tex
-	cp build/print_2_sided.pdf pdf/eutpop_ref_sheet_print_2_sided.pdf
-.PHONY: print_2_sided.pdf
+trifold.pdf: sequence_of_play.pdf actions.pdf mil_actions.pdf other_rules.pdf
+	cd src; $(TEX) trifold.tex
+	cp build/trifold.pdf pdf/eutpop_ref_sheet_trifold.pdf
+.PHONY: trifold.pdf
 
-print_2_sided_bw.pdf: sequence_of_play_bw.pdf actions_bw.pdf mil_actions_bw.pdf other_rules_bw.pdf
-	cd src; $(TEX) --jobname=print_2_sided_bw "\let\ifrenderbw\iftrue\input{print_2_sided.tex}"
-	cp build/print_2_sided_bw.pdf pdf/eutpop_ref_sheet_print_2_sided_bw.pdf
-.PHONY: print_2_sided_bw.pdf
+trifold_bw.pdf: sequence_of_play_bw.pdf actions_bw.pdf mil_actions_bw.pdf other_rules_bw.pdf
+	cd src; $(TEX) --jobname=trifold_bw "\let\ifrenderbw\iftrue\input{trifold.tex}"
+	cp build/trifold_bw.pdf pdf/eutpop_ref_sheet_trifold_bw.pdf
+.PHONY: trifold_bw.pdf
 
 overview.pdf: joined.pdf
 	cd src; $(TEX) overview.tex

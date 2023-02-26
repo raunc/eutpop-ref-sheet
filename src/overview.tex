@@ -3,11 +3,15 @@
 
 \usepackage{eucommon}
 \usepackage{hyperref}
-\geometry{a4paper, portrait, margin=30mm}
+\geometry{a4paper, portrait, margin=20mm}
+
+\usepackage{wrapfig}
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
 
 \setlength\parskip{0.5\baselineskip}
 
-\newstaticframe[1]{\paperwidth}{\paperheight}{-30mm}{-30mm}[backgroundOverview]
+\newstaticframe[1]{\paperwidth}{\paperheight}{-20mm}{-20mm}[backgroundOverview]
 
 \begin{document}
 \thispagestyle{empty}
@@ -33,12 +37,17 @@ In some places, words are abbreviated and articles dropped to save space.
 Therefore, all statements are not grammatically correct sentences, but hopefully they are still easily understandable.
 
 
+\begin{wrapfigure}[10]{r}[0mm]{85mm}
+  \centering
+  \includegraphics[width=85mm]{trifold.png}
+\end{wrapfigure}
+
 The pages are meant to be joined to form two 3\texttimes A4-size foldable sheets so that
 one of them would contain Sequence of Play and Other Rules on opposite sides,
-and the other one would have all the Actions.
-There is \href{https://github.com/raunc/eutpop-ref-sheet/blob/main/pdf/eutpop\_ref\_sheet\_print\_2\_sided.pdf}{another file}
-where this info page is omitted and other pages appropriately ordered for a 2-sided print using a regular office printer.
-
+and the other one would have all the Actions (see image on the right).
+To achieve this using a regular office printer, print (2-sided) one of the "trifold" files listed below,
+and join the pages in groups of three as shown in the image.
+If you do not want to bind them in such manner, then use one of the "single pages" files instead.
 
 \subsection*{Available files}
 
@@ -47,17 +56,18 @@ Latest version of PDFs and \LaTeX\xspace sources can be found at \href{https://g
 \subsubsection*{PDF files}
 \begin{description}[itemsep=0pt, parsep=0pt, leftmargin=0pt, labelsep=0pt]
   \item[\href{https://github.com/raunc/eutpop-ref-sheet/blob/main/pdf/eutpop\_ref\_sheet.pdf}{eutpop\_ref\_sheet.pdf} \normal{(this file)}]
-  ~--~All pages joined in groups of 3 as described above.
-  \item[\href{https://github.com/raunc/eutpop-ref-sheet/blob/main/pdf/eutpop\_ref\_sheet\_print\_1\_sided.pdf}{eutpop\_ref\_sheet\_print\_1\_sided.pdf}]
-  ~--~Single pages in logical order.
-  \item[\href{https://github.com/raunc/eutpop-ref-sheet/blob/main/pdf/eutpop\_ref\_sheet\_print\_1\_sided\_bw.pdf}{eutpop\_ref\_sheet\_print\_1\_sided\_bw.pdf}]
-  ~--~Same as previous but without colored background and text.
-  \item[\href{https://github.com/raunc/eutpop-ref-sheet/blob/main/pdf/eutpop\_ref\_sheet\_print\_2\_sided.pdf}{eutpop\_ref\_sheet\_print\_2\_sided.pdf}]
-  ~--~Single pages reordered for 2-sided print as described above.
-  \item[\href{https://github.com/raunc/eutpop-ref-sheet/blob/main/pdf/eutpop\_ref\_sheet\_print\_2\_sided\_bw.pdf}{eutpop\_ref\_sheet\_print\_2\_sided\_bw.pdf}]
-  ~--~Same as previous but without colored background and text.
+  ~--~All pages joined in groups of 3
+  \item[\href{https://github.com/raunc/eutpop-ref-sheet/blob/main/pdf/eutpop\_ref\_sheet\_single\_pages.pdf}{eutpop\_ref\_sheet\_single\_pages.pdf}]
+  ~--~Single pages in logical order
+  \item[\href{https://github.com/raunc/eutpop-ref-sheet/blob/main/pdf/eutpop\_ref\_sheet\_single\_pages\_bw.pdf}{eutpop\_ref\_sheet\_single\_pages\_bw.pdf}]
+  ~--~Single pages in logical order, no colored background and text
+  \item[\href{https://github.com/raunc/eutpop-ref-sheet/blob/main/pdf/eutpop\_ref\_sheet\_trifold.pdf}{eutpop\_ref\_sheet\_trifold.pdf}]
+  ~--~Single pages reordered for binding as a trifold (see image and description above)
+  \item[\href{https://github.com/raunc/eutpop-ref-sheet/blob/main/pdf/eutpop\_ref\_sheet\_trifold\_bw.pdf}{eutpop\_ref\_sheet\_trifold\_bw.pdf}]
+  ~--~Single pages reordered for binding as a trifold (see image and description above), no colored background and text
 \end{description}
 
+Note that these links point to the latest version of the files, which might differ from this file.
 
 \subsection*{Formatting}
 
