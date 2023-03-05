@@ -1,6 +1,7 @@
 TEX = lualatex --synctex=1 --interaction=nonstopmode --output-directory ../build
+GS = gs -dPDFX -dBATCH -dNOPAUSE -sColorConversionStrategy=UseDeviceIndependentColor -sProcessColorModel=DeviceCMYK -sDEVICE=pdfwrite -r720dpi
 
-all: overview.pdf single_pages.pdf trifold.pdf single_pages_bw.pdf trifold_bw.pdf
+all: overview.pdf single_pages.pdf trifold.pdf single_pages_bw.pdf trifold_bw.pdf single_pages_flattened.pdf trifold_flattened.pdf
 
 clean:
 	rm -rf build
@@ -16,6 +17,10 @@ single_pages_bw.pdf: sequence_of_play_bw.pdf actions_bw.pdf mil_actions_bw.pdf o
 	cp build/single_pages_bw.pdf pdf/eutpop_ref_sheet_single_pages_bw.pdf
 .PHONY: single_pages_bw.pdf
 
+single_pages_flattened.pdf: single_pages.pdf
+	$(GS) -sOutputFile=pdf/eutpop_ref_sheet_single_pages_flattened.pdf build/single_pages.pdf
+.PHONY: single_pages_flattened.pdf
+
 trifold.pdf: sequence_of_play.pdf actions.pdf mil_actions.pdf other_rules.pdf
 	cd src; $(TEX) trifold.tex
 	cp build/trifold.pdf pdf/eutpop_ref_sheet_trifold.pdf
@@ -25,6 +30,10 @@ trifold_bw.pdf: sequence_of_play_bw.pdf actions_bw.pdf mil_actions_bw.pdf other_
 	cd src; $(TEX) --jobname=trifold_bw "\let\ifrenderbw\iftrue\input{trifold.tex}"
 	cp build/trifold_bw.pdf pdf/eutpop_ref_sheet_trifold_bw.pdf
 .PHONY: trifold_bw.pdf
+
+trifold_flattened.pdf: trifold.pdf
+	$(GS) -sOutputFile=pdf/eutpop_ref_sheet_trifold_flattened.pdf build/trifold.pdf
+.PHONY: trifold_flattened.pdf
 
 overview.pdf: joined.pdf
 	cd src; $(TEX) overview.tex
