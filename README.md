@@ -8,13 +8,13 @@ It does not include setup rules and some things that are already presented in a 
 
 ## PDFs
 
-* [eutpop_ref_sheet.pdf](./pdf/eutpop_ref_sheet.pdf) - Pages joined on 3xA4-size sheets, preceded by an additional page for general information.
-* [eutpop_ref_sheet_single_pages.pdf](./pdf/eutpop_ref_sheet_single_pages.pdf) - Single pages in logical order.
-* [eutpop_ref_sheet_single_pages_bw.pdf](./pdf/eutpop_ref_sheet_single_pages_bw.pdf) - Single pages in logical order, no colored background and text.
-* [eutpop_ref_sheet_single_pages_flattened.pdf](./pdf/eutpop_ref_sheet_single_pages_flattened.pdf) - Single pages in logical order, no transparent objects or vector graphics, 720dpi. More reliable for printing, but larger file size and text is not searchable.
-* [eutpop_ref_sheet_trifold.pdf](./pdf/eutpop_ref_sheet_trifold.pdf) - Single pages reordered for binding as a trifold (see image above).
-* [eutpop_ref_sheet_trifold_bw.pdf](./pdf/eutpop_ref_sheet_trifold_bw.pdf) - Single pages reordered for binding as a trifold (see image above), no colored background and text.
-* [eutpop_ref_sheet_trifold_flattened.pdf](./pdf/eutpop_ref_sheet_trifold_flattened.pdf) - Single pages reordered for binding as a trifold (see image above), no transparent objects or vector graphics, 720dpi. More reliable for printing, but larger file size and text is not searchable.
+* [eutpop_ref_sheet.pdf](./pdf/eutpop_ref_sheet.pdf?raw=1) - Pages joined on 3xA4-size sheets, preceded by an additional page for general information.
+* [eutpop_ref_sheet_single_pages.pdf](./pdf/eutpop_ref_sheet_single_pages.pdf?raw=1) - Single pages in logical order.
+* [eutpop_ref_sheet_single_pages_bw.pdf](./pdf/eutpop_ref_sheet_single_pages_bw.pdf?raw=1) - Single pages in logical order, no colored background and text.
+* [eutpop_ref_sheet_single_pages_flattened.pdf](./pdf/eutpop_ref_sheet_single_pages_flattened.pdf?raw=1) - Single pages in logical order, no transparent objects or vector graphics, 720dpi. More reliable for printing, but larger file size and text is not searchable.
+* [eutpop_ref_sheet_trifold.pdf](./pdf/eutpop_ref_sheet_trifold.pdf?raw=1) - Single pages reordered for binding as a trifold (see image above).
+* [eutpop_ref_sheet_trifold_bw.pdf](./pdf/eutpop_ref_sheet_trifold_bw.pdf?raw=1) - Single pages reordered for binding as a trifold (see image above), no colored background and text.
+* [eutpop_ref_sheet_trifold_flattened.pdf](./pdf/eutpop_ref_sheet_trifold_flattened.pdf?raw=1) - Single pages reordered for binding as a trifold (see image above), no transparent objects or vector graphics, 720dpi. More reliable for printing, but larger file size and text is not searchable.
 
 ## Build
 
