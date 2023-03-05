@@ -182,7 +182,8 @@
 		\end{itemize}
 		\smallheading{Wars triggered by Events}
 		\begin{itemize}
-			\item If not marked as \action{Declare War} Action, do steps 3-7 (DoW restrictions apply)
+			\item If not \action{Declare War} Action, do steps 3-7
+			\item DoW restrictions apply
 			\item PR that has Passed cannot Declare War
 		\end{itemize}
 	\end{multicols*}
@@ -414,25 +415,28 @@
 \end{eubox}\end{dynamiccontents*}
 
 \actionHeading{Explore \normal{(1\diplopower + 1\milpower) (p.~12)}}
-\begin{itemize}
+\begin{enumerate}
 	\item If having \idea{QftNW}, may move 1 Light \ship
 	\begin{itemize}
 		\item Must move to a Distant Sea Zone
 		\item May not enter a Hostile Sea Zone
 	\end{itemize}
-	\item Roll. May reroll for 1\diplopower, max 2^^^^00d7. Use the last result
+	\item Roll. May reroll for 1\diplopower, max 2^^^^00d7
 	\begin{itemize}
-		\item No \skull: Discover a matching Territory \conj{or} an NPR Province \conj{or} \town \conj{or} \vassal
-		\item \skull: Pay 1\diplopower to Disc. a match. Terr., \conj{or} remove 1 of your \ships on Dist. Cont.
+		\item Use the last result
+		\begin{itemize}
+			\item No \skull: Discover a matching Territory \conj{or} an NPR Province \conj{or} \town \conj{or} \vassal
+			\item \skull: Pay 1\diplopower to Disc. a matching Terr., \conj{or} lose 1\ship on Distant Continent
+		\end{itemize}
+		\item Any Discovery must be Adjacent to
+		\begin{itemize}
+			\item Your Realm, \conj{or}
+			\item If having \idea{QftNW}, your \ship
+		\end{itemize}
+		\item Place \claim on Discovered Area
 	\end{itemize}
-	\item Any Discovery must be Adjacent to
-	\begin{itemize}
-		\item Your Realm, \conj{or}
-		\item If having \idea{QftNW}, your \ship
-	\end{itemize}
-	\item Place \claim on Discovered Area
 	\item If first \claim on a Dist. Cont., add Tr. Cards\zsavepos{arrowdistantTradeStartTwo}
-\end{itemize}
+\end{enumerate}
 
 \begin{dynamiccontents*}{frameArrowsPageOne}
 	% Must be before the page ends but after all \savepos in other dynamic frames
@@ -499,7 +503,6 @@
 \actionHeading{Change National Focus \normal{(p.~13)}}
 \begin{itemize}
 	\item Only once per Round
-	\item Place \cube in \emph{Change Nat. Focus} slot
 	\item Do one or both in order:
 	\begin{enumerate}
 		\item Move 0-1\monarchpower from 2 pools to 3rd pool
@@ -509,6 +512,7 @@
 			\item May pay 1\monarchpower and 2\ducats to instead pick 1 of the cards from the top 5 discards of type matching paid \monarchpower
 		\end{itemize}
 	\end{enumerate}
+	\item Place \cube in \emph{Change Nat. Focus} slot
 \end{itemize}
 
 \subsectionstriped{colorMinor}{Minor Actions}
@@ -751,7 +755,7 @@
 			\begin{itemize}
 				\item Bot must have 1+ Adjacent \town
 			\end{itemize}
-			\item -1\botpower if hum. PR has 3+ \tradepower from Key Prov. and \idea{Mercantilism} Idea
+			\item -1\botpower if human PR has 3+ \tradepower from Key Prov. and \idea{Mercantilism} Idea
 		\end{itemize}
 		\item When Bot collects Trade Income, move its Merchant to that Node	
 	\end{itemize}

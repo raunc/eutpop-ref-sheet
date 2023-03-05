@@ -327,9 +327,9 @@
 \end{eubox}\end{dynamiccontents*}
 
 \subsectionstriped{colorMilitary}{Military Actions}
-\actionHeadingNoSpace{Declare War \normal{(1\milpower) (p.~16)}}
+\actionHeadingNoSpace{\zsavepos{arrowDowRestrictionsStart}Declare War \normal{(1\milpower) (p.~16)}}
 \begin{enumerate}
-	\item \hspacezero\zsavepos{arrowDowRestrictionsStart}Pick target Realm(s), place War tokens
+	\item Pick target Realm(s), place War tokens
 	\item Penalties for no CB and DoW on your \marriage
 	\begin{itemize}
 		\item \hspacezero\zsavepos{arrowHreIntWarsStart}2\stability per missing CB\zsavepos{arrowCbStart}
@@ -369,8 +369,8 @@
 	\useasboundingbox (0,0) rectangle (\paperwidth,\paperheight);
 	
 	% DoW Restrictions arrow
-	\newlength{\dowRestrictionsStartY} \setlength{\dowRestrictionsStartY}{\calc{\zposy{arrowDowRestrictionsStart}sp + \arrowAdjustYAfterSubsub}}
-	\newlength{\dowRestrictionsStartX} \setlength{\dowRestrictionsStartX}{\calc{\zposx{arrowDowRestrictionsStart}sp + \arrowAdjustXBeforeList}}
+	\newlength{\dowRestrictionsStartY} \setlength{\dowRestrictionsStartY}{\calc{\zposy{arrowDowRestrictionsStart}sp + \arrowAdjustYText}}
+	\newlength{\dowRestrictionsStartX} \setlength{\dowRestrictionsStartX}{\calc{\zposx{arrowDowRestrictionsStart}sp - \arrowToTextSpacing}}
 	\newlength{\dowRestrictionsEndY} \setlength{\dowRestrictionsEndY}{\calc{\zposy{arrowDowRestrictionsEnd}sp + \arrowAdjustYAfterSubsub}}
 	\newlength{\dowRestrictionsEndX} \setlength{\dowRestrictionsEndX}{\calc{\zposx{arrowDowRestrictionsEnd}sp + \arrowToTextSpacing}}
 	\newlength{\dowRestrictionsTurnX} \setlength{\dowRestrictionsTurnX}{\arrowXVerticalMidLeft}
@@ -443,7 +443,7 @@
 	\newlength{\activateAllyOneStartY} \setlength{\activateAllyOneStartY}{\calc{\zposy{arrowActivateAllyStartOne}sp + \arrowAdjustYList}}
 	\newlength{\activateAllyOneStartX} \setlength{\activateAllyOneStartX}{\calc{\zposx{arrowActivateAllyStartOne}sp + \arrowAdjustXBeforeList}}
 	\newlength{\activateAllyOneEndY} \setlength{\activateAllyOneEndY}{\calc{\zposy{arrowActivateAllyEndOne}sp + \arrowAdjustYAfterSubsub}}
-	\newlength{\activateAllyOneEndX} \setlength{\activateAllyOneEndX}{\zposx{arrowActivateAllyEndOne}sp}
+	\newlength{\activateAllyOneEndX} \setlength{\activateAllyOneEndX}{\calc{\zposx{arrowActivateAllyEndOne}sp + \arrowToTextSpacing}}
 	\newlength{\activateAllyOneTurnX} \setlength{\activateAllyOneTurnX}{\arrowXVerticalMidRight}
 
 	\drawArrow{(\activateAllyOneStartX,\activateAllyOneStartY) -- (\activateAllyOneTurnX,\activateAllyOneStartY) -- (\activateAllyOneTurnX,\activateAllyOneEndY) -- (\activateAllyOneEndX,\activateAllyOneEndY)}
