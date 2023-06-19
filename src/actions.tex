@@ -8,7 +8,7 @@
 
 % Define frame sizes and positioning
 % First page
-\newlength{\fhEventGuidelines} \setlength\fhEventGuidelines{35.5\baselineskip}
+\newlength{\fhEventGuidelines} \setlength\fhEventGuidelines{34.5\baselineskip}
 \newlength{\frameEventGuidelinesY} \setlength\frameEventGuidelinesY{\calc{\textheight - \fhEventGuidelines}}
 \newlength{\fhDistantTrade} \setlength\fhDistantTrade{4\baselineskip}
 \newlength{\frameDistantTradeY} \setlength\frameDistantTradeY{\calc{\frameEventGuidelinesY - \fhDistantTrade - \frameToFrameSpacing}}
@@ -95,8 +95,7 @@
 			\item In lists, word "or" is inclusive
 			\item Ignore effects if conditions are not met
 			\item Pick only one of A/B options (p.~12)
-			\item When cannot meet req. or pay for one of A/B options, must pick the other one
-			\item When cannot pay for either of A/B options, choose either one of them
+			\item When cannot pay required cost for one of A/B options and can pay for the other one, then must pick the other one
 			\item If an effect/choice affects >1 PR, resolve starting from Active player
 			\item PR that "gains/loses" makes the choice
 			\item NPRs say "yes", when offered Alliance or when they "may" do something
@@ -111,7 +110,7 @@
 		\end{itemize}
 		\smallheading{Gain Alliance}
 		\begin{itemize}
-			\item Target must be Independ. \conj{and} at Peace
+			\item Target must be Independent \conj{and} at Peace
 			\item If target is NPR \ally of an Opponent
 			\begin{itemize}
 				\item Your \influence must be ≥ Opponent's \influence
@@ -146,8 +145,8 @@
 		\end{itemize}
 		\smallheading{Develop a Small \town into a Large \town}
 		\begin{itemize}
-			\item \town must be Owned by you
-		\end{itemize}	
+			\item \town must be Owned
+		\end{itemize}
 		\smallheading{\action{Research} Idea}
 		\begin{itemize}
 			\item Score \prestige as normal (Active PR first)
@@ -166,11 +165,8 @@
 		\end{itemize}
 		\smallheading{Terminate/remove Alliance}
 		\begin{itemize}
-			\item If \activeally
-			\begin{itemize}
-				\item Lose Allied Units = ½ of NPR's pre-War Tax Income
-				\item Your Enem. must add War tokens on it
-			\end{itemize}
+			\item If \activeally, lose Allied Units = ½ of NPR's pre-War Strength
+			\item Enemy places War tokens on former \activeally
 		\end{itemize}
 		\smallheading{Reject Ruler}
 		\begin{itemize}
@@ -248,7 +244,7 @@
 		\smallheading{Lost at Sea \eventIcon{lost_at_sea}}
 		\begin{itemize}
 			\item Remove 1 Ship of each Opponent not Adjacent to a Friendly Port
-			\item \strong{Auto-resolution:} Each player chooses for themselves
+			\item \strong{Auto-resol.:} PRs choose for themselves
 		\end{itemize}
 		\smallheading{DNPR Expansion \eventIcon{dnpr_expansion}}
 		\begin{itemize}
@@ -257,14 +253,14 @@
 			\begin{itemize}
 				\item Place \dnpr on an Adj. Prov. that is not
 				\begin{itemize}
-					\item Capital, unless NPR's last Prov. 
+					\item Capital, unless NPR's last Province
 					\item Occupied
 					\item Owned by the DNPR's Ally
 					\item Core Province of a PR
 				\end{itemize}
 				\item If DNPR has a Port facing any Main Map Sea Zone without */\textdagger, \conj{and} it is Age II or later
 				\begin{itemize}
-					\item May place the \dnpr on vacant Territor.
+					\item May instead place the \dnpr on any vacant coastal Territory
 					\item \hspacezero\zsavepos{arrowDistantTradeStartThree}If first \dnpr on a Distant Continent, add Trade Cards
 					\end{itemize}
 				\item If \dnpr was placed on a PR \town/\vassal, then
@@ -279,19 +275,24 @@
 			\end{itemize}
 			\item \strong{Auto-resolution:}
 			\begin{itemize}
-				\item All DNPRs with matching colors target an Adjacent NPR
-				\item Area selection priority: 1.~where they Own Provinces; 2.~Adjacent by Land
-				\item Prov. selec. prio.: 1.~Owned by Realm with lowest Tax Income; 2.~\az
+				\item All DNPRs with matching colors target an Adjacent NPR Province. Priority:
+				\begin{enumerate}
+					\item In Areas where they Own Provinces
+					\item In Areas Adjacent by Land
+					\item Owned by NPR with lowest Str.
+					\item \az
+				\end{enumerate}
 			\end{itemize}
 		\end{itemize}
 		\smallheading{Spread of Religious Ideas \eventIcon{spread_religion}}
 		\begin{itemize}
-			\item Find clusters (bodies of Areas connected by Land) of Infectious Faiths (Protestant, Counter-Reformed)
-			\item For each cluster but max 4 in total, max 2 of one type if >1 Inf. Faith in play
+			\item Find clusters of Protes. and Counter-Ref. (bodies of Areas connected by Land)
+			\item For each cluster, place \infectiousfaith in an Adjacent Area (except Muslim or Orthodox), \conj{but}
 			\begin{itemize}
-				\item Place \infectiousfaith in an Adjacent Area (except Muslim or Orthodox)
+				\item Max 4 in total
+				\item If 2 of one type already placed, then must place the other type if possible
+				\item May not replace \infectiousfaith placed this Turn
 			\end{itemize}
-			\item May not replace \infectiousfaith placed on same Turn
 			\item If no clusters, then place Diverse Faiths tokens in any 2 Catholic Areas not Adjacent to Sea Zones marked with \textdagger
 			\item \strong{Auto-resolution:}
 			\begin{itemize}
@@ -386,6 +387,7 @@
 \end{itemize}
 \smallheading{Convert between Catholic and Protestant}
 \begin{itemize}
+	\item Change State Rel. to Catholic/Protestant
 	\item Lose \p2 \conj{and} 1\stability
 	\item Lose 1 \marriage \conj{and} total of 5 \influence from Areas of abandoned Religion
 	\item Place removed \influence to Areas of new Rel.
@@ -426,7 +428,7 @@
 		\item Use the last result
 		\begin{itemize}
 			\item No \skull: Discover a matching Territory \conj{or} an (D)NPR Province \conj{or} \town \conj{or} \vassal
-			\item \skull: Pay 1\diplopower to Disc. a match. vacant Terr., \conj{or} lose 1\ship on Dist. Contin.
+			\item \skull: Pay 1\diplopower to Discover a matching vacant Territory, \conj{or} lose 1\ship on a Distant Continent
 		\end{itemize}
 		\item Any Discovery must be Adjacent to
 		\begin{itemize}
