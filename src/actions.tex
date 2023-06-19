@@ -519,7 +519,7 @@
 
 \subsectionstriped{colorMinor}{Minor Actions}
 \begin{itemize}
-	\item \reaction~ -- May be played outside your Actions Turn, under specific circumstances
+	\item \reaction~ -- May be taken outside your Turn, under specific circumstances
 \end{itemize}
 \actionHeadingNoSpace{Appoint Advisor/Leader \normal{(p.~13)}}
 \strong{Advisor} -- Pay the \ducat cost\\
@@ -550,7 +550,7 @@
 		\item Lose all \influence from Ally's Realm
 		\item If Active Ally
 		\begin{itemize}
-			\item Lose Allied Units = ½ of their pre-War Tax Value
+			\item Lose Allied Units = ½ of their pre-War Strength
 			\item Enemy adds War token on them
 		\end{itemize}
 	\end{itemize}
@@ -568,9 +568,6 @@
 	\item \reaction~-- When must cover a cost
 \end{itemize}
 \strong{Repay} -- Pay 6\ducats, remove 1\interest
-\begin{itemize}
-	\item \reaction~-- When gaining \ducats from Passing
-\end{itemize}
 
 \subsectionstriped{colorPapal}{Papal Actions \rulesref{(p.~46)}}
 \begin{itemize}
@@ -585,8 +582,8 @@
 	\item Place Excom. token on target's Capital
 	\item Target loses \p1
 	\item Target loses 1 \cardinal (except Roma \cardinal)
-	\item Target loses 4 \influence from Cath. Areas
-	\item Cath. Realms have Excom. CB against the target
+	\item Target loses 4 \influence from Catholic Areas
+	\item Catholic Realms have Excommunication CB against the target
 \end{itemize}
 
 \actionHeading{Call Crusade \normal{(2\diplopower)}}
@@ -614,19 +611,21 @@
 \begin{itemize}
 	\item Increase \stability by 1
 	\item If Papal Controller, pay 1\adminpower less (p.~46)
-	\item If Orthodox and current \stability is -1/0, pay 1\adminpower less (p.~38)
+	\item If Orthodox and current \stability is -1 or 0, pay 1\adminpower less (p.~38)
 \end{itemize}
 
 \actionHeading{Colonize \normal{(4\adminpower/\colonists) (p.~14)}}
 \begin{itemize}
 	\item Replace one of your \claims on a vacant Territory with a Small \town
-	\item Must be connected to your Capital Area by your \towns and/or \ships
+	\item Must be connected to your Capital Area by your \towns and/or Light \ships
 \end{itemize}
 
 \actionHeading{Convert Area \normal{(2\adminpower + 3\ducats) (p.~14)}}
 \begin{itemize}
-	\item Must Own 1+ Province in Area(s) governed by the Religion slot
-	\item All Provinces must be owned by Realms of the same State Religion
+	\item Must Own 1+ Province in Area(s) governed by the Religion slot, \conj{and}
+	\begin{itemize}
+		\item All Provinces must be owned by Realms of the same State Religion
+	\end{itemize}
 	\item If Protestant, pay 1\adminpower less (p.~38)
 	\item Change Religion to your State Religion
 	\item Add 1\unrest to your affected \towns
@@ -642,12 +641,12 @@
 	\item If target is a Distant NPR, then 
 	\begin{itemize}
 		\item Must have a \claim on 1+ of target's Areas
-		\item Use \colonist instead of \influence (p.~32)
+		\item \colonists count as \influence (p.~32)
 	\end{itemize}
-	\item If target has Alliance, then must have more \influence and remove previous \alliance
-	\item Pay \diplopower = ½ of target's Tax Inc. (max 3)
+	\item If target has Alliance, then must have more \influence than previous Ally and remove that \alliance
+	\item Pay \diplopower = ½ of target's Base Tax (max 3)
 	\item Add \alliance to target's Capital
-	\item Add 1\influence to target's Cap. Area
+	\item Add 1\influence to target's Capital Area, if there is space
 \end{itemize}
 
 \actionHeading{Trade \normal{(1\diplopower) (p.~15)}}
@@ -659,12 +658,8 @@
 	\item May collect 2\ducats and end Action
 	\item May move 1 Light \ship
 	\begin{itemize}
-		\item Only if selecting a Trade Node where
-		\begin{itemize}
-			\item It increases your Trade Power, \conj{or}
-			\item It creates a connection to the Node
-		\end{itemize}
-		\item May displace Opp.'s \ship if no vac. slot
+		\item The \ship must move Adjacent to the Trade Node that will be selected, \conj{or} create connection to that Trade Node
+		\item May displace a \ship if no vacant slot
 		\item May not enter a Hostile Sea Zone
 	\end{itemize}
 	\item Select an eligible Trade Node
@@ -777,7 +772,7 @@
 				\item If ≤5 cards in discard pile, shuffle all
 			\end{itemize}
 			\item Papal Controller pays 1\adminpower less for actions increasing \stability (p.~46)
-			\item If Orthodox and current \stability is -1/0, pay 1\adminpower less for actions increasing \stability (p.~38)
+			\item If Orthodox and current \stability is -1 or 0, pay 1\adminpower less for actions increasing \stability (p.~38)
 		\end{itemize}
 		\smallheading{Covert Actions (\covertaction)}
 		\begin{itemize}
@@ -795,11 +790,11 @@
 		\end{itemize}
 		\smallheading{Reactions (\reaction)}
 		\begin{itemize}
-			\item May be played outside your Action Turn, under specific circumstances
+			\item May be played outside your Turn, under specific circumstances
 		\end{itemize}
 		\smallheading{Card specific rules}
 		\begin{itemize}
-			\item \action{One Step Ahead}: Cannot be played on an Army with \artillery\xspace > \cavalry (p.~24)
+			\item \action{One Step Ahead}, \action{Forced March}: May not be played on Army with \artillery>\cavalry (p.~24)
 			\item \action{Development}: Protest. pay -1\adminpower (p.~38)
 			\item \action{Integrate Area}: see \strong{Core Prov.} (p.~21)
 			\item \action{Subjugate}: see \strong{Vassals} (p.~33)
