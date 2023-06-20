@@ -44,7 +44,7 @@
 \newlength{\fhSecondPageMiddleCol} \setlength\fhSecondPageMiddleCol{\calc{\textheight - \fhArmiesFleets - \fhNavalBridge - 2\frameToTextSpacing}}
 \newlength{\secondPageMiddleColY} \setlength\secondPageMiddleColY{\calc{\fhNavalBridge + \frameToTextSpacing}}
 
-\newlength{\fhWarCapacities} \setlength\fhWarCapacities{17\baselineskip}
+\newlength{\fhWarCapacities} \setlength\fhWarCapacities{18\baselineskip}
 \newlength{\frameWarCapacitiesY} \setlength\frameWarCapacitiesY{\calc{\textheight - \fhWarCapacities}}
 
 \newlength{\fhSecondPageRightCol} \setlength\fhSecondPageRightCol{\calc{\textheight - \fhWarCapacities - \frameToTextSpacing}}
@@ -555,7 +555,8 @@
 		\item NC in Sea Zone = \# of Own Ports facing the Sea Z. (Large Ports count as 2 (p.~4))
 		\item \strong{Blocking NC}
 		\begin{itemize}
-			\item Occupied Ports
+			\item Occupied Ports provide no NC
+			\item NC is blocked in Sea Z. with Enemy \ships
 		\end{itemize}
 	\end{itemize}
 \end{eubox}\end{dynamiccontents*}
@@ -661,6 +662,7 @@
 \actionHeading{Naval Activation \normal{(1\milpower) (p.~16, 25-26)}}
 \begin{itemize}
 	\item Do \strong{Naval Movement} \conj{or} \strong{Undock}
+	\item May \strong{fight Pirates} in Trade Node Adjacent to a Sea Zone where Ships ended \action{Naval Activation} (p.~25, 28)
 \end{itemize}
 
 \subsubsection*{Naval Movement}
@@ -690,8 +692,7 @@
 		\item Contains Enemy Ships, \conj{or}
 		\item Faces Enemy NPR Ports (unless there already are Ships Hostile to the NPR)
 	\end{itemize}
-	\item May choose to \strong{fight Pirates} in a Trade Node Adjacent to Activated Ships (p.~28)
-	\item \hspacezero\zsavepos{arrowNavalBridgeTwoStart}May use \strong{Naval Bridge} to move an Army/Unit if (p.~26)
+	\item \hspacezero\zsavepos{arrowNavalBridgeTwoStart}May use \strong{Naval Bridge} (after Battle if any) to move an Army/Unit if (p.~26)
 	\begin{itemize}
 		\item Destination Sea Zone is part of it, \conj{and}
 		\item The Land Unit/Army is Adjacent to it
@@ -701,7 +702,6 @@
 \subsubsection*{Undock}
 \begin{itemize}
 	\item Move any number of your Ships from Ports to Adjacent non-Hostile Sea Zones
-	\item May choose to \strong{fight Pirates} in a Trade Node Adjacent to Activated Ships (p.~28)
 \end{itemize}
 
 % Defining this outside of the frame because it is used in arrow frames on both page 2 and 3
@@ -777,7 +777,7 @@
 \end{itemize}
 \smallheading{Ships}
 \begin{itemize}
-	\item 1 Ship per Own Port (2 if Large) (p.~4)
+	\item 1 Ship per Own Port (2 if Large (p.~4))
 	\item \hspacezero\zsavepos{arrowPortTwoStart}Place in Own Port or Adj. non-Hostile Sea Zone, optionally on vacant Tr. Prot. slots
 \end{itemize}
 \smallheading{Costs}
@@ -799,9 +799,9 @@
 		\item Max 4 in a Large Port
 		\item Max 6 in a Large Port in a single Fleet
 		\item Heavy Ships are repaired at Turn/Round end
-		\item If ending \alliance makes a Port not Friendly
+		\item If Port becomes non-Friendly by any means other than Sieges
 		\begin{itemize}
-			\item Ships must move to Adjacent non-Hostile Sea Zone
+			\item Ships move to Adj. non-Hostile Sea Z.
 			\item If can't move, must be disbanded 
 		\end{itemize}
 	\end{itemize}
@@ -859,7 +859,7 @@
 		\end{itemize}
 		\smallheading{1. Battle Preparations}
 		\begin{itemize}
-			\item Emperor may use Imperial \manpower (p.~44)
+			\item Emperor may add all Imperial \manpower (p.~44)
 			\begin{itemize}
 				\item Only usable in HRE Areas \conj{or} Emp.'s Areas Adj. by Land to HRE
 				\item May not be used when Enemy force consists of only NPR HRE Members
