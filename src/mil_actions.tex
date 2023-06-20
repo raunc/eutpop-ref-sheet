@@ -13,7 +13,7 @@
 \newlength{\fhHreIntWars} \setlength\fhHreIntWars{8\baselineskip}
 \newlength{\frameHreIntWarsY} \setlength\frameHreIntWarsY{\calc{\frameDowRestrictionsY - \fhHreIntWars - \frameToFrameSpacing}}
 
-\newlength{\fhDefHre} \setlength\fhDefHre{16\baselineskip}
+\newlength{\fhDefHre} \setlength\fhDefHre{17\baselineskip}
 \newlength{\frameDefHreY} \setlength\frameDefHreY{\calc{\frameHreIntWarsY - \fhDefHre - \frameToFrameSpacing}}
 
 \newlength{\fhActivatingDefHre} \setlength\fhActivatingDefHre{14\baselineskip}
@@ -21,7 +21,7 @@
 
 \newlength{\fhReceivingCta} \setlength\fhReceivingCta{\calc{17\baselineskip}}
 
-\newlength{\fhActiveAlly} \setlength\fhActiveAlly{8\baselineskip}
+\newlength{\fhActiveAlly} \setlength\fhActiveAlly{6\baselineskip}
 \newlength{\frameActiveAllyY} \setlength\frameActiveAllyY{\calc{\fhReceivingCta + \frameToFrameSpacing}}
 
 \newlength{\fhCallToArms} \setlength\fhCallToArms{14\baselineskip}
@@ -123,7 +123,7 @@
 		\item PR who has Passed
 		\item NPR Ally of PR who matches (\strong{b}) or (\strong{c})
 		\item HRE Member at Peace with Emperor if Emperor matches (\strong{a}), (\strong{b}) or (\strong{c})
-		\item Distant Realm undiscovered by you
+		\item Distant Realm that you have no CB for
 		\item During an Interregnum
 	\end{enumerate}
 	\smallheading{Exceptions:}
@@ -186,7 +186,7 @@
 	\smallheading{External Realm's DoW on Imp. Subject}
 	\begin{itemize}
 			\item \botrule{Bot Emp. also defends Subjects if attacked by another Subject without CB (p.~6)}
-			\item PR Emperor receives \emph{Defensive CtA} if
+			\item PR Emperor automatically receives \emph{Defensive CtA} if
 		\begin{itemize}
 			\item \authority ≥ 1, \conj{and}
 			\item They are at Peace with the Subject
@@ -229,7 +229,7 @@
 			\item Exhaust 2\manpower (max ½ of total \manpower), \conj{or}
 			\item Lose 6\ducats (max ½ of Tax Inc.), \conj{or}
 			\item Lose \p1, \conj{or}
-			\item Place CB on Aggressor's Capital
+			\item Place CB token on Aggressor's Capital
 		\end{itemize}
 		\item \botrule{\strong{Bot Imperial Subject} loses 1\botpower, unless at War, including this DoW (p.~6)}
 	\end{itemize}
@@ -239,24 +239,20 @@
 	\actionHeadingNoSpace{\zsavepos{arrowCtAEnd}Call to Arms \normal{(0-2\influence per \ally) (p.~13)}}
 	\begin{itemize}
 		\item Call Allies to join your War (Minor Act.)
-		\item Only during
-		\begin{itemize}
-			\item Your own DoW, \conj{or}
-			\item \reaction~-- DoW on you or your NPR Ally
-		\end{itemize}
+		\item Only during your own DoW, \conj{or} as \reaction in response to DoW on you or your NPR \ally
 		\item Calling a PR Ally has no cost\zsavepos{arrowReceiveCtAStart}
 		\item Only def. may call PR Allied to both sides
-		\item To call an NPR, remove \influence from its Areas
-		\begin{itemize}
-			\item \emph{Offens. CtA} -- \strong{2\influence}, \emph{Defen. CtA} -- \strong{1\influence}
-			\item If \strong{Dist. NPR}, use \colonists instead (p.~32)
-		\end{itemize}
 		\item NPR Allies can only be called if they are
 		\begin{itemize}
 			\item At Peace, \conj{and}
 			\item Adjacent to you or your new Enemy
 		\end{itemize}
-		\item \hspacezero\zsavepos{arrowActivateAllyStartOne}Activate called NPR Allies
+		\item To call an NPR, remove \influence from its Areas
+		\begin{itemize}
+			\item \emph{Offens. CtA} -- \strong{2\influence}, \emph{Defen. CtA} -- \strong{1\influence}
+			\item If \strong{Dist. NPR}, use \colonists instead (p.~32)
+		\end{itemize}
+		\item \hspacezero\zsavepos{arrowActivateAllyStartOne}Activate called NPR Allies \conj{and} gain 1\milpower for each that is Adjacent to new Enemy
 	\end{itemize}
 \end{eubox}\end{dynamiccontents*}
 
@@ -266,8 +262,7 @@
 		\item Flip the \alliance to \activeally
 		\item Human PR
 		\begin{itemize}
-			\item Gains Allied Units to Available \manpower equal to ½ of Tax Value of the NPR (including Vassals (p.~13)) (max 5)
-			\item Gains 1\milpower if Ally is Adj. to new Enemy
+			\item Adds Allied Units to Available \manpower equal to ½ of NPR Strength (max 5)
 			\end{itemize}
 		{\botrules
 		\item Bot gains 2\botpower (p.~4)
@@ -312,7 +307,7 @@
 			\item Remove \alliance
 			\item If this was an Active Ally
 			\begin{itemize}
-				\item Lose Allied Units = ½ of Ally's pre-War Tax Value
+				\item Lose Allied Units = ½ of Ally's pre-War Strength
 				\item Enemy must place a War token on your former Ally
 			\end{itemize}
 			\item If \emph{Defensive CtA}, \conj{and} you have not Passed, \conj{and} you are not already at War
@@ -547,17 +542,17 @@
 	\end{itemize}	
 	\smallheading{Military Capacity (MC)}
 	\begin{itemize}
-		\item MC in Area = Tax Value of Own \towns + \vassals in this Area and Adjacent to this Area
+		\item MC in Area = Tax Val. of Own Prov. + \vassals in the Area and Adjacent to the Area
 		\item \strong{Blocking MC}
 		\begin{itemize}
-			\item Occupied Provinces
+			\item Occupied Provinces provide no MC
 			\item MC from Adjacent Area blocked by Hostile Units in that Area
 			\item MC from Provinces only Adj. by Sea blocked by Hostile Sea Zones
 		\end{itemize}
 	\end{itemize}
 	\smallheading{Naval Capacity (NC)}
 	\begin{itemize}
-		\item NC in a Sea Zone = \# of Own Ports facing this Sea Zone (Large Ports count as 2)
+		\item NC in Sea Zone = \# of Own Ports facing the Sea Z. (Large Ports count as 2 (p.~4))
 		\item \strong{Blocking NC}
 		\begin{itemize}
 			\item Occupied Ports
