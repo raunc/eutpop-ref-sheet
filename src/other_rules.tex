@@ -195,11 +195,11 @@
 		\item If the \strong{target has Vassals}
 		\begin{itemize}
 			\item You need a \marriage to Vassalize that target
-			\item If you also discard \influence from target's Vassals equal to their Tax Income
+			\item If you also discard \influence from target's Vassals equal to their Base Tax
 			\begin{itemize}
 				\item They also become you Vassals
 			\end{itemize}
-			\item Otherwise, they become independent and you may
+			\item Otherwise, they become NPRs and you may
 			\begin{itemize}
 				\item Place \alliance on their Capital, \conj{or}
 				\item Place \claim in one of their Areas
@@ -221,22 +221,20 @@
 \subsection*{NPRs \rulesref{(p.~35-36)}}
 \begin{itemize}
 	\item If natural Capital is Owned by another Realm, then pick a new Capital. Priority: 1.~Large Provinces; 2.~\az
-	\item NPR's \strong{Vassals}
+	\item NPR's \strong{Vassals} count as part of Overlord during War and Peace Resolution
 	\begin{itemize}
-		\item Assist in Wars as if part of Overlord
 		\item May be ceded in Peace Resolutions
-		\item If Overlord does not exist, or PR \vassal was removed, Vassals become independent
 	\end{itemize}
+	\item \strong{Released Vassals} (Overlord does not exist, or \vassal was removed) become independent NPRs
 \end{itemize}
 
 \subsubsection*{+1\manpower tokens \rulesref{(p.~36)}}
 \begin{itemize}
 	\item Provide +1 MC
-	\item Count as +1 Tax Value for the purposes of 
+	\item Count as +1 Tax Value when calculating
 	\begin{itemize}
-		\item Resolving Peace
-		\item Contribution of Allied Units
-		\item Subjugation
+		\item Base Tax
+		\item NPR Strength
 	\end{itemize}
 	\item Do not affect Sieges
 	\item Removed if Prov. is Annex. or Vassalized
@@ -257,10 +255,9 @@
 	\begin{itemize}
 		\item If you have Military Units in the Area
 		\begin{itemize}
-			\item Add \rebels per \rebellion result
-			\item Any Battle is triggered after all Rebel Dice rolls have been resolved
+			\item Lose 1 Unit per \rebellion as Casualty
 		\end{itemize}
-		\item Otherwise
+		\item If no Units to lose
 		\begin{itemize}
 			\item Assign each \rebellion to one of your \unrest
 			\item Core Province gets Occupied
@@ -270,7 +267,7 @@
 	\item \losemonarchpower: Lose 1\monarchpower. If unable to, then pay 2\ducats
 	\item \exhaustunits: Exhaust 1\manpower. If unable to, pay 2\ducats
 	\item \loseducats: Lose 2\ducats
-	\item \removeunrest: Remove 1 \unrest
+	\item \removeunrest: Remove 1 \unrest in the Area
 \end{itemize}
 
 \subsubsection*{\botrules Bot rolls \botrulesref{(p.~4)}}
@@ -295,6 +292,7 @@
 	\item \rebels are Hostile to all PRs
 	\item \strong{Sieging}
 	\begin{itemize}
+		\item Each \rebel has Siege Strength of 1
 		\item If Province is Core of its Owner
 		\begin{itemize}
 			\item Place \rebeltown on top of it
@@ -408,7 +406,7 @@
 
 \subsubsection*{Missions \rulesref{(p.~42)}}
 \begin{itemize}
-	\item Rewards follow Standard Event Effects
+	\item Rewards follow Event guidelines
 \end{itemize}
 
 \subsubsection*{Milestones \rulesref{(p.~42-43)}}
@@ -430,7 +428,7 @@
 		\item Is placed only in Phase 5, Step B
 		\item Must be placed in HRE Areas with at least 1 NPR HRE Member
 		\item Removed when Area leaves HRE
-		\item May not be used for \action{Subjugate}
+		\item May not be removed to \action{Subjugate}
 	\end{itemize}
 \end{itemize}
 
@@ -466,7 +464,7 @@
 
 \subsubsection*{HRE Religion \rulesref{(adv. rules) (p.~45)}}
 \begin{itemize}
-	\item Emp. may \action{Change State Rel.} only when HRE Rel. is different from Emp.'s Rel.
+	\item If HRE has official Religion, Emp. may only \action{Change State Rel.} to HRE Religion 
 	\item If Emperor adopts Revolutionary Ideology, then HRE is permanently dissolved
 \end{itemize}
 
@@ -512,8 +510,9 @@
 	\end{itemize}
 	\item If new PR is elected and \emph{Defending the HRE} is active
 	\begin{itemize}
+		\item Untag \emph{Def. the HRE}
+		\item Empty Imperial \manpower pool
 		\item New Emp. may place CB on any non-HRE Realm at War with NPR HRE Members
-		\item Imperial \manpower stays the same and can be used as normal by the new Emperor
 	\end{itemize}
 \end{itemize}
 
