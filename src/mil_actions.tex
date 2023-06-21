@@ -855,37 +855,35 @@
 		\subsubsection*{Battle Sequence \normal{(p.~26-28)}}
 		\begin{itemize}
 			\item Ships vacate Trade Prot. slots (p.~28)
+			\item Attacker is Active PR or who Decl. War
 			\botrule{\item If Bot is Attacker or Main Defender, follow Bot Action charts on p.~16 (p.~5)}
+			{\botrules
+			\item If Bot fights alongside another PR (p.~6)
+			\begin{itemize}
+				\item Bot's \ship counts as 3 NPR \ships
+			\end{itemize}
+			}
 		\end{itemize}
 		\smallheading{1. Battle Preparations}
 		\begin{itemize}
-			\item Emperor may add all Imperial \manpower (p.~44)
+			\item \strong{Emperor} may add all Imperial \manpower (p.~44)
 			\begin{itemize}
 				\item Only usable in HRE Areas \conj{or} Emp.'s Areas Adj. by Land to HRE
 				\item May not be used when Enemy force consists of only NPR HRE Members
 				\item Add as Allied Infantry (keep separately)
 			\end{itemize}
-			\item Multiple Defenders defend together
-			\item If 2+ PR Def., pick \strong{Main Defender}.
+			\item If 2+ PRs defend, pick \strong{Main Defender}:
+			\begin{enumerate}
+				\item \botrule{Humans before Bots (p.~5)}
+				\item PR with the most Units
+				\item PR defen. who last took a Turn decides
+			\end{enumerate}
+			% Rules actually say Active Player instead of Attacker, but this seems not to be the intent in all cases. See: https://discord.com/channels/567337533462151178/1120978517056827464/1120978517056827464
+			\item Only Attacker and Main Defender may
 			\begin{itemize}
-				\item Priority for Main Defender selection:
-				\begin{enumerate}
-					\item \botrule{Humans before Bots (p.~5)}
-					\item PR with the most Units
-					\item PR who last took a Turn decides
-				\end{enumerate}
-				\item Only the Main Defender may
-				\begin{itemize}
-					\item Assign a General to the Battle
-					\item Play \emph{Battle Actions}
-					\item Roll Dice
-				\end{itemize}
-				{\botrules
-				\item If one of the Defenders is a Bot (p.~6)
-				\begin{itemize}
-					\item Main Defender gets +3 NPR Ships on their side in Naval Battle
-				\end{itemize}
-				}
+				\item Assign a General to the Battle
+				\item Play \emph{Battle Actions}
+				\item Roll Dice
 			\end{itemize}
 			\item Attacker may \action{Appoint Leader}
 			\item Def. may \action{App. General} if in their Realm
@@ -910,17 +908,11 @@
 		\end{itemize}
 		\smallheading{3. Roll Battle Dice}
 		\begin{itemize}
-			\item If \strong{Land Battle}
+			\item If \strong{Land Battle}, default 3\infantry Dice
 			\begin{itemize}
-				\item Default 3\infantry Dice
-				\begin{itemize}
-					\item 3\infantry/3\cavalry for Muslim PRs (p.~38)
-				\end{itemize}
+				\item 3\infantry or 3\cavalry for Muslim PRs (p.~38)
 			\end{itemize}
-			\item If \strong{Naval Battle}
-			\begin{itemize}
-				\item Default 3\artillery Dice
-			\end{itemize}
+			\item If \strong{Naval Battle}, default 3\artillery Dice
 			\item Additional Dice from Leaders and \battleactions
 			\item 1 hit per your Unit matched with \infantry/\cavalry/\artillery
 			\begin{itemize}
@@ -931,7 +923,7 @@
 		\end{itemize}
 		\smallheading{4. Assign Casualties}
 		\begin{itemize}
-			\item If \strong{multiple Defenders}, then
+			\item If \strong{multiple factions} on same side, then
 			\begin{itemize}
 				\item Alternate, largest to smallest faction
 				\item Attacker decides ties
@@ -975,23 +967,26 @@
 		\smallheading{6. Retreat}
 		\begin{itemize}
 			\item Attacker chooses first, then defender
-			\item \strong{NPRs retreat} (remove from board) if outnumbered, \conj{unless} (p.~36)
+			\item Resolve separately for each \strong{PR}
+			\begin{itemize}
+				\item Retreating PRs suffer 1 more Casualty
+			\end{itemize}
+			\item \strong{NPRs Retreat} (remove from board) if outnumbered, \conj{unless} (p.~36)
 			\begin{itemize}
 				\item Fighting alongside Rebels, \conj{or}
 				\item In their Capital Area, \conj{or}
 				\item In Sea Zone Adj. to Capital Area, \conj{or}
 				\item In last Area where they Control Prov.
 			\end{itemize}
-			\item \strong{Rebels} never retreat (p.~37)
-			\item If nobody retreats, then go back to step 2
-			\item If PR chooses to Retreat, +1 Casualty
-			\item \strong{Retreat destination}
+			\item \strong{Rebels} never Retreat (p.~37)
+			\item If nobody Retreats, then go back to step 2
+			\item \strong{Retreat destinations}
 			\begin{itemize}
-				\item Attacker -- Previous space(s)
-				\item Def. -- Adj. sp. with no Enemy Units
+				\item Units that moved to this space Retreat to previous space(s)
+				\item Others to Adjacent space where no Battle is triggered, or may not Retreat
 				\begin{itemize}
-					\item Military Access rules apply
-					\item Each PR may choose diff. dest.
+					\item Mil. Access, Nav. Bridge rules apply
+					\item All Units of the same PR must Retreat to a single space
 				\end{itemize}
 			\end{itemize}
 		\end{itemize}
