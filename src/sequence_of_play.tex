@@ -254,7 +254,7 @@
 \end{itemize}
 
 \subsection*{3. Peace \& Rebels}
-\subsubsection*{A. Remove Casus Belli \& Truces}
+\subsubsection*{A. Remove CB tokens \& Truces}
 \begin{itemize}
 	\item Lose \p2 if not at war with the CB target
 \end{itemize}
@@ -298,8 +298,8 @@
 	\end{itemize}
 	\item When \strong{Emperor} makes Peace with an External Aggressor (p.~44-45)
 	\begin{itemize}
-		\item If Emp. won \conj{and} no HRE Prov. is ceded, raise \authority by 1
-		\item If Emp. lost, drop \authority by 1
+		\item If Emperor won \conj{and} no HRE Prov. is ceded, raise \authority by 1
+		\item If Emperor lost, drop \authority by 1
 	\end{itemize}
 	\item Raise/drop \authority by \# of Areas joining/leaving HRE (p.~45)
 	\item PR is the Victor if (p.~29-31)
@@ -349,10 +349,9 @@
 
 \subsubsection*{E. Prestige Penalties}
 \begin{itemize}
-	\item Flip \disputedsuccession to \marriage, lose \p3 per \disputedsuccession, except \disputedsuccession on
+	\item Flip all \disputedsuccession to \marriage
 	\begin{itemize}
-		\item Vassals
-		\item Realms with whom
+		\item Lose \p3 per \disputedsuccession, except for \disputedsuccession on Vassals, \conj{and} Realms with whom
 		\begin{itemize}
 			\item Only you have \alliance, \conj{and}
 			\item If NPR, you have most \influence (min 2)
@@ -364,7 +363,7 @@
 \subsubsection*{F. Interregnums}
 \begin{itemize}
 	\item Lose 1\stability
-	\item Flip \marriages on your Realm
+	\item Flip all \marriages on your Realm
 \end{itemize}
 
 \subsubsection*{G. Religious Dissent}
@@ -506,7 +505,7 @@
 			\item Victor may place 2 \influence in Loser's Realm
 			\item Add \unrest to all Provinces gained in Areas where the Victor Occupied no Provinces
 			\item Remove all Loser's \alliances/\marriages
-			\item Victor may discard \claim from Area(s) of gained \vassalprovinces to remove 2 \unrest from same Area(s)
+			\item Victor may discard \claim in Area(s) of gained \vassalprovinces to remove 2 \unrest from same Area(s)
 			\item Remove War/Truce tokens from the Loser
 		\end{itemize}
 
@@ -526,8 +525,8 @@
 				\item Only apply for Realms for which the Victor satisfies all requirements
 				\item For other Realms, treat as White Peace without \prestige loss
 			\end{itemize}
-			\item Loser must change State Religion and Rel. of Capit. Area to State Rel. of Victor
 			\item All Occupied Provinces must be returned
+			\item Loser must change State Religion and Rel. of Capital Area to State Rel. of Victor
 			\item Victor gains \p3
 			\item Victor may add 2 \influence in Loser's Cap. Area
 			\item Loser loses \p5
@@ -575,7 +574,7 @@
 				\end{itemize}
 			}
 			\item May agree who is Vict./Loser (if anyone)
-			\item May agree on another listed Peace Term, but other conditions must be met
+			\item May agree on any other Peace Term, except \emph{Vassalization} and \emph{Full Annexation}, but other requirements must be met
 			\item If agreeing on Keep Current Board State 
 			\begin{itemize}
 				\item Both sides may exchange Occupied Provinces for \ducats
@@ -822,14 +821,14 @@
 	\item Place the Event deck for the next Age
 	\item Replace all Milestones
 	\item Replace unresearched non-Basic Ideas
-	\item PR with least \prestige (no ties) may choose replacement for 1 new Milestone or Idea
-	\item Players with 1+ \marriage score \p1
 	\begin{itemize}
-		\item Then in Turn order
-		\begin{itemize}
-			\item Rem. 1\marriage (prefer NPR) or pay 2\diplopower
-			\item \botrule{Bots do not remove \marriages (p.~3)}
-			\end{itemize}
+		\item If Age III/IV, add new Ideas to deck
+	\end{itemize}
+	\item PR with least \prestige (no ties) may choose replacement for 1 new Milestone or Idea
+	\item PRs with 1+ \marriage score \p1
+	\item PRs, \botrule{except Bots (p.~3)}, in Turn order
+	\begin{itemize}
+		\item Remove 1\marriage (prefer NPR), \conj{or} pay 2\diplopower
 	\end{itemize}
 	\item \botrule{Reset Bot decks (p. 3)}
 \end{itemize}
