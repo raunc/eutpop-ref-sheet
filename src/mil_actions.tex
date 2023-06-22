@@ -21,7 +21,7 @@
 
 \newlength{\fhReceivingCta} \setlength\fhReceivingCta{\calc{17\baselineskip}}
 
-\newlength{\fhActiveAlly} \setlength\fhActiveAlly{6\baselineskip}
+\newlength{\fhActiveAlly} \setlength\fhActiveAlly{8\baselineskip}
 \newlength{\frameActiveAllyY} \setlength\frameActiveAllyY{\calc{\fhReceivingCta + \frameToFrameSpacing}}
 
 \newlength{\fhCallToArms} \setlength\fhCallToArms{14\baselineskip}
@@ -249,10 +249,11 @@
 		\end{itemize}
 		\item To call an NPR, remove \influence from its Areas
 		\begin{itemize}
-			\item \emph{Offens. CtA} -- \strong{2\influence}, \emph{Defen. CtA} -- \strong{1\influence}
+			\item \emph{Offensive CtA} -- \strong{2\influence}
+			\item \emph{Defensive CtA} -- \strong{1\influence}
 			\item If \strong{Dist. NPR}, use \colonists instead (p.~32)
 		\end{itemize}
-		\item \hspacezero\zsavepos{arrowActivateAllyStartOne}Activate called NPR Allies \conj{and} gain 1\milpower for each that is Adjacent to new Enemy
+		\item \hspacezero\zsavepos{arrowActivateAllyStartOne}Activate called NPR Allies
 	\end{itemize}
 \end{eubox}\end{dynamiccontents*}
 
@@ -260,12 +261,13 @@
 	\subsubsection*{Activating NPR Ally \normal{(\activeally) (p.~33)}\zsavepos{arrowActivateAllyEndOne}}
 	\begin{itemize}
 		\item Flip the \alliance to \activeally
-		\item Human PR
+		\item Human PRs
 		\begin{itemize}
-			\item Adds Allied Units to Available \manpower equal to ½ of NPR Strength (max 5)
+			\item Add Allied Units to Available \manpower equal to ½ of NPR Strength (max 5)
+			\item Gain 1\milpower if \ally is Adj. to new Enemy, \conj{and} activated as part of CtA (p.~13)
 			\end{itemize}
 		{\botrules
-		\item Bot gains 2\botpower (p.~4)
+		\item Bots gain 2\botpower (p.~4)
 		}
 	\end{itemize}
 \end{eubox}\end{dynamiccontents*}
@@ -283,10 +285,10 @@
 		\end{itemize}
 		\smallheading{\zsavepos{arrowEmpAcceptCtAEnd}Accepting a CtA}
 		\begin{itemize}
-			\item If \emph{Offensive CtA}, place War tokens on your Ally's Enemies
 			\item If \emph{Defensive CtA}
 			\begin{itemize}
 				\item Enemy places War tokens on you
+				\item \alliances with PRs on opposing side end
 				\item If from NPR, you may
 				\begin{itemize}
 					\item Make them Active Ally or not\zsavepos{arrowActivateAllyStartTwo}
@@ -297,11 +299,13 @@
 						\botrule{\item Bot chooses not to}
 					\end{itemize}
 					\item Send \emph{Def. CtA} to other NPR Allies
+					\begin{itemize}
+						\botrule{\item Bot sends \emph{Def. CtA}s to all valid \allies Adj. to the Aggressor (p.~4)}
+					\end{itemize}
 				\end{itemize}
-				\item \alliances with PRs on opposing side end
 			\end{itemize}
+			\item If \emph{Offensive CtA}, place War tokens on your Ally's Enemies
 		\end{itemize}
-		\framebreak
 		\smallheading{Refusing a CtA}
 		\begin{itemize}
 			\item Remove \alliance
@@ -330,14 +334,14 @@
 		\item \hspacezero\zsavepos{arrowHreIntWarsStart}2\stability per missing CB\zsavepos{arrowCbStart}
 		\item 1\stability per your \marriage on targets, exceptions\zsavepos{arrowMarriageStart}
 	\end{itemize}
-	\item \action{Calls to Arms} (in listed order)\zsavepos{arrowCtAStart}
+	\item \action{Calls to Arms} (in listed order, a to d)\zsavepos{arrowCtAStart}
 	\begin{enumerate}[label=\alph*.]
 		\item You may send \emph{Offensive CtA}s
 		\item \hspacezero\zsavepos{arrowHreCtaStart}Target HRE Members might send \emph{Defensive CtA} to the Emperor
 		\item Target NPRs send \emph{Defensive CtA}s
 		\item Target PRs may send \emph{Defensive CtA}s
 		\begin{itemize}
-			\botrule{\item Bot sends \emph{Def. CtA}s to \allies Adjacent to the Aggressor (p.~4)}
+			\botrule{\item Bot sends \emph{Def. CtA}s to all valid \allies Adjacent to the Aggressor (p.~4)}
 		\end{itemize}
 	\end{enumerate}
 	\item PRs gain 1\milpower if they are
