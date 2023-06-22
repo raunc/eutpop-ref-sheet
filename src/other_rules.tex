@@ -30,7 +30,7 @@
 		\item \strong{Prov.}/\strong{Unit}/\strong{token} is Adj. to its Area, bordering Areas, Prov. in those Areas
 		\item \strong{Port} is also Adj. to its Sea Zones, Ports facing same Sea Z., Areas of such Ports
 		\item \strong{Areas}/\strong{Sea Zones} are Adj. if they share a border. \strong{Areas} are also Adj. to Areas with Ports facing the same Sea Zone
-		\item \strong{Realm} is Adj. if an Own Prov. is Adj.
+		\item \strong{Realm} is Adjacent to anything its Own Provinces are Adjacent to
 	\end{itemize}
 	\item \strong{Deployed}: Unit on board or in Army/Fleet
 	\item \strong{Friendly}:
@@ -49,18 +49,18 @@
 	\item \strong{Opponent}: player other than you
 	\item \strong{Player}: human or Bot
 	\item \strong{You}: the Active Player
-	\item \strong{Occupied Province}: has Occ. token \conj{or} 2 \rebeltown/\town/\vassal (Controller on top, Lawful Owner beneath)
-	\item \strong{Own Province}: has its Realm's flag/\town/\dnpr \conj{and} is non-Occupied
-	\item \strong{Realm}: made of Own Prov. and Areas with such Prov.
+	\item \strong{Occupied Province} has Occ. token \conj{or} 2 \rebeltown/\town/\vassal (Controller on top, Lawful Owner beneath)
+	\item \strong{Own Province} has its Realm's flag/\town/\dnpr \conj{and} is non-Occupied
+	\item \strong{Realm} consists of Own Provinces and Areas with Own Provinces
 	\begin{itemize}
 		\item \strong{(N)PR}: (Non-)Player Realm
 		\item \strong{Distant R.}: with Dist. Capital
 	\end{itemize}
-	\item Realm's \strong{Core Prov.}: has its flag/\dnpr on Prov. or \core in Area (\core/\dnpr supercede flags)
+	\item Realm's \strong{Core Prov.} has its flag/\dnpr on Prov. or \core in Area (\core/\dnpr supercede flags)
 	\item \strong{Colonial \claim}: \claim on vacant Territory (p.~12)
 \end{itemize}
 
-\subsubsection*{Token Limits \rulesref{(p.2)}}
+\subsubsection*{Token Limits \rulesref{(p.~2)}}
 \begin{itemize}
 	\item Generally limited. If nothing in supply, take from anywhere. Exceptions below
 	\item \strong{May not be (re)moved}
@@ -199,7 +199,7 @@
 			\begin{itemize}
 				\item They also become you Vassals
 			\end{itemize}
-			\item Otherwise, they become NPRs and you may
+			\item If not, they become NPRs, you may
 			\begin{itemize}
 				\item Place \alliance on their Capital, \conj{or}
 				\item Place \claim in one of their Areas
@@ -225,25 +225,25 @@
 	\begin{itemize}
 		\item May be ceded in Peace Resolutions
 	\end{itemize}
-	\item \strong{Released Vassals} (Overlord does not exist, or \vassal was removed) become independent NPRs
-\end{itemize}
-
-\subsubsection*{+1\manpower tokens \rulesref{(p.~36)}}
-\begin{itemize}
-	\item Provide +1 MC
-	\item Count as +1 Tax Value when calculating
-	\begin{itemize}
-		\item Base Tax
-		\item NPR Strength
-	\end{itemize}
-	\item Do not affect Sieges
-	\item Removed if Prov. is Annex. or Vassalized
+	\item \strong{Released Vassals} (Overlord does not exist, or \vassal was removed) become NPRs
 \end{itemize}
 
 \subsubsection*{DNPRs (\dnpr) \rulesref{(p.~35)}}
 \begin{itemize}
 	\item When a DNPR's Province is Annexed or Vassalized, keep \dnpr underneath the \town/\vassal 
 	\item \dnpr cannot be placed on PR Core Provinces
+\end{itemize}
+
+\subsubsection*{+1\manpower tokens \rulesref{(p.~36)}}
+\begin{itemize}
+	\item Count as +1 Tax Value when calculating
+	\begin{itemize}
+		\item MC
+		\item Base Tax
+		\item NPR Strength
+	\end{itemize}
+	\item Do not affect Sieges
+	\item Removed if Prov. is Annex. or Vassalized
 \end{itemize}
 
 \subsection*{Rebels (\rebel) \rulesref{(p.~37)}}
@@ -309,7 +309,7 @@
 		\item If \strong{not a Core Province} of PR who Owns or has Vassalized it
 		\begin{itemize}
 			\item Remove \town/\vassal
-			\item If Core Province of another PR, they place a \town there
+			\item If Core of another PR, they place \town
 		\end{itemize}
 		\item If \strong{Territory}, replace \town with a \dnpr (color chosen by the Active Player)
 		\item A PR whose Province is Liberated by Rebels must \strong{place a CB} on the new Owner's Capital and remove any Truce
@@ -616,7 +616,7 @@
 
 \subsectionbot{Covert Actions \botrulesref{(p.~4)}}
 \begin{itemize}
-	\item PRs counter Bot's Cov. Act. as normal
+	\item Bot's Covert Actions can be countered with \action{Counterespionage} as normal
 	\item Bots never counter Covert Actions 
 \end{itemize}
 
