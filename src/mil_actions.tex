@@ -13,7 +13,7 @@
 \newlength{\fhHreIntWars} \setlength\fhHreIntWars{8\baselineskip}
 \newlength{\frameHreIntWarsY} \setlength\frameHreIntWarsY{\calc{\frameDowRestrictionsY - \fhHreIntWars - \frameToFrameSpacing}}
 
-\newlength{\fhDefHre} \setlength\fhDefHre{16\baselineskip}
+\newlength{\fhDefHre} \setlength\fhDefHre{17\baselineskip}
 \newlength{\frameDefHreY} \setlength\frameDefHreY{\calc{\frameHreIntWarsY - \fhDefHre - \frameToFrameSpacing}}
 
 \newlength{\fhActivatingDefHre} \setlength\fhActivatingDefHre{14\baselineskip}
@@ -44,7 +44,7 @@
 \newlength{\fhSecondPageMiddleCol} \setlength\fhSecondPageMiddleCol{\calc{\textheight - \fhArmiesFleets - \fhNavalBridge - 2\frameToTextSpacing}}
 \newlength{\secondPageMiddleColY} \setlength\secondPageMiddleColY{\calc{\fhNavalBridge + \frameToTextSpacing}}
 
-\newlength{\fhWarCapacities} \setlength\fhWarCapacities{17\baselineskip}
+\newlength{\fhWarCapacities} \setlength\fhWarCapacities{18\baselineskip}
 \newlength{\frameWarCapacitiesY} \setlength\frameWarCapacitiesY{\calc{\textheight - \fhWarCapacities}}
 
 \newlength{\fhSecondPageRightCol} \setlength\fhSecondPageRightCol{\calc{\textheight - \fhWarCapacities - \frameToTextSpacing}}
@@ -123,7 +123,7 @@
 		\item PR who has Passed
 		\item NPR Ally of PR who matches (\strong{b}) or (\strong{c})
 		\item HRE Member at Peace with Emperor if Emperor matches (\strong{a}), (\strong{b}) or (\strong{c})
-		\item Distant Realm undiscovered by you
+		\item Distant Realm that you have no CB for
 		\item During an Interregnum
 	\end{enumerate}
 	\smallheading{Exceptions:}
@@ -186,7 +186,7 @@
 	\smallheading{External Realm's DoW on Imp. Subject}
 	\begin{itemize}
 			\item \botrule{Bot Emp. also defends Subjects if attacked by another Subject without CB (p.~6)}
-			\item PR Emperor receives \emph{Defensive CtA} if
+			\item PR Emperor automatically receives \emph{Defensive CtA} if
 		\begin{itemize}
 			\item \authority ≥ 1, \conj{and}
 			\item They are at Peace with the Subject
@@ -229,7 +229,7 @@
 			\item Exhaust 2\manpower (max ½ of total \manpower), \conj{or}
 			\item Lose 6\ducats (max ½ of Tax Inc.), \conj{or}
 			\item Lose \p1, \conj{or}
-			\item Place CB on Aggressor's Capital
+			\item Place CB token on Aggressor's Capital
 		\end{itemize}
 		\item \botrule{\strong{Bot Imperial Subject} loses 1\botpower, unless at War, including this DoW (p.~6)}
 	\end{itemize}
@@ -239,22 +239,19 @@
 	\actionHeadingNoSpace{\zsavepos{arrowCtAEnd}Call to Arms \normal{(0-2\influence per \ally) (p.~13)}}
 	\begin{itemize}
 		\item Call Allies to join your War (Minor Act.)
-		\item Only during
-		\begin{itemize}
-			\item Your own DoW, \conj{or}
-			\item \reaction~-- DoW on you or your NPR Ally
-		\end{itemize}
+		\item Only during your own DoW, \conj{or} as \reaction in response to DoW on you or your NPR \ally
 		\item Calling a PR Ally has no cost\zsavepos{arrowReceiveCtAStart}
 		\item Only def. may call PR Allied to both sides
-		\item To call an NPR, remove \influence from its Areas
-		\begin{itemize}
-			\item \emph{Offens. CtA} -- \strong{2\influence}, \emph{Defen. CtA} -- \strong{1\influence}
-			\item If \strong{Dist. NPR}, use \colonists instead (p.~32)
-		\end{itemize}
 		\item NPR Allies can only be called if they are
 		\begin{itemize}
 			\item At Peace, \conj{and}
 			\item Adjacent to you or your new Enemy
+		\end{itemize}
+		\item To call an NPR, remove \influence from its Areas
+		\begin{itemize}
+			\item \emph{Offensive CtA} -- \strong{2\influence}
+			\item \emph{Defensive CtA} -- \strong{1\influence}
+			\item If \strong{Dist. NPR}, use \colonists instead (p.~32)
 		\end{itemize}
 		\item \hspacezero\zsavepos{arrowActivateAllyStartOne}Activate called NPR Allies
 	\end{itemize}
@@ -264,13 +261,13 @@
 	\subsubsection*{Activating NPR Ally \normal{(\activeally) (p.~33)}\zsavepos{arrowActivateAllyEndOne}}
 	\begin{itemize}
 		\item Flip the \alliance to \activeally
-		\item Human PR
+		\item Human PRs
 		\begin{itemize}
-			\item Gains Allied Units to Available \manpower equal to ½ of Tax Value of the NPR (including Vassals (p.~13)) (max 5)
-			\item Gains 1\milpower if Ally is Adj. to new Enemy
+			\item Add Allied Units to Available \manpower equal to ½ of NPR Strength (max 5)
+			\item Gain 1\milpower if \ally is Adj. to new Enemy, \conj{and} activated as part of CtA (p.~13)
 			\end{itemize}
 		{\botrules
-		\item Bot gains 2\botpower (p.~4)
+		\item Bots gain 2\botpower (p.~4)
 		}
 	\end{itemize}
 \end{eubox}\end{dynamiccontents*}
@@ -288,10 +285,10 @@
 		\end{itemize}
 		\smallheading{\zsavepos{arrowEmpAcceptCtAEnd}Accepting a CtA}
 		\begin{itemize}
-			\item If \emph{Offensive CtA}, place War tokens on your Ally's Enemies
 			\item If \emph{Defensive CtA}
 			\begin{itemize}
 				\item Enemy places War tokens on you
+				\item \alliances with PRs on opposing side end
 				\item If from NPR, you may
 				\begin{itemize}
 					\item Make them Active Ally or not\zsavepos{arrowActivateAllyStartTwo}
@@ -302,17 +299,19 @@
 						\botrule{\item Bot chooses not to}
 					\end{itemize}
 					\item Send \emph{Def. CtA} to other NPR Allies
+					\begin{itemize}
+						\botrule{\item Bot sends \emph{Def. CtA}s to all valid \allies Adj. to the Aggressor (p.~4)}
+					\end{itemize}
 				\end{itemize}
-				\item \alliances with PRs on opposing side end
 			\end{itemize}
+			\item If \emph{Offensive CtA}, place War tokens on your Ally's Enemies
 		\end{itemize}
-		\framebreak
 		\smallheading{Refusing a CtA}
 		\begin{itemize}
 			\item Remove \alliance
 			\item If this was an Active Ally
 			\begin{itemize}
-				\item Lose Allied Units = ½ of Ally's pre-War Tax Value
+				\item Lose Allied Units = ½ of Ally's pre-War Strength
 				\item Enemy must place a War token on your former Ally
 			\end{itemize}
 			\item If \emph{Defensive CtA}, \conj{and} you have not Passed, \conj{and} you are not already at War
@@ -321,7 +320,7 @@
 				\item Rem. 5\influence from former \ally's Areas
 				\item If your former Ally is a PR, they may place a CB on your Capital
 			\end{itemize}
-			\item Place Truce tokens, unless former Ally is PR who chose to place a CB
+			\item Place Truce tokens, \conj{unless} former Ally is PR who has CB token on your Capital
 		\end{itemize}
 	\end{multicols}
 \end{eubox}\end{dynamiccontents*}
@@ -335,14 +334,14 @@
 		\item \hspacezero\zsavepos{arrowHreIntWarsStart}2\stability per missing CB\zsavepos{arrowCbStart}
 		\item 1\stability per your \marriage on targets, exceptions\zsavepos{arrowMarriageStart}
 	\end{itemize}
-	\item \action{Calls to Arms} (in listed order)\zsavepos{arrowCtAStart}
+	\item \action{Calls to Arms} (in listed order, a to d)\zsavepos{arrowCtAStart}
 	\begin{enumerate}[label=\alph*.]
 		\item You may send \emph{Offensive CtA}s
 		\item \hspacezero\zsavepos{arrowHreCtaStart}Target HRE Members might send \emph{Defensive CtA} to the Emperor
 		\item Target NPRs send \emph{Defensive CtA}s
 		\item Target PRs may send \emph{Defensive CtA}s
 		\begin{itemize}
-			\botrule{\item Bot sends \emph{Def. CtA}s to \allies Adjacent to the Aggressor (p.~4)}
+			\botrule{\item Bot sends \emph{Def. CtA}s to all valid \allies Adjacent to the Aggressor (p.~4)}
 		\end{itemize}
 	\end{enumerate}
 	\item PRs gain 1\milpower if they are
@@ -547,20 +546,21 @@
 	\end{itemize}	
 	\smallheading{Military Capacity (MC)}
 	\begin{itemize}
-		\item MC in Area = Tax Value of Own \towns + \vassals in this Area and Adjacent to this Area
+		\item MC in Area = Tax Val. of Own Prov. + \vassals in the Area and Adjacent to the Area
 		\item \strong{Blocking MC}
 		\begin{itemize}
-			\item Occupied Provinces
+			\item Occupied Provinces provide no MC
 			\item MC from Adjacent Area blocked by Hostile Units in that Area
 			\item MC from Provinces only Adj. by Sea blocked by Hostile Sea Zones
 		\end{itemize}
 	\end{itemize}
 	\smallheading{Naval Capacity (NC)}
 	\begin{itemize}
-		\item NC in a Sea Zone = \# of Own Ports facing this Sea Zone (Large Ports count as 2)
+		\item NC in Sea Zone = \# of Own Ports facing the Sea Z. (Large Ports count as 2 (p.~4))
 		\item \strong{Blocking NC}
 		\begin{itemize}
-			\item Occupied Ports
+			\item Occupied Ports provide no NC
+			\item NC is blocked in Sea Z. with Enemy \ships
 		\end{itemize}
 	\end{itemize}
 \end{eubox}\end{dynamiccontents*}
@@ -666,6 +666,7 @@
 \actionHeading{Naval Activation \normal{(1\milpower) (p.~16, 25-26)}}
 \begin{itemize}
 	\item Do \strong{Naval Movement} \conj{or} \strong{Undock}
+	\item May \strong{fight Pirates} in Trade Node Adjacent to a Sea Zone where Ships ended \action{Naval Activation} (p.~25, 28)
 \end{itemize}
 
 \subsubsection*{Naval Movement}
@@ -695,8 +696,7 @@
 		\item Contains Enemy Ships, \conj{or}
 		\item Faces Enemy NPR Ports (unless there already are Ships Hostile to the NPR)
 	\end{itemize}
-	\item May choose to \strong{fight Pirates} in a Trade Node Adjacent to Activated Ships (p.~28)
-	\item \hspacezero\zsavepos{arrowNavalBridgeTwoStart}May use \strong{Naval Bridge} to move an Army/Unit if (p.~26)
+	\item \hspacezero\zsavepos{arrowNavalBridgeTwoStart}May use \strong{Naval Bridge} (after Battle if any) to move an Army/Unit if (p.~26)
 	\begin{itemize}
 		\item Destination Sea Zone is part of it, \conj{and}
 		\item The Land Unit/Army is Adjacent to it
@@ -706,7 +706,6 @@
 \subsubsection*{Undock}
 \begin{itemize}
 	\item Move any number of your Ships from Ports to Adjacent non-Hostile Sea Zones
-	\item May choose to \strong{fight Pirates} in a Trade Node Adjacent to Activated Ships (p.~28)
 \end{itemize}
 
 % Defining this outside of the frame because it is used in arrow frames on both page 2 and 3
@@ -782,7 +781,7 @@
 \end{itemize}
 \smallheading{Ships}
 \begin{itemize}
-	\item 1 Ship per Own Port (2 if Large) (p.~4)
+	\item 1 Ship per Own Port (2 if Large (p.~4))
 	\item \hspacezero\zsavepos{arrowPortTwoStart}Place in Own Port or Adj. non-Hostile Sea Zone, optionally on vacant Tr. Prot. slots
 \end{itemize}
 \smallheading{Costs}
@@ -804,9 +803,9 @@
 		\item Max 4 in a Large Port
 		\item Max 6 in a Large Port in a single Fleet
 		\item Heavy Ships are repaired at Turn/Round end
-		\item If ending \alliance makes a Port not Friendly
+		\item If Port becomes non-Friendly by any means other than Sieges
 		\begin{itemize}
-			\item Ships must move to Adjacent non-Hostile Sea Zone
+			\item Ships move to Adj. non-Hostile Sea Z.
 			\item If can't move, must be disbanded 
 		\end{itemize}
 	\end{itemize}
@@ -815,22 +814,19 @@
 \begin{dynamiccontents*}{frameNprWarfare}\begin{eubox}{\fhNprWarfare}
 	\subsubsection*{Warfare vs NPRs \normal{(p.~36)}\zsavepos{arrowNPRWarEnd}}
 	\begin{itemize}
+		\item \strong{NPR Strength} = Tax Value of all Prov. Owned by NPR or its Vassals
 		\item \hspacezero\zsavepos{arrowWarCapacityThreeStart}\# of def. \strong{NPR Units} = MC or NC
 		\begin{itemize}
-			\item Land Units are Infantry
-			\item Ships are Light Ships
+			\item Always Infantry or Light Ships
 			\item \strong{Active Ally} defends with ½ of MC
-			\item Additional Units defending HRE Areas if \strong{Emperor is NPR} (p.~45)
+			\item Extra Units defending HRE Members in HRE Areas if \strong{Emp. is NPR} (p.~45)
 			\begin{itemize}
 				\item (3 × \authority) - (2 × \# of HRE Areas with non-HRE Units before this Turn)
 			\end{itemize}
 		\end{itemize}
 		\item NPR Provinces on \strong{Distant Continents}
 		\begin{itemize}
-			\item Double MC/NC for defense
-			\begin{itemize}
-				\item Except from Areas with \plague
-			\end{itemize}
+			\item Double MC/NC for defense (if no \plague)
 			\item Some Ports are Inactive (grayed out) until they have a \dnpr, \town or \vassal
 		\end{itemize}
 		\item NPRs defend at normal strength even if not enough tokens in Supply
@@ -863,37 +859,35 @@
 		\subsubsection*{Battle Sequence \normal{(p.~26-28)}}
 		\begin{itemize}
 			\item Ships vacate Trade Prot. slots (p.~28)
+			\item Attacker is Active PR or who Decl. War
 			\botrule{\item If Bot is Attacker or Main Defender, follow Bot Action charts on p.~16 (p.~5)}
+			{\botrules
+			\item If Bot fights alongside another PR (p.~6)
+			\begin{itemize}
+				\item Bot's \ship counts as 3 NPR \ships
+			\end{itemize}
+			}
 		\end{itemize}
 		\smallheading{1. Battle Preparations}
 		\begin{itemize}
-			\item Emperor may use Imperial \manpower (p.~44)
+			\item \strong{Emperor} may add all Imperial \manpower (p.~44)
 			\begin{itemize}
 				\item Only usable in HRE Areas \conj{or} Emp.'s Areas Adj. by Land to HRE
 				\item May not be used when Enemy force consists of only NPR HRE Members
 				\item Add as Allied Infantry (keep separately)
 			\end{itemize}
-			\item Multiple Defenders defend together
-			\item If 2+ PR Def., pick \strong{Main Defender}.
+			\item If 2+ PRs defend, pick \strong{Main Defender}:
+			\begin{enumerate}
+				\item \botrule{Humans before Bots (p.~5)}
+				\item PR with the most Units
+				\item PR defen. who last took a Turn decides
+			\end{enumerate}
+			% Rules actually say Active Player instead of Attacker, but this seems not to be the intent in all cases. See: https://discord.com/channels/567337533462151178/1120978517056827464/1120978517056827464
+			\item Only Attacker and Main Defender may
 			\begin{itemize}
-				\item Priority for Main Defender selection:
-				\begin{enumerate}
-					\item \botrule{Humans before Bots (p.~5)}
-					\item PR with the most Units
-					\item PR who last took a Turn decides
-				\end{enumerate}
-				\item Only the Main Defender may
-				\begin{itemize}
-					\item Assign a General to the Battle
-					\item Play \emph{Battle Actions}
-					\item Roll Dice
-				\end{itemize}
-				{\botrules
-				\item If one of the Defenders is a Bot (p.~6)
-				\begin{itemize}
-					\item Main Defender gets +3 NPR Ships on their side in Naval Battle
-				\end{itemize}
-				}
+				\item Assign a General to the Battle
+				\item Play \emph{Battle Actions}
+				\item Roll Dice
 			\end{itemize}
 			\item Attacker may \action{Appoint Leader}
 			\item Def. may \action{App. General} if in their Realm
@@ -918,17 +912,11 @@
 		\end{itemize}
 		\smallheading{3. Roll Battle Dice}
 		\begin{itemize}
-			\item If \strong{Land Battle}
+			\item If \strong{Land Battle}, default 3\infantry Dice
 			\begin{itemize}
-				\item Default 3\infantry Dice
-				\begin{itemize}
-					\item 3\infantry/3\cavalry for Muslim PRs (p.~38)
-				\end{itemize}
+				\item 3\infantry or 3\cavalry for Muslim PRs (p.~38)
 			\end{itemize}
-			\item If \strong{Naval Battle}
-			\begin{itemize}
-				\item Default 3\artillery Dice
-			\end{itemize}
+			\item If \strong{Naval Battle}, default 3\artillery Dice
 			\item Additional Dice from Leaders and \battleactions
 			\item 1 hit per your Unit matched with \infantry/\cavalry/\artillery
 			\begin{itemize}
@@ -939,7 +927,7 @@
 		\end{itemize}
 		\smallheading{4. Assign Casualties}
 		\begin{itemize}
-			\item If \strong{multiple Defenders}, then
+			\item If \strong{multiple factions} on same side, then
 			\begin{itemize}
 				\item Alternate, largest to smallest faction
 				\item Attacker decides ties
@@ -983,23 +971,26 @@
 		\smallheading{6. Retreat}
 		\begin{itemize}
 			\item Attacker chooses first, then defender
-			\item \strong{NPRs retreat} (remove from board) if outnumbered, \conj{unless} (p.~36)
+			\item Resolve separately for each \strong{PR}
+			\begin{itemize}
+				\item Retreating PRs suffer 1 more Casualty
+			\end{itemize}
+			\item \strong{NPRs Retreat} (remove from board) if outnumbered, \conj{unless} (p.~36)
 			\begin{itemize}
 				\item Fighting alongside Rebels, \conj{or}
 				\item In their Capital Area, \conj{or}
 				\item In Sea Zone Adj. to Capital Area, \conj{or}
 				\item In last Area where they Control Prov.
 			\end{itemize}
-			\item \strong{Rebels} never retreat (p.~37)
-			\item If nobody retreats, then go back to step 2
-			\item If PR chooses to Retreat, +1 Casualty
-			\item \strong{Retreat destination}
+			\item \strong{Rebels} never Retreat (p.~37)
+			\item If nobody Retreats, then go back to step 2
+			\item \strong{Retreat destinations}
 			\begin{itemize}
-				\item Attacker -- Previous space(s)
-				\item Def. -- Adj. sp. with no Enemy Units
+				\item Units that moved to this space Retreat to previous space(s)
+				\item Others to Adjacent space where no Battle is triggered, or may not Retreat
 				\begin{itemize}
-					\item Military Access rules apply
-					\item Each PR may choose diff. dest.
+					\item Mil. Access, Nav. Bridge rules apply
+					\item All Units of the same PR must Retreat to a single space
 				\end{itemize}
 			\end{itemize}
 		\end{itemize}

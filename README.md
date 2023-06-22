@@ -18,7 +18,7 @@ It does not include setup rules and some things that are already presented in a 
 
 ## Build
 
-PDF generation is currently tested only on Ubuntu 18.04 and 22.04.
+Latest version of PDFs were generated on Ubuntu 22.04.2 (Jammy Jellyfish) using LuaTeX version 1.14.0. For earlier versions, Ubuntu 18.04 (Bionic Beaver) has also been used, and it should still be possible, but different LuaTex version might render text a bit differently. We noticed a case where one LuaTex version managed to fit a sentence to a single line while another version failed at that.
 
 Install dependencies:
 
