@@ -129,9 +129,9 @@
 
 \subsubsection*{Bankruptcy \rulesref{(p.~21)}}
 \begin{itemize}
-	\item If a PR cannot pay a mandatory \ducat cost and cannot take a Loan, then they
+	\item If a PR cannot pay a mandatory \ducat cost and cannot take a Loan, they
 	\begin{itemize}
-		\item Pay as much \ducats as they can
+		\item First pay as much \ducats as they can, then
 		\item Lose 3\stability
 		\item Lose \p5
 		\item Discard 3\interest from Treasury
@@ -293,12 +293,12 @@
 	\item \strong{Sieging}
 	\begin{itemize}
 		\item Each \rebel has Siege Strength of 1
-		\item If Province is Core of its Owner
+		\item If Province is Core of PR who has \town/\vassal on it \conj{and} not Occupied
 		\begin{itemize}
 			\item Place \rebeltown on top of it
-			\item The Lawful Owner must cover a Town/Vassal slot with a \cube
+			\item Cover Town/Vassal slot with a \cube
 		\end{itemize}
-		\item If Occupied \conj{or} not Core of its Owner
+		\item Otherwise
 		\begin{itemize}
 			\item It is Liberated
 		\end{itemize}
@@ -312,7 +312,7 @@
 			\item If Core of another PR, they place \town
 		\end{itemize}
 		\item If \strong{Territory}, replace \town with a \dnpr (color chosen by the Active Player)
-		\item A PR whose Province is Liberated by Rebels must \strong{place a CB} on the new Owner's Capital and remove any Truce
+		\item PR whose Province is Liberated by Rebels must \strong{place a CB token} on new Owner's Capital and remove any Truce
 		\item \botrule{Bot \strong{places a \claim} if their Province gets Liberated by Rebels (p.~4)}
 	\end{itemize}
 \end{itemize}
@@ -512,7 +512,7 @@
 	\begin{itemize}
 		\item Untag \emph{Def. the HRE}
 		\item Empty Imperial \manpower pool
-		\item New Emp. may place CB on any non-HRE Realm at War with NPR HRE Members
+		\item New Emp. may place a CB token on any non-HRE Realm at War with NPR HRE Members
 	\end{itemize}
 \end{itemize}
 

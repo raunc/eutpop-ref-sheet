@@ -272,7 +272,7 @@
 				\end{itemize}
 				\item If \dnpr was placed on a PR's NPR \ally
 				\begin{itemize}
-					\item That PR may place CB on the DNPR's Capital
+					\item That PR may place a CB token on the DNPR's Capital
 				\end{itemize}
 			\end{itemize}
 			\item \strong{Auto-resolution:}
@@ -329,7 +329,7 @@
 	\end{multicols}
 \end{eubox}\end{dynamiccontents*}
 
-\actionHeading{Player-to-player Diplomacy \normal{(p.~12)}}
+\actionHeading{Player-to-Player Diplomacy \normal{(p.~12)}}
 \begin{itemize}
 	\item May interact with one player per Action
 	\item May not do \strong{Monetary Support} and \strong{Buy/Sell Provinces} on the same turn
@@ -541,19 +541,19 @@
 \begin{itemize}
 	\item Remove any number of your \influence or \claims
 	\item End any number of Alliances
-	\item If Ally at Peace (p.~33)
+	\item For each ended Alliance (p.~33)
 	\begin{itemize}
-		\item Lose 5\influence from their Realm
+		\item Lose 5\influence from former Ally's Realm
 		\item Add Truce
-	\end{itemize}
-	\item If Ally at War (p.~33)
-	\begin{itemize}
-		\item Lose 2\stability
-		\item Lose all \influence from Ally's Realm
-		\item If Active Ally
+		\item If former Ally is at War, then also
 		\begin{itemize}
-			\item Lose Allied Units = ½ of their pre-War Strength
-			\item Enemy adds War token on them
+			\item Lose 2\stability
+			\item Lose all \influence from their Realm
+			\item If they were \activeally
+			\begin{itemize}
+				\item Lose Allied Units = ½ of their pre-War Strength
+				\item Enemies add War tokens on them
+			\end{itemize}
 		\end{itemize}
 	\end{itemize}
 \end{itemize}
@@ -580,7 +580,7 @@
 
 \actionHeading{Excommunicate Ruler \normal{(2\diplopower)}}
 \begin{itemize}
-	\item Target must be Catholic
+	\item Target Realm must be Catholic
 	\item Place Excom. token on target's Capital
 	\item Target loses \p1
 	\item Target loses 1 \cardinal (except Roma \cardinal)
